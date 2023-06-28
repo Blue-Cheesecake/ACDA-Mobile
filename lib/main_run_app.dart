@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app_wd.dart';
-import 'flavor.dart';
+
+import 'flavors.dart';
 import 'src/core/core.dart';
 
 void mainRunApp() {
@@ -11,7 +12,7 @@ void mainRunApp() {
   //
   // use WidgetsFlutterBinding.ensureInitialized(); if we use Firebase
 
-  AppConfig.instance.init(AppFlavor.appConfigFlavor);
+  AppConfig.instance.init(F.appConfigEnv);
 
   runApp(const ProviderScope(child: AppWD()));
 }

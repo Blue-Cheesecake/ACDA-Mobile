@@ -20,6 +20,7 @@ dependencies:
   retrofit: 4.0.1
   dio: 5.2.1+1
   connectivity_plus: 4.0.1
+  internet_connection_checker: 1.0.0+1
 
   # Navigation
   go_router: 9.0.0
@@ -28,7 +29,7 @@ dependencies:
   json_annotation: 4.8.1
   injectable: 2.1.2
   retrofit_generator: 5.0.0
-  internet_connection_checker: 1.0.0+1
+  flutter_flavorizr: ^2.2.1
 
 dev_dependencies:
   flutter_test:

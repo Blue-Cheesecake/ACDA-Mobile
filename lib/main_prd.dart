@@ -1,8 +1,8 @@
-import 'package:acda_mobile/main_run_app.dart';
+import 'flavors.dart';
 
-import 'flavor.dart';
+import 'main.dart' as runner;
 
-void main(List<String> args) {
-  AppFlavor.f = Flavor.prd;
-  mainRunApp();
+Future<void> main() async {
+  F.appFlavor = Flavor.prd;
+  await runner.main();
 }
