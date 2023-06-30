@@ -20,7 +20,8 @@
       "name": "acda-mobile Stg Flavor",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile",
+      // Temporary
+      "flutterMode": "debug",
       "program": "lib/main_stg.dart",
       "args": [
         "--flavor",
@@ -34,6 +35,7 @@
       "name": "acda-mobile Prd Flavor",
       "request": "launch",
       "type": "dart",
+      // Temporary
       "flutterMode": "release",
       "program": "lib/main_prd.dart",
       "args": [
