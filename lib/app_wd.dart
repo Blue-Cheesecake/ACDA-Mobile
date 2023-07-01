@@ -11,6 +11,7 @@ class AppWD extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: ACDANavigation.instance.router,
       theme: getACDATheme(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
