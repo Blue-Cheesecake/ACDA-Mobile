@@ -16,7 +16,7 @@ void mainRunApp() async {
   AppConfig.instance.init(F.appConfigEnv);
 
   // Configuring Firebase
-  if (!AppConfig.instance.isDev) {
+  if (AppConfig.instance.isStg || AppConfig.instance.isPrd) {
     FlutterError.onError = (errorDetails) {
       FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
     };
