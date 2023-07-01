@@ -27,6 +27,7 @@
 		C50C7278B9CF840782C14D8B /* prdDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 92E4D972361180DABE5986C1 /* prdDebug.xcconfig */; };
 		EDD6C79429C39D1FF166284F /* stgProfile.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 44CC9C0ADA42654F829B6883 /* stgProfile.xcconfig */; };
 		EF32F75119FCF15E9EE9E5BA /* prdLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62FD0D169A668B758F78EA9A /* prdLaunchScreen.storyboard */; };
+		EF5C45B25923728A99CB2C1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 614563A6AD360CE27749FFD4 /* GoogleService-Info.plist */; };
 		F53C35FCF4AE6922521EA61C /* devProfile.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 281C4718CD4A87F5AF2C375F /* devProfile.xcconfig */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		44CC9C0ADA42654F829B6883 /* stgProfile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = stgProfile.xcconfig; path = Flutter/stgProfile.xcconfig; sourceTree = "<group>"; };
 		4F67623BEBF7C0D82F032A04 /* Pods_RunnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5151C5C5951E90CC1A702BC7 /* Pods-Runner.profile-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-dev.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-dev.xcconfig"; sourceTree = "<group>"; };
+		614563A6AD360CE27749FFD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Runner/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62FD0D169A668B758F78EA9A /* prdLaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = prdLaunchScreen.storyboard; path = Runner/prdLaunchScreen.storyboard; sourceTree = "<group>"; };
 		73712984C7AC819D07EB0826 /* stgLaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = stgLaunchScreen.storyboard; path = Runner/stgLaunchScreen.storyboard; sourceTree = "<group>"; };
 		73ADF00F4993266F121B099E /* devLaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = devLaunchScreen.storyboard; path = Runner/devLaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				62FD0D169A668B758F78EA9A /* prdLaunchScreen.storyboard */,
 				B59DDF4ADF85DB6B890DA6E8 /* Pods */,
 				7D42BE9F5D6F105FC565F735 /* Frameworks */,
+				614563A6AD360CE27749FFD4 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,6 +273,7 @@
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				F83AA4B3FD5ED859D260BDF5 /* [CP] Embed Pods Frameworks */,
+				A615C872ADE21FB25124FE87 /* [firebase_crashlytics] Crashlytics Upload Symbols */,
 			);
 			buildRules = (
 			);
@@ -346,6 +350,7 @@
 				A63D848354E94B30BA4868C8 /* devLaunchScreen.storyboard in Resources */,
 				A3DCA14E9CC102EBF4979BB1 /* stgLaunchScreen.storyboard in Resources */,
 				EF32F75119FCF15E9EE9E5BA /* prdLaunchScreen.storyboard in Resources */,
+				EF5C45B25923728A99CB2C1F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +431,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+		};
+		A615C872ADE21FB25124FE87 /* [firebase_crashlytics] Crashlytics Upload Symbols */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}\"",
+				"\"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\"",
+			);
+			name = "[firebase_crashlytics] Crashlytics Upload Symbols";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/FirebaseCrashlytics/upload-symbols\" --flutter-project \"$PROJECT_DIR/firebase_app_id_file.json\" ";
 		};
 		F83AA4B3FD5ED859D260BDF5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

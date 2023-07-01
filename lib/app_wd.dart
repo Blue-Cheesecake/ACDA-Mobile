@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'src/config/config.dart';
 import 'src/core/core.dart';
 
 class AppWD extends StatelessWidget {
@@ -9,6 +10,7 @@ class AppWD extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: ACDANavigation.instance.router,
+      theme: getACDATheme(),
     );
   }
 }
