@@ -10,6 +10,7 @@ ThemeData getACDATheme() {
       centerTitle: true,
       backgroundColor: DesignSystem.g7,
       titleTextStyle: TextStyles.header5.copyWith(color: DesignSystem.g1),
+      elevation: 0,
     ),
     scaffoldBackgroundColor: DesignSystem.g1,
     progressIndicatorTheme: const ProgressIndicatorThemeData(color: DesignSystem.g7),
