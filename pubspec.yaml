@@ -26,14 +26,15 @@ dependencies:
   go_router: 9.0.0
 
   # Firebase
-  firebase_core: ^2.14.0
-  firebase_crashlytics: ^3.3.3
+  firebase_core: 2.14.0
+  firebase_crashlytics: 3.3.3
 
   freezed_annotation: 2.2.0
   json_annotation: 4.8.1
   injectable: 2.1.2
   retrofit_generator: 5.0.0
-  flutter_flavorizr: ^2.2.1
+  flutter_flavorizr: 2.2.1
+  flutter_launcher_icons: 0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -88,3 +89,12 @@ flavorizr:
         applicationId: "com.acda"
       ios:
         bundleId: "com.acda"
+
+flutter_launcher_icons:
+  image_path: "assets/icons/ACDA-TempLogo-iOS.png"
+  android: "launcher_icon"
+  image_path_android: "assets/icons/ACDA-TempLogo-Android.png"
+  adaptive_icon_background: "#0c4aad"
+  ios: true
+  image_path_ios: "assets/icons/ACDA-TempLogo-iOS.png"
+  remove_alpha_ios: true
