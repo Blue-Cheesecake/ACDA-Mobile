@@ -13,6 +13,7 @@ class ACDANavigation {
 
   final _router = GoRouter(
     initialLocation: RoutePath.dashboard,
+    navigatorKey: ACDAGlobalNavigatorKeys.rootNavigator,
     routes: Routes.list(),
     errorBuilder: (context, state) => const NotFoundPage(),
   );
@@ -21,9 +22,9 @@ class ACDANavigation {
 }
 
 extension ACDANavigationAction on ACDANavigation {
-  Future<T?> pushNamed<T extends Object?>(String location, {Object? extra}) async {
-    ACDALog.print(message: 'pushNamed to $location');
-    return _router.pushNamed(location, extra: extra);
+  Future<T?> push<T extends Object?>(String location, {Object? extra}) async {
+    ACDALog.print(message: 'push to $location');
+    return _router.push(location, extra: extra);
   }
 
   Future<void> pop<T extends Object?>([T? result]) async {
@@ -31,8 +32,8 @@ extension ACDANavigationAction on ACDANavigation {
     return _router.pop(result);
   }
 
-  Future<void> pushReplacementNamed<T extends Object?, TO extends Object?>(String location, {Object? extra}) {
+  Future<void> pushReplacement<T extends Object?, TO extends Object?>(String location, {Object? extra}) {
     ACDALog.print(message: 'pushReplacementNamed to $location');
-    return _router.pushReplacementNamed(location, extra: extra);
+    return _router.pushReplacement(location, extra: extra);
   }
 }

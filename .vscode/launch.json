@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "acda-mobile Dev Flavor",
+      "name": "Dev",
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
@@ -11,13 +11,13 @@
         "--flavor",
         "dev",
         // TODO: change API path here
-        "--dart-define=apiURL=https://dev-api.example.com",
+        "--dart-define=apiURL=http://127.0.0.1:8000",
         "--target",
         "lib/main_dev.dart"
       ]
     },
     {
-      "name": "acda-mobile Stg Flavor",
+      "name": "Stg",
       "request": "launch",
       "type": "dart",
       // Temporary
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "name": "acda-mobile Prd Flavor",
+      "name": "Prd",
       "request": "launch",
       "type": "dart",
       // Temporary
