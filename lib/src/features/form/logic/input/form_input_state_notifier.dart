@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'logic.dart';
-import '../../../utils/utils.dart';
+import 'input.dart';
+import '../../../../utils/utils.dart';
 
 class FormInputStateNotifier extends StateNotifier<FormInputState> {
   FormInputStateNotifier() : super(FormInputState(label: '', topImages: [], bottomImages: [], shoesImages: []));
