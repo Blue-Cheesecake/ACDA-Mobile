@@ -34,6 +34,7 @@ class DesignSystem {
   static const g9 = Color(0xffE21313);
   static const g10 = Color(0xffD5D8DE);
   static const g11 = Color(0xff323941);
+  static const g12 = Colors.blue;
 
   static const acdaPrimary = Color(0xff3D6CB9);
 }

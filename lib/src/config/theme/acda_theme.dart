@@ -26,5 +26,8 @@ ThemeData getACDATheme() {
         splashFactory: NoSplash.splashFactory,
       ),
     ),
+    listTileTheme: const ListTileThemeData(
+      tileColor: DesignSystem.g1,
+    ),
   );
 }

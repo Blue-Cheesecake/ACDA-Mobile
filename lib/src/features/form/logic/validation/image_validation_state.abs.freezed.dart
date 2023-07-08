@@ -19,6 +19,7 @@ mixin _$ImageValidationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(ImageValidationResultEntity result) data,
     required TResult Function() error,
   }) =>
@@ -26,6 +27,7 @@ mixin _$ImageValidationState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(ImageValidationResultEntity result)? data,
     TResult? Function()? error,
   }) =>
@@ -33,6 +35,7 @@ mixin _$ImageValidationState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(ImageValidationResultEntity result)? data,
     TResult Function()? error,
     required TResult orElse(),
@@ -41,6 +44,7 @@ mixin _$ImageValidationState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ImageValidationStateInitial value) initial,
+    required TResult Function(_ImageValidationStateLoading value) loading,
     required TResult Function(_ImageValidationStateData value) data,
     required TResult Function(_ImageValidationStateError value) error,
   }) =>
@@ -48,6 +52,7 @@ mixin _$ImageValidationState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ImageValidationStateInitial value)? initial,
+    TResult? Function(_ImageValidationStateLoading value)? loading,
     TResult? Function(_ImageValidationStateData value)? data,
     TResult? Function(_ImageValidationStateError value)? error,
   }) =>
@@ -55,6 +60,7 @@ mixin _$ImageValidationState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ImageValidationStateInitial value)? initial,
+    TResult Function(_ImageValidationStateLoading value)? loading,
     TResult Function(_ImageValidationStateData value)? data,
     TResult Function(_ImageValidationStateError value)? error,
     required TResult orElse(),
@@ -124,6 +130,7 @@ class _$_ImageValidationStateInitial extends _ImageValidationStateInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(ImageValidationResultEntity result) data,
     required TResult Function() error,
   }) {
@@ -134,6 +141,7 @@ class _$_ImageValidationStateInitial extends _ImageValidationStateInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(ImageValidationResultEntity result)? data,
     TResult? Function()? error,
   }) {
@@ -144,6 +152,7 @@ class _$_ImageValidationStateInitial extends _ImageValidationStateInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(ImageValidationResultEntity result)? data,
     TResult Function()? error,
     required TResult orElse(),
@@ -158,6 +167,7 @@ class _$_ImageValidationStateInitial extends _ImageValidationStateInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ImageValidationStateInitial value) initial,
+    required TResult Function(_ImageValidationStateLoading value) loading,
     required TResult Function(_ImageValidationStateData value) data,
     required TResult Function(_ImageValidationStateError value) error,
   }) {
@@ -168,6 +178,7 @@ class _$_ImageValidationStateInitial extends _ImageValidationStateInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ImageValidationStateInitial value)? initial,
+    TResult? Function(_ImageValidationStateLoading value)? loading,
     TResult? Function(_ImageValidationStateData value)? data,
     TResult? Function(_ImageValidationStateError value)? error,
   }) {
@@ -178,6 +189,7 @@ class _$_ImageValidationStateInitial extends _ImageValidationStateInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ImageValidationStateInitial value)? initial,
+    TResult Function(_ImageValidationStateLoading value)? loading,
     TResult Function(_ImageValidationStateData value)? data,
     TResult Function(_ImageValidationStateError value)? error,
     required TResult orElse(),
@@ -192,6 +204,125 @@ class _$_ImageValidationStateInitial extends _ImageValidationStateInitial {
 abstract class _ImageValidationStateInitial extends ImageValidationState {
   factory _ImageValidationStateInitial() = _$_ImageValidationStateInitial;
   _ImageValidationStateInitial._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_ImageValidationStateLoadingCopyWith<$Res> {
+  factory _$$_ImageValidationStateLoadingCopyWith(
+          _$_ImageValidationStateLoading value,
+          $Res Function(_$_ImageValidationStateLoading) then) =
+      __$$_ImageValidationStateLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ImageValidationStateLoadingCopyWithImpl<$Res>
+    extends _$ImageValidationStateCopyWithImpl<$Res,
+        _$_ImageValidationStateLoading>
+    implements _$$_ImageValidationStateLoadingCopyWith<$Res> {
+  __$$_ImageValidationStateLoadingCopyWithImpl(
+      _$_ImageValidationStateLoading _value,
+      $Res Function(_$_ImageValidationStateLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ImageValidationStateLoading extends _ImageValidationStateLoading {
+  _$_ImageValidationStateLoading() : super._();
+
+  @override
+  String toString() {
+    return 'ImageValidationState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ImageValidationStateLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(ImageValidationResultEntity result) data,
+    required TResult Function() error,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ImageValidationResultEntity result)? data,
+    TResult? Function()? error,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(ImageValidationResultEntity result)? data,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ImageValidationStateInitial value) initial,
+    required TResult Function(_ImageValidationStateLoading value) loading,
+    required TResult Function(_ImageValidationStateData value) data,
+    required TResult Function(_ImageValidationStateError value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ImageValidationStateInitial value)? initial,
+    TResult? Function(_ImageValidationStateLoading value)? loading,
+    TResult? Function(_ImageValidationStateData value)? data,
+    TResult? Function(_ImageValidationStateError value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ImageValidationStateInitial value)? initial,
+    TResult Function(_ImageValidationStateLoading value)? loading,
+    TResult Function(_ImageValidationStateData value)? data,
+    TResult Function(_ImageValidationStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ImageValidationStateLoading extends ImageValidationState {
+  factory _ImageValidationStateLoading() = _$_ImageValidationStateLoading;
+  _ImageValidationStateLoading._() : super._();
 }
 
 /// @nodoc
@@ -262,6 +393,7 @@ class _$_ImageValidationStateData extends _ImageValidationStateData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(ImageValidationResultEntity result) data,
     required TResult Function() error,
   }) {
@@ -272,6 +404,7 @@ class _$_ImageValidationStateData extends _ImageValidationStateData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(ImageValidationResultEntity result)? data,
     TResult? Function()? error,
   }) {
@@ -282,6 +415,7 @@ class _$_ImageValidationStateData extends _ImageValidationStateData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(ImageValidationResultEntity result)? data,
     TResult Function()? error,
     required TResult orElse(),
@@ -296,6 +430,7 @@ class _$_ImageValidationStateData extends _ImageValidationStateData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ImageValidationStateInitial value) initial,
+    required TResult Function(_ImageValidationStateLoading value) loading,
     required TResult Function(_ImageValidationStateData value) data,
     required TResult Function(_ImageValidationStateError value) error,
   }) {
@@ -306,6 +441,7 @@ class _$_ImageValidationStateData extends _ImageValidationStateData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ImageValidationStateInitial value)? initial,
+    TResult? Function(_ImageValidationStateLoading value)? loading,
     TResult? Function(_ImageValidationStateData value)? data,
     TResult? Function(_ImageValidationStateError value)? error,
   }) {
@@ -316,6 +452,7 @@ class _$_ImageValidationStateData extends _ImageValidationStateData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ImageValidationStateInitial value)? initial,
+    TResult Function(_ImageValidationStateLoading value)? loading,
     TResult Function(_ImageValidationStateData value)? data,
     TResult Function(_ImageValidationStateError value)? error,
     required TResult orElse(),
@@ -382,6 +519,7 @@ class _$_ImageValidationStateError extends _ImageValidationStateError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(ImageValidationResultEntity result) data,
     required TResult Function() error,
   }) {
@@ -392,6 +530,7 @@ class _$_ImageValidationStateError extends _ImageValidationStateError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(ImageValidationResultEntity result)? data,
     TResult? Function()? error,
   }) {
@@ -402,6 +541,7 @@ class _$_ImageValidationStateError extends _ImageValidationStateError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(ImageValidationResultEntity result)? data,
     TResult Function()? error,
     required TResult orElse(),
@@ -416,6 +556,7 @@ class _$_ImageValidationStateError extends _ImageValidationStateError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ImageValidationStateInitial value) initial,
+    required TResult Function(_ImageValidationStateLoading value) loading,
     required TResult Function(_ImageValidationStateData value) data,
     required TResult Function(_ImageValidationStateError value) error,
   }) {
@@ -426,6 +567,7 @@ class _$_ImageValidationStateError extends _ImageValidationStateError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ImageValidationStateInitial value)? initial,
+    TResult? Function(_ImageValidationStateLoading value)? loading,
     TResult? Function(_ImageValidationStateData value)? data,
     TResult? Function(_ImageValidationStateError value)? error,
   }) {
@@ -436,6 +578,7 @@ class _$_ImageValidationStateError extends _ImageValidationStateError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ImageValidationStateInitial value)? initial,
+    TResult Function(_ImageValidationStateLoading value)? loading,
     TResult Function(_ImageValidationStateData value)? data,
     TResult Function(_ImageValidationStateError value)? error,
     required TResult orElse(),
