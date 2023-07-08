@@ -23,7 +23,7 @@ ImageValidationRequestBodyModel _$ImageValidationRequestBodyModelFromJson(
 mixin _$ImageValidationRequestBodyModel {
 // Base64 String
   String get image => throw _privateConstructorUsedError;
-  ValidationCategory get category => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $ImageValidationRequestBodyModelCopyWith<$Res> {
       _$ImageValidationRequestBodyModelCopyWithImpl<$Res,
           ImageValidationRequestBodyModel>;
   @useResult
-  $Res call({String image, ValidationCategory category});
+  $Res call({String image, String category});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$ImageValidationRequestBodyModelCopyWithImpl<$Res,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as ValidationCategory,
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$_ImageValidationRequestBodyModelCopyWith<$Res>
       __$$_ImageValidationRequestBodyModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String image, ValidationCategory category});
+  $Res call({String image, String category});
 }
 
 /// @nodoc
@@ -108,7 +108,7 @@ class __$$_ImageValidationRequestBodyModelCopyWithImpl<$Res>
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as ValidationCategory,
+              as String,
     ));
   }
 }
@@ -128,7 +128,7 @@ class _$_ImageValidationRequestBodyModel
   @override
   final String image;
   @override
-  final ValidationCategory category;
+  final String category;
 
   @override
   String toString() {
@@ -168,9 +168,8 @@ class _$_ImageValidationRequestBodyModel
 abstract class _ImageValidationRequestBodyModel
     implements ImageValidationRequestBodyModel {
   factory _ImageValidationRequestBodyModel(
-          {required final String image,
-          required final ValidationCategory category}) =
-      _$_ImageValidationRequestBodyModel;
+      {required final String image,
+      required final String category}) = _$_ImageValidationRequestBodyModel;
 
   factory _ImageValidationRequestBodyModel.fromJson(Map<String, dynamic> json) =
       _$_ImageValidationRequestBodyModel.fromJson;
@@ -178,7 +177,7 @@ abstract class _ImageValidationRequestBodyModel
   @override // Base64 String
   String get image;
   @override
-  ValidationCategory get category;
+  String get category;
   @override
   @JsonKey(ignore: true)
   _$$_ImageValidationRequestBodyModelCopyWith<

@@ -17,9 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FormInputState {
   String? get label => throw _privateConstructorUsedError;
-  List<String> get topImages => throw _privateConstructorUsedError;
-  List<String> get bottomImages => throw _privateConstructorUsedError;
-  List<String> get shoesImages => throw _privateConstructorUsedError;
+  Uint8List? get bodyImageBytes => throw _privateConstructorUsedError;
+  Uint8List? get bottomImageBytes => throw _privateConstructorUsedError;
+  Uint8List? get shoesImageBytes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FormInputStateCopyWith<FormInputState> get copyWith =>
@@ -34,9 +34,9 @@ abstract class $FormInputStateCopyWith<$Res> {
   @useResult
   $Res call(
       {String? label,
-      List<String> topImages,
-      List<String> bottomImages,
-      List<String> shoesImages});
+      Uint8List? bodyImageBytes,
+      Uint8List? bottomImageBytes,
+      Uint8List? shoesImageBytes});
 }
 
 /// @nodoc
@@ -53,27 +53,27 @@ class _$FormInputStateCopyWithImpl<$Res, $Val extends FormInputState>
   @override
   $Res call({
     Object? label = freezed,
-    Object? topImages = null,
-    Object? bottomImages = null,
-    Object? shoesImages = null,
+    Object? bodyImageBytes = freezed,
+    Object? bottomImageBytes = freezed,
+    Object? shoesImageBytes = freezed,
   }) {
     return _then(_value.copyWith(
       label: freezed == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String?,
-      topImages: null == topImages
-          ? _value.topImages
-          : topImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      bottomImages: null == bottomImages
-          ? _value.bottomImages
-          : bottomImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      shoesImages: null == shoesImages
-          ? _value.shoesImages
-          : shoesImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      bodyImageBytes: freezed == bodyImageBytes
+          ? _value.bodyImageBytes
+          : bodyImageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      bottomImageBytes: freezed == bottomImageBytes
+          ? _value.bottomImageBytes
+          : bottomImageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      shoesImageBytes: freezed == shoesImageBytes
+          ? _value.shoesImageBytes
+          : shoesImageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
     ) as $Val);
   }
 }
@@ -88,9 +88,9 @@ abstract class _$$_FormInputStateCopyWith<$Res>
   @useResult
   $Res call(
       {String? label,
-      List<String> topImages,
-      List<String> bottomImages,
-      List<String> shoesImages});
+      Uint8List? bodyImageBytes,
+      Uint8List? bottomImageBytes,
+      Uint8List? shoesImageBytes});
 }
 
 /// @nodoc
@@ -105,72 +105,65 @@ class __$$_FormInputStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? label = freezed,
-    Object? topImages = null,
-    Object? bottomImages = null,
-    Object? shoesImages = null,
+    Object? bodyImageBytes = freezed,
+    Object? bottomImageBytes = freezed,
+    Object? shoesImageBytes = freezed,
   }) {
     return _then(_$_FormInputState(
       label: freezed == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String?,
-      topImages: null == topImages
-          ? _value._topImages
-          : topImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      bottomImages: null == bottomImages
-          ? _value._bottomImages
-          : bottomImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      shoesImages: null == shoesImages
-          ? _value._shoesImages
-          : shoesImages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      bodyImageBytes: freezed == bodyImageBytes
+          ? _value.bodyImageBytes
+          : bodyImageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      bottomImageBytes: freezed == bottomImageBytes
+          ? _value.bottomImageBytes
+          : bottomImageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
+      shoesImageBytes: freezed == shoesImageBytes
+          ? _value.shoesImageBytes
+          : shoesImageBytes // ignore: cast_nullable_to_non_nullable
+              as Uint8List?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_FormInputState implements _FormInputState {
+class _$_FormInputState
+    with DiagnosticableTreeMixin
+    implements _FormInputState {
   _$_FormInputState(
-      {required this.label,
-      required final List<String> topImages,
-      required final List<String> bottomImages,
-      required final List<String> shoesImages})
-      : _topImages = topImages,
-        _bottomImages = bottomImages,
-        _shoesImages = shoesImages;
+      {this.label,
+      this.bodyImageBytes,
+      this.bottomImageBytes,
+      this.shoesImageBytes});
 
   @override
   final String? label;
-  final List<String> _topImages;
   @override
-  List<String> get topImages {
-    if (_topImages is EqualUnmodifiableListView) return _topImages;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_topImages);
-  }
+  final Uint8List? bodyImageBytes;
+  @override
+  final Uint8List? bottomImageBytes;
+  @override
+  final Uint8List? shoesImageBytes;
 
-  final List<String> _bottomImages;
   @override
-  List<String> get bottomImages {
-    if (_bottomImages is EqualUnmodifiableListView) return _bottomImages;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_bottomImages);
-  }
-
-  final List<String> _shoesImages;
-  @override
-  List<String> get shoesImages {
-    if (_shoesImages is EqualUnmodifiableListView) return _shoesImages;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_shoesImages);
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'FormInputState(label: $label, bodyImageBytes: $bodyImageBytes, bottomImageBytes: $bottomImageBytes, shoesImageBytes: $shoesImageBytes)';
   }
 
   @override
-  String toString() {
-    return 'FormInputState(label: $label, topImages: $topImages, bottomImages: $bottomImages, shoesImages: $shoesImages)';
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'FormInputState'))
+      ..add(DiagnosticsProperty('label', label))
+      ..add(DiagnosticsProperty('bodyImageBytes', bodyImageBytes))
+      ..add(DiagnosticsProperty('bottomImageBytes', bottomImageBytes))
+      ..add(DiagnosticsProperty('shoesImageBytes', shoesImageBytes));
   }
 
   @override
@@ -180,20 +173,20 @@ class _$_FormInputState implements _FormInputState {
             other is _$_FormInputState &&
             (identical(other.label, label) || other.label == label) &&
             const DeepCollectionEquality()
-                .equals(other._topImages, _topImages) &&
+                .equals(other.bodyImageBytes, bodyImageBytes) &&
             const DeepCollectionEquality()
-                .equals(other._bottomImages, _bottomImages) &&
+                .equals(other.bottomImageBytes, bottomImageBytes) &&
             const DeepCollectionEquality()
-                .equals(other._shoesImages, _shoesImages));
+                .equals(other.shoesImageBytes, shoesImageBytes));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       label,
-      const DeepCollectionEquality().hash(_topImages),
-      const DeepCollectionEquality().hash(_bottomImages),
-      const DeepCollectionEquality().hash(_shoesImages));
+      const DeepCollectionEquality().hash(bodyImageBytes),
+      const DeepCollectionEquality().hash(bottomImageBytes),
+      const DeepCollectionEquality().hash(shoesImageBytes));
 
   @JsonKey(ignore: true)
   @override
@@ -204,19 +197,19 @@ class _$_FormInputState implements _FormInputState {
 
 abstract class _FormInputState implements FormInputState {
   factory _FormInputState(
-      {required final String? label,
-      required final List<String> topImages,
-      required final List<String> bottomImages,
-      required final List<String> shoesImages}) = _$_FormInputState;
+      {final String? label,
+      final Uint8List? bodyImageBytes,
+      final Uint8List? bottomImageBytes,
+      final Uint8List? shoesImageBytes}) = _$_FormInputState;
 
   @override
   String? get label;
   @override
-  List<String> get topImages;
+  Uint8List? get bodyImageBytes;
   @override
-  List<String> get bottomImages;
+  Uint8List? get bottomImageBytes;
   @override
-  List<String> get shoesImages;
+  Uint8List? get shoesImageBytes;
   @override
   @JsonKey(ignore: true)
   _$$_FormInputStateCopyWith<_$_FormInputState> get copyWith =>

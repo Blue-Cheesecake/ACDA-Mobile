@@ -18,7 +18,7 @@ abstract class ImageValidationRetrofit {
   factory ImageValidationRetrofit(Dio dio) => _ImageValidationRetrofit(dio);
 
   @GET(FormBaseURLAPI.validation)
-  Future<ImageValidationResultModel> validate(@Queries() ImageValidationRequestBodyModel params);
+  Future<ImageValidationResultModel> validate(@Body() ImageValidationRequestBodyModel params);
 }
 
 class ImageValidationRetrofitDataSource implements IImageValidationDataSource {
