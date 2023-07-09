@@ -56,6 +56,7 @@ class FormPage extends ConsumerWidget {
             style: TextStyles.header5.copyWith(color: DesignSystem.g1),
           ),
         ),
+        floatingActionButton: const SubmitButtonWD(),
         body: const SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.only(left: 14, right: 14, top: 18, bottom: 18),
