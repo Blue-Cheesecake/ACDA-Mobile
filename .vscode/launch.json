@@ -11,7 +11,7 @@
         "--flavor",
         "dev",
         // TODO: change API path here
-        "--dart-define=apiURL=http://127.0.0.1:8000",
+        "--dart-define=apiURL=http://10.0.2.2:8000",
         "--target",
         "lib/main_dev.dart"
       ]

@@ -1,0 +1,1 @@
+class AnyException implements Exception {}

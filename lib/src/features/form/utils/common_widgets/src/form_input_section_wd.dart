@@ -1,20 +1,22 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../config/config.dart';
-import 'src.dart';
+import '../../utils.dart';
 
 class FormInputSectionWD extends StatelessWidget {
-  FormInputSectionWD({Key? key, required this.title, required this.isValidImageFN}) : super(key: key);
+  const FormInputSectionWD({
+    Key? key,
+    required this.title,
+    required this.updateStateFN,
+    required this.category,
+    this.currentImageBytes,
+  }) : super(key: key);
 
   final String title;
-
-  // TODO: change String to ImageFile Later
-  final bool Function(String image) isValidImageFN;
-
-  // TODO: Use Logic of each section instead if we have more image feature
-  final List<Widget> _imageForms = <Widget>[
-    ImageFormWD(onTap: () {}),
-  ];
+  final void Function(Uint8List? imageBytes) updateStateFN;
+  final ValidationCategory category;
+  final Uint8List? currentImageBytes;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,11 @@ class FormInputSectionWD extends StatelessWidget {
           style: TextStyles.bodyText4Bold.copyWith(color: DesignSystem.g6),
         ),
         const SizedBox(height: 14),
-        ..._imageForms,
+        ImageFormWD(
+          updateStateFN: updateStateFN,
+          category: category,
+          currentImageBytes: currentImageBytes,
+        ),
       ],
     );
   }
