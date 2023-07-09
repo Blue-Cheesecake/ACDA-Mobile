@@ -16,4 +16,6 @@ class FormMessages {
   static const invalidPopupBody =
       'A photo that is uploaded into this topic does not relate to the content.\nPlease try again.';
   static const cancel = 'Cancel';
+
+  static const submit = 'SUBMIT';
 }

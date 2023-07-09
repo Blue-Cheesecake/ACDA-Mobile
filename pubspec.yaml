@@ -84,14 +84,14 @@ flavorizr:
       app:
         name: "ACDA_stg"
       android:
-        applicationId: "com.acda.stg"
+        applicationId: "com.acda.dev"
       ios:
         bundleId: "com.acda.stg"
     prd:
       app:
         name: "ACDA"
       android:
-        applicationId: "com.acda"
+        applicationId: "com.acda.dev"
       ios:
         bundleId: "com.acda"
 
