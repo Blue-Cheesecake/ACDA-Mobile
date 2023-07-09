@@ -20,6 +20,7 @@ mixin _$FormInputState {
   Uint8List? get bodyImageBytes => throw _privateConstructorUsedError;
   Uint8List? get bottomImageBytes => throw _privateConstructorUsedError;
   Uint8List? get shoesImageBytes => throw _privateConstructorUsedError;
+  bool get isSubmitButtonEnabled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FormInputStateCopyWith<FormInputState> get copyWith =>
@@ -36,7 +37,8 @@ abstract class $FormInputStateCopyWith<$Res> {
       {String? label,
       Uint8List? bodyImageBytes,
       Uint8List? bottomImageBytes,
-      Uint8List? shoesImageBytes});
+      Uint8List? shoesImageBytes,
+      bool isSubmitButtonEnabled});
 }
 
 /// @nodoc
@@ -56,6 +58,7 @@ class _$FormInputStateCopyWithImpl<$Res, $Val extends FormInputState>
     Object? bodyImageBytes = freezed,
     Object? bottomImageBytes = freezed,
     Object? shoesImageBytes = freezed,
+    Object? isSubmitButtonEnabled = null,
   }) {
     return _then(_value.copyWith(
       label: freezed == label
@@ -74,6 +77,10 @@ class _$FormInputStateCopyWithImpl<$Res, $Val extends FormInputState>
           ? _value.shoesImageBytes
           : shoesImageBytes // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
+      isSubmitButtonEnabled: null == isSubmitButtonEnabled
+          ? _value.isSubmitButtonEnabled
+          : isSubmitButtonEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -90,7 +97,8 @@ abstract class _$$_FormInputStateCopyWith<$Res>
       {String? label,
       Uint8List? bodyImageBytes,
       Uint8List? bottomImageBytes,
-      Uint8List? shoesImageBytes});
+      Uint8List? shoesImageBytes,
+      bool isSubmitButtonEnabled});
 }
 
 /// @nodoc
@@ -108,6 +116,7 @@ class __$$_FormInputStateCopyWithImpl<$Res>
     Object? bodyImageBytes = freezed,
     Object? bottomImageBytes = freezed,
     Object? shoesImageBytes = freezed,
+    Object? isSubmitButtonEnabled = null,
   }) {
     return _then(_$_FormInputState(
       label: freezed == label
@@ -126,6 +135,10 @@ class __$$_FormInputStateCopyWithImpl<$Res>
           ? _value.shoesImageBytes
           : shoesImageBytes // ignore: cast_nullable_to_non_nullable
               as Uint8List?,
+      isSubmitButtonEnabled: null == isSubmitButtonEnabled
+          ? _value.isSubmitButtonEnabled
+          : isSubmitButtonEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -139,7 +152,8 @@ class _$_FormInputState
       {this.label,
       this.bodyImageBytes,
       this.bottomImageBytes,
-      this.shoesImageBytes});
+      this.shoesImageBytes,
+      this.isSubmitButtonEnabled = false});
 
   @override
   final String? label;
@@ -149,10 +163,13 @@ class _$_FormInputState
   final Uint8List? bottomImageBytes;
   @override
   final Uint8List? shoesImageBytes;
+  @override
+  @JsonKey()
+  final bool isSubmitButtonEnabled;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FormInputState(label: $label, bodyImageBytes: $bodyImageBytes, bottomImageBytes: $bottomImageBytes, shoesImageBytes: $shoesImageBytes)';
+    return 'FormInputState(label: $label, bodyImageBytes: $bodyImageBytes, bottomImageBytes: $bottomImageBytes, shoesImageBytes: $shoesImageBytes, isSubmitButtonEnabled: $isSubmitButtonEnabled)';
   }
 
   @override
@@ -163,7 +180,9 @@ class _$_FormInputState
       ..add(DiagnosticsProperty('label', label))
       ..add(DiagnosticsProperty('bodyImageBytes', bodyImageBytes))
       ..add(DiagnosticsProperty('bottomImageBytes', bottomImageBytes))
-      ..add(DiagnosticsProperty('shoesImageBytes', shoesImageBytes));
+      ..add(DiagnosticsProperty('shoesImageBytes', shoesImageBytes))
+      ..add(
+          DiagnosticsProperty('isSubmitButtonEnabled', isSubmitButtonEnabled));
   }
 
   @override
@@ -177,7 +196,9 @@ class _$_FormInputState
             const DeepCollectionEquality()
                 .equals(other.bottomImageBytes, bottomImageBytes) &&
             const DeepCollectionEquality()
-                .equals(other.shoesImageBytes, shoesImageBytes));
+                .equals(other.shoesImageBytes, shoesImageBytes) &&
+            (identical(other.isSubmitButtonEnabled, isSubmitButtonEnabled) ||
+                other.isSubmitButtonEnabled == isSubmitButtonEnabled));
   }
 
   @override
@@ -186,7 +207,8 @@ class _$_FormInputState
       label,
       const DeepCollectionEquality().hash(bodyImageBytes),
       const DeepCollectionEquality().hash(bottomImageBytes),
-      const DeepCollectionEquality().hash(shoesImageBytes));
+      const DeepCollectionEquality().hash(shoesImageBytes),
+      isSubmitButtonEnabled);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +222,8 @@ abstract class _FormInputState implements FormInputState {
       {final String? label,
       final Uint8List? bodyImageBytes,
       final Uint8List? bottomImageBytes,
-      final Uint8List? shoesImageBytes}) = _$_FormInputState;
+      final Uint8List? shoesImageBytes,
+      final bool isSubmitButtonEnabled}) = _$_FormInputState;
 
   @override
   String? get label;
@@ -210,6 +233,8 @@ abstract class _FormInputState implements FormInputState {
   Uint8List? get bottomImageBytes;
   @override
   Uint8List? get shoesImageBytes;
+  @override
+  bool get isSubmitButtonEnabled;
   @override
   @JsonKey(ignore: true)
   _$$_FormInputStateCopyWith<_$_FormInputState> get copyWith =>
