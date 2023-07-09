@@ -1,14 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'form_input_state.freezed.dart';
 
 @freezed
 class FormInputState with _$FormInputState {
-  // TODO: change to datatype of images later
   factory FormInputState({
-    required String? label,
-    required List<String> topImages,
-    required List<String> bottomImages,
-    required List<String> shoesImages,
+    String? label,
+    Uint8List? bodyImageBytes,
+    Uint8List? bottomImageBytes,
+    Uint8List? shoesImageBytes,
+    @Default(false) bool isSubmitButtonEnabled,
   }) = _FormInputState;
 }

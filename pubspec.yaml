@@ -37,6 +37,9 @@ dependencies:
   flutter_launcher_icons: 0.13.1
   flutter_native_splash: 2.3.1
   dotted_border: 2.0.0+3
+  image_picker: 1.0.0
+  modal_bottom_sheet: 3.0.0-pre
+  loader_overlay: 2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -81,14 +84,14 @@ flavorizr:
       app:
         name: "ACDA_stg"
       android:
-        applicationId: "com.acda.stg"
+        applicationId: "com.acda.dev"
       ios:
         bundleId: "com.acda.stg"
     prd:
       app:
         name: "ACDA"
       android:
-        applicationId: "com.acda"
+        applicationId: "com.acda.dev"
       ios:
         bundleId: "com.acda"
 

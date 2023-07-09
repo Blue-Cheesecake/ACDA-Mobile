@@ -5,7 +5,7 @@ import 'utils/utils.dart';
 class ACDALog {
   const ACDALog._();
 
-  static print({String? message}) {
+  static void print({String? message}) {
     log('${ACDALogConstants.title}: $message');
   }
 }
