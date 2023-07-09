@@ -10,6 +10,7 @@ class ACDATextField extends StatelessWidget {
     this.onChanged,
     this.onSubmitted,
     this.enabled,
+    this.errorText,
   }) : super(key: key);
 
   final String? labelText;
@@ -17,6 +18,7 @@ class ACDATextField extends StatelessWidget {
   final void Function(String? value)? onChanged;
   final void Function(String? value)? onSubmitted;
   final bool? enabled;
+  final String? errorText;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class ACDATextField extends StatelessWidget {
       cursorColor: DesignSystem.acdaPrimary,
       cursorHeight: 15,
       decoration: InputDecoration(
+        errorText: errorText,
         focusColor: DesignSystem.acdaPrimary,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
         labelText: labelText,

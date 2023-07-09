@@ -10,5 +10,6 @@ class FormInputState with _$FormInputState {
     Uint8List? bodyImageBytes,
     Uint8List? bottomImageBytes,
     Uint8List? shoesImageBytes,
+    @Default(false) bool isSubmitButtonEnabled,
   }) = _FormInputState;
 }

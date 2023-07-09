@@ -18,4 +18,5 @@ class FormMessages {
   static const cancel = 'Cancel';
 
   static const submit = 'SUBMIT';
+  static const labelWarnText = 'Please label this detection process';
 }
