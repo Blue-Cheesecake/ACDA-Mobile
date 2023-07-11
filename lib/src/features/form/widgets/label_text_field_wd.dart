@@ -25,6 +25,7 @@ class _LabelTextFieldWDState extends ConsumerState<LabelTextFieldWD> {
   Widget build(BuildContext context) {
     return ACDATextField(
       controller: _controller,
+      onTapOutside: (_) => FocusScope.of(context).requestFocus(FocusNode()),
       errorText: ref.watch(formValidationProvider.select((value) => value.labelErrorText)),
       onChanged: (value) => ref.read(formInputProvider.notifier).updateLabel(value?.trim()),
       onSubmitted: (value) => ref.read(formInputProvider.notifier).updateLabel(value?.trim()),

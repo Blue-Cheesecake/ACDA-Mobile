@@ -98,7 +98,7 @@ class _FilledImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 220,
       width: double.infinity,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(3)),
@@ -106,7 +106,7 @@ class _FilledImageContainer extends StatelessWidget {
       ),
       child: Image.memory(
         imageBytes,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
         filterQuality: FilterQuality.high,
       ),
     );
@@ -119,7 +119,7 @@ class _UpLoadImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 220,
       width: double.infinity,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(3)),

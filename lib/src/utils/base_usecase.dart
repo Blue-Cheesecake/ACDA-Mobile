@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../core/core.dart';
@@ -13,17 +14,27 @@ abstract class BaseUseCase<P, R> {
     final networkManager = ACDANetworkManager();
 
     try {
-      debugPrint('[🐱] Calling UseCase');
+      ACDALog.printDebug(message: 'Calling Usecase');
+
       final response = await call(params);
-      debugPrint('[🐱] Successfully Called UseCase');
+
+      ACDALog.printDebug(message: 'Successfully Called UseCase');
+      ACDALog.printDebug(message: 'Response: $response');
 
       return Success(response);
     } catch (e) {
-      debugPrint('[🐱] Error on Calling UseCase');
-      debugPrint('[🐱] $e');
+      ACDALog.printDebug(message: 'Error on Calling UseCase');
+      ACDALog.printDebug(message: '$e');
+
+      if (e is DioException) {
+        ACDALog.printDioExceptionMessage(e);
+      }
+
       if (await networkManager.isConnected) {
+        ACDALog.printDebug(message: 'Server Error');
         return Failure(ServerException());
       }
+      ACDALog.printDebug(message: 'Internet is not connected');
       return Failure(InternetConnectionException());
     }
   }
