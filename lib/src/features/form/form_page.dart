@@ -48,30 +48,28 @@ class FormPage extends ConsumerWidget {
           },
         );
 
-    return ACDALoaderOverlayWD(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            FormMessages.screenTitle,
-            style: TextStyles.header5.copyWith(color: DesignSystem.g1),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          FormMessages.screenTitle,
+          style: TextStyles.header5.copyWith(color: DesignSystem.g1),
         ),
-        floatingActionButton: const SubmitButtonWD(),
-        body: const SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(left: 14, right: 14, top: 18, bottom: 18),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                LabelTextFieldWD(),
-                SizedBox(height: 24),
-                BodySectionWD(),
-                SizedBox(height: 18),
-                BottomSectionWD(),
-                SizedBox(height: 18),
-                ShoesSectionWD(),
-              ],
-            ),
+      ),
+      floatingActionButton: const SubmitButtonWD(),
+      body: const SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(left: 14, right: 14, top: 18, bottom: 18),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              LabelTextFieldWD(),
+              SizedBox(height: 24),
+              BodySectionWD(),
+              SizedBox(height: 18),
+              BottomSectionWD(),
+              SizedBox(height: 18),
+              ShoesSectionWD(),
+            ],
           ),
         ),
       ),

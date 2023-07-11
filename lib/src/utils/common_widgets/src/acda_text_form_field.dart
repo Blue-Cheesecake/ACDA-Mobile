@@ -11,14 +11,18 @@ class ACDATextField extends StatelessWidget {
     this.onSubmitted,
     this.enabled,
     this.errorText,
+    this.focusNode,
+    this.onTapOutside,
   }) : super(key: key);
 
   final String? labelText;
   final TextEditingController controller;
   final void Function(String? value)? onChanged;
   final void Function(String? value)? onSubmitted;
+  final void Function(PointerDownEvent e)? onTapOutside;
   final bool? enabled;
   final String? errorText;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +30,12 @@ class ACDATextField extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
+      focusNode: focusNode,
       enabled: enabled,
       maxLines: 1,
       cursorColor: DesignSystem.acdaPrimary,
       cursorHeight: 15,
+      onTapOutside: onTapOutside,
       decoration: InputDecoration(
         errorText: errorText,
         focusColor: DesignSystem.acdaPrimary,
