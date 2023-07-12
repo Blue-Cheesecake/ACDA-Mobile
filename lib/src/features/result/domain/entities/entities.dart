@@ -1,1 +1,1 @@
-export 'detection_result_entity.abs.dart';
+export 'idetection_result_entity.abs.dart';

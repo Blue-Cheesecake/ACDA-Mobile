@@ -8,7 +8,7 @@ class DetectionRequestBodyModel with _$DetectionRequestBodyModel {
   factory DetectionRequestBodyModel({
     required final String bodyImage,
     required final String bottomImage,
-    required final String shosesImage,
+    required final String shoesImage,
   }) = _DetectionRequestBodyModel;
 
   factory DetectionRequestBodyModel.fromJson(Map<String, dynamic> json) => _$DetectionRequestBodyModelFromJson(json);
