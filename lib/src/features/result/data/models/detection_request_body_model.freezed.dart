@@ -23,7 +23,7 @@ DetectionRequestBodyModel _$DetectionRequestBodyModelFromJson(
 mixin _$DetectionRequestBodyModel {
   String get bodyImage => throw _privateConstructorUsedError;
   String get bottomImage => throw _privateConstructorUsedError;
-  String get shosesImage => throw _privateConstructorUsedError;
+  String get shoesImage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $DetectionRequestBodyModelCopyWith<$Res> {
           $Res Function(DetectionRequestBodyModel) then) =
       _$DetectionRequestBodyModelCopyWithImpl<$Res, DetectionRequestBodyModel>;
   @useResult
-  $Res call({String bodyImage, String bottomImage, String shosesImage});
+  $Res call({String bodyImage, String bottomImage, String shoesImage});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$DetectionRequestBodyModelCopyWithImpl<$Res,
   $Res call({
     Object? bodyImage = null,
     Object? bottomImage = null,
-    Object? shosesImage = null,
+    Object? shoesImage = null,
   }) {
     return _then(_value.copyWith(
       bodyImage: null == bodyImage
@@ -67,9 +67,9 @@ class _$DetectionRequestBodyModelCopyWithImpl<$Res,
           ? _value.bottomImage
           : bottomImage // ignore: cast_nullable_to_non_nullable
               as String,
-      shosesImage: null == shosesImage
-          ? _value.shosesImage
-          : shosesImage // ignore: cast_nullable_to_non_nullable
+      shoesImage: null == shoesImage
+          ? _value.shoesImage
+          : shoesImage // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -84,7 +84,7 @@ abstract class _$$_DetectionRequestBodyModelCopyWith<$Res>
       __$$_DetectionRequestBodyModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String bodyImage, String bottomImage, String shosesImage});
+  $Res call({String bodyImage, String bottomImage, String shoesImage});
 }
 
 /// @nodoc
@@ -102,7 +102,7 @@ class __$$_DetectionRequestBodyModelCopyWithImpl<$Res>
   $Res call({
     Object? bodyImage = null,
     Object? bottomImage = null,
-    Object? shosesImage = null,
+    Object? shoesImage = null,
   }) {
     return _then(_$_DetectionRequestBodyModel(
       bodyImage: null == bodyImage
@@ -113,9 +113,9 @@ class __$$_DetectionRequestBodyModelCopyWithImpl<$Res>
           ? _value.bottomImage
           : bottomImage // ignore: cast_nullable_to_non_nullable
               as String,
-      shosesImage: null == shosesImage
-          ? _value.shosesImage
-          : shosesImage // ignore: cast_nullable_to_non_nullable
+      shoesImage: null == shoesImage
+          ? _value.shoesImage
+          : shoesImage // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -127,7 +127,7 @@ class _$_DetectionRequestBodyModel implements _DetectionRequestBodyModel {
   _$_DetectionRequestBodyModel(
       {required this.bodyImage,
       required this.bottomImage,
-      required this.shosesImage});
+      required this.shoesImage});
 
   factory _$_DetectionRequestBodyModel.fromJson(Map<String, dynamic> json) =>
       _$$_DetectionRequestBodyModelFromJson(json);
@@ -137,11 +137,11 @@ class _$_DetectionRequestBodyModel implements _DetectionRequestBodyModel {
   @override
   final String bottomImage;
   @override
-  final String shosesImage;
+  final String shoesImage;
 
   @override
   String toString() {
-    return 'DetectionRequestBodyModel(bodyImage: $bodyImage, bottomImage: $bottomImage, shosesImage: $shosesImage)';
+    return 'DetectionRequestBodyModel(bodyImage: $bodyImage, bottomImage: $bottomImage, shoesImage: $shoesImage)';
   }
 
   @override
@@ -153,14 +153,14 @@ class _$_DetectionRequestBodyModel implements _DetectionRequestBodyModel {
                 other.bodyImage == bodyImage) &&
             (identical(other.bottomImage, bottomImage) ||
                 other.bottomImage == bottomImage) &&
-            (identical(other.shosesImage, shosesImage) ||
-                other.shosesImage == shosesImage));
+            (identical(other.shoesImage, shoesImage) ||
+                other.shoesImage == shoesImage));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, bodyImage, bottomImage, shosesImage);
+      Object.hash(runtimeType, bodyImage, bottomImage, shoesImage);
 
   @JsonKey(ignore: true)
   @override
@@ -181,7 +181,7 @@ abstract class _DetectionRequestBodyModel implements DetectionRequestBodyModel {
   factory _DetectionRequestBodyModel(
       {required final String bodyImage,
       required final String bottomImage,
-      required final String shosesImage}) = _$_DetectionRequestBodyModel;
+      required final String shoesImage}) = _$_DetectionRequestBodyModel;
 
   factory _DetectionRequestBodyModel.fromJson(Map<String, dynamic> json) =
       _$_DetectionRequestBodyModel.fromJson;
@@ -191,7 +191,7 @@ abstract class _DetectionRequestBodyModel implements DetectionRequestBodyModel {
   @override
   String get bottomImage;
   @override
-  String get shosesImage;
+  String get shoesImage;
   @override
   @JsonKey(ignore: true)
   _$$_DetectionRequestBodyModelCopyWith<_$_DetectionRequestBodyModel>

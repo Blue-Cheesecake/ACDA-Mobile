@@ -11,7 +11,7 @@ _$_DetectionRequestBodyModel _$$_DetectionRequestBodyModelFromJson(
     _$_DetectionRequestBodyModel(
       bodyImage: json['bodyImage'] as String,
       bottomImage: json['bottomImage'] as String,
-      shosesImage: json['shosesImage'] as String,
+      shoesImage: json['shoesImage'] as String,
     );
 
 Map<String, dynamic> _$$_DetectionRequestBodyModelToJson(
@@ -19,5 +19,5 @@ Map<String, dynamic> _$$_DetectionRequestBodyModelToJson(
     <String, dynamic>{
       'bodyImage': instance.bodyImage,
       'bottomImage': instance.bottomImage,
-      'shosesImage': instance.shosesImage,
+      'shoesImage': instance.shoesImage,
     };
