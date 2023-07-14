@@ -18,6 +18,7 @@ class DashboardPage extends StatelessWidget {
           DashboardMessages.title,
           style: TextStyles.header5.copyWith(color: DesignSystem.g1),
         ),
+        leading: const SizedBox.shrink(),
       ),
       body: Consumer(
         builder: (context, ref, _) {
