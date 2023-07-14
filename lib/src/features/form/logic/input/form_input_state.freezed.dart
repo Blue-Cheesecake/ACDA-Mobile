@@ -145,15 +145,14 @@ class __$$_FormInputStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FormInputState
-    with DiagnosticableTreeMixin
-    implements _FormInputState {
+class _$_FormInputState extends _FormInputState with DiagnosticableTreeMixin {
   _$_FormInputState(
       {this.label,
       this.bodyImageBytes,
       this.bottomImageBytes,
       this.shoesImageBytes,
-      this.isSubmitButtonEnabled = false});
+      this.isSubmitButtonEnabled = false})
+      : super._();
 
   @override
   final String? label;
@@ -217,13 +216,14 @@ class _$_FormInputState
       __$$_FormInputStateCopyWithImpl<_$_FormInputState>(this, _$identity);
 }
 
-abstract class _FormInputState implements FormInputState {
+abstract class _FormInputState extends FormInputState {
   factory _FormInputState(
       {final String? label,
       final Uint8List? bodyImageBytes,
       final Uint8List? bottomImageBytes,
       final Uint8List? shoesImageBytes,
       final bool isSubmitButtonEnabled}) = _$_FormInputState;
+  _FormInputState._() : super._();
 
   @override
   String? get label;

@@ -26,7 +26,7 @@ class SubmitButtonWD extends ConsumerWidget {
     return ElevatedButton(
       onPressed:
           ref.watch(formInputProvider.select((value) => value.isSubmitButtonEnabled)) ? () => _onPressed(ref) : () {},
-      style: ButtonStyles.submitButtonStlye(
+      style: ButtonStyles.submitButtonStyle(
         isEnabled: ref.watch(formInputProvider.select((value) => value.isSubmitButtonEnabled)),
       ),
       child: Text(

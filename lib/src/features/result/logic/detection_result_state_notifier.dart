@@ -19,9 +19,7 @@ class DetectionResultStateNotifier extends ACDAStateNotifier<DetectionResultStat
       shoesImage: base64Encode(shoesImage),
     );
 
-    print('before calling');
     final response = await getDetectionResultUseCase.execute(requestBody);
-    print('after calling');
     response.when(
       success: (data) {
         safeState = DetectionResultState.data(data: data);

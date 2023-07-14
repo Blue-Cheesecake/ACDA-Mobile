@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 import '../../config/config.dart';
+import '../../core/core.dart';
 import '../../utils/utils.dart';
 import 'logic/logic.dart';
 import 'utils/utils.dart';
@@ -53,6 +54,18 @@ class FormPage extends ConsumerWidget {
         title: Text(
           FormMessages.screenTitle,
           style: TextStyles.header5.copyWith(color: DesignSystem.g1),
+        ),
+        leading: BackButton(
+          style: ButtonStyles.backButtonStyle,
+          onPressed: () {
+            final isThereAnyData = ref.read(formInputProvider.select((value) => value.isThereAnyData));
+            if (isThereAnyData) {
+              // show popup
+              showACDAPopupFN(context: context, popup: const BackPopupWD());
+            } else {
+              ACDANavigation.instance.pushReplacement(RoutePath.dashboard);
+            }
+          },
         ),
       ),
       floatingActionButton: const SubmitButtonWD(),

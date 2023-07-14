@@ -5,6 +5,8 @@ part 'form_input_state.freezed.dart';
 
 @freezed
 class FormInputState with _$FormInputState {
+  const FormInputState._();
+
   factory FormInputState({
     String? label,
     Uint8List? bodyImageBytes,
@@ -12,4 +14,10 @@ class FormInputState with _$FormInputState {
     Uint8List? shoesImageBytes,
     @Default(false) bool isSubmitButtonEnabled,
   }) = _FormInputState;
+
+  bool get isThereAnyData =>
+      (label != null && label!.isNotEmpty) ||
+      bodyImageBytes != null ||
+      bottomImageBytes != null ||
+      shoesImageBytes != null;
 }
