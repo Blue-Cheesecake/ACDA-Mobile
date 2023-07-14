@@ -9,4 +9,4 @@ linter:
     annotate_overrides: true
     sort_child_properties_last: true
     sort_constructors_first: true
-    sort_unnamed_constructors_first: true
+    sort_unnamed_constructors_first: false

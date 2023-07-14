@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../features/dashboard/dashboard_page.dart';
@@ -24,7 +25,7 @@ class Routes {
         ),
         GoRoute(
           path: RoutePath.result,
-          builder: (context, state) => const ResultPage(),
+          builder: (context, state) => ResultPage(formInput: state.extra as Map<String, Uint8List>),
         ),
       ];
 }

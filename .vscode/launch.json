@@ -10,7 +10,7 @@
       "args": [
         "--flavor",
         "dev",
-        // TODO: change API path here
+        // This api url work only local development on Android
         "--dart-define=apiURL=http://10.0.2.2:8000",
         "--target",
         "lib/main_dev.dart"
@@ -26,7 +26,8 @@
       "args": [
         "--flavor",
         "stg",
-        "--dart-define=apiURL=https://stg-api.example.com",
+        // AWS
+        "--dart-define=apiURL=http://3.26.145.247:8000",
         "--target",
         "lib/main_stg.dart"
       ]
@@ -41,7 +42,8 @@
       "args": [
         "--flavor",
         "prd",
-        "--dart-define=apiURL=https://prd-api.example.com",
+        // AWS
+        "--dart-define=apiURL=http://3.26.145.247:8000",
         "--target",
         "lib/main_prd.dart"
       ]

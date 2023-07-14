@@ -24,7 +24,6 @@ class ImageValidationStateNotifier extends ACDAStateNotifier<ImageValidationStat
   }) async {
     safeState = ImageValidationState.loading();
     final Uint8List bytes = await imageFile.readAsBytes();
-    await Future.delayed(const Duration(milliseconds: 500));
     final response = await _imageValidationUseCase.execute(ImageValidationRequestBodyModel(
       image: base64Encode(bytes),
       category: category.value,
