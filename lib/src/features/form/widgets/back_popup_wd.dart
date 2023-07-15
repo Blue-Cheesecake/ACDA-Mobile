@@ -20,7 +20,7 @@ class BackPopupWD extends StatelessWidget {
         ),
         CupertinoDialogAction(
           isDestructiveAction: true,
-          onPressed: () => ACDANavigation.instance.pushReplacement(RoutePath.dashboard),
+          onPressed: () => ACDANavigation.instance.go(RoutePath.dashboard),
           child: const Text(FormMessages.exit),
         ),
       ],

@@ -2,7 +2,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../core.dart';
 import 'routes.dart';
-import 'utils/utils.dart';
 import 'widgets/widgets.dart';
 
 class ACDANavigation {
@@ -32,8 +31,8 @@ extension ACDANavigationAction on ACDANavigation {
     return _router.pop(result);
   }
 
-  Future<void> pushReplacement<T extends Object?, TO extends Object?>(String location, {Object? extra}) {
-    ACDALog.print(message: 'pushReplacementNamed to $location');
-    return _router.pushReplacement(location, extra: extra);
+  Future<void> go<T extends Object?>(String location, {Object? extra}) async {
+    ACDALog.print(message: 'go to $location');
+    return _router.go(location);
   }
 }

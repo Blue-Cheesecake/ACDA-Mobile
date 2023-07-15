@@ -21,4 +21,9 @@ class ButtonStyles {
   static ButtonStyle get backButtonStyle => const ButtonStyle(
         splashFactory: NoSplash.splashFactory,
       );
+
+  static ButtonStyle get doneButtonStyle => ElevatedButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+        splashFactory: NoSplash.splashFactory,
+      );
 }
