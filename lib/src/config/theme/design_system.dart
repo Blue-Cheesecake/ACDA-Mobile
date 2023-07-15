@@ -7,6 +7,7 @@ class DesignSystem {
 
   /// Headers
   ///
+  static const double header1Size = 32;
   static const double header5Size = 20;
 
   /// Body

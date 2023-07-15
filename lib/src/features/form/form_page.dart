@@ -63,7 +63,7 @@ class FormPage extends ConsumerWidget {
               // show popup
               showACDAPopupFN(context: context, popup: const BackPopupWD());
             } else {
-              ACDANavigation.instance.pushReplacement(RoutePath.dashboard);
+              ACDANavigation.instance.pop();
             }
           },
         ),

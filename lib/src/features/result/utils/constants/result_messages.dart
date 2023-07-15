@@ -3,5 +3,5 @@ class ResultMessages {
 
   static const passed = 'Passed!';
   static const failed = 'Failed!';
-  static const done = 'Done';
+  static const done = 'DONE';
 }
