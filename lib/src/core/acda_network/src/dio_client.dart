@@ -3,12 +3,10 @@ import 'package:dio/dio.dart';
 import '../../core.dart';
 
 class DioClient {
-  static Dio? _client;
+  DioClient._();
 
-  Dio get client {
-    _client ??= _init();
-    return _client!;
-  }
+  static final Dio _client = DioClient._()._init();
+  static Dio get client => _client;
 
   Dio _init() {
     return Dio(BaseOptions(

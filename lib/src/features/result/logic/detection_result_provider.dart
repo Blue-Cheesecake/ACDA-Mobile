@@ -7,7 +7,7 @@ import 'logic.dart';
 
 // Repo
 final detectionResultRepositoryProvider = Provider.autoDispose<IDetectionResultRepository>((ref) {
-  return DetectionResultRepository(dataSource: DetectionResultRetrofitDataSource(dio: DioClient().client));
+  return DetectionResultRepository(dataSource: DetectionResultRetrofitDataSource(dio: DioClient.client));
 });
 
 // UseCase
