@@ -7,7 +7,7 @@ import 'validation.dart';
 
 // Repo
 final imageValidationRepositoryProvider = Provider.autoDispose<IImageValidationRepository>((ref) {
-  return ImageValidationRepository(dataSource: ImageValidationRetrofitDataSource(dio: DioClient().client));
+  return ImageValidationRepository(dataSource: ImageValidationRetrofitDataSource(dio: DioClient.client));
 });
 
 // UseCase
