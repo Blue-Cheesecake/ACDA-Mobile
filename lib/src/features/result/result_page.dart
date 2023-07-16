@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'domain/domain.dart';
 import 'logic/logic.dart';
+import 'widgets/widgets.dart';
 
 class ResultPage extends ConsumerStatefulWidget {
   const ResultPage({Key? key, required this.formInput}) : super(key: key);
@@ -32,13 +34,35 @@ class _ResultPageState extends ConsumerState<ResultPage> {
         initial: () {
           return const Center(child: CircularProgressIndicator());
         },
-        data: (data) {
-          return const Center(child: Text('got data'));
+        data: (IDetectionResultEntity data) {
+          if (data.isPassed) {
+            return const _ResultPageLayout(result: PassedWD());
+          }
+          return const _ResultPageLayout(result: FailedWD());
         },
         error: () {
           return const Center(child: Text('Error'));
         },
       ),
+    );
+  }
+}
+
+class _ResultPageLayout extends StatelessWidget {
+  const _ResultPageLayout({required this.result});
+
+  final Widget result;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(child: result),
+        const SizedBox(height: 155),
+        const DoneButtonWD(),
+      ],
     );
   }
 }
