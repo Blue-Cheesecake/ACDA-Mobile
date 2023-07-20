@@ -22,12 +22,14 @@ class DashboardPage extends StatelessWidget {
       ),
       body: Consumer(
         builder: (context, ref, _) {
-          final bool isEmpty = ref.watch(dashboardStateNotifierProvider).isEmptyState;
-
-          if (isEmpty) {
-            return const EmptyStateWD();
-          }
-          return const NormalStateWD();
+          return ref.watch(dashboardStateProvider).when(
+            empty: () {
+              return const EmptyStateWD();
+            },
+            data: (data) {
+              return NormalStateWD(data: data);
+            },
+          );
         },
       ),
     );

@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../features/dashboard/dashboard_page.dart';
 import '../../../features/form/form_page.dart';
+import '../../../features/form/widgets/result/result_page.dart';
 import '../../../features/record/record_page.dart';
-import '../../../features/result/result_page.dart';
 import 'utils/utils.dart';
 
 class Routes {
@@ -25,7 +24,7 @@ class Routes {
         ),
         GoRoute(
           path: RoutePath.result,
-          builder: (context, state) => ResultPage(formInput: state.extra as Map<String, Uint8List>),
+          builder: (context, state) => const ResultPage(),
         ),
       ];
 }
