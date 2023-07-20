@@ -19,19 +19,19 @@ mixin _$DashboardState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(List<String> data) data,
+    required TResult Function(List<ICommonRecordEntity> data) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? empty,
-    TResult? Function(List<String> data)? data,
+    TResult? Function(List<ICommonRecordEntity> data)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(List<String> data)? data,
+    TResult Function(List<ICommonRecordEntity> data)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$_DashboardStateEmpty extends _DashboardStateEmpty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(List<String> data) data,
+    required TResult Function(List<ICommonRecordEntity> data) data,
   }) {
     return empty();
   }
@@ -122,7 +122,7 @@ class _$_DashboardStateEmpty extends _DashboardStateEmpty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? empty,
-    TResult? Function(List<String> data)? data,
+    TResult? Function(List<ICommonRecordEntity> data)? data,
   }) {
     return empty?.call();
   }
@@ -131,7 +131,7 @@ class _$_DashboardStateEmpty extends _DashboardStateEmpty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(List<String> data)? data,
+    TResult Function(List<ICommonRecordEntity> data)? data,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -183,7 +183,7 @@ abstract class _$$_DashboardStateDataCopyWith<$Res> {
           $Res Function(_$_DashboardStateData) then) =
       __$$_DashboardStateDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<String> data});
+  $Res call({List<ICommonRecordEntity> data});
 }
 
 /// @nodoc
@@ -203,7 +203,7 @@ class __$$_DashboardStateDataCopyWithImpl<$Res>
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<ICommonRecordEntity>,
     ));
   }
 }
@@ -211,13 +211,13 @@ class __$$_DashboardStateDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DashboardStateData extends _DashboardStateData {
-  const _$_DashboardStateData({required final List<String> data})
+  const _$_DashboardStateData({required final List<ICommonRecordEntity> data})
       : _data = data,
         super._();
 
-  final List<String> _data;
+  final List<ICommonRecordEntity> _data;
   @override
-  List<String> get data {
+  List<ICommonRecordEntity> get data {
     if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
@@ -251,7 +251,7 @@ class _$_DashboardStateData extends _DashboardStateData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
-    required TResult Function(List<String> data) data,
+    required TResult Function(List<ICommonRecordEntity> data) data,
   }) {
     return data(this.data);
   }
@@ -260,7 +260,7 @@ class _$_DashboardStateData extends _DashboardStateData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? empty,
-    TResult? Function(List<String> data)? data,
+    TResult? Function(List<ICommonRecordEntity> data)? data,
   }) {
     return data?.call(this.data);
   }
@@ -269,7 +269,7 @@ class _$_DashboardStateData extends _DashboardStateData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? empty,
-    TResult Function(List<String> data)? data,
+    TResult Function(List<ICommonRecordEntity> data)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -311,11 +311,11 @@ class _$_DashboardStateData extends _DashboardStateData {
 }
 
 abstract class _DashboardStateData extends DashboardState {
-  const factory _DashboardStateData({required final List<String> data}) =
-      _$_DashboardStateData;
+  const factory _DashboardStateData(
+      {required final List<ICommonRecordEntity> data}) = _$_DashboardStateData;
   const _DashboardStateData._() : super._();
 
-  List<String> get data;
+  List<ICommonRecordEntity> get data;
   @JsonKey(ignore: true)
   _$$_DashboardStateDataCopyWith<_$_DashboardStateData> get copyWith =>
       throw _privateConstructorUsedError;

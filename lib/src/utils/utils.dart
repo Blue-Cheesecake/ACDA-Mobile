@@ -1,7 +1,9 @@
 export 'common_widgets/common_widgets.dart';
+export 'entities/entities.dart';
 export 'exceptions/exceptions.dart';
 export 'extensions/extensions.dart';
 export 'functions/functions.dart';
+export 'models/models.dart';
 export 'riverpod/riverpod.dart';
 export 'base_result.dart';
 export 'base_usecase.dart';
