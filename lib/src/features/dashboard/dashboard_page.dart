@@ -1,11 +1,11 @@
-import 'package:acda_mobile/src/features/dashboard/widgets/empty_state_wd.dart';
-import 'package:acda_mobile/src/features/dashboard/widgets/normal_state_wd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../config/config.dart';
 import 'logic/logic.dart';
 import 'utils/utils.dart';
+import 'widgets/normal_state/normal_state.dart';
+import 'widgets/widgets.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -19,6 +19,7 @@ class DashboardPage extends StatelessWidget {
           style: TextStyles.header5.copyWith(color: DesignSystem.g1),
         ),
         leading: const SizedBox.shrink(),
+        actions: const [MoreActionButtonWD()],
       ),
       body: Consumer(
         builder: (context, ref, _) {
@@ -28,6 +29,18 @@ class DashboardPage extends StatelessWidget {
             },
             data: (data) {
               return NormalStateWD(data: data);
+            },
+          );
+        },
+      ),
+      floatingActionButton: Consumer(
+        builder: (context, ref, child) {
+          return ref.watch(dashboardStateProvider).when(
+            empty: () {
+              return const SizedBox.shrink();
+            },
+            data: (data) {
+              return const GoEvaluateButtonWD();
             },
           );
         },
