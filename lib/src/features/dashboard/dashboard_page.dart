@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../config/config.dart';
 import 'logic/logic.dart';
 import 'utils/utils.dart';
-import 'widgets/normal_state/normal_state.dart';
 import 'widgets/widgets.dart';
 
 class DashboardPage extends StatelessWidget {

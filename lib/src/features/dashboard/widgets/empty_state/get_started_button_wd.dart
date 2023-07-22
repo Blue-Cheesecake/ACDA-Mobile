@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/config.dart';
-import '../../../core/core.dart';
-import '../utils/utils.dart';
+import '../../../../config/config.dart';
+import '../../../../core/core.dart';
+import '../../utils/utils.dart';
 
 class GetStartedButtonWD extends StatelessWidget {
   const GetStartedButtonWD({Key? key}) : super(key: key);
