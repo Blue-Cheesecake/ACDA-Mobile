@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../utils/utils.dart';
 import 'logic/logic.dart';
+import 'utils/utils.dart';
 import 'widgets/widgets.dart';
 
 class NormalStateWD extends ConsumerWidget {
@@ -14,13 +15,13 @@ class NormalStateWD extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 14, right: 14, top: 16, bottom: 24),
+        const Padding(
+          padding: EdgeInsets.only(left: 14, right: 14, top: 16, bottom: 24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SearchRecordWD(),
-              const SizedBox(height: 16),
+              SearchRecordWD(),
+              SizedBox(height: 16),
               FilterSectionWD(),
             ],
           ),
@@ -33,8 +34,14 @@ class NormalStateWD extends ConsumerWidget {
             itemBuilder: (_, index) {
               final ICommonRecordEntity record = data[index];
               final String? searchText = ref.watch(filterInputProvider.select((value) => value.searchText));
+              final filterSection = ref.watch(filterInputProvider.select((value) => value.filterSection));
+              final isPassed = record.result.isPassed;
+              final isValid = (searchText == null || record.label.contains(searchText)) &&
+                  (filterSection == FilterSectionEnum.all ||
+                      (isPassed && filterSection == FilterSectionEnum.passed) ||
+                      (!isPassed && filterSection == FilterSectionEnum.failed));
 
-              if (searchText == null || record.label.contains(searchText)) {
+              if (isValid) {
                 return RecordItemWD(record: data[index]);
               }
               return const SizedBox.shrink();
@@ -42,8 +49,14 @@ class NormalStateWD extends ConsumerWidget {
             separatorBuilder: (_, index) {
               final ICommonRecordEntity record = data[index];
               final String? searchText = ref.watch(filterInputProvider.select((value) => value.searchText));
+              final filterSection = ref.watch(filterInputProvider.select((value) => value.filterSection));
+              final isPassed = record.result.isPassed;
+              final isValid = (searchText == null || record.label.contains(searchText)) &&
+                  (filterSection == FilterSectionEnum.all ||
+                      (isPassed && filterSection == FilterSectionEnum.passed) ||
+                      (!isPassed && filterSection == FilterSectionEnum.failed));
 
-              if (searchText == null || record.label.contains(searchText)) {
+              if (isValid) {
                 return const SizedBox(height: 24);
               }
 

@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FilterInputState {
   String? get searchText => throw _privateConstructorUsedError;
+  FilterSectionEnum get filterSection => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterInputStateCopyWith<FilterInputState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $FilterInputStateCopyWith<$Res> {
           FilterInputState value, $Res Function(FilterInputState) then) =
       _$FilterInputStateCopyWithImpl<$Res, FilterInputState>;
   @useResult
-  $Res call({String? searchText});
+  $Res call({String? searchText, FilterSectionEnum filterSection});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$FilterInputStateCopyWithImpl<$Res, $Val extends FilterInputState>
   @override
   $Res call({
     Object? searchText = freezed,
+    Object? filterSection = null,
   }) {
     return _then(_value.copyWith(
       searchText: freezed == searchText
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
               as String?,
+      filterSection: null == filterSection
+          ? _value.filterSection
+          : filterSection // ignore: cast_nullable_to_non_nullable
+              as FilterSectionEnum,
     ) as $Val);
   }
 }
@@ -64,7 +70,7 @@ abstract class _$$_FilterInputStateCopyWith<$Res>
       __$$_FilterInputStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? searchText});
+  $Res call({String? searchText, FilterSectionEnum filterSection});
 }
 
 /// @nodoc
@@ -79,12 +85,17 @@ class __$$_FilterInputStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? searchText = freezed,
+    Object? filterSection = null,
   }) {
     return _then(_$_FilterInputState(
       searchText: freezed == searchText
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
               as String?,
+      filterSection: null == filterSection
+          ? _value.filterSection
+          : filterSection // ignore: cast_nullable_to_non_nullable
+              as FilterSectionEnum,
     ));
   }
 }
@@ -92,14 +103,18 @@ class __$$_FilterInputStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FilterInputState implements _FilterInputState {
-  _$_FilterInputState({this.searchText});
+  _$_FilterInputState(
+      {this.searchText, this.filterSection = FilterSectionEnum.all});
 
   @override
   final String? searchText;
+  @override
+  @JsonKey()
+  final FilterSectionEnum filterSection;
 
   @override
   String toString() {
-    return 'FilterInputState(searchText: $searchText)';
+    return 'FilterInputState(searchText: $searchText, filterSection: $filterSection)';
   }
 
   @override
@@ -108,11 +123,13 @@ class _$_FilterInputState implements _FilterInputState {
         (other.runtimeType == runtimeType &&
             other is _$_FilterInputState &&
             (identical(other.searchText, searchText) ||
-                other.searchText == searchText));
+                other.searchText == searchText) &&
+            (identical(other.filterSection, filterSection) ||
+                other.filterSection == filterSection));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, searchText);
+  int get hashCode => Object.hash(runtimeType, searchText, filterSection);
 
   @JsonKey(ignore: true)
   @override
@@ -122,10 +139,14 @@ class _$_FilterInputState implements _FilterInputState {
 }
 
 abstract class _FilterInputState implements FilterInputState {
-  factory _FilterInputState({final String? searchText}) = _$_FilterInputState;
+  factory _FilterInputState(
+      {final String? searchText,
+      final FilterSectionEnum filterSection}) = _$_FilterInputState;
 
   @override
   String? get searchText;
+  @override
+  FilterSectionEnum get filterSection;
   @override
   @JsonKey(ignore: true)
   _$$_FilterInputStateCopyWith<_$_FilterInputState> get copyWith =>
