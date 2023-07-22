@@ -12,11 +12,22 @@ class FilterItemWD extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: isSelected ? DesignSystem.acdaPrimary : DesignSystem.g2,
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          color: isSelected ? DesignSystem.acdaPrimary : DesignSystem.g2,
+        ),
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyles.bodyText3Bold.copyWith(
+              color: isSelected ? DesignSystem.g1 : DesignSystem.g6,
+            ),
+          ),
+        ),
       ),
-      child: Text(title),
     );
   }
 }

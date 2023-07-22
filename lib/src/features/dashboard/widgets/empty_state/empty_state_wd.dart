@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/utils.dart';
+import '../../utils/utils.dart';
 import 'get_started_button_wd.dart';
 
 class EmptyStateWD extends StatelessWidget {
