@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/config.dart';
 import '../../../../../utils/utils.dart';
 import '../../../utils/utils.dart';
+import '../logic/logic.dart';
 
-class SearchRecordWD extends StatefulWidget {
+class SearchRecordWD extends ConsumerStatefulWidget {
   const SearchRecordWD({Key? key}) : super(key: key);
 
   @override
-  State<SearchRecordWD> createState() => _SearchRecordWDState();
+  ConsumerState<SearchRecordWD> createState() => _SearchRecordWDState();
 }
 
-class _SearchRecordWDState extends State<SearchRecordWD> {
+class _SearchRecordWDState extends ConsumerState<SearchRecordWD> {
   final _textCtr = TextEditingController();
   final _focusNode = FocusNode();
 
@@ -22,7 +24,9 @@ class _SearchRecordWDState extends State<SearchRecordWD> {
     super.dispose();
   }
 
-  void _onChanged(String? value) {}
+  void _onChanged(String? value) {
+    ref.read(filterInputProvider.notifier).updateSearchText(value);
+  }
 
   @override
   Widget build(BuildContext context) {

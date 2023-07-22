@@ -40,10 +40,11 @@ class ACDATextField extends StatelessWidget {
       enabled: enabled,
       maxLines: 1,
       cursorColor: DesignSystem.acdaPrimary,
-      cursorHeight: 15,
       onTapOutside: onTapOutside,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
+        prefixIconColor: MaterialStateColor.resolveWith(
+            (states) => states.contains(MaterialState.focused) ? DesignSystem.acdaPrimary : DesignSystem.g15),
         errorText: errorText,
         filled: backgroundColor != null,
         fillColor: backgroundColor,
@@ -51,6 +52,10 @@ class ACDATextField extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
         labelText: labelText,
         labelStyle: TextStyles.bodyText5.copyWith(color: DesignSystem.g11),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4),
+          borderSide: const BorderSide(width: 2, color: DesignSystem.acdaPrimary),
+        ),
         border: outlineInputBorder ??
             OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
