@@ -58,7 +58,7 @@ class _$CommonRecordModelCopyWithImpl<$Res, $Val extends CommonRecordModel>
     Object? bodyImageBase64 = null,
     Object? bottomImageBase64 = null,
     Object? shoesImageBase64 = null,
-    Object? result = freezed,
+    Object? result = null,
   }) {
     return _then(_value.copyWith(
       label: null == label
@@ -77,7 +77,7 @@ class _$CommonRecordModelCopyWithImpl<$Res, $Val extends CommonRecordModel>
           ? _value.shoesImageBase64
           : shoesImageBase64 // ignore: cast_nullable_to_non_nullable
               as String,
-      result: freezed == result
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as ICommonDetectionResultEntity,
@@ -116,7 +116,7 @@ class __$$_CommonRecordModelCopyWithImpl<$Res>
     Object? bodyImageBase64 = null,
     Object? bottomImageBase64 = null,
     Object? shoesImageBase64 = null,
-    Object? result = freezed,
+    Object? result = null,
   }) {
     return _then(_$_CommonRecordModel(
       label: null == label
@@ -135,7 +135,7 @@ class __$$_CommonRecordModelCopyWithImpl<$Res>
           ? _value.shoesImageBase64
           : shoesImageBase64 // ignore: cast_nullable_to_non_nullable
               as String,
-      result: freezed == result
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as ICommonDetectionResultEntity,
@@ -181,17 +181,12 @@ class _$_CommonRecordModel implements _CommonRecordModel {
                 other.bottomImageBase64 == bottomImageBase64) &&
             (identical(other.shoesImageBase64, shoesImageBase64) ||
                 other.shoesImageBase64 == shoesImageBase64) &&
-            const DeepCollectionEquality().equals(other.result, result));
+            (identical(other.result, result) || other.result == result));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      label,
-      bodyImageBase64,
-      bottomImageBase64,
-      shoesImageBase64,
-      const DeepCollectionEquality().hash(result));
+  int get hashCode => Object.hash(runtimeType, label, bodyImageBase64,
+      bottomImageBase64, shoesImageBase64, result);
 
   @JsonKey(ignore: true)
   @override

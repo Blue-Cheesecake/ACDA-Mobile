@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../utils/utils.dart';
+import 'logic/logic.dart';
 import 'widgets/widgets.dart';
 
-class NormalStateWD extends StatelessWidget {
+class NormalStateWD extends ConsumerWidget {
   const NormalStateWD({Key? key, required this.data}) : super(key: key);
 
   final List<ICommonRecordEntity> data;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       children: [
         Padding(
@@ -28,8 +30,25 @@ class NormalStateWD extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             itemCount: data.length,
-            itemBuilder: (_, index) => RecordItemWD(record: data[index]),
-            separatorBuilder: (_, __) => const SizedBox(height: 24),
+            itemBuilder: (_, index) {
+              final ICommonRecordEntity record = data[index];
+              final String? searchText = ref.watch(filterInputProvider.select((value) => value.searchText));
+
+              if (searchText == null || record.label.contains(searchText)) {
+                return RecordItemWD(record: data[index]);
+              }
+              return const SizedBox.shrink();
+            },
+            separatorBuilder: (_, index) {
+              final ICommonRecordEntity record = data[index];
+              final String? searchText = ref.watch(filterInputProvider.select((value) => value.searchText));
+
+              if (searchText == null || record.label.contains(searchText)) {
+                return const SizedBox(height: 24);
+              }
+
+              return const SizedBox.shrink();
+            },
           ),
         )
       ],
