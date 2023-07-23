@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart'
 ///
 /// Example:
 /// ```dart
-/// import 'firebase_options.dart';
+/// import 'firebase_options_dev.dart';
 /// // ...
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
@@ -63,21 +63,21 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCeTWgMp7hHRIIEAOrV9jsHrCjJjCM5s2U',
-    appId: '1:206768417383:ios:bcc8d511f45360067b82c2',
+    appId: '1:206768417383:ios:63792114c24af4bc7b82c2',
     messagingSenderId: '206768417383',
     projectId: 'muict-sp-acda',
     storageBucket: 'muict-sp-acda.appspot.com',
-    iosClientId: '206768417383-lur3u3k5e3hd4a7ubp28e16ep8u6o7th.apps.googleusercontent.com',
-    iosBundleId: 'com.acda.acdaMobile',
+    iosClientId: '206768417383-flpt03ccotqg0fvissraidai16inih9m.apps.googleusercontent.com',
+    iosBundleId: 'com.acda.dev',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyCeTWgMp7hHRIIEAOrV9jsHrCjJjCM5s2U',
-    appId: '1:206768417383:ios:9989b75c8e9e0c4f7b82c2',
+    appId: '1:206768417383:ios:63792114c24af4bc7b82c2',
     messagingSenderId: '206768417383',
     projectId: 'muict-sp-acda',
     storageBucket: 'muict-sp-acda.appspot.com',
-    iosClientId: '206768417383-ltap1oot74mlgkn8l1v9icenlcdvjeug.apps.googleusercontent.com',
-    iosBundleId: 'com.example.acdaMobile.RunnerTests',
+    iosClientId: '206768417383-flpt03ccotqg0fvissraidai16inih9m.apps.googleusercontent.com',
+    iosBundleId: 'com.acda.dev',
   );
 }

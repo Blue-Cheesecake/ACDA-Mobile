@@ -5,26 +5,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app_wd.dart';
-
 import 'flavors.dart';
 import 'src/core/core.dart';
+import 'firebase_options_dev.dart' as dev;
+import 'firebase_options_stg.dart' as stg;
+import 'firebase_options_prd.dart' as prd;
 
 void mainRunApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
   AppConfig.instance.init(F.appConfigEnv);
 
-  // Configuring Firebase
-  if (AppConfig.instance.isStg || AppConfig.instance.isPrd) {
-    FlutterError.onError = (errorDetails) {
-      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-    };
-    PlatformDispatcher.instance.onError = (error, stack) {
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-      return true;
-    };
+  if (AppConfig.instance.isPrd) {
+    await Firebase.initializeApp(name: 'muict-sp-acda-prd', options: prd.DefaultFirebaseOptions.currentPlatform);
   }
+  if (AppConfig.instance.isStg) {
+    await Firebase.initializeApp(name: 'muic-sp-acda-stg', options: stg.DefaultFirebaseOptions.currentPlatform);
+  }
+  if (AppConfig.instance.isDev) {
+    await Firebase.initializeApp(name: 'muic-sp-acda', options: dev.DefaultFirebaseOptions.currentPlatform);
+  }
+
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
 
   runApp(const ProviderScope(child: AppWD()));
 }
