@@ -27,7 +27,7 @@
         "--flavor",
         "stg",
         // AWS
-        "--dart-define=apiURL=http://3.26.145.247:8000",
+        "--dart-define=apiURL=http://3.25.207.74:8000",
         "--target",
         "lib/main_stg.dart"
       ]
@@ -43,7 +43,7 @@
         "--flavor",
         "prd",
         // AWS
-        "--dart-define=apiURL=http://3.26.145.247:8000",
+        "--dart-define=apiURL=http://3.25.207.74:8000",
         "--target",
         "lib/main_prd.dart"
       ]

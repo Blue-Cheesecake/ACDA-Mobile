@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,13 +10,7 @@ class SubmitButtonWD extends ConsumerWidget {
   const SubmitButtonWD({Key? key}) : super(key: key);
 
   void _onPressed(WidgetRef ref) async {
-    final formInputState = ref.read(formInputProvider);
-
-    ACDANavigation.instance.push(RoutePath.result, extra: {
-      'bodyImage': formInputState.bodyImageBytes ?? Uint8List(0),
-      'bottomImage': formInputState.bottomImageBytes ?? Uint8List(0),
-      'shoesImage': formInputState.shoesImageBytes ?? Uint8List(0),
-    });
+    ACDANavigation.instance.push(RoutePath.result);
   }
 
   @override

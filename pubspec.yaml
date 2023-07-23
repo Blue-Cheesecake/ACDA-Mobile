@@ -40,6 +40,7 @@ dependencies:
   image_picker: 1.0.0
   modal_bottom_sheet: 3.0.0-pre
   loader_overlay: 2.2.0
+  flutter_secure_storage: 8.0.0
 
 dev_dependencies:
   flutter_test:
@@ -84,14 +85,14 @@ flavorizr:
       app:
         name: "ACDA_stg"
       android:
-        applicationId: "com.acda.dev"
+        applicationId: "com.acda.stg"
       ios:
         bundleId: "com.acda.stg"
     prd:
       app:
         name: "ACDA"
       android:
-        applicationId: "com.acda.dev"
+        applicationId: "com.acda"
       ios:
         bundleId: "com.acda"
 
