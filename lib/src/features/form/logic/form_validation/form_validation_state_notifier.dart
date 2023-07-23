@@ -19,7 +19,7 @@ class FormValidationStateNotifier extends StateNotifier<FormValidationState> {
     if (inputState.bodyImageBytes == null || inputState.bodyImageBytes!.isEmpty) {
       isValid = false;
     }
-    if (inputState.bottomImageBytes == null || inputState.bodyImageBytes!.isEmpty) {
+    if (inputState.bottomImageBytes == null || inputState.bottomImageBytes!.isEmpty) {
       isValid = false;
     }
     if (inputState.shoesImageBytes == null || inputState.shoesImageBytes!.isEmpty) {
