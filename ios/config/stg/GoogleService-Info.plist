@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>206768417383-lur3u3k5e3hd4a7ubp28e16ep8u6o7th.apps.googleusercontent.com</string>
+	<string>584876387850-grnlmm3sdsgi8cstcq7jc5015uhn7gne.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.206768417383-lur3u3k5e3hd4a7ubp28e16ep8u6o7th</string>
+	<string>com.googleusercontent.apps.584876387850-grnlmm3sdsgi8cstcq7jc5015uhn7gne</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCeTWgMp7hHRIIEAOrV9jsHrCjJjCM5s2U</string>
+	<string>AIzaSyC9NZLIoUQVMWGjpmSLK8tVc5uYjeFXPOA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>206768417383</string>
+	<string>584876387850</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.acda.acdaMobile</string>
+	<string>com.acda.stg</string>
 	<key>PROJECT_ID</key>
-	<string>muict-sp-acda</string>
+	<string>muict-sp-acda-stg</string>
 	<key>STORAGE_BUCKET</key>
-	<string>muict-sp-acda.appspot.com</string>
+	<string>muict-sp-acda-stg.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:206768417383:ios:bcc8d511f45360067b82c2</string>
+	<string>1:584876387850:ios:b0f5ec4986456c557279f3</string>
 </dict>
 </plist>

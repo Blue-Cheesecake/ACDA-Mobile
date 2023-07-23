@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "206768417383-ltap1oot74mlgkn8l1v9icenlcdvjeug.apps.googleusercontent.com",
+              "client_id": "206768417383-flpt03ccotqg0fvissraidai16inih9m.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.acdaMobile.RunnerTests"
+                "bundle_id": "com.acda.dev"
               }
             }
           ]
