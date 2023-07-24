@@ -1,10 +1,2 @@
 flutter_native_splash:
-  color: "#3D6CB9"
-  image: assets/icons/ACDA-TempLogo-Android.png
-  color_dark: "#3D6CB9"
-
-  android_12:
-    image: assets/icons/ACDA-TempLogo-Android.png
-    icon_background_color: "#3D6CB9"
-    image_dark: assets/icons/ACDA-TempLogo-Android.png
-    icon_background_color_dark: "#3D6CB9"
+  background_image: assets/imgs/ACDA-Splash.png
