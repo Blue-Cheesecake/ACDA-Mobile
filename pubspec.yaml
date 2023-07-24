@@ -97,10 +97,12 @@ flavorizr:
         bundleId: "com.acda"
 
 flutter_launcher_icons:
-  image_path: "assets/icons/ACDA-TempLogo-iOS.png"
+  image_path: "assets/icons/ACDA-AppIcon-iOS.png"
+
   android: "launcher_icon"
   image_path_android: "assets/icons/ACDA-TempLogo-Android.png"
   adaptive_icon_background: "#0c4aad"
+
   ios: true
-  image_path_ios: "assets/icons/ACDA-TempLogo-iOS.png"
+  image_path_ios: "assets/icons/ACDA-AppIcon-iOS.png"
   remove_alpha_ios: true
