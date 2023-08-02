@@ -27,7 +27,7 @@ class AuthRetrofitDataSource implements IAuthDataSource {
   final Dio dio;
 
   @override
-  Future<APIResponse> authenticate(AuthRequestBodyModel request) async {
+  Future<APIResponse<IAuthTokenEntity>> authenticate(AuthRequestBodyModel request) async {
     final retrofit = AuthRetrofit(dio);
     final response = await retrofit.authenticate(request);
     final statusCode = response.response.statusCode;

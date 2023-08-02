@@ -1,2 +1,2 @@
 export 'custom_headers_interceptor.dart';
-export 'log_interceptor.dart';
+export 'logging_interceptor.dart';
