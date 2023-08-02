@@ -5,7 +5,7 @@ import 'models/models.dart';
 part 'api_response.freezed.dart';
 
 @freezed
-class APIResponse<T> with _$APIResponse {
+class APIResponse<T> with _$APIResponse<T> {
   const factory APIResponse.success(T data) = APIAccepted<T>;
   const factory APIResponse.error(APISimpleMessageModel errorMessage) = APIError;
 }

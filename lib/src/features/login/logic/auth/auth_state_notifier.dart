@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/core.dart';
 import '../../../../utils/utils.dart';
 import '../../data/data.dart';
 import '../../domain/domain.dart';
@@ -21,7 +22,8 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
     response.when(
       success: (APIResponse<IAuthTokenEntity> apiResponse) {
         apiResponse.when(
-          success: (data) {
+          success: (data) async {
+            await ACDAUser.instance.writeToken(data.token);
             safeState = AuthState.data(data: data);
           },
           error: (errorMessageModel) {
