@@ -9,4 +9,8 @@ class ACDAUser {
     String? token = await ACDASecureStorage.instance.read(key: 'token');
     return token;
   }
+
+  Future<void> writeToken(String value) async {
+    ACDASecureStorage.instance.write(key: 'token', value: value);
+  }
 }
