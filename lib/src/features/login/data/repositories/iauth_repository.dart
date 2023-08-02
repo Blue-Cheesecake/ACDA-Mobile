@@ -1,6 +1,7 @@
 import '../../../../utils/utils.dart';
+import '../../domain/domain.dart';
 import '../models/models.dart';
 
 abstract interface class IAuthRepository {
-  Future<IAPIResponseEntity> authenticate(AuthRequestBodyModel request);
+  Future<APIResponse<IAuthTokenEntity>> authenticate(AuthRequestBodyModel request);
 }

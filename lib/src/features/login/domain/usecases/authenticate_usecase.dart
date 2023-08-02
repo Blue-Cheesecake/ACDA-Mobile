@@ -1,8 +1,9 @@
 import '../../../../utils/utils.dart';
 import '../../data/models/models.dart';
 import '../../data/repositories/repositories.dart';
+import '../domain.dart';
 
-class AuthenticateUseCase extends BaseUseCase<AuthRequestBodyModel, APIResponse> {
+class AuthenticateUseCase extends BaseUseCase<AuthRequestBodyModel, APIResponse<IAuthTokenEntity>> {
   AuthenticateUseCase({
     required this.repository,
   });
@@ -10,7 +11,7 @@ class AuthenticateUseCase extends BaseUseCase<AuthRequestBodyModel, APIResponse>
   final IAuthRepository repository;
 
   @override
-  Future<APIResponse> call(AuthRequestBodyModel params) {
+  Future<APIResponse<IAuthTokenEntity>> call(AuthRequestBodyModel params) {
     return repository.authenticate(params);
   }
 }
