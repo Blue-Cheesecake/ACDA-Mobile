@@ -11,7 +11,7 @@ class ACDANavigation {
   static ACDANavigation get instance => _instance;
 
   final _router = GoRouter(
-    initialLocation: RoutePath.dashboard,
+    initialLocation: RoutePath.login,
     navigatorKey: ACDAGlobalNavigatorKeys.rootNavigator,
     routes: Routes.list(),
     errorBuilder: (context, state) => const NotFoundPage(),
