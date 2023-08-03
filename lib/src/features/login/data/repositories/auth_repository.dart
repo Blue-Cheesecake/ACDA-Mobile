@@ -1,4 +1,5 @@
 import '../../../../utils/utils.dart';
+import '../../domain/domain.dart';
 import '../data.dart';
 
 class AuthRepository implements IAuthRepository {
@@ -7,7 +8,7 @@ class AuthRepository implements IAuthRepository {
   final IAuthDataSource dataSource;
 
   @override
-  Future<APIResponse> authenticate(AuthRequestBodyModel request) {
+  Future<APIResponse<IAuthTokenEntity>> authenticate(AuthRequestBodyModel request) {
     return dataSource.authenticate(request);
   }
 }

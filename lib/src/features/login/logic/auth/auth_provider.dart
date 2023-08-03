@@ -5,7 +5,7 @@ import '../../data/data.dart';
 import '../../domain/domain.dart';
 import 'auth.dart';
 
-final authRepositoryProvider = Provider<IAuthRepository>((ref) {
+final authRepositoryProvider = Provider.autoDispose<IAuthRepository>((ref) {
   return AuthRepository(dataSource: AuthRetrofitDataSource(dio: DioClient.client));
 });
 
