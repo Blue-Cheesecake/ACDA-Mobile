@@ -25,4 +25,8 @@ class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputStat
   void updateFaceImage(XFile? value) {
     state = state.copyWith(faceImage: value);
   }
+
+  void updateIsAllowPDPA(bool value) {
+    state = state.copyWith(isAllowPDPA: value);
+  }
 }

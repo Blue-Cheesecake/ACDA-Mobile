@@ -11,5 +11,6 @@ class RegisterFormInputState with _$RegisterFormInputState {
     String? confirmedPassword,
     int? facultyId,
     XFile? faceImage,
+    @Default(false) bool isAllowPDPA,
   }) = _RegisterFormInputState;
 }

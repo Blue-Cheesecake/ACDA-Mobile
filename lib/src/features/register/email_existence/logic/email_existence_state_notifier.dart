@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../utils/utils.dart';
-import '../../logic/logic.dart';
+import '../../register_form/register_form.dart';
 import '../email_existence.dart';
 import 'logic.dart';
 
