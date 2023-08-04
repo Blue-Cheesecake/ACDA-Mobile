@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:loader_overlay/loader_overlay.dart';
 
 import '../../config/config.dart';
 import '../../core/core.dart';
@@ -15,40 +13,6 @@ class FormPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(imageValidationProvider).when(
-          initial: () {},
-          loading: () {
-            context.loaderOverlay.show();
-          },
-          data: (result) {
-            context.loaderOverlay.hide();
-
-            if (!result.isPassed) {
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                showACDAPopupFN(
-                  context: context,
-                  popup: ACDAAlertPopup(
-                    title: FormMessages.invalidPopuptitle,
-                    content: FormMessages.invalidPopupBody,
-                    actions: [
-                      CupertinoDialogAction(
-                        isDestructiveAction: true,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text(FormMessages.cancel),
-                      ),
-                    ],
-                  ),
-                );
-              });
-            }
-          },
-          error: () {
-            context.loaderOverlay.hide();
-          },
-        );
-
     return Scaffold(
       appBar: AppBar(
         title: Text(

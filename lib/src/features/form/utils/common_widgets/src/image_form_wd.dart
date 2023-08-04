@@ -7,7 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../../config/config.dart';
 import '../../../../../core/core.dart';
 import '../../../../../utils/utils.dart';
-import '../../../logic/logic.dart';
 import '../../utils.dart';
 
 class ImageFormWD extends ConsumerWidget {
@@ -28,17 +27,7 @@ class ImageFormWD extends ConsumerWidget {
       return;
     }
     final Uint8List imageBytes = await pickedImage.readAsBytes();
-
-    ref.read(imageValidationProvider.notifier).validate(
-          imageFile: pickedImage,
-          category: category,
-          onSucessCallback: (result) {
-            if (result.isPassed) {
-              updateStateFN(imageBytes);
-            }
-          },
-          onErrorCallback: () {},
-        );
+    updateStateFN(imageBytes);
   }
 
   void _onTap(BuildContext context, WidgetRef ref) {

@@ -12,7 +12,7 @@ class ACDASecureStorage {
 }
 
 extension ACDASecureStorageAction on ACDASecureStorage {
-  Future<void> read({required String key}) {
+  Future<String?> read({required String key}) {
     ACDALog.printDebug(message: '[🎁 Local Storage]: Reading value with key - $key');
     return _storage.read(key: key);
   }

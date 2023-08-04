@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../../core.dart';
+import 'interceptors/interceptors.dart';
 
 class DioClient {
   DioClient._();
@@ -9,15 +10,13 @@ class DioClient {
   static Dio get client => _client;
 
   Dio _init() {
-    return Dio(BaseOptions(
+    Dio dio = Dio(BaseOptions(
       baseUrl: AppConfig.instance.apiURL,
       contentType: 'application/json',
-      headers: {
-        'Application': 'x-www-form-urlencoded',
-        'Accept': '*/*',
-        'Content-Type': 'application/json',
-        'Connection': 'keep-alive',
-      },
     ));
+
+    dio.interceptors.addAll([CustomHeadersInterceptor(), LoggingInterceptor()]);
+
+    return dio;
   }
 }
