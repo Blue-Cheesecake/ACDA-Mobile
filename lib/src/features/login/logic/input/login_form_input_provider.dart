@@ -4,5 +4,5 @@ import 'input.dart';
 
 final loginFormInputProvider =
     StateNotifierProvider.autoDispose<LoginFormInputStateNotifier, LoginFormInputState>((ref) {
-  return LoginFormInputStateNotifier();
+  return LoginFormInputStateNotifier(ref: ref);
 });

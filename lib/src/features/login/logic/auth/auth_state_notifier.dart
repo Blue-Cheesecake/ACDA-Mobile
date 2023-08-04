@@ -4,6 +4,7 @@ import '../../../../core/core.dart';
 import '../../../../utils/utils.dart';
 import '../../data/data.dart';
 import '../../domain/domain.dart';
+import '../../utils/utils.dart';
 import '../logic.dart';
 
 class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
@@ -14,6 +15,7 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
 
   Future<void> authenticate() async {
     final authState = ref.read(loginFormInputProvider);
+    LoginFormValidationState validationState = LoginFormValidationState();
 
     final response = await authenticateUseCase.execute(
       AuthRequestBodyModel(email: authState.email ?? '', password: authState.password ?? ''),
@@ -25,14 +27,20 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
           success: (data) async {
             await ACDAUser.instance.writeToken(data.token);
             safeState = AuthState.data(data: data);
+            ref.read(loginFormValidationStateProvider.notifier).state = validationState;
           },
           error: (errorMessageModel) {
             safeState = AuthState.clientError(message: errorMessageModel.message);
+            validationState = validationState.copyWith(invalidAuthenticationErrorText: errorMessageModel.message);
+            ref.read(loginFormValidationStateProvider.notifier).state = validationState;
           },
         );
       },
       error: (e) {
         safeState = AuthState.error();
+        validationState =
+            validationState.copyWith(invalidAuthenticationErrorText: LoginFormMessages.internalServerError);
+        ref.read(loginFormValidationStateProvider.notifier).state = validationState;
       },
     );
   }
