@@ -32,7 +32,7 @@ class AuthRetrofitDataSource implements IAuthDataSource {
     final response = await retrofit.authenticate(request);
     final statusCode = response.response.statusCode;
 
-    if (statusCode == HttpStatus.accepted) {
+    if (statusCode == HttpStatus.ok) {
       return APIAccepted<IAuthTokenEntity>(AuthTokenModel.fromJson(response.data));
     }
     if (statusCode == HttpStatus.badRequest || statusCode == HttpStatus.unauthorized) {
