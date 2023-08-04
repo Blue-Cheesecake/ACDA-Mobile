@@ -1,1 +1,1 @@
-export 'email_existence_entity.abs.dart';
+export 'iemail_existence_entity.abs.dart';
