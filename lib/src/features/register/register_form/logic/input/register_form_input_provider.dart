@@ -4,5 +4,5 @@ import 'input.dart';
 
 final registerFormInputProvider =
     StateNotifierProvider.autoDispose<RegisterFormInputStateNotifier, RegisterFormInputState>((ref) {
-  return RegisterFormInputStateNotifier();
+  return RegisterFormInputStateNotifier(ref: ref);
 });

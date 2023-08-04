@@ -12,5 +12,7 @@ class RegisterFormInputState with _$RegisterFormInputState {
     int? facultyId,
     XFile? faceImage,
     @Default(false) bool isAllowPDPA,
+    @Default(false) bool isInformationNextButtonEnabled,
+    @Default(false) bool isFaceImageNextButtonEnabled,
   }) = _RegisterFormInputState;
 }
