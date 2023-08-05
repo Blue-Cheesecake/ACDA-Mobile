@@ -24,6 +24,7 @@ mixin _$RegisterFormInputState {
   bool get isAllowPDPA => throw _privateConstructorUsedError;
   bool get isInformationNextButtonEnabled => throw _privateConstructorUsedError;
   bool get isFaceImageNextButtonEnabled => throw _privateConstructorUsedError;
+  RegistrationPage get currentPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterFormInputStateCopyWith<RegisterFormInputState> get copyWith =>
@@ -44,7 +45,8 @@ abstract class $RegisterFormInputStateCopyWith<$Res> {
       XFile? faceImage,
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
-      bool isFaceImageNextButtonEnabled});
+      bool isFaceImageNextButtonEnabled,
+      RegistrationPage currentPage});
 }
 
 /// @nodoc
@@ -69,6 +71,7 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
     Object? isAllowPDPA = null,
     Object? isInformationNextButtonEnabled = null,
     Object? isFaceImageNextButtonEnabled = null,
+    Object? currentPage = null,
   }) {
     return _then(_value.copyWith(
       email: freezed == email
@@ -103,6 +106,10 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
           ? _value.isFaceImageNextButtonEnabled
           : isFaceImageNextButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as RegistrationPage,
     ) as $Val);
   }
 }
@@ -123,7 +130,8 @@ abstract class _$$_RegisterFormInputStateCopyWith<$Res>
       XFile? faceImage,
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
-      bool isFaceImageNextButtonEnabled});
+      bool isFaceImageNextButtonEnabled,
+      RegistrationPage currentPage});
 }
 
 /// @nodoc
@@ -146,6 +154,7 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
     Object? isAllowPDPA = null,
     Object? isInformationNextButtonEnabled = null,
     Object? isFaceImageNextButtonEnabled = null,
+    Object? currentPage = null,
   }) {
     return _then(_$_RegisterFormInputState(
       email: freezed == email
@@ -180,6 +189,10 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
           ? _value.isFaceImageNextButtonEnabled
           : isFaceImageNextButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as RegistrationPage,
     ));
   }
 }
@@ -195,7 +208,8 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
       this.faceImage,
       this.isAllowPDPA = false,
       this.isInformationNextButtonEnabled = false,
-      this.isFaceImageNextButtonEnabled = false});
+      this.isFaceImageNextButtonEnabled = false,
+      this.currentPage = RegistrationPage.info});
 
   @override
   final String? email;
@@ -216,10 +230,13 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
   @override
   @JsonKey()
   final bool isFaceImageNextButtonEnabled;
+  @override
+  @JsonKey()
+  final RegistrationPage currentPage;
 
   @override
   String toString() {
-    return 'RegisterFormInputState(email: $email, password: $password, confirmedPassword: $confirmedPassword, facultyId: $facultyId, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled)';
+    return 'RegisterFormInputState(email: $email, password: $password, confirmedPassword: $confirmedPassword, facultyId: $facultyId, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, currentPage: $currentPage)';
   }
 
   @override
@@ -245,7 +262,9 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
             (identical(other.isFaceImageNextButtonEnabled,
                     isFaceImageNextButtonEnabled) ||
                 other.isFaceImageNextButtonEnabled ==
-                    isFaceImageNextButtonEnabled));
+                    isFaceImageNextButtonEnabled) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
   }
 
   @override
@@ -258,7 +277,8 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
       faceImage,
       isAllowPDPA,
       isInformationNextButtonEnabled,
-      isFaceImageNextButtonEnabled);
+      isFaceImageNextButtonEnabled,
+      currentPage);
 
   @JsonKey(ignore: true)
   @override
@@ -277,7 +297,8 @@ abstract class _RegisterFormInputState implements RegisterFormInputState {
       final XFile? faceImage,
       final bool isAllowPDPA,
       final bool isInformationNextButtonEnabled,
-      final bool isFaceImageNextButtonEnabled}) = _$_RegisterFormInputState;
+      final bool isFaceImageNextButtonEnabled,
+      final RegistrationPage currentPage}) = _$_RegisterFormInputState;
 
   @override
   String? get email;
@@ -295,6 +316,8 @@ abstract class _RegisterFormInputState implements RegisterFormInputState {
   bool get isInformationNextButtonEnabled;
   @override
   bool get isFaceImageNextButtonEnabled;
+  @override
+  RegistrationPage get currentPage;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterFormInputStateCopyWith<_$_RegisterFormInputState> get copyWith =>

@@ -8,6 +8,7 @@ class DesignSystem {
   /// Headers
   ///
   static const double header1Size = 32;
+  static const double header4Size = 24;
   static const double header5Size = 20;
 
   /// Body
@@ -30,7 +31,7 @@ class DesignSystem {
   static const g4 = Color(0xffAAAAAA);
   static const g5 = Color(0xff878787);
   static const g6 = Color(0xff5D5D5D);
-  static const g7 = Color(0xff3D6CB9);
+  static const g7 = Color(0xff001834);
   static const g8 = Color(0xff03C988);
   static const g9 = Color(0xffE21313);
   static const g10 = Color(0xffD5D8DE);
@@ -39,6 +40,8 @@ class DesignSystem {
   static const g13 = Color(0xffdddddd);
   static const g14 = Color(0xffd9d9d9);
   static const g15 = Color(0xff88888c);
+  static const g16 = Color(0xff25253A);
+  static const g17 = Color(0xff49496D);
 
-  static const acdaPrimary = Color(0xff3D6CB9);
+  static const acdaPrimary = Color(0xff001834);
 }
