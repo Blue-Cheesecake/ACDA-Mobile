@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../registration/utils/utils.dart';
 import '../logic.dart';
 
 class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputState> {
@@ -50,5 +51,10 @@ class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputStat
   void updateIsAllowPDPA(bool value) {
     state = state.copyWith(isAllowPDPA: value);
     _checkFaceImageFormValidation();
+  }
+
+  // Current Page
+  void updateCurrentRegistrationPAge(RegistrationPage value) {
+    state = state.copyWith(currentPage: value);
   }
 }
