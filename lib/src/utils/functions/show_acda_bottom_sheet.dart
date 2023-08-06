@@ -1,13 +1,16 @@
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
+import '../../config/config.dart';
+
 void showACDABottomSheet({required BuildContext context, required Widget child}) async {
   await showCupertinoModalBottomSheet(
-    context: context,
-    builder: (context) {
-      return child;
-    },
-    expand: false,
-    isDismissible: true,
-  );
+      context: context,
+      builder: (context) {
+        return child;
+      },
+      expand: false,
+      isDismissible: true,
+      topRadius: const Radius.circular(31),
+      barrierColor: DesignSystem.g0.withOpacity(0.2));
 }

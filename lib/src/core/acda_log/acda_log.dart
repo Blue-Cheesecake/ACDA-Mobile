@@ -15,10 +15,7 @@ class ACDALog {
   static void printDioExceptionMessage(DioException e) {
     ACDALog.print(message: 'Dio Error -> ${e.error}');
     ACDALog.print(message: 'Dio Message -> ${e.message}');
-    ACDALog.print(message: 'Dio URL -> ${e.requestOptions.baseUrl}${e.requestOptions.path}');
     ACDALog.print(message: 'Dio Header -> ${beautifyHeader(e.requestOptions.headers)}');
-    // ACDALog.print(message: 'Dio Data -> ${e.requestOptions.data}');
-    ACDALog.print(message: 'Dio Response -> ${e.response}');
   }
 
   static void printDebug({String? message}) {

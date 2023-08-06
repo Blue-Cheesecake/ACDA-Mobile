@@ -26,4 +26,12 @@ class ButtonStyles {
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
         splashFactory: NoSplash.splashFactory,
       );
+
+  static ButtonStyle nextFormButtonStyle({Color? color}) => ElevatedButton.styleFrom(
+        backgroundColor: color,
+        padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        elevation: 0,
+        splashFactory: NoSplash.splashFactory,
+      );
 }

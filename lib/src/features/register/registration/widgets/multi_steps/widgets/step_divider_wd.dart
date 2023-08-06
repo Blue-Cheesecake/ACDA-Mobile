@@ -4,7 +4,7 @@ import '../../../../../../config/config.dart';
 import '../utils/utils.dart';
 
 class StepDividerWD extends StatelessWidget {
-  const StepDividerWD({Key? key, required this.status}) : super(key: key);
+  const StepDividerWD({required this.status, Key? key}) : super(key: key);
 
   final StepStatus status;
 

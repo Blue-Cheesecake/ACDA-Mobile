@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../config/config.dart';
+import '../../core/core.dart';
+import 'register_form/register_form.dart';
 import 'registration/registration.dart';
+import 'registration/widgets/widgets.dart';
 import 'utils/utils.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -29,9 +33,29 @@ class RegisterPage extends StatelessWidget {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(31)),
           ),
+          leading: Consumer(
+            builder: (_, ref, __) => BackButton(
+              onPressed: () {
+                final currentPage = ref.watch(registerFormInputProvider.select((value) => value.currentPage));
+
+                switch (currentPage) {
+                  case RegistrationPage.info:
+                    ACDANavigation.instance.pop();
+                    break;
+                  case RegistrationPage.faceImage:
+                    ref.read(registerFormInputProvider.notifier).updateCurrentRegistrationPage(RegistrationPage.info);
+                    break;
+                  case RegistrationPage.completion:
+                    ACDANavigation.instance.go(RoutePath.login);
+                    break;
+                }
+              },
+            ),
+          ),
         ),
       ),
       body: const RegistrationWD(),
+      floatingActionButton: const RegisterNextButtonWD(),
     );
   }
 }

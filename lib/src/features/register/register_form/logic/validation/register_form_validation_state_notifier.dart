@@ -16,14 +16,22 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
       invalidFaceImageInstructionText: state.invalidFaceImageInstructionText,
     );
 
-    if (input.email == null || input.email!.isEmpty) {
+    if (input.emailName == null || input.emailName!.isEmpty) {
       isValid = false;
     }
-    if (input.facultyId == null) {
+    if (input.faculty == null) {
       isValid = false;
     }
     if (input.password == null || input.password!.isEmpty) {
       isValid = false;
+    }
+    if (input.password != null && input.password!.length < 7) {
+      isValid = false;
+      state = state.copyWith(passwordErrorText: RegisterFormMessages.invalidPasswordLength);
+    }
+    if (input.password != null && input.password!.contains(' ')) {
+      isValid = false;
+      state = state.copyWith(passwordErrorText: RegisterFormMessages.invalidPasswordChars);
     }
     if (input.confirmedPassword == null || input.confirmedPassword!.isEmpty) {
       isValid = false;
@@ -39,7 +47,10 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
   Future<bool> isFaceImageFormValid() async {
     bool isValid = true;
     final input = ref.read(registerFormInputProvider);
-    state = RegisterFormValidationState(confirmedPasswordErrorText: state.confirmedPasswordErrorText);
+    state = RegisterFormValidationState(
+      passwordErrorText: state.passwordErrorText,
+      confirmedPasswordErrorText: state.confirmedPasswordErrorText,
+    );
 
     if (input.faceImage == null) {
       isValid = false;

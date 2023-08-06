@@ -13,9 +13,8 @@ class DioClient {
     Dio dio = Dio(BaseOptions(
       baseUrl: AppConfig.instance.apiURL,
       contentType: 'application/json',
-    ));
-
-    dio.interceptors.addAll([CustomHeadersInterceptor(), LoggingInterceptor()]);
+    ))
+      ..interceptors.addAll([CustomHeadersInterceptor(), LoggingInterceptor()]);
 
     return dio;
   }
