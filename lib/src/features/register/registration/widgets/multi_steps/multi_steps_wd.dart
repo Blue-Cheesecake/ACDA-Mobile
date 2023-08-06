@@ -35,7 +35,7 @@ class MultiStepsWD extends ConsumerWidget {
           ),
 
           const SizedBox(width: 7),
-          StepDividerWD(status: ref.watch(multiStepStateProvider.select((value) => value.info))),
+          StepDividerWD(status: ref.watch(multiStepStateProvider.select((value) => value.completion))),
           const SizedBox(width: 7),
 
           // Completed

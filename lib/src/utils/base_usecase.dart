@@ -19,7 +19,6 @@ abstract class BaseUseCase<P, R> {
       final response = await call(params);
 
       ACDALog.printDebug(message: 'Successfully Called UseCase');
-      ACDALog.printDebug(message: 'Response: $response');
 
       return Success(response);
     } catch (e) {
@@ -31,9 +30,9 @@ abstract class BaseUseCase<P, R> {
       }
 
       if (await networkManager.isConnected) {
-        ACDALog.printDebug(message: 'Server Error');
         return Failure(ServerException());
       }
+
       ACDALog.printDebug(message: 'Internet is not connected');
       return Failure(InternetConnectionException());
     }

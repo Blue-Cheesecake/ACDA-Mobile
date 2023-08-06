@@ -15,7 +15,8 @@ final getFacultiesUseCaseProvider = Provider.autoDispose<GetFacultiesUseCase>((r
 });
 
 // State Provider
-final facultyListProvider = StateNotifierProvider.autoDispose<FacultyListStateNotifier, FacultyListState>((ref) {
+final facultyListProvider =
+    StateNotifierProvider.autoDispose.family<FacultyListStateNotifier, FacultyListState, String>((ref, key) {
   final getFacultiesUseCase = ref.watch(getFacultiesUseCaseProvider);
   return FacultyListStateNotifier(getFacultiesUseCase: getFacultiesUseCase);
 });

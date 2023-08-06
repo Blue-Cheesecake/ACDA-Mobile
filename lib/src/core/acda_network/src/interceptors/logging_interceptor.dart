@@ -14,7 +14,6 @@ class LoggingInterceptor extends InterceptorsWrapper {
               'Response Details:\nStatus Code: ${response.statusCode}\nRequest: ${response.requestOptions.method} ${response.requestOptions.uri}\nHeaders: ${response.headers}\nData: ${jsonEncode(response.data)}');
     }
     handler.next(response);
-    return handler.next(response);
   }
 
   @override

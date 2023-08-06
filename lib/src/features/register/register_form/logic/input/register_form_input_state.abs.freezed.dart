@@ -16,10 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterFormInputState {
-  String? get email => throw _privateConstructorUsedError;
+  String? get emailName => throw _privateConstructorUsedError;
+  String? get emailDomain => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get confirmedPassword => throw _privateConstructorUsedError;
-  int? get facultyId => throw _privateConstructorUsedError;
+  ICommonCategoryValueEntity? get faculty => throw _privateConstructorUsedError;
   XFile? get faceImage => throw _privateConstructorUsedError;
   bool get isAllowPDPA => throw _privateConstructorUsedError;
   bool get isInformationNextButtonEnabled => throw _privateConstructorUsedError;
@@ -38,10 +39,11 @@ abstract class $RegisterFormInputStateCopyWith<$Res> {
       _$RegisterFormInputStateCopyWithImpl<$Res, RegisterFormInputState>;
   @useResult
   $Res call(
-      {String? email,
+      {String? emailName,
+      String? emailDomain,
       String? password,
       String? confirmedPassword,
-      int? facultyId,
+      ICommonCategoryValueEntity? faculty,
       XFile? faceImage,
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
@@ -63,10 +65,11 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? emailName = freezed,
+    Object? emailDomain = freezed,
     Object? password = freezed,
     Object? confirmedPassword = freezed,
-    Object? facultyId = freezed,
+    Object? faculty = freezed,
     Object? faceImage = freezed,
     Object? isAllowPDPA = null,
     Object? isInformationNextButtonEnabled = null,
@@ -74,9 +77,13 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
     Object? currentPage = null,
   }) {
     return _then(_value.copyWith(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      emailName: freezed == emailName
+          ? _value.emailName
+          : emailName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emailDomain: freezed == emailDomain
+          ? _value.emailDomain
+          : emailDomain // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -86,10 +93,10 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
           ? _value.confirmedPassword
           : confirmedPassword // ignore: cast_nullable_to_non_nullable
               as String?,
-      facultyId: freezed == facultyId
-          ? _value.facultyId
-          : facultyId // ignore: cast_nullable_to_non_nullable
-              as int?,
+      faculty: freezed == faculty
+          ? _value.faculty
+          : faculty // ignore: cast_nullable_to_non_nullable
+              as ICommonCategoryValueEntity?,
       faceImage: freezed == faceImage
           ? _value.faceImage
           : faceImage // ignore: cast_nullable_to_non_nullable
@@ -123,10 +130,11 @@ abstract class _$$_RegisterFormInputStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? email,
+      {String? emailName,
+      String? emailDomain,
       String? password,
       String? confirmedPassword,
-      int? facultyId,
+      ICommonCategoryValueEntity? faculty,
       XFile? faceImage,
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
@@ -146,10 +154,11 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? emailName = freezed,
+    Object? emailDomain = freezed,
     Object? password = freezed,
     Object? confirmedPassword = freezed,
-    Object? facultyId = freezed,
+    Object? faculty = freezed,
     Object? faceImage = freezed,
     Object? isAllowPDPA = null,
     Object? isInformationNextButtonEnabled = null,
@@ -157,9 +166,13 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
     Object? currentPage = null,
   }) {
     return _then(_$_RegisterFormInputState(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      emailName: freezed == emailName
+          ? _value.emailName
+          : emailName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emailDomain: freezed == emailDomain
+          ? _value.emailDomain
+          : emailDomain // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -169,10 +182,10 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
           ? _value.confirmedPassword
           : confirmedPassword // ignore: cast_nullable_to_non_nullable
               as String?,
-      facultyId: freezed == facultyId
-          ? _value.facultyId
-          : facultyId // ignore: cast_nullable_to_non_nullable
-              as int?,
+      faculty: freezed == faculty
+          ? _value.faculty
+          : faculty // ignore: cast_nullable_to_non_nullable
+              as ICommonCategoryValueEntity?,
       faceImage: freezed == faceImage
           ? _value.faceImage
           : faceImage // ignore: cast_nullable_to_non_nullable
@@ -199,26 +212,30 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RegisterFormInputState implements _RegisterFormInputState {
+class _$_RegisterFormInputState extends _RegisterFormInputState {
   _$_RegisterFormInputState(
-      {this.email,
+      {this.emailName,
+      this.emailDomain,
       this.password,
       this.confirmedPassword,
-      this.facultyId,
+      this.faculty,
       this.faceImage,
       this.isAllowPDPA = false,
       this.isInformationNextButtonEnabled = false,
       this.isFaceImageNextButtonEnabled = false,
-      this.currentPage = RegistrationPage.info});
+      this.currentPage = RegistrationPage.info})
+      : super._();
 
   @override
-  final String? email;
+  final String? emailName;
+  @override
+  final String? emailDomain;
   @override
   final String? password;
   @override
   final String? confirmedPassword;
   @override
-  final int? facultyId;
+  final ICommonCategoryValueEntity? faculty;
   @override
   final XFile? faceImage;
   @override
@@ -236,7 +253,7 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
 
   @override
   String toString() {
-    return 'RegisterFormInputState(email: $email, password: $password, confirmedPassword: $confirmedPassword, facultyId: $facultyId, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, currentPage: $currentPage)';
+    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, currentPage: $currentPage)';
   }
 
   @override
@@ -244,13 +261,15 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterFormInputState &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.emailName, emailName) ||
+                other.emailName == emailName) &&
+            (identical(other.emailDomain, emailDomain) ||
+                other.emailDomain == emailDomain) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.confirmedPassword, confirmedPassword) ||
                 other.confirmedPassword == confirmedPassword) &&
-            (identical(other.facultyId, facultyId) ||
-                other.facultyId == facultyId) &&
+            (identical(other.faculty, faculty) || other.faculty == faculty) &&
             (identical(other.faceImage, faceImage) ||
                 other.faceImage == faceImage) &&
             (identical(other.isAllowPDPA, isAllowPDPA) ||
@@ -270,10 +289,11 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      email,
+      emailName,
+      emailDomain,
       password,
       confirmedPassword,
-      facultyId,
+      faculty,
       faceImage,
       isAllowPDPA,
       isInformationNextButtonEnabled,
@@ -288,26 +308,30 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
           this, _$identity);
 }
 
-abstract class _RegisterFormInputState implements RegisterFormInputState {
+abstract class _RegisterFormInputState extends RegisterFormInputState {
   factory _RegisterFormInputState(
-      {final String? email,
+      {final String? emailName,
+      final String? emailDomain,
       final String? password,
       final String? confirmedPassword,
-      final int? facultyId,
+      final ICommonCategoryValueEntity? faculty,
       final XFile? faceImage,
       final bool isAllowPDPA,
       final bool isInformationNextButtonEnabled,
       final bool isFaceImageNextButtonEnabled,
       final RegistrationPage currentPage}) = _$_RegisterFormInputState;
+  _RegisterFormInputState._() : super._();
 
   @override
-  String? get email;
+  String? get emailName;
+  @override
+  String? get emailDomain;
   @override
   String? get password;
   @override
   String? get confirmedPassword;
   @override
-  int? get facultyId;
+  ICommonCategoryValueEntity? get faculty;
   @override
   XFile? get faceImage;
   @override

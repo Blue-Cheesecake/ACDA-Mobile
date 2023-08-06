@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterFormValidationState {
+  String? get passwordErrorText => throw _privateConstructorUsedError;
   String? get confirmedPasswordErrorText => throw _privateConstructorUsedError;
   String? get invalidFaceImageErrorText => throw _privateConstructorUsedError;
   String? get invalidFaceImageInstructionText =>
@@ -35,7 +36,8 @@ abstract class $RegisterFormValidationStateCopyWith<$Res> {
           RegisterFormValidationState>;
   @useResult
   $Res call(
-      {String? confirmedPasswordErrorText,
+      {String? passwordErrorText,
+      String? confirmedPasswordErrorText,
       String? invalidFaceImageErrorText,
       String? invalidFaceImageInstructionText});
 }
@@ -54,11 +56,16 @@ class _$RegisterFormValidationStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? passwordErrorText = freezed,
     Object? confirmedPasswordErrorText = freezed,
     Object? invalidFaceImageErrorText = freezed,
     Object? invalidFaceImageInstructionText = freezed,
   }) {
     return _then(_value.copyWith(
+      passwordErrorText: freezed == passwordErrorText
+          ? _value.passwordErrorText
+          : passwordErrorText // ignore: cast_nullable_to_non_nullable
+              as String?,
       confirmedPasswordErrorText: freezed == confirmedPasswordErrorText
           ? _value.confirmedPasswordErrorText
           : confirmedPasswordErrorText // ignore: cast_nullable_to_non_nullable
@@ -86,7 +93,8 @@ abstract class _$$_RegisterFormValidationStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? confirmedPasswordErrorText,
+      {String? passwordErrorText,
+      String? confirmedPasswordErrorText,
       String? invalidFaceImageErrorText,
       String? invalidFaceImageInstructionText});
 }
@@ -104,11 +112,16 @@ class __$$_RegisterFormValidationStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? passwordErrorText = freezed,
     Object? confirmedPasswordErrorText = freezed,
     Object? invalidFaceImageErrorText = freezed,
     Object? invalidFaceImageInstructionText = freezed,
   }) {
     return _then(_$_RegisterFormValidationState(
+      passwordErrorText: freezed == passwordErrorText
+          ? _value.passwordErrorText
+          : passwordErrorText // ignore: cast_nullable_to_non_nullable
+              as String?,
       confirmedPasswordErrorText: freezed == confirmedPasswordErrorText
           ? _value.confirmedPasswordErrorText
           : confirmedPasswordErrorText // ignore: cast_nullable_to_non_nullable
@@ -130,10 +143,13 @@ class __$$_RegisterFormValidationStateCopyWithImpl<$Res>
 
 class _$_RegisterFormValidationState implements _RegisterFormValidationState {
   _$_RegisterFormValidationState(
-      {this.confirmedPasswordErrorText,
+      {this.passwordErrorText,
+      this.confirmedPasswordErrorText,
       this.invalidFaceImageErrorText,
       this.invalidFaceImageInstructionText});
 
+  @override
+  final String? passwordErrorText;
   @override
   final String? confirmedPasswordErrorText;
   @override
@@ -143,7 +159,7 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
 
   @override
   String toString() {
-    return 'RegisterFormValidationState(confirmedPasswordErrorText: $confirmedPasswordErrorText, invalidFaceImageErrorText: $invalidFaceImageErrorText, invalidFaceImageInstructionText: $invalidFaceImageInstructionText)';
+    return 'RegisterFormValidationState(passwordErrorText: $passwordErrorText, confirmedPasswordErrorText: $confirmedPasswordErrorText, invalidFaceImageErrorText: $invalidFaceImageErrorText, invalidFaceImageInstructionText: $invalidFaceImageInstructionText)';
   }
 
   @override
@@ -151,6 +167,8 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterFormValidationState &&
+            (identical(other.passwordErrorText, passwordErrorText) ||
+                other.passwordErrorText == passwordErrorText) &&
             (identical(other.confirmedPasswordErrorText,
                     confirmedPasswordErrorText) ||
                 other.confirmedPasswordErrorText ==
@@ -165,8 +183,12 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, confirmedPasswordErrorText,
-      invalidFaceImageErrorText, invalidFaceImageInstructionText);
+  int get hashCode => Object.hash(
+      runtimeType,
+      passwordErrorText,
+      confirmedPasswordErrorText,
+      invalidFaceImageErrorText,
+      invalidFaceImageInstructionText);
 
   @JsonKey(ignore: true)
   @override
@@ -179,11 +201,14 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
 abstract class _RegisterFormValidationState
     implements RegisterFormValidationState {
   factory _RegisterFormValidationState(
-          {final String? confirmedPasswordErrorText,
+          {final String? passwordErrorText,
+          final String? confirmedPasswordErrorText,
           final String? invalidFaceImageErrorText,
           final String? invalidFaceImageInstructionText}) =
       _$_RegisterFormValidationState;
 
+  @override
+  String? get passwordErrorText;
   @override
   String? get confirmedPasswordErrorText;
   @override
