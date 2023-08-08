@@ -19,6 +19,7 @@ class ACDATextField extends StatelessWidget {
     this.hintText,
     this.inputTextStyle,
     this.obsecureText = false,
+    this.errorTextStyle,
   }) : super(key: key);
 
   final String? labelText;
@@ -35,6 +36,7 @@ class ACDATextField extends StatelessWidget {
   final String? hintText;
   final TextStyle? inputTextStyle;
   final bool obsecureText;
+  final TextStyle? errorTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +59,7 @@ class ACDATextField extends StatelessWidget {
           prefixIconColor: MaterialStateColor.resolveWith(
               (states) => states.contains(MaterialState.focused) ? DesignSystem.acdaPrimary : DesignSystem.g15),
           errorText: errorText,
+          errorStyle: errorTextStyle,
           filled: backgroundColor != null,
           fillColor: backgroundColor,
           focusColor: DesignSystem.acdaPrimary,

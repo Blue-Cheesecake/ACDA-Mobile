@@ -6,6 +6,7 @@ import '../../../../../core/core.dart';
 import '../../../../../utils/utils.dart';
 import '../../../register_form/register_form.dart';
 import '../../utils/utils.dart';
+import '../widgets.dart';
 import 'utils/utils.dart';
 
 class RegisterNextButtonWD extends ConsumerWidget {
@@ -33,7 +34,7 @@ class RegisterNextButtonWD extends ConsumerWidget {
     final currentPage = ref.watch(registerFormInputProvider.select((value) => value.currentPage));
 
     if (currentPage == RegistrationPage.info && _isButtonEnabled(ref)) {
-      ref.read(registerFormInputProvider.notifier).updateCurrentRegistrationPage(RegistrationPage.faceImage);
+      ref.read(emailExistenceProvider.notifier).checkEmailExistence();
     }
     if (currentPage == RegistrationPage.faceImage && _isButtonEnabled(ref)) {
       ref.read(registerFormInputProvider.notifier).updateCurrentRegistrationPage(RegistrationPage.completion);

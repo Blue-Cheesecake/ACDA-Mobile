@@ -3,6 +3,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../../../utils/utils.dart';
 import '../../../registration/utils/utils.dart';
+import '../../../registration/widgets/face_image_form/face_validation/face_validation.dart';
 import '../../../registration/widgets/widgets.dart';
 import '../logic.dart';
 
@@ -50,8 +51,13 @@ class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputStat
 
   // Face Image Form
 
-  void updateFaceImage(XFile? value) {
+  void updateIsFaceImagePassed(bool value) {
+    state = state.copyWith(isFaceImageAlreadyPassed: value);
+  }
+
+  void updateFaceImage(XFile? value) async {
     state = state.copyWith(faceImage: value);
+    await ref.read(faceValidationProvider.notifier).validate();
     _checkFaceImageFormValidation();
   }
 

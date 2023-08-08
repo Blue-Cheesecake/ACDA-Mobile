@@ -18,6 +18,14 @@ class _PasswordFormWDState extends ConsumerState<PasswordFormWD> {
   final _confirmPasswordController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    _passwordController.text = ref.read(registerFormInputProvider.select((value) => value.password ?? ''));
+    _confirmPasswordController.text =
+        ref.read(registerFormInputProvider.select((value) => value.confirmedPassword ?? ''));
+  }
+
+  @override
   void dispose() {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
@@ -26,10 +34,6 @@ class _PasswordFormWDState extends ConsumerState<PasswordFormWD> {
 
   @override
   Widget build(BuildContext context) {
-    _passwordController.text = ref.watch(registerFormInputProvider.select((value) => value.password ?? ''));
-    _confirmPasswordController.text =
-        ref.watch(registerFormInputProvider.select((value) => value.confirmedPassword ?? ''));
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -18,9 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RegisterFormValidationState {
   String? get passwordErrorText => throw _privateConstructorUsedError;
   String? get confirmedPasswordErrorText => throw _privateConstructorUsedError;
-  String? get invalidFaceImageErrorText => throw _privateConstructorUsedError;
-  String? get invalidFaceImageInstructionText =>
-      throw _privateConstructorUsedError;
+  dynamic get isFaceImageAlreadyPassed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterFormValidationStateCopyWith<RegisterFormValidationState>
@@ -38,8 +36,7 @@ abstract class $RegisterFormValidationStateCopyWith<$Res> {
   $Res call(
       {String? passwordErrorText,
       String? confirmedPasswordErrorText,
-      String? invalidFaceImageErrorText,
-      String? invalidFaceImageInstructionText});
+      dynamic isFaceImageAlreadyPassed});
 }
 
 /// @nodoc
@@ -58,8 +55,7 @@ class _$RegisterFormValidationStateCopyWithImpl<$Res,
   $Res call({
     Object? passwordErrorText = freezed,
     Object? confirmedPasswordErrorText = freezed,
-    Object? invalidFaceImageErrorText = freezed,
-    Object? invalidFaceImageInstructionText = freezed,
+    Object? isFaceImageAlreadyPassed = freezed,
   }) {
     return _then(_value.copyWith(
       passwordErrorText: freezed == passwordErrorText
@@ -70,15 +66,10 @@ class _$RegisterFormValidationStateCopyWithImpl<$Res,
           ? _value.confirmedPasswordErrorText
           : confirmedPasswordErrorText // ignore: cast_nullable_to_non_nullable
               as String?,
-      invalidFaceImageErrorText: freezed == invalidFaceImageErrorText
-          ? _value.invalidFaceImageErrorText
-          : invalidFaceImageErrorText // ignore: cast_nullable_to_non_nullable
-              as String?,
-      invalidFaceImageInstructionText: freezed ==
-              invalidFaceImageInstructionText
-          ? _value.invalidFaceImageInstructionText
-          : invalidFaceImageInstructionText // ignore: cast_nullable_to_non_nullable
-              as String?,
+      isFaceImageAlreadyPassed: freezed == isFaceImageAlreadyPassed
+          ? _value.isFaceImageAlreadyPassed
+          : isFaceImageAlreadyPassed // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -95,8 +86,7 @@ abstract class _$$_RegisterFormValidationStateCopyWith<$Res>
   $Res call(
       {String? passwordErrorText,
       String? confirmedPasswordErrorText,
-      String? invalidFaceImageErrorText,
-      String? invalidFaceImageInstructionText});
+      dynamic isFaceImageAlreadyPassed});
 }
 
 /// @nodoc
@@ -114,8 +104,7 @@ class __$$_RegisterFormValidationStateCopyWithImpl<$Res>
   $Res call({
     Object? passwordErrorText = freezed,
     Object? confirmedPasswordErrorText = freezed,
-    Object? invalidFaceImageErrorText = freezed,
-    Object? invalidFaceImageInstructionText = freezed,
+    Object? isFaceImageAlreadyPassed = freezed,
   }) {
     return _then(_$_RegisterFormValidationState(
       passwordErrorText: freezed == passwordErrorText
@@ -126,15 +115,9 @@ class __$$_RegisterFormValidationStateCopyWithImpl<$Res>
           ? _value.confirmedPasswordErrorText
           : confirmedPasswordErrorText // ignore: cast_nullable_to_non_nullable
               as String?,
-      invalidFaceImageErrorText: freezed == invalidFaceImageErrorText
-          ? _value.invalidFaceImageErrorText
-          : invalidFaceImageErrorText // ignore: cast_nullable_to_non_nullable
-              as String?,
-      invalidFaceImageInstructionText: freezed ==
-              invalidFaceImageInstructionText
-          ? _value.invalidFaceImageInstructionText
-          : invalidFaceImageInstructionText // ignore: cast_nullable_to_non_nullable
-              as String?,
+      isFaceImageAlreadyPassed: freezed == isFaceImageAlreadyPassed
+          ? _value.isFaceImageAlreadyPassed!
+          : isFaceImageAlreadyPassed,
     ));
   }
 }
@@ -145,21 +128,19 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
   _$_RegisterFormValidationState(
       {this.passwordErrorText,
       this.confirmedPasswordErrorText,
-      this.invalidFaceImageErrorText,
-      this.invalidFaceImageInstructionText});
+      this.isFaceImageAlreadyPassed = false});
 
   @override
   final String? passwordErrorText;
   @override
   final String? confirmedPasswordErrorText;
   @override
-  final String? invalidFaceImageErrorText;
-  @override
-  final String? invalidFaceImageInstructionText;
+  @JsonKey()
+  final dynamic isFaceImageAlreadyPassed;
 
   @override
   String toString() {
-    return 'RegisterFormValidationState(passwordErrorText: $passwordErrorText, confirmedPasswordErrorText: $confirmedPasswordErrorText, invalidFaceImageErrorText: $invalidFaceImageErrorText, invalidFaceImageInstructionText: $invalidFaceImageInstructionText)';
+    return 'RegisterFormValidationState(passwordErrorText: $passwordErrorText, confirmedPasswordErrorText: $confirmedPasswordErrorText, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed)';
   }
 
   @override
@@ -173,13 +154,8 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
                     confirmedPasswordErrorText) ||
                 other.confirmedPasswordErrorText ==
                     confirmedPasswordErrorText) &&
-            (identical(other.invalidFaceImageErrorText,
-                    invalidFaceImageErrorText) ||
-                other.invalidFaceImageErrorText == invalidFaceImageErrorText) &&
-            (identical(other.invalidFaceImageInstructionText,
-                    invalidFaceImageInstructionText) ||
-                other.invalidFaceImageInstructionText ==
-                    invalidFaceImageInstructionText));
+            const DeepCollectionEquality().equals(
+                other.isFaceImageAlreadyPassed, isFaceImageAlreadyPassed));
   }
 
   @override
@@ -187,8 +163,7 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
       runtimeType,
       passwordErrorText,
       confirmedPasswordErrorText,
-      invalidFaceImageErrorText,
-      invalidFaceImageInstructionText);
+      const DeepCollectionEquality().hash(isFaceImageAlreadyPassed));
 
   @JsonKey(ignore: true)
   @override
@@ -201,20 +176,16 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
 abstract class _RegisterFormValidationState
     implements RegisterFormValidationState {
   factory _RegisterFormValidationState(
-          {final String? passwordErrorText,
-          final String? confirmedPasswordErrorText,
-          final String? invalidFaceImageErrorText,
-          final String? invalidFaceImageInstructionText}) =
-      _$_RegisterFormValidationState;
+      {final String? passwordErrorText,
+      final String? confirmedPasswordErrorText,
+      final dynamic isFaceImageAlreadyPassed}) = _$_RegisterFormValidationState;
 
   @override
   String? get passwordErrorText;
   @override
   String? get confirmedPasswordErrorText;
   @override
-  String? get invalidFaceImageErrorText;
-  @override
-  String? get invalidFaceImageInstructionText;
+  dynamic get isFaceImageAlreadyPassed;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterFormValidationStateCopyWith<_$_RegisterFormValidationState>

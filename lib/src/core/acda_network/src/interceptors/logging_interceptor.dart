@@ -17,6 +17,15 @@ class LoggingInterceptor extends InterceptorsWrapper {
   }
 
   @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    if (_enabledLogging) {
+      ACDALog.printDebug(message: 'Request Body: ${options.data}');
+    }
+
+    handler.next(options);
+  }
+
+  @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     if (_enabledLogging) {
       ACDALog.printDebug(
