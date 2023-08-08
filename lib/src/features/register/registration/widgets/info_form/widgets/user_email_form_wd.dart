@@ -18,6 +18,12 @@ class _UserEmailFormWDState extends ConsumerState<UserEmailFormWD> {
   final _focusNode = FocusNode();
 
   @override
+  void initState() {
+    super.initState();
+    _emailController.text = ref.read(registerFormInputProvider.select((value) => value.emailName ?? ''));
+  }
+
+  @override
   void dispose() {
     _emailController.dispose();
     _focusNode.dispose();
@@ -26,8 +32,6 @@ class _UserEmailFormWDState extends ConsumerState<UserEmailFormWD> {
 
   @override
   Widget build(BuildContext context) {
-    _emailController.text = ref.watch(registerFormInputProvider.select((value) => value.emailName ?? ''));
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,

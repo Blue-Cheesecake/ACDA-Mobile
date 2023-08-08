@@ -1,14 +1,35 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 
 import '../../../../../config/config.dart';
+import '../../../../../utils/utils.dart';
+import 'info_form.dart';
 import 'utils/utils.dart';
 import 'widgets/widgets.dart';
 
-class InfoFormWD extends StatelessWidget {
+class InfoFormWD extends ConsumerWidget {
   const InfoFormWD({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(emailExistenceProvider).whenOrNull(
+      loading: () {
+        context.loaderOverlay.show();
+      },
+      data: (isExist) {
+        context.loaderOverlay.hide();
+        if (isExist) {
+          Future.delayed(Duration.zero, () {
+            showACDAPopupFN(context: context, popup: const DuplicatedEmailAlertPopupWD());
+          });
+        }
+      },
+      error: () {
+        context.loaderOverlay.hide();
+      },
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,

@@ -10,4 +10,9 @@ class InfoFormMessages {
   static const passwordInstruction = 'Number and Special Character are allowed to use.\nNo Spacer.';
   static const facultyTitle = 'Faculty';
   static const emailDomainNameTitle = 'Domain Name';
+
+  // Error Popup Messages
+  static const popupTitle = 'Alert';
+  static const content = 'This email is already in used.\nPlease use other emails.';
+  static const confirm = 'confirm';
 }
