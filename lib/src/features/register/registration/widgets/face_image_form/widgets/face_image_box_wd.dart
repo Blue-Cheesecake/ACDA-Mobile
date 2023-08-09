@@ -10,6 +10,7 @@ import '../../../../../../config/config.dart';
 import '../../../../../../core/core.dart';
 import '../../../../../../utils/utils.dart';
 import '../../../../register_form/register_form.dart';
+import '../../../registration.dart';
 import '../face_validation/face_validation.dart';
 import '../utils/utils.dart';
 
@@ -85,6 +86,29 @@ class FaceImageBoxWD extends ConsumerWidget {
       unknownError: () {
         borderColor = DesignSystem.g9;
         if (context.mounted) {
+          context.loaderOverlay.hide();
+        }
+      },
+    );
+
+    ref.watch(registrationStateProvider).when(
+      initial: () {
+        if (context.mounted && context.loaderOverlay.visible) {
+          context.loaderOverlay.hide();
+        }
+      },
+      loading: () {
+        if (context.mounted && !context.loaderOverlay.visible) {
+          context.loaderOverlay.show();
+        }
+      },
+      success: () {
+        if (context.mounted && context.loaderOverlay.visible) {
+          context.loaderOverlay.hide();
+        }
+      },
+      error: () {
+        if (context.mounted && context.loaderOverlay.visible) {
           context.loaderOverlay.hide();
         }
       },

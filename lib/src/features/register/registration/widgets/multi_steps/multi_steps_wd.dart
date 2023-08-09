@@ -12,6 +12,7 @@ class MultiStepsWD extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
       decoration: const BoxDecoration(
         color: DesignSystem.g1,
         borderRadius: BorderRadius.all(Radius.circular(99)),

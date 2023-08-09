@@ -1,11 +1,12 @@
 import 'dart:io';
 
-import 'package:acda_mobile/src/features/register/registration/registration.dart';
-import 'package:acda_mobile/src/utils/api_response.dart';
-import 'package:acda_mobile/src/utils/models/api_simple_message_model.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../../../../../utils/utils.dart';
+import '../../utils/utils.dart';
+import '../data.dart';
 
 part 'registration_retrofit_datasource.g.dart';
 
@@ -14,7 +15,7 @@ abstract class RegistrationRetrofit {
   @factoryMethod
   factory RegistrationRetrofit(Dio dio) => _RegistrationRetrofit(dio);
 
-  @GET(RegistrationBaseURLAPI.register)
+  @POST(RegistrationBaseURLAPI.register)
   Future<HttpResponse> register({@Body() required RegistrationRequestModel body});
 }
 

@@ -26,7 +26,7 @@ class _RegistrationRetrofit implements RegistrationRetrofit {
     final _data = body;
     final _result =
         await _dio.fetch(_setStreamType<HttpResponse<dynamic>>(Options(
-      method: 'GET',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
