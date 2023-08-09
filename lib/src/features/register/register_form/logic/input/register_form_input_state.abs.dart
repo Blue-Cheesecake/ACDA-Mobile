@@ -22,6 +22,7 @@ class RegisterFormInputState with _$RegisterFormInputState {
     @Default(false) bool isFaceImageNextButtonEnabled,
     @Default(false) isFaceImageAlreadyPassed,
     @Default(RegistrationPage.info) RegistrationPage currentPage,
+    @Default(0.0) final double completeButtonScale,
   }) = _RegisterFormInputState;
 
   String get email => (emailName ?? '') + (emailDomain ?? '');

@@ -66,6 +66,10 @@ class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputStat
     _checkFaceImageFormValidation();
   }
 
+  void updateRegisterNextButtonScale(double value) {
+    state = state.copyWith(completeButtonScale: value);
+  }
+
   // Current Page
   void updateCurrentRegistrationPage(RegistrationPage value) {
     switch (value) {

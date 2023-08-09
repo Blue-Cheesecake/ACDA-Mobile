@@ -27,6 +27,7 @@ mixin _$RegisterFormInputState {
   bool get isFaceImageNextButtonEnabled => throw _privateConstructorUsedError;
   dynamic get isFaceImageAlreadyPassed => throw _privateConstructorUsedError;
   RegistrationPage get currentPage => throw _privateConstructorUsedError;
+  double get completeButtonScale => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterFormInputStateCopyWith<RegisterFormInputState> get copyWith =>
@@ -50,7 +51,8 @@ abstract class $RegisterFormInputStateCopyWith<$Res> {
       bool isInformationNextButtonEnabled,
       bool isFaceImageNextButtonEnabled,
       dynamic isFaceImageAlreadyPassed,
-      RegistrationPage currentPage});
+      RegistrationPage currentPage,
+      double completeButtonScale});
 }
 
 /// @nodoc
@@ -78,6 +80,7 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
     Object? isFaceImageNextButtonEnabled = null,
     Object? isFaceImageAlreadyPassed = freezed,
     Object? currentPage = null,
+    Object? completeButtonScale = null,
   }) {
     return _then(_value.copyWith(
       emailName: freezed == emailName
@@ -124,6 +127,10 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as RegistrationPage,
+      completeButtonScale: null == completeButtonScale
+          ? _value.completeButtonScale
+          : completeButtonScale // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -147,7 +154,8 @@ abstract class _$$_RegisterFormInputStateCopyWith<$Res>
       bool isInformationNextButtonEnabled,
       bool isFaceImageNextButtonEnabled,
       dynamic isFaceImageAlreadyPassed,
-      RegistrationPage currentPage});
+      RegistrationPage currentPage,
+      double completeButtonScale});
 }
 
 /// @nodoc
@@ -173,6 +181,7 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
     Object? isFaceImageNextButtonEnabled = null,
     Object? isFaceImageAlreadyPassed = freezed,
     Object? currentPage = null,
+    Object? completeButtonScale = null,
   }) {
     return _then(_$_RegisterFormInputState(
       emailName: freezed == emailName
@@ -218,6 +227,10 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as RegistrationPage,
+      completeButtonScale: null == completeButtonScale
+          ? _value.completeButtonScale
+          : completeButtonScale // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -236,7 +249,8 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
       this.isInformationNextButtonEnabled = false,
       this.isFaceImageNextButtonEnabled = false,
       this.isFaceImageAlreadyPassed = false,
-      this.currentPage = RegistrationPage.info})
+      this.currentPage = RegistrationPage.info,
+      this.completeButtonScale = 0.0})
       : super._();
 
   @override
@@ -266,10 +280,13 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
   @override
   @JsonKey()
   final RegistrationPage currentPage;
+  @override
+  @JsonKey()
+  final double completeButtonScale;
 
   @override
   String toString() {
-    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed, currentPage: $currentPage)';
+    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed, currentPage: $currentPage, completeButtonScale: $completeButtonScale)';
   }
 
   @override
@@ -301,7 +318,9 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
             const DeepCollectionEquality().equals(
                 other.isFaceImageAlreadyPassed, isFaceImageAlreadyPassed) &&
             (identical(other.currentPage, currentPage) ||
-                other.currentPage == currentPage));
+                other.currentPage == currentPage) &&
+            (identical(other.completeButtonScale, completeButtonScale) ||
+                other.completeButtonScale == completeButtonScale));
   }
 
   @override
@@ -317,7 +336,8 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
       isInformationNextButtonEnabled,
       isFaceImageNextButtonEnabled,
       const DeepCollectionEquality().hash(isFaceImageAlreadyPassed),
-      currentPage);
+      currentPage,
+      completeButtonScale);
 
   @JsonKey(ignore: true)
   @override
@@ -339,7 +359,8 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
       final bool isInformationNextButtonEnabled,
       final bool isFaceImageNextButtonEnabled,
       final dynamic isFaceImageAlreadyPassed,
-      final RegistrationPage currentPage}) = _$_RegisterFormInputState;
+      final RegistrationPage currentPage,
+      final double completeButtonScale}) = _$_RegisterFormInputState;
   _RegisterFormInputState._() : super._();
 
   @override
@@ -364,6 +385,8 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
   dynamic get isFaceImageAlreadyPassed;
   @override
   RegistrationPage get currentPage;
+  @override
+  double get completeButtonScale;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterFormInputStateCopyWith<_$_RegisterFormInputState> get copyWith =>

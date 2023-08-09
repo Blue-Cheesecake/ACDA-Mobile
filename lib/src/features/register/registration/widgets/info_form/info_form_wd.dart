@@ -1,9 +1,12 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 import '../../../../../config/config.dart';
+import '../../../../../core/core.dart';
 import '../../../../../utils/utils.dart';
+import '../../../register_form/register_form.dart';
+import '../../utils/utils.dart';
 import 'info_form.dart';
 import 'utils/utils.dart';
 import 'widgets/widgets.dart';
@@ -53,6 +56,25 @@ class InfoFormWD extends ConsumerWidget {
         ),
         const SizedBox(height: 7),
         const FacultyFormWD(),
+        if (AppConfig.instance.isDev) const SizedBox(height: 7),
+        if (AppConfig.instance.isDev)
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text('Debugging Purpose'),
+                const SizedBox(height: 14),
+                ElevatedButton(
+                  onPressed: () {
+                    ref
+                        .read(registerFormInputProvider.notifier)
+                        .updateCurrentRegistrationPage(RegistrationPage.completion);
+                  },
+                  child: const Text('go to completion page'),
+                ),
+              ],
+            ),
+          )
       ],
     );
   }

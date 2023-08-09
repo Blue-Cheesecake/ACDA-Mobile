@@ -8,16 +8,25 @@ import 'registration/registration.dart';
 import 'registration/widgets/widgets.dart';
 import 'utils/utils.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends ConsumerWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentPage = ref.watch(registerFormInputProvider.select((value) => value.currentPage));
+
+    var borderRadius = 31.0;
+
+    if (currentPage == RegistrationPage.completion) {
+      borderRadius = 0;
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
+          key: ValueKey(borderRadius),
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(0),
             child: Padding(
@@ -31,9 +40,7 @@ class RegisterPage extends StatelessWidget {
               ),
             ),
           ),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(31)),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(bottom: Radius.circular(borderRadius))),
           leading: Consumer(
             builder: (_, ref, __) => BackButton(
               onPressed: () {
@@ -55,7 +62,33 @@ class RegisterPage extends StatelessWidget {
           ),
         ),
       ),
-      body: const RegistrationWD(),
+      body: Consumer(
+        builder: (context, ref, child) {
+          final currentPage = ref.watch(registerFormInputProvider.select((value) => value.currentPage));
+
+          double height = 0.0;
+
+          if (currentPage == RegistrationPage.completion) {
+            height = 226;
+          }
+
+          return Stack(
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 400),
+                width: double.infinity,
+                height: height,
+                decoration: const BoxDecoration(
+                  color: DesignSystem.acdaPrimary,
+                ),
+                curve: Curves.easeInOutQuad,
+              ),
+              child!,
+            ],
+          );
+        },
+        child: const RegistrationWD(),
+      ),
       floatingActionButton: const RegisterNextButtonWD(),
     );
   }
