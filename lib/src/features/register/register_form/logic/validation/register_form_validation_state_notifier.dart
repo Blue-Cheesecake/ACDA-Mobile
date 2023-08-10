@@ -48,7 +48,10 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
   Future<bool> isFaceImageFormValid() async {
     var isValid = true;
 
-    if (!ref.read(registerFormInputProvider.select((value) => value.isFaceImageAlreadyPassed))) {
+    final bool? isFaceImageAlreadyPassed =
+        ref.read(registerFormInputProvider.select((value) => value.isFaceImageAlreadyPassed));
+
+    if (isFaceImageAlreadyPassed == null || !isFaceImageAlreadyPassed) {
       isValid = false;
     }
 
