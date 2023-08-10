@@ -14,6 +14,13 @@ class TextStyles {
         fontStyle: FontStyle.italic,
       );
 
+  static TextStyle get header4 => const TextStyle(
+        color: DesignSystem.g0,
+        fontFamily: DesignSystem.fontFamily,
+        fontSize: DesignSystem.header4Size,
+        fontWeight: FontWeight.bold,
+      );
+
   static TextStyle get header5 => const TextStyle(
         color: DesignSystem.g0,
         fontFamily: DesignSystem.fontFamily,

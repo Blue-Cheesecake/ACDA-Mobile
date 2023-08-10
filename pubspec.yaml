@@ -18,7 +18,7 @@ dependencies:
 
   # Networking
   retrofit: 4.0.1
-  dio: 5.2.1+1
+  dio: 5.3.2
   connectivity_plus: 4.0.1
   internet_connection_checker: 1.0.0+1
 
@@ -41,6 +41,7 @@ dependencies:
   modal_bottom_sheet: 3.0.0-pre
   loader_overlay: 2.2.0
   flutter_secure_storage: 8.0.0
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

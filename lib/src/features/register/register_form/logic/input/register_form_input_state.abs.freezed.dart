@@ -16,14 +16,18 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterFormInputState {
-  String? get email => throw _privateConstructorUsedError;
+  String? get emailName => throw _privateConstructorUsedError;
+  String? get emailDomain => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get confirmedPassword => throw _privateConstructorUsedError;
-  int? get facultyId => throw _privateConstructorUsedError;
+  ICommonCategoryValueEntity? get faculty => throw _privateConstructorUsedError;
   XFile? get faceImage => throw _privateConstructorUsedError;
   bool get isAllowPDPA => throw _privateConstructorUsedError;
   bool get isInformationNextButtonEnabled => throw _privateConstructorUsedError;
   bool get isFaceImageNextButtonEnabled => throw _privateConstructorUsedError;
+  bool? get isFaceImageAlreadyPassed => throw _privateConstructorUsedError;
+  RegistrationPage get currentPage => throw _privateConstructorUsedError;
+  double get completeButtonScale => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterFormInputStateCopyWith<RegisterFormInputState> get copyWith =>
@@ -37,14 +41,18 @@ abstract class $RegisterFormInputStateCopyWith<$Res> {
       _$RegisterFormInputStateCopyWithImpl<$Res, RegisterFormInputState>;
   @useResult
   $Res call(
-      {String? email,
+      {String? emailName,
+      String? emailDomain,
       String? password,
       String? confirmedPassword,
-      int? facultyId,
+      ICommonCategoryValueEntity? faculty,
       XFile? faceImage,
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
-      bool isFaceImageNextButtonEnabled});
+      bool isFaceImageNextButtonEnabled,
+      bool? isFaceImageAlreadyPassed,
+      RegistrationPage currentPage,
+      double completeButtonScale});
 }
 
 /// @nodoc
@@ -61,19 +69,27 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? emailName = freezed,
+    Object? emailDomain = freezed,
     Object? password = freezed,
     Object? confirmedPassword = freezed,
-    Object? facultyId = freezed,
+    Object? faculty = freezed,
     Object? faceImage = freezed,
     Object? isAllowPDPA = null,
     Object? isInformationNextButtonEnabled = null,
     Object? isFaceImageNextButtonEnabled = null,
+    Object? isFaceImageAlreadyPassed = freezed,
+    Object? currentPage = null,
+    Object? completeButtonScale = null,
   }) {
     return _then(_value.copyWith(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      emailName: freezed == emailName
+          ? _value.emailName
+          : emailName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emailDomain: freezed == emailDomain
+          ? _value.emailDomain
+          : emailDomain // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -83,10 +99,10 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
           ? _value.confirmedPassword
           : confirmedPassword // ignore: cast_nullable_to_non_nullable
               as String?,
-      facultyId: freezed == facultyId
-          ? _value.facultyId
-          : facultyId // ignore: cast_nullable_to_non_nullable
-              as int?,
+      faculty: freezed == faculty
+          ? _value.faculty
+          : faculty // ignore: cast_nullable_to_non_nullable
+              as ICommonCategoryValueEntity?,
       faceImage: freezed == faceImage
           ? _value.faceImage
           : faceImage // ignore: cast_nullable_to_non_nullable
@@ -103,6 +119,18 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
           ? _value.isFaceImageNextButtonEnabled
           : isFaceImageNextButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFaceImageAlreadyPassed: freezed == isFaceImageAlreadyPassed
+          ? _value.isFaceImageAlreadyPassed
+          : isFaceImageAlreadyPassed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as RegistrationPage,
+      completeButtonScale: null == completeButtonScale
+          ? _value.completeButtonScale
+          : completeButtonScale // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -116,14 +144,18 @@ abstract class _$$_RegisterFormInputStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? email,
+      {String? emailName,
+      String? emailDomain,
       String? password,
       String? confirmedPassword,
-      int? facultyId,
+      ICommonCategoryValueEntity? faculty,
       XFile? faceImage,
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
-      bool isFaceImageNextButtonEnabled});
+      bool isFaceImageNextButtonEnabled,
+      bool? isFaceImageAlreadyPassed,
+      RegistrationPage currentPage,
+      double completeButtonScale});
 }
 
 /// @nodoc
@@ -138,19 +170,27 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? emailName = freezed,
+    Object? emailDomain = freezed,
     Object? password = freezed,
     Object? confirmedPassword = freezed,
-    Object? facultyId = freezed,
+    Object? faculty = freezed,
     Object? faceImage = freezed,
     Object? isAllowPDPA = null,
     Object? isInformationNextButtonEnabled = null,
     Object? isFaceImageNextButtonEnabled = null,
+    Object? isFaceImageAlreadyPassed = freezed,
+    Object? currentPage = null,
+    Object? completeButtonScale = null,
   }) {
     return _then(_$_RegisterFormInputState(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      emailName: freezed == emailName
+          ? _value.emailName
+          : emailName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emailDomain: freezed == emailDomain
+          ? _value.emailDomain
+          : emailDomain // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -160,10 +200,10 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
           ? _value.confirmedPassword
           : confirmedPassword // ignore: cast_nullable_to_non_nullable
               as String?,
-      facultyId: freezed == facultyId
-          ? _value.facultyId
-          : facultyId // ignore: cast_nullable_to_non_nullable
-              as int?,
+      faculty: freezed == faculty
+          ? _value.faculty
+          : faculty // ignore: cast_nullable_to_non_nullable
+              as ICommonCategoryValueEntity?,
       faceImage: freezed == faceImage
           ? _value.faceImage
           : faceImage // ignore: cast_nullable_to_non_nullable
@@ -180,31 +220,50 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
           ? _value.isFaceImageNextButtonEnabled
           : isFaceImageNextButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFaceImageAlreadyPassed: freezed == isFaceImageAlreadyPassed
+          ? _value.isFaceImageAlreadyPassed
+          : isFaceImageAlreadyPassed // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as RegistrationPage,
+      completeButtonScale: null == completeButtonScale
+          ? _value.completeButtonScale
+          : completeButtonScale // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_RegisterFormInputState implements _RegisterFormInputState {
+class _$_RegisterFormInputState extends _RegisterFormInputState {
   _$_RegisterFormInputState(
-      {this.email,
+      {this.emailName,
+      this.emailDomain,
       this.password,
       this.confirmedPassword,
-      this.facultyId,
+      this.faculty,
       this.faceImage,
       this.isAllowPDPA = false,
       this.isInformationNextButtonEnabled = false,
-      this.isFaceImageNextButtonEnabled = false});
+      this.isFaceImageNextButtonEnabled = false,
+      this.isFaceImageAlreadyPassed,
+      this.currentPage = RegistrationPage.info,
+      this.completeButtonScale = 0.0})
+      : super._();
 
   @override
-  final String? email;
+  final String? emailName;
+  @override
+  final String? emailDomain;
   @override
   final String? password;
   @override
   final String? confirmedPassword;
   @override
-  final int? facultyId;
+  final ICommonCategoryValueEntity? faculty;
   @override
   final XFile? faceImage;
   @override
@@ -216,10 +275,18 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
   @override
   @JsonKey()
   final bool isFaceImageNextButtonEnabled;
+  @override
+  final bool? isFaceImageAlreadyPassed;
+  @override
+  @JsonKey()
+  final RegistrationPage currentPage;
+  @override
+  @JsonKey()
+  final double completeButtonScale;
 
   @override
   String toString() {
-    return 'RegisterFormInputState(email: $email, password: $password, confirmedPassword: $confirmedPassword, facultyId: $facultyId, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled)';
+    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed, currentPage: $currentPage, completeButtonScale: $completeButtonScale)';
   }
 
   @override
@@ -227,13 +294,15 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterFormInputState &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.emailName, emailName) ||
+                other.emailName == emailName) &&
+            (identical(other.emailDomain, emailDomain) ||
+                other.emailDomain == emailDomain) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.confirmedPassword, confirmedPassword) ||
                 other.confirmedPassword == confirmedPassword) &&
-            (identical(other.facultyId, facultyId) ||
-                other.facultyId == facultyId) &&
+            (identical(other.faculty, faculty) || other.faculty == faculty) &&
             (identical(other.faceImage, faceImage) ||
                 other.faceImage == faceImage) &&
             (identical(other.isAllowPDPA, isAllowPDPA) ||
@@ -245,20 +314,31 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
             (identical(other.isFaceImageNextButtonEnabled,
                     isFaceImageNextButtonEnabled) ||
                 other.isFaceImageNextButtonEnabled ==
-                    isFaceImageNextButtonEnabled));
+                    isFaceImageNextButtonEnabled) &&
+            (identical(
+                    other.isFaceImageAlreadyPassed, isFaceImageAlreadyPassed) ||
+                other.isFaceImageAlreadyPassed == isFaceImageAlreadyPassed) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.completeButtonScale, completeButtonScale) ||
+                other.completeButtonScale == completeButtonScale));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      email,
+      emailName,
+      emailDomain,
       password,
       confirmedPassword,
-      facultyId,
+      faculty,
       faceImage,
       isAllowPDPA,
       isInformationNextButtonEnabled,
-      isFaceImageNextButtonEnabled);
+      isFaceImageNextButtonEnabled,
+      isFaceImageAlreadyPassed,
+      currentPage,
+      completeButtonScale);
 
   @JsonKey(ignore: true)
   @override
@@ -268,25 +348,32 @@ class _$_RegisterFormInputState implements _RegisterFormInputState {
           this, _$identity);
 }
 
-abstract class _RegisterFormInputState implements RegisterFormInputState {
+abstract class _RegisterFormInputState extends RegisterFormInputState {
   factory _RegisterFormInputState(
-      {final String? email,
+      {final String? emailName,
+      final String? emailDomain,
       final String? password,
       final String? confirmedPassword,
-      final int? facultyId,
+      final ICommonCategoryValueEntity? faculty,
       final XFile? faceImage,
       final bool isAllowPDPA,
       final bool isInformationNextButtonEnabled,
-      final bool isFaceImageNextButtonEnabled}) = _$_RegisterFormInputState;
+      final bool isFaceImageNextButtonEnabled,
+      final bool? isFaceImageAlreadyPassed,
+      final RegistrationPage currentPage,
+      final double completeButtonScale}) = _$_RegisterFormInputState;
+  _RegisterFormInputState._() : super._();
 
   @override
-  String? get email;
+  String? get emailName;
+  @override
+  String? get emailDomain;
   @override
   String? get password;
   @override
   String? get confirmedPassword;
   @override
-  int? get facultyId;
+  ICommonCategoryValueEntity? get faculty;
   @override
   XFile? get faceImage;
   @override
@@ -295,6 +382,12 @@ abstract class _RegisterFormInputState implements RegisterFormInputState {
   bool get isInformationNextButtonEnabled;
   @override
   bool get isFaceImageNextButtonEnabled;
+  @override
+  bool? get isFaceImageAlreadyPassed;
+  @override
+  RegistrationPage get currentPage;
+  @override
+  double get completeButtonScale;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterFormInputStateCopyWith<_$_RegisterFormInputState> get copyWith =>

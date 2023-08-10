@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../face_validation/face_validation.dart';
 import '../../register_form.dart';
 
 class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormValidationState> {
@@ -11,54 +10,52 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
   bool isInfomrationFormValid() {
     bool isValid = true;
     final input = ref.read(registerFormInputProvider);
-    state = RegisterFormValidationState(
-      invalidFaceImageErrorText: state.invalidFaceImageErrorText,
-      invalidFaceImageInstructionText: state.invalidFaceImageInstructionText,
-    );
 
-    if (input.email == null || input.email!.isEmpty) {
+    var temp = RegisterFormValidationState();
+
+    if (input.emailName == null || input.emailName!.isEmpty) {
       isValid = false;
     }
-    if (input.facultyId == null) {
+    if (input.emailDomain == null || input.emailDomain!.isEmpty) {
+      isValid = false;
+    }
+    if (input.faculty == null) {
       isValid = false;
     }
     if (input.password == null || input.password!.isEmpty) {
       isValid = false;
     }
+    if (input.password != null && input.password!.length < 7) {
+      isValid = false;
+      temp = temp.copyWith(passwordErrorText: RegisterFormMessages.invalidPasswordLength);
+    }
+    if (input.password != null && input.password!.contains(' ')) {
+      isValid = false;
+      temp = temp.copyWith(passwordErrorText: RegisterFormMessages.invalidPasswordChars);
+    }
     if (input.confirmedPassword == null || input.confirmedPassword!.isEmpty) {
       isValid = false;
     }
     if (input.password != input.confirmedPassword) {
-      state = state.copyWith(confirmedPasswordErrorText: RegisterFormMessages.confirmedPasswordError);
+      temp = temp.copyWith(confirmedPasswordErrorText: RegisterFormMessages.confirmedPasswordError);
       isValid = false;
     }
 
+    state = temp;
     return isValid;
   }
 
   Future<bool> isFaceImageFormValid() async {
-    bool isValid = true;
-    final input = ref.read(registerFormInputProvider);
-    state = RegisterFormValidationState(confirmedPasswordErrorText: state.confirmedPasswordErrorText);
+    var isValid = true;
 
-    if (input.faceImage == null) {
+    final bool? isFaceImageAlreadyPassed =
+        ref.read(registerFormInputProvider.select((value) => value.isFaceImageAlreadyPassed));
+
+    if (isFaceImageAlreadyPassed == null || !isFaceImageAlreadyPassed) {
       isValid = false;
-    } else {
-      await ref.read(faceValidationProvider.notifier).validate();
-
-      final response = ref.read(faceValidationProvider);
-      response.whenOrNull(
-        validated: (isPassed) {
-          if (!isPassed) {
-            isValid = false;
-            state = state.copyWith(invalidFaceImageErrorText: RegisterFormMessages.invalidFaceImageError);
-            state = state.copyWith(invalidFaceImageInstructionText: RegisterFormMessages.invalidFaceImageInstruction);
-          }
-        },
-      );
     }
 
-    if (!input.isAllowPDPA) {
+    if (!ref.read(registerFormInputProvider.select((_) => _.isAllowPDPA))) {
       isValid = false;
     }
 
