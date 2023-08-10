@@ -51,8 +51,9 @@ class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputStat
 
   // Face Image Form
 
-  void updateIsFaceImagePassed(bool value) {
+  void updateIsFaceImagePassed(bool? value) {
     state = state.copyWith(isFaceImageAlreadyPassed: value);
+    _checkFaceImageFormValidation();
   }
 
   void updateFaceImage(XFile? value) async {

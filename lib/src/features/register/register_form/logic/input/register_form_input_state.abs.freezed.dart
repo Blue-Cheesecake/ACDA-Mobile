@@ -25,7 +25,7 @@ mixin _$RegisterFormInputState {
   bool get isAllowPDPA => throw _privateConstructorUsedError;
   bool get isInformationNextButtonEnabled => throw _privateConstructorUsedError;
   bool get isFaceImageNextButtonEnabled => throw _privateConstructorUsedError;
-  dynamic get isFaceImageAlreadyPassed => throw _privateConstructorUsedError;
+  bool? get isFaceImageAlreadyPassed => throw _privateConstructorUsedError;
   RegistrationPage get currentPage => throw _privateConstructorUsedError;
   double get completeButtonScale => throw _privateConstructorUsedError;
 
@@ -50,7 +50,7 @@ abstract class $RegisterFormInputStateCopyWith<$Res> {
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
       bool isFaceImageNextButtonEnabled,
-      dynamic isFaceImageAlreadyPassed,
+      bool? isFaceImageAlreadyPassed,
       RegistrationPage currentPage,
       double completeButtonScale});
 }
@@ -122,7 +122,7 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
       isFaceImageAlreadyPassed: freezed == isFaceImageAlreadyPassed
           ? _value.isFaceImageAlreadyPassed
           : isFaceImageAlreadyPassed // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as bool?,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ abstract class _$$_RegisterFormInputStateCopyWith<$Res>
       bool isAllowPDPA,
       bool isInformationNextButtonEnabled,
       bool isFaceImageNextButtonEnabled,
-      dynamic isFaceImageAlreadyPassed,
+      bool? isFaceImageAlreadyPassed,
       RegistrationPage currentPage,
       double completeButtonScale});
 }
@@ -221,8 +221,9 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
           : isFaceImageNextButtonEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       isFaceImageAlreadyPassed: freezed == isFaceImageAlreadyPassed
-          ? _value.isFaceImageAlreadyPassed!
-          : isFaceImageAlreadyPassed,
+          ? _value.isFaceImageAlreadyPassed
+          : isFaceImageAlreadyPassed // ignore: cast_nullable_to_non_nullable
+              as bool?,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -248,7 +249,7 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
       this.isAllowPDPA = false,
       this.isInformationNextButtonEnabled = false,
       this.isFaceImageNextButtonEnabled = false,
-      this.isFaceImageAlreadyPassed = false,
+      this.isFaceImageAlreadyPassed,
       this.currentPage = RegistrationPage.info,
       this.completeButtonScale = 0.0})
       : super._();
@@ -275,8 +276,7 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
   @JsonKey()
   final bool isFaceImageNextButtonEnabled;
   @override
-  @JsonKey()
-  final dynamic isFaceImageAlreadyPassed;
+  final bool? isFaceImageAlreadyPassed;
   @override
   @JsonKey()
   final RegistrationPage currentPage;
@@ -315,8 +315,9 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
                     isFaceImageNextButtonEnabled) ||
                 other.isFaceImageNextButtonEnabled ==
                     isFaceImageNextButtonEnabled) &&
-            const DeepCollectionEquality().equals(
-                other.isFaceImageAlreadyPassed, isFaceImageAlreadyPassed) &&
+            (identical(
+                    other.isFaceImageAlreadyPassed, isFaceImageAlreadyPassed) ||
+                other.isFaceImageAlreadyPassed == isFaceImageAlreadyPassed) &&
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             (identical(other.completeButtonScale, completeButtonScale) ||
@@ -335,7 +336,7 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
       isAllowPDPA,
       isInformationNextButtonEnabled,
       isFaceImageNextButtonEnabled,
-      const DeepCollectionEquality().hash(isFaceImageAlreadyPassed),
+      isFaceImageAlreadyPassed,
       currentPage,
       completeButtonScale);
 
@@ -358,7 +359,7 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
       final bool isAllowPDPA,
       final bool isInformationNextButtonEnabled,
       final bool isFaceImageNextButtonEnabled,
-      final dynamic isFaceImageAlreadyPassed,
+      final bool? isFaceImageAlreadyPassed,
       final RegistrationPage currentPage,
       final double completeButtonScale}) = _$_RegisterFormInputState;
   _RegisterFormInputState._() : super._();
@@ -382,7 +383,7 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
   @override
   bool get isFaceImageNextButtonEnabled;
   @override
-  dynamic get isFaceImageAlreadyPassed;
+  bool? get isFaceImageAlreadyPassed;
   @override
   RegistrationPage get currentPage;
   @override

@@ -11,7 +11,6 @@ import '../../../../../../core/core.dart';
 import '../../../../../../utils/utils.dart';
 import '../../../../register_form/register_form.dart';
 import '../../../registration.dart';
-import '../face_validation/face_validation.dart';
 import '../utils/utils.dart';
 
 class FaceImageBoxWD extends ConsumerWidget {
@@ -19,6 +18,9 @@ class FaceImageBoxWD extends ConsumerWidget {
 
   void _updateCurrentImage({required Future<XFile?> source, required WidgetRef ref}) async {
     final XFile? pickedImage = await source;
+    if (pickedImage == null) {
+      return;
+    }
     ref.read(registerFormInputProvider.notifier).updateFaceImage(pickedImage);
   }
 
@@ -53,43 +55,17 @@ class FaceImageBoxWD extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Color borderColor = DesignSystem.g19;
-    bool? isFaceImagePassed;
 
-    ref.watch(faceValidationProvider).when(
-      initial: () {
-        borderColor = DesignSystem.g19;
-      },
-      loading: () {
-        borderColor = DesignSystem.g19;
-        if (context.mounted) {
-          context.loaderOverlay.show();
-        }
-      },
-      validated: (isPassed) {
-        isFaceImagePassed = isPassed;
-        if (isPassed) {
-          borderColor = DesignSystem.g8;
-        } else {
-          borderColor = DesignSystem.g9;
-        }
+    final bool? isFaceImageAlreadyPassed =
+        ref.watch(registerFormInputProvider.select((value) => value.isFaceImageAlreadyPassed));
 
-        if (context.mounted) {
-          context.loaderOverlay.hide();
-        }
-      },
-      error: (_) {
-        borderColor = DesignSystem.g9;
-        if (context.mounted) {
-          context.loaderOverlay.hide();
-        }
-      },
-      unknownError: () {
-        borderColor = DesignSystem.g9;
-        if (context.mounted) {
-          context.loaderOverlay.hide();
-        }
-      },
-    );
+    if (isFaceImageAlreadyPassed == null) {
+      borderColor = DesignSystem.g19;
+    } else if (isFaceImageAlreadyPassed) {
+      borderColor = DesignSystem.g8;
+    } else {
+      borderColor = DesignSystem.g9;
+    }
 
     ref.watch(registrationStateProvider).when(
       initial: () {
@@ -132,7 +108,7 @@ class FaceImageBoxWD extends ConsumerWidget {
           : _FilledImageContainer(
               onPressed: () => _onTap(context, ref),
               image: imageFile,
-              isPassed: isFaceImagePassed,
+              isPassed: isFaceImageAlreadyPassed,
             ),
     );
   }

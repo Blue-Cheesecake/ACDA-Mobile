@@ -20,7 +20,7 @@ class RegisterFormInputState with _$RegisterFormInputState {
     @Default(false) bool isAllowPDPA,
     @Default(false) bool isInformationNextButtonEnabled,
     @Default(false) bool isFaceImageNextButtonEnabled,
-    @Default(false) isFaceImageAlreadyPassed,
+    bool? isFaceImageAlreadyPassed,
     @Default(RegistrationPage.info) RegistrationPage currentPage,
     @Default(0.0) final double completeButtonScale,
   }) = _RegisterFormInputState;
