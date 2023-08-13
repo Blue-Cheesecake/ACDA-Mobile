@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Result<T, E extends Exception> {
+mixin _$Result<T, E extends AnyException> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T data) success,
@@ -57,14 +57,14 @@ mixin _$Result<T, E extends Exception> {
 }
 
 /// @nodoc
-abstract class $ResultCopyWith<T, E extends Exception, $Res> {
+abstract class $ResultCopyWith<T, E extends AnyException, $Res> {
   factory $ResultCopyWith(
           Result<T, E> value, $Res Function(Result<T, E>) then) =
       _$ResultCopyWithImpl<T, E, $Res, Result<T, E>>;
 }
 
 /// @nodoc
-class _$ResultCopyWithImpl<T, E extends Exception, $Res,
+class _$ResultCopyWithImpl<T, E extends AnyException, $Res,
     $Val extends Result<T, E>> implements $ResultCopyWith<T, E, $Res> {
   _$ResultCopyWithImpl(this._value, this._then);
 
@@ -75,7 +75,7 @@ class _$ResultCopyWithImpl<T, E extends Exception, $Res,
 }
 
 /// @nodoc
-abstract class _$$SuccessCopyWith<T, E extends Exception, $Res> {
+abstract class _$$SuccessCopyWith<T, E extends AnyException, $Res> {
   factory _$$SuccessCopyWith(
           _$Success<T, E> value, $Res Function(_$Success<T, E>) then) =
       __$$SuccessCopyWithImpl<T, E, $Res>;
@@ -84,7 +84,7 @@ abstract class _$$SuccessCopyWith<T, E extends Exception, $Res> {
 }
 
 /// @nodoc
-class __$$SuccessCopyWithImpl<T, E extends Exception, $Res>
+class __$$SuccessCopyWithImpl<T, E extends AnyException, $Res>
     extends _$ResultCopyWithImpl<T, E, $Res, _$Success<T, E>>
     implements _$$SuccessCopyWith<T, E, $Res> {
   __$$SuccessCopyWithImpl(
@@ -107,7 +107,7 @@ class __$$SuccessCopyWithImpl<T, E extends Exception, $Res>
 
 /// @nodoc
 
-class _$Success<T, E extends Exception> implements Success<T, E> {
+class _$Success<T, E extends AnyException> implements Success<T, E> {
   const _$Success(this.data);
 
   @override
@@ -199,7 +199,7 @@ class _$Success<T, E extends Exception> implements Success<T, E> {
   }
 }
 
-abstract class Success<T, E extends Exception> implements Result<T, E> {
+abstract class Success<T, E extends AnyException> implements Result<T, E> {
   const factory Success(final T data) = _$Success<T, E>;
 
   T get data;
@@ -209,7 +209,7 @@ abstract class Success<T, E extends Exception> implements Result<T, E> {
 }
 
 /// @nodoc
-abstract class _$$FailureCopyWith<T, E extends Exception, $Res> {
+abstract class _$$FailureCopyWith<T, E extends AnyException, $Res> {
   factory _$$FailureCopyWith(
           _$Failure<T, E> value, $Res Function(_$Failure<T, E>) then) =
       __$$FailureCopyWithImpl<T, E, $Res>;
@@ -218,7 +218,7 @@ abstract class _$$FailureCopyWith<T, E extends Exception, $Res> {
 }
 
 /// @nodoc
-class __$$FailureCopyWithImpl<T, E extends Exception, $Res>
+class __$$FailureCopyWithImpl<T, E extends AnyException, $Res>
     extends _$ResultCopyWithImpl<T, E, $Res, _$Failure<T, E>>
     implements _$$FailureCopyWith<T, E, $Res> {
   __$$FailureCopyWithImpl(
@@ -241,7 +241,7 @@ class __$$FailureCopyWithImpl<T, E extends Exception, $Res>
 
 /// @nodoc
 
-class _$Failure<T, E extends Exception> implements Failure<T, E> {
+class _$Failure<T, E extends AnyException> implements Failure<T, E> {
   const _$Failure(this.error);
 
   @override
@@ -333,7 +333,7 @@ class _$Failure<T, E extends Exception> implements Failure<T, E> {
   }
 }
 
-abstract class Failure<T, E extends Exception> implements Result<T, E> {
+abstract class Failure<T, E extends AnyException> implements Result<T, E> {
   const factory Failure(final E error) = _$Failure<T, E>;
 
   E get error;

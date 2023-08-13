@@ -1,8 +1,8 @@
 import 'exceptions.dart';
 
 final class ServerException implements AnyException {
-  ServerException({this.messages, this.code});
+  ServerException({this.messages});
 
-  final String? messages;
-  final int? code;
+  @override
+  String? messages;
 }

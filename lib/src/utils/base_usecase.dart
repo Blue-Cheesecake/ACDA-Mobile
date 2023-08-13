@@ -10,7 +10,7 @@ abstract class BaseUseCase<P, R> {
   @protected
   Future<R> call(P params);
 
-  Future<Result<R, Exception>> execute(P params) async {
+  Future<Result<R, AnyException>> execute(P params) async {
     final networkManager = ACDANetworkManager();
 
     try {
@@ -26,7 +26,19 @@ abstract class BaseUseCase<P, R> {
       ACDALog.printDebug(message: '$e');
 
       if (e is DioException) {
-        ACDALog.printDioExceptionMessage(e);
+        final Response<dynamic>? response = e.response;
+
+        if (response?.data == null) {
+          return Failure(ClientException());
+        }
+
+        final Map<String, dynamic> responseString = response?.data as Map<String, dynamic>;
+
+        if (!responseString.containsKey('message')) {
+          return Failure(ClientException());
+        }
+        final simpleMessage = APISimpleMessageModel.fromJson(response?.data);
+        return Failure(ClientException(messages: simpleMessage.message));
       }
 
       if (await networkManager.isConnected) {

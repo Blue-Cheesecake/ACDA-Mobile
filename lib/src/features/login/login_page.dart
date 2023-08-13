@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/core.dart';
+import 'utils/utils.dart';
+import 'widgets/widgets.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -8,12 +9,34 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: TextButton(
-            onPressed: () {
-              ACDANavigation.instance.push(RoutePath.register);
-            },
-            child: const Text('Sign Up')),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: LoginFormAssets.background,
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 26),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const LoginTitleWD(),
+                const Column(
+                  children: [
+                    LoginFormWD(),
+                    SizedBox(height: 41),
+                    LoginAlternativeOptionWD(),
+                  ],
+                ),
+                Container(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
