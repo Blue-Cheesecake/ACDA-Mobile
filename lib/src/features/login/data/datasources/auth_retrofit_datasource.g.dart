@@ -26,7 +26,7 @@ class _AuthRetrofit implements AuthRetrofit {
     final _data = params;
     final _result =
         await _dio.fetch(_setStreamType<HttpResponse<dynamic>>(Options(
-      method: 'GET',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
