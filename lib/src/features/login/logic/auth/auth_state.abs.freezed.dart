@@ -19,24 +19,27 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(IAuthTokenEntity data) data,
-    required TResult Function() error,
+    required TResult Function(String? message) error,
     required TResult Function(String message) clientError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(IAuthTokenEntity data)? data,
-    TResult? Function()? error,
+    TResult? Function(String? message)? error,
     TResult? Function(String message)? clientError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(IAuthTokenEntity data)? data,
-    TResult Function()? error,
+    TResult Function(String? message)? error,
     TResult Function(String message)? clientError,
     required TResult orElse(),
   }) =>
@@ -44,6 +47,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthStateInitial value) initial,
+    required TResult Function(_AuthStateLoading value) loading,
     required TResult Function(_AuthStateData value) data,
     required TResult Function(_AuthStateError value) error,
     required TResult Function(_AuthStateClientError value) clientError,
@@ -52,6 +56,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthStateInitial value)? initial,
+    TResult? Function(_AuthStateLoading value)? loading,
     TResult? Function(_AuthStateData value)? data,
     TResult? Function(_AuthStateError value)? error,
     TResult? Function(_AuthStateClientError value)? clientError,
@@ -60,6 +65,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthStateInitial value)? initial,
+    TResult Function(_AuthStateLoading value)? loading,
     TResult Function(_AuthStateData value)? data,
     TResult Function(_AuthStateError value)? error,
     TResult Function(_AuthStateClientError value)? clientError,
@@ -124,8 +130,9 @@ class _$_AuthStateInitial extends _AuthStateInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(IAuthTokenEntity data) data,
-    required TResult Function() error,
+    required TResult Function(String? message) error,
     required TResult Function(String message) clientError,
   }) {
     return initial();
@@ -135,8 +142,9 @@ class _$_AuthStateInitial extends _AuthStateInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(IAuthTokenEntity data)? data,
-    TResult? Function()? error,
+    TResult? Function(String? message)? error,
     TResult? Function(String message)? clientError,
   }) {
     return initial?.call();
@@ -146,8 +154,9 @@ class _$_AuthStateInitial extends _AuthStateInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(IAuthTokenEntity data)? data,
-    TResult Function()? error,
+    TResult Function(String? message)? error,
     TResult Function(String message)? clientError,
     required TResult orElse(),
   }) {
@@ -161,6 +170,7 @@ class _$_AuthStateInitial extends _AuthStateInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthStateInitial value) initial,
+    required TResult Function(_AuthStateLoading value) loading,
     required TResult Function(_AuthStateData value) data,
     required TResult Function(_AuthStateError value) error,
     required TResult Function(_AuthStateClientError value) clientError,
@@ -172,6 +182,7 @@ class _$_AuthStateInitial extends _AuthStateInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthStateInitial value)? initial,
+    TResult? Function(_AuthStateLoading value)? loading,
     TResult? Function(_AuthStateData value)? data,
     TResult? Function(_AuthStateError value)? error,
     TResult? Function(_AuthStateClientError value)? clientError,
@@ -183,6 +194,7 @@ class _$_AuthStateInitial extends _AuthStateInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthStateInitial value)? initial,
+    TResult Function(_AuthStateLoading value)? loading,
     TResult Function(_AuthStateData value)? data,
     TResult Function(_AuthStateError value)? error,
     TResult Function(_AuthStateClientError value)? clientError,
@@ -198,6 +210,127 @@ class _$_AuthStateInitial extends _AuthStateInitial {
 abstract class _AuthStateInitial extends AuthState {
   factory _AuthStateInitial() = _$_AuthStateInitial;
   _AuthStateInitial._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_AuthStateLoadingCopyWith<$Res> {
+  factory _$$_AuthStateLoadingCopyWith(
+          _$_AuthStateLoading value, $Res Function(_$_AuthStateLoading) then) =
+      __$$_AuthStateLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_AuthStateLoadingCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$_AuthStateLoading>
+    implements _$$_AuthStateLoadingCopyWith<$Res> {
+  __$$_AuthStateLoadingCopyWithImpl(
+      _$_AuthStateLoading _value, $Res Function(_$_AuthStateLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_AuthStateLoading extends _AuthStateLoading {
+  _$_AuthStateLoading() : super._();
+
+  @override
+  String toString() {
+    return 'AuthState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AuthStateLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(IAuthTokenEntity data) data,
+    required TResult Function(String? message) error,
+    required TResult Function(String message) clientError,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(IAuthTokenEntity data)? data,
+    TResult? Function(String? message)? error,
+    TResult? Function(String message)? clientError,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(IAuthTokenEntity data)? data,
+    TResult Function(String? message)? error,
+    TResult Function(String message)? clientError,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthStateInitial value) initial,
+    required TResult Function(_AuthStateLoading value) loading,
+    required TResult Function(_AuthStateData value) data,
+    required TResult Function(_AuthStateError value) error,
+    required TResult Function(_AuthStateClientError value) clientError,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AuthStateInitial value)? initial,
+    TResult? Function(_AuthStateLoading value)? loading,
+    TResult? Function(_AuthStateData value)? data,
+    TResult? Function(_AuthStateError value)? error,
+    TResult? Function(_AuthStateClientError value)? clientError,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthStateInitial value)? initial,
+    TResult Function(_AuthStateLoading value)? loading,
+    TResult Function(_AuthStateData value)? data,
+    TResult Function(_AuthStateError value)? error,
+    TResult Function(_AuthStateClientError value)? clientError,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthStateLoading extends AuthState {
+  factory _AuthStateLoading() = _$_AuthStateLoading;
+  _AuthStateLoading._() : super._();
 }
 
 /// @nodoc
@@ -265,8 +398,9 @@ class _$_AuthStateData extends _AuthStateData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(IAuthTokenEntity data) data,
-    required TResult Function() error,
+    required TResult Function(String? message) error,
     required TResult Function(String message) clientError,
   }) {
     return data(this.data);
@@ -276,8 +410,9 @@ class _$_AuthStateData extends _AuthStateData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(IAuthTokenEntity data)? data,
-    TResult? Function()? error,
+    TResult? Function(String? message)? error,
     TResult? Function(String message)? clientError,
   }) {
     return data?.call(this.data);
@@ -287,8 +422,9 @@ class _$_AuthStateData extends _AuthStateData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(IAuthTokenEntity data)? data,
-    TResult Function()? error,
+    TResult Function(String? message)? error,
     TResult Function(String message)? clientError,
     required TResult orElse(),
   }) {
@@ -302,6 +438,7 @@ class _$_AuthStateData extends _AuthStateData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthStateInitial value) initial,
+    required TResult Function(_AuthStateLoading value) loading,
     required TResult Function(_AuthStateData value) data,
     required TResult Function(_AuthStateError value) error,
     required TResult Function(_AuthStateClientError value) clientError,
@@ -313,6 +450,7 @@ class _$_AuthStateData extends _AuthStateData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthStateInitial value)? initial,
+    TResult? Function(_AuthStateLoading value)? loading,
     TResult? Function(_AuthStateData value)? data,
     TResult? Function(_AuthStateError value)? error,
     TResult? Function(_AuthStateClientError value)? clientError,
@@ -324,6 +462,7 @@ class _$_AuthStateData extends _AuthStateData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthStateInitial value)? initial,
+    TResult Function(_AuthStateLoading value)? loading,
     TResult Function(_AuthStateData value)? data,
     TResult Function(_AuthStateError value)? error,
     TResult Function(_AuthStateClientError value)? clientError,
@@ -352,6 +491,8 @@ abstract class _$$_AuthStateErrorCopyWith<$Res> {
   factory _$$_AuthStateErrorCopyWith(
           _$_AuthStateError value, $Res Function(_$_AuthStateError) then) =
       __$$_AuthStateErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -361,60 +502,87 @@ class __$$_AuthStateErrorCopyWithImpl<$Res>
   __$$_AuthStateErrorCopyWithImpl(
       _$_AuthStateError _value, $Res Function(_$_AuthStateError) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$_AuthStateError(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_AuthStateError extends _AuthStateError {
-  _$_AuthStateError() : super._();
+  _$_AuthStateError({this.message}) : super._();
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'AuthState.error()';
+    return 'AuthState.error(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AuthStateError);
+        (other.runtimeType == runtimeType &&
+            other is _$_AuthStateError &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AuthStateErrorCopyWith<_$_AuthStateError> get copyWith =>
+      __$$_AuthStateErrorCopyWithImpl<_$_AuthStateError>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(IAuthTokenEntity data) data,
-    required TResult Function() error,
+    required TResult Function(String? message) error,
     required TResult Function(String message) clientError,
   }) {
-    return error();
+    return error(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(IAuthTokenEntity data)? data,
-    TResult? Function()? error,
+    TResult? Function(String? message)? error,
     TResult? Function(String message)? clientError,
   }) {
-    return error?.call();
+    return error?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(IAuthTokenEntity data)? data,
-    TResult Function()? error,
+    TResult Function(String? message)? error,
     TResult Function(String message)? clientError,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(message);
     }
     return orElse();
   }
@@ -423,6 +591,7 @@ class _$_AuthStateError extends _AuthStateError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthStateInitial value) initial,
+    required TResult Function(_AuthStateLoading value) loading,
     required TResult Function(_AuthStateData value) data,
     required TResult Function(_AuthStateError value) error,
     required TResult Function(_AuthStateClientError value) clientError,
@@ -434,6 +603,7 @@ class _$_AuthStateError extends _AuthStateError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthStateInitial value)? initial,
+    TResult? Function(_AuthStateLoading value)? loading,
     TResult? Function(_AuthStateData value)? data,
     TResult? Function(_AuthStateError value)? error,
     TResult? Function(_AuthStateClientError value)? clientError,
@@ -445,6 +615,7 @@ class _$_AuthStateError extends _AuthStateError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthStateInitial value)? initial,
+    TResult Function(_AuthStateLoading value)? loading,
     TResult Function(_AuthStateData value)? data,
     TResult Function(_AuthStateError value)? error,
     TResult Function(_AuthStateClientError value)? clientError,
@@ -458,8 +629,13 @@ class _$_AuthStateError extends _AuthStateError {
 }
 
 abstract class _AuthStateError extends AuthState {
-  factory _AuthStateError() = _$_AuthStateError;
+  factory _AuthStateError({final String? message}) = _$_AuthStateError;
   _AuthStateError._() : super._();
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$_AuthStateErrorCopyWith<_$_AuthStateError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -528,8 +704,9 @@ class _$_AuthStateClientError extends _AuthStateClientError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(IAuthTokenEntity data) data,
-    required TResult Function() error,
+    required TResult Function(String? message) error,
     required TResult Function(String message) clientError,
   }) {
     return clientError(message);
@@ -539,8 +716,9 @@ class _$_AuthStateClientError extends _AuthStateClientError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(IAuthTokenEntity data)? data,
-    TResult? Function()? error,
+    TResult? Function(String? message)? error,
     TResult? Function(String message)? clientError,
   }) {
     return clientError?.call(message);
@@ -550,8 +728,9 @@ class _$_AuthStateClientError extends _AuthStateClientError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(IAuthTokenEntity data)? data,
-    TResult Function()? error,
+    TResult Function(String? message)? error,
     TResult Function(String message)? clientError,
     required TResult orElse(),
   }) {
@@ -565,6 +744,7 @@ class _$_AuthStateClientError extends _AuthStateClientError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_AuthStateInitial value) initial,
+    required TResult Function(_AuthStateLoading value) loading,
     required TResult Function(_AuthStateData value) data,
     required TResult Function(_AuthStateError value) error,
     required TResult Function(_AuthStateClientError value) clientError,
@@ -576,6 +756,7 @@ class _$_AuthStateClientError extends _AuthStateClientError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AuthStateInitial value)? initial,
+    TResult? Function(_AuthStateLoading value)? loading,
     TResult? Function(_AuthStateData value)? data,
     TResult? Function(_AuthStateError value)? error,
     TResult? Function(_AuthStateClientError value)? clientError,
@@ -587,6 +768,7 @@ class _$_AuthStateClientError extends _AuthStateClientError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AuthStateInitial value)? initial,
+    TResult Function(_AuthStateLoading value)? loading,
     TResult Function(_AuthStateData value)? data,
     TResult Function(_AuthStateError value)? error,
     TResult Function(_AuthStateClientError value)? clientError,

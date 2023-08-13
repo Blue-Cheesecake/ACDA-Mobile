@@ -17,7 +17,7 @@ abstract class AuthRetrofit {
   @factoryMethod
   factory AuthRetrofit(Dio dio) => _AuthRetrofit(dio);
 
-  @GET(AuthBaseURLAPI.authenticate)
+  @POST(AuthBaseURLAPI.authenticate)
   Future<HttpResponse> authenticate(@Body() AuthRequestBodyModel params);
 }
 

@@ -8,4 +8,10 @@ class ACDAAssets {
         height: 16,
         width: 16,
       );
+
+  static Widget get greatArrowRight => Image.asset(
+        'assets/icons/great_right_arrow_icon.png',
+        height: 16,
+        width: 16,
+      );
 }
