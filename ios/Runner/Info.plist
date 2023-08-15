@@ -2,11 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
+		<!-- (ACDA-201: https://muict-dress-code-detection-senior-project.atlassian.net/browse/ACDA-201) 
+			Location Access for Checking Wifi Name: https://pub.dev/packages/network_info_plus -->
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>This app requires you to enable Location access</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>This app requires you to enable Location access</string>
+		<!--  -->
 		<!-- For Image Picker -->
 		<key>NSPhotoLibraryUsageDescription</key>
 		<string>This app requires you to enable Photo Library access in order to pick an image from your lirbary</string>
 		<key>NSCameraUsageDescription</key>
 		<string>This app requires you to enable Camera access in order to take a photo</string>
+		<!--  -->
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
