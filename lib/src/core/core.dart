@@ -1,3 +1,4 @@
+export 'acda_event_bus/acda_event_bus.dart';
 export 'acda_image_picker/acda_image_picker.dart';
 export 'acda_log/acda_log.dart';
 export 'acda_navigation/acda_navigation.dart';

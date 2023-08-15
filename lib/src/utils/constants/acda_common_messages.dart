@@ -4,12 +4,14 @@ class ACDACommonMessages {
   // App
   static const appNameShort = 'ACDA';
   static const appNameFull = 'Automatic Clothes Detection Application';
+  static const alert = 'Alert';
 
   // Camera Options
   static const galleryOption = 'Gallery';
   static const cameraOption = 'Camera';
 
   // Options
+  static const acknowledge = 'Acknowledge';
   static const close = 'Cancel';
 
   // Ungranted Permission
@@ -18,6 +20,7 @@ class ACDACommonMessages {
   static const grantInstruction = 'Please allow the permission in your device setting.';
 
   // Unaccepted Wifi
+  static const usingUnacceptedWifiContent = 'MU Wifi is not allowed';
   static const unacceptedWifi = 'This wifi is not allowed to use.';
 
   // Unknown Error
