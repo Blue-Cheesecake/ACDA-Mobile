@@ -8,22 +8,12 @@ class ACDAPermission {
 
   Future<bool> get isPhotoLibraryAccessGranted => Permission.photos.isGranted;
   Future<bool> get isCameraAccessGranted => Permission.camera.isGranted;
-  Future<bool> get isLocationAccessGranted async =>
-      await Permission.locationAlways.isGranted && await Permission.locationWhenInUse.isGranted;
 
-  /// return [true] if request permission is granted
-  Future<bool> requestPhotoLibraryAccess() async {
-    return await Permission.photos.request() == PermissionStatus.granted;
+  Future<void> requestPhotoLibraryAccess() async {
+    await Permission.photos.request();
   }
 
-  /// return [true] if request permission is granted
-  Future<bool> requestCameraAccess() async {
-    return await Permission.camera.request() == PermissionStatus.granted;
-  }
-
-  /// return [true] if request permission is granted
-  Future<bool> requestLocationAccess() async {
-    return await Permission.locationAlways.request() == PermissionStatus.granted &&
-        await Permission.locationWhenInUse.request() == PermissionStatus.granted;
+  Future<void> requestCameraAccess() async {
+    await Permission.camera.request();
   }
 }
