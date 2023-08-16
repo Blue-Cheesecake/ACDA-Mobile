@@ -4,10 +4,14 @@
 	<dict>
 		<!-- (ACDA-201: https://muict-dress-code-detection-senior-project.atlassian.net/browse/ACDA-201) 
 			Location Access for Checking Wifi Name: https://pub.dev/packages/network_info_plus -->
+    	<!-- <key>NSLocationUsageDescription</key>
+    	<string>This app requires you to enable Location access</string>
+    	<key>NSLocationAlwaysUsageDescription</key>
+    	<string>This app requires you to enable Location access</string>
 		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 		<string>This app requires you to enable Location access</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>This app requires you to enable Location access</string>
+		<string>This app requires you to enable Location access</string> -->
 		<!--  -->
 		<!-- For Image Picker -->
 		<key>NSPhotoLibraryUsageDescription</key>

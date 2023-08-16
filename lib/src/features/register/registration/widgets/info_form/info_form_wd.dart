@@ -33,49 +33,51 @@ class InfoFormWD extends ConsumerWidget {
       },
     );
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          InfoFormMessages.instruction,
-          style: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
-        ),
-        const SizedBox(height: 14),
-        const UserEmailFormWD(),
-        const SizedBox(height: 14),
-        const PasswordFormWD(),
-        const SizedBox(height: 7),
-        Align(
-          alignment: Alignment.centerRight,
-          child: Text(
-            textAlign: TextAlign.right,
-            InfoFormMessages.passwordInstruction,
-            style: TextStyles.bodyText6.copyWith(color: DesignSystem.g8),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            InfoFormMessages.instruction,
+            style: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
           ),
-        ),
-        const SizedBox(height: 7),
-        const FacultyFormWD(),
-        if (AppConfig.instance.isDev) const SizedBox(height: 7),
-        if (AppConfig.instance.isDev)
-          Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text('Debugging Purpose'),
-                const SizedBox(height: 14),
-                ElevatedButton(
-                  onPressed: () {
-                    ref
-                        .read(registerFormInputProvider.notifier)
-                        .updateCurrentRegistrationPage(RegistrationPage.completion);
-                  },
-                  child: const Text('go to completion page'),
-                ),
-              ],
+          const SizedBox(height: 14),
+          const UserEmailFormWD(),
+          const SizedBox(height: 14),
+          const PasswordFormWD(),
+          const SizedBox(height: 7),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              textAlign: TextAlign.right,
+              InfoFormMessages.passwordInstruction,
+              style: TextStyles.bodyText6.copyWith(color: DesignSystem.g8),
             ),
-          )
-      ],
+          ),
+          const SizedBox(height: 7),
+          const FacultyFormWD(),
+          if (AppConfig.instance.isDev) const SizedBox(height: 7),
+          if (AppConfig.instance.isDev)
+            Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Debugging Purpose'),
+                  const SizedBox(height: 14),
+                  ElevatedButton(
+                    onPressed: () {
+                      ref
+                          .read(registerFormInputProvider.notifier)
+                          .updateCurrentRegistrationPage(RegistrationPage.completion);
+                    },
+                    child: const Text('go to completion page'),
+                  ),
+                ],
+              ),
+            )
+        ],
+      ),
     );
   }
 }

@@ -11,7 +11,10 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ACDAUnacceptedWifiEventListenerWD(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
+          margin: EdgeInsets.zero,
+          height: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: LoginFormAssets.background,
@@ -21,21 +24,21 @@ class LoginPage extends StatelessWidget {
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 26),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const LoginTitleWD(),
-                  const Column(
-                    children: [
-                      LoginFormWD(),
-                      SizedBox(height: 41),
-                      LoginAlternativeOptionWD(),
-                    ],
-                  ),
-                  Container(),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const LoginTitleWD(),
+                    const Column(
+                      children: [
+                        LoginFormWD(),
+                        SizedBox(height: 41),
+                        LoginAlternativeOptionWD(),
+                      ],
+                    ),
+                    Container(),
+                  ],
+                ),
               ),
             ),
           ),

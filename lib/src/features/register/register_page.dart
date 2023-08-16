@@ -22,7 +22,6 @@ class RegisterPage extends ConsumerWidget {
     }
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
@@ -69,7 +68,7 @@ class RegisterPage extends ConsumerWidget {
           double height = 0.0;
 
           if (currentPage == RegistrationPage.completion) {
-            height = 226;
+            height = 190;
           }
 
           return Stack(
@@ -89,6 +88,7 @@ class RegisterPage extends ConsumerWidget {
         },
         child: const RegistrationWD(),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
       floatingActionButton: const RegisterNextButtonWD(),
     );
   }

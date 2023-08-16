@@ -75,29 +75,26 @@ class RegisterNextButtonWD extends ConsumerWidget {
 
     final scale = ref.watch(registerFormInputProvider.select((value) => value.completeButtonScale));
 
-    return Padding(
-      padding: const EdgeInsets.only(right: 19),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          const AnimatedTransitionThankYouTextWD(),
-          AnimatedScale(
-            scale: scale,
-            duration: RegisterAnimationConfigs.completedNextButtonDuration,
-            child: SizedBox(
-              height: 74,
-              width: 74,
-              child: FloatingActionButton(
-                backgroundColor: DesignSystem.g21,
-                onPressed: () => _onPressed(ref),
-                elevation: 5,
-                splashColor: Colors.transparent,
-                child: RegisterNextButtonAssets.rightArrowAsset,
-              ),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        const AnimatedTransitionThankYouTextWD(),
+        AnimatedScale(
+          scale: scale,
+          duration: RegisterAnimationConfigs.completedNextButtonDuration,
+          child: SizedBox(
+            height: 74,
+            width: 74,
+            child: FloatingActionButton(
+              backgroundColor: DesignSystem.g21,
+              onPressed: () => _onPressed(ref),
+              elevation: 5,
+              splashColor: Colors.transparent,
+              child: RegisterNextButtonAssets.rightArrowAsset,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
