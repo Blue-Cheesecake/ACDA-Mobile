@@ -16,6 +16,7 @@ abstract class BaseUseCase<P, R> {
     final String? currentRouterIP = await ACDANetworkInfo.instance.getRouterIP();
 
     if (ACDAUnacceptedWifi.routerIPList.contains(currentRouterIP)) {
+      ACDAEventBus.instance.fire(UsingUnacceptedWifiEvent(message: ACDACommonMessages.unacceptedWifi));
       return Failure(UnacceptedWifiException(messages: ACDACommonMessages.unacceptedWifi));
     }
 
