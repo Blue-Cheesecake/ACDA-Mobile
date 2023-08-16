@@ -12,6 +12,7 @@ import '../../../../../../utils/utils.dart';
 import '../../../../register_form/register_form.dart';
 import '../../../registration.dart';
 import '../utils/utils.dart';
+import 'ungranted_access_popup_wd.dart';
 
 class FaceImageBoxWD extends ConsumerWidget {
   const FaceImageBoxWD({Key? key}) : super(key: key);
@@ -33,12 +34,35 @@ class FaceImageBoxWD extends ConsumerWidget {
           children: [
             ACDACameraOptionWD(
               title: ACDACommonMessages.galleryOption,
-              onPressed: () => _updateCurrentImage(source: ACDAImagePicker.pickImageFromGallery(), ref: ref),
+              onPressed: () {
+                ACDAPermission.instance.isPhotoLibraryAccessGranted.then((isGranted) {
+                  if (isGranted) {
+                    _updateCurrentImage(source: ACDAImagePicker.pickImageFromGallery(), ref: ref);
+                  } else {
+                    showACDAPopupFN(
+                      context: context,
+                      popup: const UngrantedAccessPopupWD(content: FaceImageFormMessages.ungrantedPhotoPermission),
+                    );
+                  }
+                });
+              },
               color: DesignSystem.g12,
             ),
             ACDACameraOptionWD(
               title: ACDACommonMessages.cameraOption,
-              onPressed: () => _updateCurrentImage(source: ACDAImagePicker.takeAPhoto(), ref: ref),
+              onPressed: () {
+                ACDAPermission.instance.isCameraAccessGranted.then((isGranted) {
+                  print('is granted: $isGranted');
+                  if (isGranted) {
+                    _updateCurrentImage(source: ACDAImagePicker.takeAPhoto(), ref: ref);
+                  } else {
+                    showACDAPopupFN(
+                      context: context,
+                      popup: const UngrantedAccessPopupWD(content: FaceImageFormMessages.ungrantedCameraPermission),
+                    );
+                  }
+                });
+              },
               color: DesignSystem.g12,
             ),
             ACDACameraOptionWD(
