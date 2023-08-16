@@ -13,6 +13,13 @@ abstract class BaseUseCase<P, R> {
   Future<Result<R, AnyException>> execute(P params) async {
     final networkManager = ACDANetworkManager();
 
+    final String? currentRouterIP = await ACDANetworkInfo.instance.getRouterIP();
+
+    if (ACDAUnacceptedWifi.routerIPList.contains(currentRouterIP)) {
+      ACDAEventBus.instance.fire(UsingUnacceptedWifiEvent(message: ACDACommonMessages.unacceptedWifi));
+      return Failure(UnacceptedWifiException(messages: ACDACommonMessages.unacceptedWifi));
+    }
+
     try {
       ACDALog.printDebug(message: 'Calling Usecase');
 
@@ -29,20 +36,21 @@ abstract class BaseUseCase<P, R> {
         final Response<dynamic>? response = e.response;
 
         if (response?.data == null) {
-          return Failure(ClientException());
+          return Failure(ClientException(messages: ACDACommonMessages.unknownError));
         }
 
         final Map<String, dynamic> responseString = response?.data as Map<String, dynamic>;
 
         if (!responseString.containsKey('message')) {
-          return Failure(ClientException());
+          return Failure(ClientException(messages: ACDACommonMessages.unknownError));
         }
+
         final simpleMessage = APISimpleMessageModel.fromJson(response?.data);
         return Failure(ClientException(messages: simpleMessage.message));
       }
 
       if (await networkManager.isConnected) {
-        return Failure(ServerException());
+        return Failure(ServerException(messages: ACDACommonMessages.unknownError));
       }
 
       ACDALog.printDebug(message: 'Internet is not connected');
