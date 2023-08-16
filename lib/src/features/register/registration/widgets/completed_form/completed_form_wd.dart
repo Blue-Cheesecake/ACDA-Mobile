@@ -62,7 +62,7 @@ class _CompletedFormWDState extends ConsumerState<CompletedFormWD> {
             style: TextStyles.header5.copyWith(color: DesignSystem.g1),
           ),
         ),
-        const SizedBox(height: 78),
+        const SizedBox(height: 30),
         _registrationTitle,
         _spacing1,
         Center(

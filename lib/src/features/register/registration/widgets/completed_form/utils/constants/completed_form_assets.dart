@@ -5,7 +5,7 @@ class CompletedFormAssets {
 
   static Widget get sentEmail => Image.asset(
         'assets/imgs/sent_mail_img.png',
-        width: 189,
-        height: 143,
+        width: 139,
+        height: 123,
       );
 }

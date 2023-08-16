@@ -52,7 +52,6 @@ class FaceImageBoxWD extends ConsumerWidget {
               title: ACDACommonMessages.cameraOption,
               onPressed: () {
                 ACDAPermission.instance.isCameraAccessGranted.then((isGranted) {
-                  print('is granted: $isGranted');
                   if (isGranted) {
                     _updateCurrentImage(source: ACDAImagePicker.takeAPhoto(), ref: ref);
                   } else {
