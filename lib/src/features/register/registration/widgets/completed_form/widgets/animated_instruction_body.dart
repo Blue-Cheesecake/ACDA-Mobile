@@ -19,31 +19,34 @@ class AnimatedInstructionBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _AnimatedTextBody(
-              alignment: Alignment.bottomLeft,
-              sizedBoxHeight: 30,
-              duration: _animatedAuration,
-              text: CompletedFormMessages.please,
-              textStyle: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
-            ),
-            _AnimatedTextBody(
-              alignment: Alignment.bottomLeft,
-              sizedBoxHeight: 30,
-              duration: _animatedAuration,
-              text: CompletedFormMessages.verifyYouAccount,
-              textStyle: TextStyles.bodyText4Bold.copyWith(color: DesignSystem.g6),
-            ),
-            _AnimatedTextBody(
-              alignment: Alignment.bottomLeft,
-              sizedBoxHeight: 30,
-              duration: _animatedAuration,
-              text: CompletedFormMessages.instructionBody1,
-              textStyle: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
-            ),
-          ],
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _AnimatedTextBody(
+                alignment: Alignment.bottomLeft,
+                sizedBoxHeight: 30,
+                duration: _animatedAuration,
+                text: CompletedFormMessages.please,
+                textStyle: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
+              ),
+              _AnimatedTextBody(
+                alignment: Alignment.bottomLeft,
+                sizedBoxHeight: 30,
+                duration: _animatedAuration,
+                text: CompletedFormMessages.verifyYouAccount,
+                textStyle: TextStyles.bodyText4Bold.copyWith(color: DesignSystem.g6),
+              ),
+              _AnimatedTextBody(
+                alignment: Alignment.bottomLeft,
+                sizedBoxHeight: 30,
+                duration: _animatedAuration,
+                text: CompletedFormMessages.instructionBody1,
+                textStyle: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
+              ),
+            ],
+          ),
         ),
         _AnimatedTextBody(
           alignment: Alignment.topLeft,
