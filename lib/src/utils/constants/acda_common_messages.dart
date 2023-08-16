@@ -20,7 +20,7 @@ class ACDACommonMessages {
   static const grantInstruction = 'Please allow the permission in your device setting.';
 
   // Unaccepted Wifi
-  static const usingUnacceptedWifiContent = 'MU Wifi is not allowed';
+  static const usingUnacceptedWifiContent = 'MU WiFi is not allowed for some accidents. Please use other network.';
   static const unacceptedWifi = 'This wifi is not allowed to use.';
 
   // Unknown Error

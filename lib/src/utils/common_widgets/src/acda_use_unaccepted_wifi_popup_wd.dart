@@ -12,10 +12,11 @@ class ACDAUseUnacceptedWifiPopupWD extends StatelessWidget {
       content: ACDACommonMessages.usingUnacceptedWifiContent,
       actions: [
         CupertinoDialogAction(
-          child: const Text(ACDACommonMessages.acknowledge),
           onPressed: () {
             Navigator.of(context).pop();
           },
+          isDefaultAction: true,
+          child: const Text(ACDACommonMessages.acknowledge),
         ),
       ],
     );
