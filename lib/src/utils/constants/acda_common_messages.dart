@@ -13,6 +13,7 @@ class ACDACommonMessages {
   // Options
   static const acknowledge = 'Acknowledge';
   static const close = 'Cancel';
+  static const confirm = 'Confirm';
 
   // Ungranted Permission
   static const ungrantedPhotoLibrary = 'The photo library access is currently denied.';

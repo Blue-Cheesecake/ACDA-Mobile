@@ -9,4 +9,10 @@ class FaceImageFormMessages {
   // Error Cases
   static const invalidFaceImageError = 'Your photo is invalid!';
   static const invalidFaceImageInstruction = 'Choose the photo that can\nrecognize your face easily';
+
+  // Ungranted Permission
+  static const ungrantedCameraPermission =
+      'Camera Access is not currently allowed. Open your app setting to allow access';
+  static const ungrantedPhotoPermission =
+      'Photo Library is not currently allowed. Open your app setting to allow access';
 }
