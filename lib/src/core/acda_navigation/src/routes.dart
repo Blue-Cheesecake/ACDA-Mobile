@@ -1,7 +1,7 @@
+import 'package:acda_mobile/src/features/evaluation_form/evaluation_form_page.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../features/dashboard/dashboard_page.dart';
-import '../../../features/form/form_page.dart';
 import '../../../features/form/widgets/result/result_page.dart';
 import '../../../features/login/login_page.dart';
 import '../../../features/record/record_page.dart';
@@ -18,7 +18,7 @@ class Routes {
         ),
         GoRoute(
           path: RoutePath.form,
-          builder: (context, state) => const FormPage(),
+          builder: (context, state) => const EvaluationFormPage(),
         ),
         GoRoute(
           path: RoutePath.record,

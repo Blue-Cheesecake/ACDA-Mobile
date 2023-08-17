@@ -41,7 +41,14 @@ class FaceImageBoxWD extends ConsumerWidget {
                   } else {
                     showACDAPopupFN(
                       context: context,
-                      popup: const UngrantedAccessPopupWD(content: FaceImageFormMessages.ungrantedPhotoPermission),
+                      popup: UngrantedAccessPopupWD(
+                        content: FaceImageFormMessages.ungrantedPhotoPermission,
+                        requestCallbackfn: ACDAPermission.instance.requestPhotoLibraryAccess,
+                        updateImageCallbackfn: () => _updateCurrentImage(
+                          source: ACDAImagePicker.pickImageFromGallery(),
+                          ref: ref,
+                        ),
+                      ),
                     );
                   }
                 });
@@ -57,7 +64,14 @@ class FaceImageBoxWD extends ConsumerWidget {
                   } else {
                     showACDAPopupFN(
                       context: context,
-                      popup: const UngrantedAccessPopupWD(content: FaceImageFormMessages.ungrantedCameraPermission),
+                      popup: UngrantedAccessPopupWD(
+                        content: FaceImageFormMessages.ungrantedCameraPermission,
+                        requestCallbackfn: ACDAPermission.instance.requestCameraAccess,
+                        updateImageCallbackfn: () => _updateCurrentImage(
+                          source: ACDAImagePicker.takeAPhoto(),
+                          ref: ref,
+                        ),
+                      ),
                     );
                   }
                 });

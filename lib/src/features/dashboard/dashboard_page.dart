@@ -1,11 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../config/config.dart';
+import '../../core/core.dart';
 import '../../utils/utils.dart';
-import 'logic/logic.dart';
 import 'utils/utils.dart';
-import 'widgets/widgets.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -19,32 +18,18 @@ class DashboardPage extends StatelessWidget {
             DashboardMessages.title,
             style: TextStyles.header5.copyWith(color: DesignSystem.g1),
           ),
-          leading: const SizedBox.shrink(),
-          actions: const [MoreActionButtonWD()],
+          leading: IconButton(
+              onPressed: () {
+                ACDAUser.instance.clearToken();
+                ACDANavigation.instance.go(RoutePath.login);
+              },
+              icon: const Icon(CupertinoIcons.back)),
         ),
-        body: Consumer(
-          builder: (context, ref, _) {
-            return ref.watch(dashboardStateProvider).when(
-              empty: () {
-                return const EmptyStateWD();
-              },
-              data: (data) {
-                return NormalStateWD(data: data);
-              },
-            );
-          },
-        ),
-        floatingActionButton: Consumer(
-          builder: (context, ref, child) {
-            return ref.watch(dashboardStateProvider).when(
-              empty: () {
-                return const SizedBox.shrink();
-              },
-              data: (data) {
-                return const GoEvaluateButtonWD();
-              },
-            );
-          },
+        body: Center(
+          child: TextButton(
+            onPressed: () {},
+            child: const Text('Evaluation Form'),
+          ),
         ),
       ),
     );
