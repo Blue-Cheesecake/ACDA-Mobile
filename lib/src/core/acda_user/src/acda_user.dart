@@ -13,4 +13,8 @@ class ACDAUser {
   Future<void> writeToken(String value) async {
     ACDASecureStorage.instance.write(key: 'token', value: value);
   }
+
+  Future<void> clearToken() async {
+    ACDASecureStorage.instance.delete(key: 'token');
+  }
 }
