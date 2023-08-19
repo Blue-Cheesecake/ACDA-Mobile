@@ -4,5 +4,5 @@ import 'input.dart';
 
 final evaluationFormInputStateProvider =
     StateNotifierProvider<EvaluationFormInputStateNotifier, EvaluationFormInputState>((ref) {
-  return EvaluationFormInputStateNotifier();
+  return EvaluationFormInputStateNotifier(ref: ref);
 });

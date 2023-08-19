@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$EvaluationFormInputState {
+  bool get isSubmitButtonEnabled => throw _privateConstructorUsedError;
   XFile? get fullBodyImageFile => throw _privateConstructorUsedError;
   XFile? get upperBodyImageFile => throw _privateConstructorUsedError;
   XFile? get studentIdCardImageFile => throw _privateConstructorUsedError;
@@ -32,7 +33,8 @@ abstract class $EvaluationFormInputStateCopyWith<$Res> {
       _$EvaluationFormInputStateCopyWithImpl<$Res, EvaluationFormInputState>;
   @useResult
   $Res call(
-      {XFile? fullBodyImageFile,
+      {bool isSubmitButtonEnabled,
+      XFile? fullBodyImageFile,
       XFile? upperBodyImageFile,
       XFile? studentIdCardImageFile});
 }
@@ -51,11 +53,16 @@ class _$EvaluationFormInputStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isSubmitButtonEnabled = null,
     Object? fullBodyImageFile = freezed,
     Object? upperBodyImageFile = freezed,
     Object? studentIdCardImageFile = freezed,
   }) {
     return _then(_value.copyWith(
+      isSubmitButtonEnabled: null == isSubmitButtonEnabled
+          ? _value.isSubmitButtonEnabled
+          : isSubmitButtonEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       fullBodyImageFile: freezed == fullBodyImageFile
           ? _value.fullBodyImageFile
           : fullBodyImageFile // ignore: cast_nullable_to_non_nullable
@@ -82,7 +89,8 @@ abstract class _$$_EvaluationFormInputStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {XFile? fullBodyImageFile,
+      {bool isSubmitButtonEnabled,
+      XFile? fullBodyImageFile,
       XFile? upperBodyImageFile,
       XFile? studentIdCardImageFile});
 }
@@ -99,11 +107,16 @@ class __$$_EvaluationFormInputStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isSubmitButtonEnabled = null,
     Object? fullBodyImageFile = freezed,
     Object? upperBodyImageFile = freezed,
     Object? studentIdCardImageFile = freezed,
   }) {
     return _then(_$_EvaluationFormInputState(
+      isSubmitButtonEnabled: null == isSubmitButtonEnabled
+          ? _value.isSubmitButtonEnabled
+          : isSubmitButtonEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       fullBodyImageFile: freezed == fullBodyImageFile
           ? _value.fullBodyImageFile
           : fullBodyImageFile // ignore: cast_nullable_to_non_nullable
@@ -124,10 +137,14 @@ class __$$_EvaluationFormInputStateCopyWithImpl<$Res>
 
 class _$_EvaluationFormInputState implements _EvaluationFormInputState {
   _$_EvaluationFormInputState(
-      {this.fullBodyImageFile,
+      {this.isSubmitButtonEnabled = false,
+      this.fullBodyImageFile,
       this.upperBodyImageFile,
       this.studentIdCardImageFile});
 
+  @override
+  @JsonKey()
+  final bool isSubmitButtonEnabled;
   @override
   final XFile? fullBodyImageFile;
   @override
@@ -137,7 +154,7 @@ class _$_EvaluationFormInputState implements _EvaluationFormInputState {
 
   @override
   String toString() {
-    return 'EvaluationFormInputState(fullBodyImageFile: $fullBodyImageFile, upperBodyImageFile: $upperBodyImageFile, studentIdCardImageFile: $studentIdCardImageFile)';
+    return 'EvaluationFormInputState(isSubmitButtonEnabled: $isSubmitButtonEnabled, fullBodyImageFile: $fullBodyImageFile, upperBodyImageFile: $upperBodyImageFile, studentIdCardImageFile: $studentIdCardImageFile)';
   }
 
   @override
@@ -145,6 +162,8 @@ class _$_EvaluationFormInputState implements _EvaluationFormInputState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EvaluationFormInputState &&
+            (identical(other.isSubmitButtonEnabled, isSubmitButtonEnabled) ||
+                other.isSubmitButtonEnabled == isSubmitButtonEnabled) &&
             (identical(other.fullBodyImageFile, fullBodyImageFile) ||
                 other.fullBodyImageFile == fullBodyImageFile) &&
             (identical(other.upperBodyImageFile, upperBodyImageFile) ||
@@ -154,8 +173,8 @@ class _$_EvaluationFormInputState implements _EvaluationFormInputState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, fullBodyImageFile,
-      upperBodyImageFile, studentIdCardImageFile);
+  int get hashCode => Object.hash(runtimeType, isSubmitButtonEnabled,
+      fullBodyImageFile, upperBodyImageFile, studentIdCardImageFile);
 
   @JsonKey(ignore: true)
   @override
@@ -167,10 +186,13 @@ class _$_EvaluationFormInputState implements _EvaluationFormInputState {
 
 abstract class _EvaluationFormInputState implements EvaluationFormInputState {
   factory _EvaluationFormInputState(
-      {final XFile? fullBodyImageFile,
+      {final bool isSubmitButtonEnabled,
+      final XFile? fullBodyImageFile,
       final XFile? upperBodyImageFile,
       final XFile? studentIdCardImageFile}) = _$_EvaluationFormInputState;
 
+  @override
+  bool get isSubmitButtonEnabled;
   @override
   XFile? get fullBodyImageFile;
   @override
