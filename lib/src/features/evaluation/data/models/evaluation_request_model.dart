@@ -1,12 +1,12 @@
 class EvaluationRequestModel {
   EvaluationRequestModel({
+    required this.fullBodyImage,
     required this.upperBodyImage,
-    required this.lowerBodyImage,
-    required this.shoesImage,
+    required this.studentIdCardImage,
   });
 
   // base64 string
+  final String fullBodyImage;
   final String upperBodyImage;
-  final String lowerBodyImage;
-  final String shoesImage;
+  final String studentIdCardImage;
 }
