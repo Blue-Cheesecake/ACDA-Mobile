@@ -27,7 +27,9 @@ class DashboardPage extends StatelessWidget {
         ),
         body: Center(
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              ACDANavigation.instance.push(RoutePath.form);
+            },
             child: const Text('Evaluation Form'),
           ),
         ),
