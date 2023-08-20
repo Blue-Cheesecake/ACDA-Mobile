@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/core.dart';
 import '../../utils/utils.dart';
 import 'utils/utils.dart';
 import 'widgets/widgets.dart';
@@ -36,7 +37,22 @@ class LoginPage extends StatelessWidget {
                         LoginAlternativeOptionWD(),
                       ],
                     ),
-                    Container(),
+                    if (!AppConfig.instance.isDev) Container(),
+
+                    // For Dev Only
+                    if (AppConfig.instance.isDev)
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              ACDAUser.instance.clearToken();
+                            },
+                            child: const Text('Clear Token'),
+                          ),
+                          const LoginAsDevButtonWD(),
+                        ],
+                      ),
                   ],
                 ),
               ),
