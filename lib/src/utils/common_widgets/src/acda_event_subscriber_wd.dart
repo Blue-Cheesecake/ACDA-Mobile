@@ -11,10 +11,10 @@ class ACDAEventSubscriberWD<T extends BaseEvent> extends StatefulWidget {
   final void Function(T event) callbackfn;
 
   @override
-  State<ACDAEventSubscriberWD> createState() => _ACDAEventSubscriberWDState();
+  State<ACDAEventSubscriberWD> createState() => _ACDAEventSubscriberWDState<T>();
 }
 
-class _ACDAEventSubscriberWDState<T extends BaseEvent> extends State<ACDAEventSubscriberWD> {
+class _ACDAEventSubscriberWDState<T extends BaseEvent> extends State<ACDAEventSubscriberWD<T>> {
   late StreamSubscription<T> _subscription;
 
   @override

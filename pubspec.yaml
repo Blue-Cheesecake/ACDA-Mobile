@@ -94,6 +94,10 @@ flutter:
         - asset: assets/fonts/NotoSans-Italic.ttf
           weight: 400
           style: italic
+        - asset: assets/fonts/NotoSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoSans-SemiBold.ttf
+          weight: 600
         - asset: assets/fonts/NotoSans-Bold.ttf
           weight: 700
         - asset: assets/fonts/NotoSans-BoldItalic.ttf
