@@ -63,14 +63,28 @@ class EvaluationImageBoxWD extends StatelessWidget {
       ),
       child: Container(
         height: 346,
+        width: double.infinity,
         decoration: BoxDecoration(
           color: DesignSystem.g1,
           borderRadius: BorderRadius.circular(31),
-          border: Border.all(width: 1, color: DesignSystem.g22),
+          border: Border.all(width: 2.5, color: DesignSystem.g22),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.grey[400]!,
+              Colors.white.withAlpha(0),
+              Colors.transparent,
+            ],
+            stops: const [0, 0.04, 0.1],
+          ),
         ),
         child: currentImage == null
             ? Center(child: EvaluationFormAssets.imagePlaceholder)
-            : Image.file(File(currentImage!.path)),
+            : ClipRRect(
+                borderRadius: BorderRadius.circular(28),
+                child: Image.file(File(currentImage!.path), fit: BoxFit.cover),
+              ),
       ),
     );
   }

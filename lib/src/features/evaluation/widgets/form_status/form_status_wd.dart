@@ -21,19 +21,18 @@ class FormStatusWD extends StatelessWidget {
         children: [
           Consumer(
             builder: (_, ref, __) => StatusCircleWD(
-              isSelected: ref.read(evaluationFormStatusStateProvider.select((value) => value.isFullBodyImageFilled)),
+              isSelected: ref.watch(evaluationFormStatusStateProvider.select((value) => value.isFullBodyImageFilled)),
             ),
           ),
           Consumer(
             builder: (_, ref, __) => StatusCircleWD(
-              isSelected: ref.read(evaluationFormStatusStateProvider.select((value) => value.isUpperBodyImageFilled)),
+              isSelected: ref.watch(evaluationFormStatusStateProvider.select((value) => value.isUpperBodyImageFilled)),
             ),
           ),
           Consumer(
             builder: (_, ref, __) => StatusCircleWD(
-              isSelected: ref.read(
-                evaluationFormStatusStateProvider.select((value) => value.isStudentIdCardImageFilled),
-              ),
+              isSelected:
+                  ref.watch(evaluationFormStatusStateProvider.select((value) => value.isStudentIdCardImageFilled)),
               isLast: true,
             ),
           ),
