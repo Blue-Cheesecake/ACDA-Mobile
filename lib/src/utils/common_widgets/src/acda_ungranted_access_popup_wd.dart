@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../../../../../utils/utils.dart';
+import '../../utils.dart';
 
-class UngrantedAccessPopupWD extends StatelessWidget {
-  const UngrantedAccessPopupWD(
+class ACDAUngrantedAccessPopupWD extends StatelessWidget {
+  const ACDAUngrantedAccessPopupWD(
       {required this.content, required this.requestCallbackfn, required this.updateImageCallbackfn, Key? key})
       : super(key: key);
 

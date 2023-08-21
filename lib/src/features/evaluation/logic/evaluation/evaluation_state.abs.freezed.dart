@@ -336,10 +336,10 @@ class __$$_EvaluationStateDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? result = freezed,
+    Object? result = null,
   }) {
     return _then(_$_EvaluationStateData(
-      result: freezed == result
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as IEvaluationResultEntity,
@@ -365,12 +365,11 @@ class _$_EvaluationStateData implements _EvaluationStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EvaluationStateData &&
-            const DeepCollectionEquality().equals(other.result, result));
+            (identical(other.result, result) || other.result == result));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(result));
+  int get hashCode => Object.hash(runtimeType, result);
 
   @JsonKey(ignore: true)
   @override

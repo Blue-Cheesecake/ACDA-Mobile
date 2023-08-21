@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../utils/utils.dart';
 import '../logic.dart';
 
 class EvaluationFormInputStateNotifier extends StateNotifier<EvaluationFormInputState> {
@@ -29,5 +30,9 @@ class EvaluationFormInputStateNotifier extends StateNotifier<EvaluationFormInput
     state = state.copyWith(studentIdCardImageFile: value);
     ref.read(evaluationFormStatusStateProvider.notifier).updateIsStudentIdCardImageFilled(value == null);
     _validateForm();
+  }
+
+  void updateCurrentField(EvaluationFormField value) {
+    state = state.copyWith(currentField: value);
   }
 }
