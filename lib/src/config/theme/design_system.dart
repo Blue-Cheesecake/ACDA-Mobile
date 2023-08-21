@@ -48,6 +48,9 @@ class DesignSystem {
   static const g21 = Color(0xff04FFA4);
   static const g22 = Color(0xffCCCCCC);
   static const g23 = Color(0xff3545D4);
+  static const g24 = Color(0xff173457);
+  static const g25 = Color(0xff0D2848);
+  static const g26 = Color(0xff052040);
 
   static const acdaPrimary = Color(0xff001834);
 }

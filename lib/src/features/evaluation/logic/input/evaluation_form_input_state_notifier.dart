@@ -16,19 +16,19 @@ class EvaluationFormInputStateNotifier extends StateNotifier<EvaluationFormInput
 
   void updateFullBodyImageFile(XFile? value) {
     state = state.copyWith(fullBodyImageFile: value);
-    ref.read(evaluationFormStatusStateProvider.notifier).updateIsFullBodyImageFilled(value == null);
+    ref.read(evaluationFormStatusStateProvider.notifier).updateIsFullBodyImageFilled(value != null);
     _validateForm();
   }
 
   void updateUpperBodyImageFile(XFile? value) {
     state = state.copyWith(upperBodyImageFile: value);
-    ref.read(evaluationFormStatusStateProvider.notifier).updateIsUpperBodyImageFilled(value == null);
+    ref.read(evaluationFormStatusStateProvider.notifier).updateIsUpperBodyImageFilled(value != null);
     _validateForm();
   }
 
   void updateStudentIdCardImageFile(XFile? value) {
     state = state.copyWith(studentIdCardImageFile: value);
-    ref.read(evaluationFormStatusStateProvider.notifier).updateIsStudentIdCardImageFilled(value == null);
+    ref.read(evaluationFormStatusStateProvider.notifier).updateIsStudentIdCardImageFilled(value != null);
     _validateForm();
   }
 

@@ -19,6 +19,8 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
     required this.title,
     required this.description,
     required this.currentSelectedFormField,
+    required this.currentImage,
+    required this.backgroundColor,
     this.prevField,
     this.nextField,
     this.shouldShrink = false,
@@ -27,6 +29,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
 
   final String title;
   final String description;
+  final XFile? currentImage;
   final void Function(XFile? selectedImage) onImageSelected;
   final void Function() onFormSelected;
   final bool isImageFilled;
@@ -37,6 +40,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
   final EvaluationFormField formField;
   final EvaluationFormField? prevField;
   final EvaluationFormField? nextField;
+  final Color backgroundColor;
 
   static const double borderRadius = 20;
 
@@ -117,7 +121,7 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
                           width: 210,
                           height: 49,
                           decoration: BoxDecoration(
-                            color: Colors.brown.withOpacity(0.5),
+                            color: widget.backgroundColor,
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(EvaluationFormCardWD.borderRadius),
                               topRight: Radius.circular(EvaluationFormCardWD.borderRadius),
@@ -150,7 +154,7 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
                           child: Container(
                             width: 25,
                             height: 25,
-                            color: Colors.brown.withOpacity(0.5),
+                            color: widget.backgroundColor,
                           ),
                         )
                       ],
@@ -160,7 +164,7 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
                         width: double.infinity,
                         padding: const EdgeInsets.only(left: 10, right: 10, top: 12),
                         decoration: BoxDecoration(
-                          color: Colors.red.withOpacity(0.5),
+                          color: widget.backgroundColor,
                         ),
                         child: Container(
                           decoration: const BoxDecoration(
@@ -186,7 +190,10 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
                                         ),
                                       ),
                                       const SizedBox(height: 27),
-                                      EvaluationImageBoxWD(onImageSelected: widget.onImageSelected),
+                                      EvaluationImageBoxWD(
+                                        currentImage: widget.currentImage,
+                                        onImageSelected: widget.onImageSelected,
+                                      ),
                                     ],
                                   ),
                                 )
