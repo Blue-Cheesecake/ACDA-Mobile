@@ -70,6 +70,9 @@ dependencies:
   # Permission
   permission_handler: 10.4.3
 
+  # Testing
+  mocktail: 1.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
