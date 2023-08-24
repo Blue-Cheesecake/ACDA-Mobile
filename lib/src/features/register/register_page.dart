@@ -89,7 +89,10 @@ class RegisterPage extends ConsumerWidget {
         child: const RegistrationWD(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
-      floatingActionButton: const RegisterNextButtonWD(),
+      floatingActionButton: const Padding(
+        padding: EdgeInsets.only(bottom: 40, right: 20),
+        child: RegisterNextButtonWD(),
+      ),
     );
   }
 }

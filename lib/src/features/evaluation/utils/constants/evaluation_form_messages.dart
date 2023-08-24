@@ -12,4 +12,6 @@ class EvaluationFormMessages {
       'Add a photo of your current upper part of body\n(from your head to your belt) in the box below.';
   static const studentIdCardTitle = 'Student ID card';
   static const studentIdCardDescription = 'Add a photo of your current wearing shoes in\nthe box below.';
+  static const swipeToSubmit = 'Swipe to Submit';
+  static const submitted = 'Submitted!';
 }

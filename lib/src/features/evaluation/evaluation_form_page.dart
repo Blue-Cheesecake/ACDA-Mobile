@@ -42,7 +42,14 @@ class EvaluationFormPage extends StatelessWidget {
             ),
             FullBodyFormWD(),
             UpperBodyFormWD(),
-            StudentIdCardFormWD()
+            StudentIdCardFormWD(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 28),
+                child: EvaluationSubmitButtonWD(),
+              ),
+            )
           ],
         ),
       ),
