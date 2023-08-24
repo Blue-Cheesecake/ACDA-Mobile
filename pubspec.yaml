@@ -61,17 +61,20 @@ dependencies:
   flutter_secure_storage: 8.0.0
 
   # Loading
-  loading_animation_widget: ^1.2.0+4
+  loading_animation_widget: 1.2.0+4
   loader_overlay: 2.2.0
 
   # Text
-  animated_text_kit: ^4.2.2
+  animated_text_kit: 4.2.2
 
   # Permission
   permission_handler: 10.4.3
 
   # Testing
   mocktail: 1.0.0
+
+  # Button Sliding
+  action_slider: 0.7.0
 
 dev_dependencies:
   flutter_test:
