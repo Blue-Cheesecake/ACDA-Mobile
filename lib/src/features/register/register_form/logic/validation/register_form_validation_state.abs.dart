@@ -7,5 +7,6 @@ class RegisterFormValidationState with _$RegisterFormValidationState {
   factory RegisterFormValidationState({
     String? passwordErrorText,
     String? confirmedPasswordErrorText,
+    String? studentIdErrorText,
   }) = _RegisterFormValidationState;
 }

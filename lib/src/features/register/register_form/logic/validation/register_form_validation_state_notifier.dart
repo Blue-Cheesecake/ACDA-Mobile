@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../register_form.dart';
+import '../../../../../utils/utils.dart';
 
 class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormValidationState> {
   RegisterFormValidationStateNotifier({required this.ref}) : super(RegisterFormValidationState());
@@ -24,6 +25,10 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
     }
     if (input.password == null || input.password!.isEmpty) {
       isValid = false;
+    }
+    if (isStudentIdValid(input.studentId)) {
+      isValid = false;
+      temp = temp.copyWith(studentIdErrorText: RegisterFormMessages.invalidStudentId);
     }
     if (input.password != null && input.password!.length < 7) {
       isValid = false;
@@ -60,5 +65,29 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
     }
 
     return isValid;
+  }
+
+  bool isStudentIdValid(String? studentId) {
+    if (studentId == null || studentId.isEmpty || studentId.length != 7 || !studentId.isNumeric) {
+      return false;
+    }
+
+    final int requestYear = int.parse(studentId.substring(0, 2));
+    final int requestFaculty = int.parse(studentId.substring(2, 4));
+
+    // 88: ICT
+    // 87: DST
+    if (requestFaculty != 88 && requestFaculty != 87) {
+      return false;
+    }
+
+    // validate year
+    // only freshmen - senior
+    // for example, if current year is 2566 freshmen start at 66. Only 63-66 is available.
+
+    final int freshmenYear = int.parse((DateTime.now().buddistDate!.year).toString().substring(2)); // 2566
+    final int seniorYear = freshmenYear - 3;
+
+    return freshmenYear >= requestYear && requestYear >= seniorYear;
   }
 }
