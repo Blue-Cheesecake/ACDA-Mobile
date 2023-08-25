@@ -39,13 +39,13 @@ void main() {
       'When user login with email and password'
       'Then user should login suceess',
       () async {
-        const email = 'test@student.mahidol.ac.th';
+        const studentId = '6388073';
         const password = 'testpassword';
 
         when(() => ref.read(loginFormInputProvider)).thenReturn(authState);
-        when(() => authState.email).thenReturn(email);
+        when(() => authState.studentId).thenReturn(studentId);
         when(() => authState.password).thenReturn(password);
-        when(() => authenticateUseCase.execute(AuthRequestBodyModel(email: email, password: password)))
+        when(() => authenticateUseCase.execute(AuthRequestBodyModel(studentId: studentId, password: password)))
             .thenAnswer((_) async => Result.success(apiResponse));
         final authStateNotifier = AuthStateNotifier(ref: ref, authenticateUseCase: authenticateUseCase);
         final List<AuthState> states = [];
@@ -58,7 +58,8 @@ void main() {
           AuthState.loading(),
         ]);
 
-        verify(() => authenticateUseCase.execute(AuthRequestBodyModel(email: email, password: password))).called(1);
+        verify(() => authenticateUseCase.execute(AuthRequestBodyModel(studentId: studentId, password: password)))
+            .called(1);
       },
     );
 
@@ -67,13 +68,13 @@ void main() {
       'When user login with email and password'
       'Then user should login fail',
       () async {
-        const email = 'test@student.mahidol.ac.th';
+        const email = '6388073';
         const password = 'testpassword';
 
         when(() => ref.read(loginFormInputProvider)).thenReturn(authState);
-        when(() => authState.email).thenReturn(email);
+        when(() => authState.studentId).thenReturn(email);
         when(() => authState.password).thenReturn(password);
-        when(() => authenticateUseCase.execute(AuthRequestBodyModel(email: email, password: password)))
+        when(() => authenticateUseCase.execute(AuthRequestBodyModel(studentId: email, password: password)))
             .thenAnswer((_) async => Result.error(MockAnyException()));
         when(() => ref.read(loginFormValidationStateProvider.notifier)).thenReturn(loginFormValidationStateNotifier);
 
@@ -86,7 +87,7 @@ void main() {
         // expectLater(() => authStateNotifier.authenticate(), throwsA(isA<AnyException>()));
 
         verify(
-          () => authenticateUseCase.execute(AuthRequestBodyModel(email: email, password: password)),
+          () => authenticateUseCase.execute(AuthRequestBodyModel(studentId: email, password: password)),
         ).called(1);
 
         expect(states, [

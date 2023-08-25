@@ -16,14 +16,13 @@ class RegistrationStateNotifer extends ACDAStateNotifier<RegistrationState> {
     safeState = RegistrationState.loading();
 
     final input = ref.read(registerFormInputProvider);
-    final password = input.password!;
-    final facultyId = input.faculty!.id;
     final faceImageBase64 = base64Encode(await input.faceImage!.readAsBytes());
 
     final response = await registerUseCase.execute(RegistrationRequestModel(
       email: input.email,
-      password: password,
-      facultyId: facultyId,
+      password: input.password!,
+      studentId: input.studentId!,
+      facultyId: input.faculty!.id,
       faceImage: faceImageBase64,
     ));
 

@@ -39,6 +39,11 @@ class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputStat
     _checkInformationFormValidation();
   }
 
+  void updateStudentId(String? value) {
+    state = state.copyWith(studentId: value);
+    _checkFaceImageFormValidation();
+  }
+
   void updateConfirmedPassword(String? value) {
     state = state.copyWith(confirmedPassword: value);
     _checkInformationFormValidation();
