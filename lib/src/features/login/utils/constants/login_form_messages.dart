@@ -2,7 +2,7 @@ class LoginFormMessages {
   const LoginFormMessages._();
 
   static const title = 'Sign in';
-  static const userEamil = 'User E-mail';
+  static const studentId = 'Student ID';
   static const password = 'Password';
   static const loginAction = 'Log in';
   static const or = 'or';

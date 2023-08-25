@@ -13,21 +13,22 @@ class LoginAsDevButtonWD extends ConsumerWidget {
     return ElevatedButton(
         onPressed: () {
           showACDABottomSheet(
-              context: context,
-              child: ACDAListBottomSheetWD(
-                title: 'User',
-                onSelectedValue: (item) {
-                  if (item.value == 'sinut.wat@student.mahidol.edu') {
-                    ACDAUser.instance.clearToken();
-                    ref.read(loginFormInputProvider.notifier).updateEmail('sinut.wat@student.mahidol.edu');
-                    ref.read(loginFormInputProvider.notifier).updatePassword('1111111');
-                    ref.read(authProvider.notifier).authenticate();
-                  }
-                },
-                list: [
-                  CommonCategoryValueModel(id: 1, value: 'sinut.wat@student.mahidol.edu'),
-                ],
-              ));
+            context: context,
+            child: ACDAListBottomSheetWD(
+              title: 'User',
+              onSelectedValue: (item) {
+                if (item.value == 'u6388073') {
+                  ACDAUser.instance.clearToken();
+                  ref.read(loginFormInputProvider.notifier).updateStudentId('6388073');
+                  ref.read(loginFormInputProvider.notifier).updatePassword('1111111');
+                  ref.read(authProvider.notifier).authenticate();
+                }
+              },
+              list: [
+                CommonCategoryValueModel(id: 1, value: 'u6388073'),
+              ],
+            ),
+          );
         },
         child: const Text('Loggin as Dev'));
   }

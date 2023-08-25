@@ -9,13 +9,13 @@ part of 'auth_request_body_model.dart';
 _$_AuthRequestBodyModel _$$_AuthRequestBodyModelFromJson(
         Map<String, dynamic> json) =>
     _$_AuthRequestBodyModel(
-      email: json['email'] as String,
+      studentId: json['studentId'] as String,
       password: json['password'] as String,
     );
 
 Map<String, dynamic> _$$_AuthRequestBodyModelToJson(
         _$_AuthRequestBodyModel instance) =>
     <String, dynamic>{
-      'email': instance.email,
+      'studentId': instance.studentId,
       'password': instance.password,
     };

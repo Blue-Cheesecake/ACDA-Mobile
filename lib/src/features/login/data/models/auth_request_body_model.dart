@@ -6,7 +6,7 @@ part 'auth_request_body_model.g.dart';
 @freezed
 class AuthRequestBodyModel with _$AuthRequestBodyModel {
   factory AuthRequestBodyModel({
-    required final String email,
+    required final String studentId,
     required final String password,
   }) = _AuthRequestBodyModel;
 

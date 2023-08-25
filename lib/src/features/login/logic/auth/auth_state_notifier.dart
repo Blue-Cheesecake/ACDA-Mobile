@@ -19,7 +19,10 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
     LoginFormValidationState validationState = LoginFormValidationState();
 
     final response = await authenticateUseCase.execute(
-      AuthRequestBodyModel(email: authState.email?.trim() ?? 'NONE', password: authState.password ?? 'NONE'),
+      AuthRequestBodyModel(
+        studentId: 'u${authState.studentId?.trim()}',
+        password: '${authState.password}',
+      ),
     );
 
     response.when(
@@ -29,6 +32,8 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
             await ACDAUser.instance.writeToken(data.token);
             safeState = AuthState.data(data: data);
             ref.read(loginFormValidationStateProvider.notifier).state = validationState;
+            ref.read(loginFormInputProvider.notifier).updateStudentId(null);
+            ref.read(loginFormInputProvider.notifier).updatePassword(null);
             ACDANavigation.instance.go(RoutePath.dashboard);
           },
           error: (errorMessageModel) {
