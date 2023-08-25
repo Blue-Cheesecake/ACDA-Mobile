@@ -4,6 +4,7 @@ export 'entities/entities.dart';
 export 'exceptions/exceptions.dart';
 export 'extensions/extensions.dart';
 export 'functions/functions.dart';
+export 'interfaces/interfaces.dart';
 export 'models/models.dart';
 export 'riverpod/riverpod.dart';
 export 'base_result.dart';
