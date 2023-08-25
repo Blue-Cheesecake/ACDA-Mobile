@@ -12,8 +12,8 @@ class LoginFormInputStateNotifier extends StateNotifier<LoginFormInputState> {
     state = state.copyWith(isButtonEnabled: isFormValid);
   }
 
-  void updateEmail(String? value) {
-    state = state.copyWith(email: value);
+  void updateStudentId(String? value) {
+    state = state.copyWith(studentId: value);
     _checkValidation();
   }
 

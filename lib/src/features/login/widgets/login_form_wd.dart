@@ -69,9 +69,9 @@ class _LoginFormWDState extends ConsumerState<LoginFormWD> {
             const SizedBox(height: 10),
             ACDATextField(
               controller: _emailCtr,
-              hintText: LoginFormMessages.userEamil,
-              onChanged: (value) => ref.read(loginFormInputProvider.notifier).updateEmail(value),
-              onSubmitted: (value) => (value) => ref.read(loginFormInputProvider.notifier).updateEmail(value),
+              hintText: LoginFormMessages.studentId,
+              onChanged: (value) => ref.read(loginFormInputProvider.notifier).updateStudentId(value),
+              onSubmitted: (value) => (value) => ref.read(loginFormInputProvider.notifier).updateStudentId(value),
               onTapOutside: (_) => FocusScope.of(context).requestFocus(FocusNode()),
               outlineInputBorder: isError ? errorBorder : null,
             ),

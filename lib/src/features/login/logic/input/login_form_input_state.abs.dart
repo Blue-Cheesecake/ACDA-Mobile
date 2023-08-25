@@ -5,7 +5,7 @@ part 'login_form_input_state.abs.freezed.dart';
 @freezed
 class LoginFormInputState with _$LoginFormInputState {
   factory LoginFormInputState({
-    String? email,
+    String? studentId,
     String? password,
     @Default(false) bool isButtonEnabled,
   }) = _LoginFormInputState;

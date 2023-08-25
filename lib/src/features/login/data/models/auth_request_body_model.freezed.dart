@@ -20,7 +20,7 @@ AuthRequestBodyModel _$AuthRequestBodyModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AuthRequestBodyModel {
-  String get email => throw _privateConstructorUsedError;
+  String get studentId => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $AuthRequestBodyModelCopyWith<$Res> {
           $Res Function(AuthRequestBodyModel) then) =
       _$AuthRequestBodyModelCopyWithImpl<$Res, AuthRequestBodyModel>;
   @useResult
-  $Res call({String email, String password});
+  $Res call({String studentId, String password});
 }
 
 /// @nodoc
@@ -52,13 +52,13 @@ class _$AuthRequestBodyModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
+    Object? studentId = null,
     Object? password = null,
   }) {
     return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      studentId: null == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -76,7 +76,7 @@ abstract class _$$_AuthRequestBodyModelCopyWith<$Res>
       __$$_AuthRequestBodyModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String password});
+  $Res call({String studentId, String password});
 }
 
 /// @nodoc
@@ -90,13 +90,13 @@ class __$$_AuthRequestBodyModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
+    Object? studentId = null,
     Object? password = null,
   }) {
     return _then(_$_AuthRequestBodyModel(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      studentId: null == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -109,19 +109,19 @@ class __$$_AuthRequestBodyModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AuthRequestBodyModel implements _AuthRequestBodyModel {
-  _$_AuthRequestBodyModel({required this.email, required this.password});
+  _$_AuthRequestBodyModel({required this.studentId, required this.password});
 
   factory _$_AuthRequestBodyModel.fromJson(Map<String, dynamic> json) =>
       _$$_AuthRequestBodyModelFromJson(json);
 
   @override
-  final String email;
+  final String studentId;
   @override
   final String password;
 
   @override
   String toString() {
-    return 'AuthRequestBodyModel(email: $email, password: $password)';
+    return 'AuthRequestBodyModel(studentId: $studentId, password: $password)';
   }
 
   @override
@@ -129,14 +129,15 @@ class _$_AuthRequestBodyModel implements _AuthRequestBodyModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AuthRequestBodyModel &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.studentId, studentId) ||
+                other.studentId == studentId) &&
             (identical(other.password, password) ||
                 other.password == password));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
+  int get hashCode => Object.hash(runtimeType, studentId, password);
 
   @JsonKey(ignore: true)
   @override
@@ -155,14 +156,14 @@ class _$_AuthRequestBodyModel implements _AuthRequestBodyModel {
 
 abstract class _AuthRequestBodyModel implements AuthRequestBodyModel {
   factory _AuthRequestBodyModel(
-      {required final String email,
+      {required final String studentId,
       required final String password}) = _$_AuthRequestBodyModel;
 
   factory _AuthRequestBodyModel.fromJson(Map<String, dynamic> json) =
       _$_AuthRequestBodyModel.fromJson;
 
   @override
-  String get email;
+  String get studentId;
   @override
   String get password;
   @override

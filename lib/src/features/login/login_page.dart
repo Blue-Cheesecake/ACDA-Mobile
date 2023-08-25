@@ -41,16 +41,10 @@ class LoginPage extends StatelessWidget {
 
                     // For Dev Only
                     if (AppConfig.instance.isDev)
-                      Column(
+                      const Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              ACDAUser.instance.clearToken();
-                            },
-                            child: const Text('Clear Token'),
-                          ),
-                          const LoginAsDevButtonWD(),
+                          LoginAsDevButtonWD(),
                         ],
                       ),
                   ],

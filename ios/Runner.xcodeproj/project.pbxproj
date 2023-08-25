@@ -1250,6 +1250,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5151C5C5951E90CC1A702BC7 /* Pods-Runner.profile-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-dev";
@@ -1258,6 +1259,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C12F1D96C661FA7E9BD4881D /* Pods-Runner.release-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-dev";
