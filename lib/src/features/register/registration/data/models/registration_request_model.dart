@@ -8,6 +8,7 @@ class RegistrationRequestModel with _$RegistrationRequestModel {
   factory RegistrationRequestModel({
     required final String email,
     required final String password,
+    required final String studentId, // eg. u6388073
     required final int facultyId,
     required final String faceImage, // Base64 String
   }) = _RegistrationRequestModel;

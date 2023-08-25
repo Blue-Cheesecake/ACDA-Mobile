@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RegisterFormInputState {
   String? get emailName => throw _privateConstructorUsedError;
   String? get emailDomain => throw _privateConstructorUsedError;
+  String? get studentId => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get confirmedPassword => throw _privateConstructorUsedError;
   ICommonCategoryValueEntity? get faculty => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $RegisterFormInputStateCopyWith<$Res> {
   $Res call(
       {String? emailName,
       String? emailDomain,
+      String? studentId,
       String? password,
       String? confirmedPassword,
       ICommonCategoryValueEntity? faculty,
@@ -71,6 +73,7 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
   $Res call({
     Object? emailName = freezed,
     Object? emailDomain = freezed,
+    Object? studentId = freezed,
     Object? password = freezed,
     Object? confirmedPassword = freezed,
     Object? faculty = freezed,
@@ -90,6 +93,10 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
       emailDomain: freezed == emailDomain
           ? _value.emailDomain
           : emailDomain // ignore: cast_nullable_to_non_nullable
+              as String?,
+      studentId: freezed == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -146,6 +153,7 @@ abstract class _$$_RegisterFormInputStateCopyWith<$Res>
   $Res call(
       {String? emailName,
       String? emailDomain,
+      String? studentId,
       String? password,
       String? confirmedPassword,
       ICommonCategoryValueEntity? faculty,
@@ -172,6 +180,7 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
   $Res call({
     Object? emailName = freezed,
     Object? emailDomain = freezed,
+    Object? studentId = freezed,
     Object? password = freezed,
     Object? confirmedPassword = freezed,
     Object? faculty = freezed,
@@ -191,6 +200,10 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
       emailDomain: freezed == emailDomain
           ? _value.emailDomain
           : emailDomain // ignore: cast_nullable_to_non_nullable
+              as String?,
+      studentId: freezed == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -242,6 +255,7 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
   _$_RegisterFormInputState(
       {this.emailName,
       this.emailDomain,
+      this.studentId,
       this.password,
       this.confirmedPassword,
       this.faculty,
@@ -258,6 +272,8 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
   final String? emailName;
   @override
   final String? emailDomain;
+  @override
+  final String? studentId;
   @override
   final String? password;
   @override
@@ -286,7 +302,7 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
 
   @override
   String toString() {
-    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed, currentPage: $currentPage, completeButtonScale: $completeButtonScale)';
+    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, studentId: $studentId, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed, currentPage: $currentPage, completeButtonScale: $completeButtonScale)';
   }
 
   @override
@@ -298,6 +314,8 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
                 other.emailName == emailName) &&
             (identical(other.emailDomain, emailDomain) ||
                 other.emailDomain == emailDomain) &&
+            (identical(other.studentId, studentId) ||
+                other.studentId == studentId) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.confirmedPassword, confirmedPassword) ||
@@ -329,6 +347,7 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
       runtimeType,
       emailName,
       emailDomain,
+      studentId,
       password,
       confirmedPassword,
       faculty,
@@ -352,6 +371,7 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
   factory _RegisterFormInputState(
       {final String? emailName,
       final String? emailDomain,
+      final String? studentId,
       final String? password,
       final String? confirmedPassword,
       final ICommonCategoryValueEntity? faculty,
@@ -368,6 +388,8 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
   String? get emailName;
   @override
   String? get emailDomain;
+  @override
+  String? get studentId;
   @override
   String? get password;
   @override

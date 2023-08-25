@@ -23,6 +23,7 @@ RegistrationRequestModel _$RegistrationRequestModelFromJson(
 mixin _$RegistrationRequestModel {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String get studentId => throw _privateConstructorUsedError; // eg. u6388073
   int get facultyId => throw _privateConstructorUsedError;
   String get faceImage => throw _privateConstructorUsedError;
 
@@ -38,7 +39,12 @@ abstract class $RegistrationRequestModelCopyWith<$Res> {
           $Res Function(RegistrationRequestModel) then) =
       _$RegistrationRequestModelCopyWithImpl<$Res, RegistrationRequestModel>;
   @useResult
-  $Res call({String email, String password, int facultyId, String faceImage});
+  $Res call(
+      {String email,
+      String password,
+      String studentId,
+      int facultyId,
+      String faceImage});
 }
 
 /// @nodoc
@@ -57,6 +63,7 @@ class _$RegistrationRequestModelCopyWithImpl<$Res,
   $Res call({
     Object? email = null,
     Object? password = null,
+    Object? studentId = null,
     Object? facultyId = null,
     Object? faceImage = null,
   }) {
@@ -68,6 +75,10 @@ class _$RegistrationRequestModelCopyWithImpl<$Res,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      studentId: null == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String,
       facultyId: null == facultyId
           ? _value.facultyId
@@ -90,7 +101,12 @@ abstract class _$$_RegistrationRequestModelCopyWith<$Res>
       __$$_RegistrationRequestModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String password, int facultyId, String faceImage});
+  $Res call(
+      {String email,
+      String password,
+      String studentId,
+      int facultyId,
+      String faceImage});
 }
 
 /// @nodoc
@@ -107,6 +123,7 @@ class __$$_RegistrationRequestModelCopyWithImpl<$Res>
   $Res call({
     Object? email = null,
     Object? password = null,
+    Object? studentId = null,
     Object? facultyId = null,
     Object? faceImage = null,
   }) {
@@ -118,6 +135,10 @@ class __$$_RegistrationRequestModelCopyWithImpl<$Res>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      studentId: null == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String,
       facultyId: null == facultyId
           ? _value.facultyId
@@ -137,6 +158,7 @@ class _$_RegistrationRequestModel implements _RegistrationRequestModel {
   _$_RegistrationRequestModel(
       {required this.email,
       required this.password,
+      required this.studentId,
       required this.facultyId,
       required this.faceImage});
 
@@ -148,13 +170,16 @@ class _$_RegistrationRequestModel implements _RegistrationRequestModel {
   @override
   final String password;
   @override
+  final String studentId;
+// eg. u6388073
+  @override
   final int facultyId;
   @override
   final String faceImage;
 
   @override
   String toString() {
-    return 'RegistrationRequestModel(email: $email, password: $password, facultyId: $facultyId, faceImage: $faceImage)';
+    return 'RegistrationRequestModel(email: $email, password: $password, studentId: $studentId, facultyId: $facultyId, faceImage: $faceImage)';
   }
 
   @override
@@ -165,6 +190,8 @@ class _$_RegistrationRequestModel implements _RegistrationRequestModel {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
+            (identical(other.studentId, studentId) ||
+                other.studentId == studentId) &&
             (identical(other.facultyId, facultyId) ||
                 other.facultyId == facultyId) &&
             (identical(other.faceImage, faceImage) ||
@@ -173,8 +200,8 @@ class _$_RegistrationRequestModel implements _RegistrationRequestModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, email, password, facultyId, faceImage);
+  int get hashCode => Object.hash(
+      runtimeType, email, password, studentId, facultyId, faceImage);
 
   @JsonKey(ignore: true)
   @override
@@ -195,6 +222,7 @@ abstract class _RegistrationRequestModel implements RegistrationRequestModel {
   factory _RegistrationRequestModel(
       {required final String email,
       required final String password,
+      required final String studentId,
       required final int facultyId,
       required final String faceImage}) = _$_RegistrationRequestModel;
 
@@ -206,6 +234,8 @@ abstract class _RegistrationRequestModel implements RegistrationRequestModel {
   @override
   String get password;
   @override
+  String get studentId;
+  @override // eg. u6388073
   int get facultyId;
   @override
   String get faceImage;

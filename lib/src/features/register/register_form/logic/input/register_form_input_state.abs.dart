@@ -13,6 +13,7 @@ class RegisterFormInputState with _$RegisterFormInputState {
   factory RegisterFormInputState({
     String? emailName,
     String? emailDomain,
+    String? studentId,
     String? password,
     String? confirmedPassword,
     ICommonCategoryValueEntity? faculty,
