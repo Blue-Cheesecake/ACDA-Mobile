@@ -36,6 +36,7 @@ class StudentIdCardFormWD extends ConsumerWidget {
             evaluationFormStatusStateProvider.select((value) => value.isStudentIdCardImageFilled),
           ),
           shouldShrink: true,
+          isLast: true,
         ),
       ),
     );

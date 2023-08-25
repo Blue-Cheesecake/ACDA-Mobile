@@ -24,6 +24,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
     this.prevField,
     this.nextField,
     this.shouldShrink = false,
+    this.isLast = false,
     Key? key,
   }) : super(key: key);
 
@@ -35,6 +36,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
   final bool isImageFilled;
   final bool shouldShrink;
   final int currentLevel;
+  final bool isLast;
   final int totalCard;
   final EvaluationFormField currentSelectedFormField;
   final EvaluationFormField formField;
@@ -174,7 +176,7 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
                               topRight: Radius.circular(EvaluationFormCardWD.borderRadius),
                             ),
                           ),
-                          padding: const EdgeInsets.only(left: 30, right: 30, top: 31),
+                          padding: const EdgeInsets.only(left: 18, right: 18, top: 31),
                           child: widget.currentSelectedFormField == widget.formField
                               ? SingleChildScrollView(
                                   child: Column(
@@ -182,18 +184,34 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Text(
-                                        widget.description,
-                                        style: TextStyles.bodyText6.copyWith(
-                                          color: DesignSystem.g6,
-                                          fontWeight: FontWeight.w500,
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                                        child: Text(
+                                          widget.description,
+                                          style: TextStyles.bodyText6.copyWith(
+                                            color: DesignSystem.g6,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                       ),
                                       const SizedBox(height: 27),
-                                      EvaluationImageBoxWD(
-                                        currentImage: widget.currentImage,
-                                        onImageSelected: widget.onImageSelected,
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                                        child: EvaluationImageBoxWD(
+                                          currentImage: widget.currentImage,
+                                          onImageSelected: widget.onImageSelected,
+                                          currentLevel: widget.currentLevel,
+                                          nextField: widget.nextField,
+                                        ),
                                       ),
+                                      const SizedBox(height: 21),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(),
+                                          if (!widget.isLast) const SwipableTabDisplayWD(),
+                                        ],
+                                      )
                                     ],
                                   ),
                                 )

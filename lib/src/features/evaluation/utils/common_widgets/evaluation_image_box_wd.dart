@@ -1,29 +1,50 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
 import '../../../../utils/utils.dart';
+import '../../logic/logic.dart';
 import '../utils.dart';
 
-class EvaluationImageBoxWD extends StatelessWidget {
-  const EvaluationImageBoxWD({required this.onImageSelected, Key? key, this.currentImage}) : super(key: key);
+class EvaluationImageBoxWD extends ConsumerWidget {
+  const EvaluationImageBoxWD({
+    required this.onImageSelected,
+    required this.nextField,
+    required this.currentLevel,
+    this.currentImage,
+    Key? key,
+  }) : super(key: key);
 
   final XFile? currentImage;
   final void Function(XFile pickedImage) onImageSelected;
+  final EvaluationFormField? nextField;
+  final int currentLevel;
 
-  void _updateCurrentImage() async {
+  void _updateCurrentImage({required WidgetRef ref}) async {
     final XFile? pickedImage = await ACDAImagePicker.takeAPhoto();
     if (pickedImage == null) {
       return;
     }
+
     onImageSelected(pickedImage);
+
+    if (nextField == null) {
+      return;
+    }
+
+    ref.read(evaluationFormInputStateProvider.notifier).updateCurrentField(nextField!);
+    ACDAEventBus.instance.fire(SelectEvaluationFormFieldEvent(
+      level: currentLevel + 1,
+      formField: nextField!,
+    ));
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
       onTap: () => showACDABottomSheet(
         context: context,
@@ -36,7 +57,7 @@ class EvaluationImageBoxWD extends StatelessWidget {
                 onPressed: () {
                   ACDAPermission.instance.isCameraAccessGranted.then((isGranted) {
                     if (isGranted) {
-                      _updateCurrentImage();
+                      _updateCurrentImage(ref: ref);
                       return;
                     }
 
@@ -45,7 +66,7 @@ class EvaluationImageBoxWD extends StatelessWidget {
                       popup: ACDAUngrantedAccessPopupWD(
                         content: ACDACommonMessages.ungrantedPhotoPermission,
                         requestCallbackfn: ACDAPermission.instance.requestCameraAccess,
-                        updateImageCallbackfn: () => _updateCurrentImage(),
+                        updateImageCallbackfn: () => _updateCurrentImage(ref: ref),
                       ),
                     );
                   });

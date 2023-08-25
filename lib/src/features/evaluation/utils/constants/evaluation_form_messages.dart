@@ -14,4 +14,8 @@ class EvaluationFormMessages {
   static const studentIdCardDescription = 'Add a photo of your current wearing shoes in\nthe box below.';
   static const swipeToSubmit = 'Swipe to Submit';
   static const submitted = 'Submitted!';
+
+  static const iffinished = 'if finished, the submit button\nwill appear then here';
+  static const verticalSwipable = 'Vertical\nSwipe-able\nTab';
+  static const progressBar = 'Progress Bar';
 }
