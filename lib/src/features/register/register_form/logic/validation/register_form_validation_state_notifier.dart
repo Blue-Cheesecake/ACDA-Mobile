@@ -26,7 +26,7 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
     if (input.password == null || input.password!.isEmpty) {
       isValid = false;
     }
-    if (isStudentIdValid(input.studentId)) {
+    if (!isStudentIdValid(input.studentId)) {
       isValid = false;
       temp = temp.copyWith(studentIdErrorText: RegisterFormMessages.invalidStudentId);
     }

@@ -52,17 +52,22 @@ class ACDAOptionsFormFieldWD extends StatelessWidget {
           ),
         );
       },
-      child: Container(
-        height: 45,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
-          border: Border.all(
-            width: 1,
-            color: DesignSystem.g10,
-          ),
-        ),
-        child: childContainer,
+      child: LayoutBuilder(
+        builder: (context, state) {
+          return Container(
+            height: 45,
+            width: state.maxWidth,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(
+                width: 1,
+                color: DesignSystem.g10,
+              ),
+            ),
+            child: childContainer,
+          );
+        },
       ),
     );
   }
