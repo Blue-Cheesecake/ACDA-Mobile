@@ -20,6 +20,7 @@ class ACDATextField extends StatelessWidget {
     this.inputTextStyle,
     this.obsecureText = false,
     this.errorTextStyle,
+    this.keyboardType,
   }) : super(key: key);
 
   final String? labelText;
@@ -37,6 +38,7 @@ class ACDATextField extends StatelessWidget {
   final TextStyle? inputTextStyle;
   final bool obsecureText;
   final TextStyle? errorTextStyle;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,7 @@ class ACDATextField extends StatelessWidget {
         onTapOutside: onTapOutside,
         style: inputTextStyle ?? TextStyles.bodyText4,
         obscureText: obsecureText,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
           prefixIconColor: MaterialStateColor.resolveWith(

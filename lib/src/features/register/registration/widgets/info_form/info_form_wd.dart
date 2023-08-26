@@ -46,15 +46,8 @@ class InfoFormWD extends ConsumerWidget {
           const UserEmailFormWD(),
           const SizedBox(height: 14),
           const PasswordFormWD(),
-          const SizedBox(height: 7),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              textAlign: TextAlign.right,
-              InfoFormMessages.passwordInstruction,
-              style: TextStyles.bodyText6.copyWith(color: DesignSystem.g8),
-            ),
-          ),
+          const SizedBox(height: 14),
+          const StudentIdFormWD(),
           const SizedBox(height: 7),
           const FacultyFormWD(),
           if (AppConfig.instance.isDev) const SizedBox(height: 7),
