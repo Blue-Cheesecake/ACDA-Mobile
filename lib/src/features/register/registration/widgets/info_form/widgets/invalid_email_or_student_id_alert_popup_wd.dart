@@ -3,14 +3,16 @@ import 'package:flutter/cupertino.dart';
 import '../../../../../../utils/utils.dart';
 import '../utils/utils.dart';
 
-class DuplicatedEmailAlertPopupWD extends StatelessWidget {
-  const DuplicatedEmailAlertPopupWD({Key? key}) : super(key: key);
+class InvalidEmailOrStudentIdAlertPopupWD extends StatelessWidget {
+  const InvalidEmailOrStudentIdAlertPopupWD({required this.content, Key? key}) : super(key: key);
+
+  final String content;
 
   @override
   Widget build(BuildContext context) {
     return ACDAAlertPopup(
       title: InfoFormMessages.popupTitle,
-      content: InfoFormMessages.content,
+      content: content,
       actions: [
         CupertinoDialogAction(
           isDestructiveAction: true,

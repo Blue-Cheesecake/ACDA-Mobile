@@ -1,3 +1,4 @@
+import 'package:acda_mobile/src/features/register/registration/widgets/info_form/logic/register_validity/register_validity_state_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -7,7 +8,6 @@ import '../../../../../utils/utils.dart';
 import '../../../register_form/register_form.dart';
 import '../../../utils/utils.dart';
 import '../../registration.dart';
-import '../widgets.dart';
 import 'utils/utils.dart';
 import 'widgets/widgets.dart';
 
@@ -36,7 +36,12 @@ class RegisterNextButtonWD extends ConsumerWidget {
     final currentPage = ref.watch(registerFormInputProvider.select((value) => value.currentPage));
 
     if (currentPage == RegistrationPage.info && _isButtonEnabled(ref)) {
-      ref.read(emailExistenceProvider.notifier).checkEmailExistence();
+      await ref.read(registerValidityStateProvider.notifier).validate();
+      ref.read(registerValidityStateProvider).whenOrNull(
+        success: () {
+          ref.read(registerFormInputProvider.notifier).updateCurrentRegistrationPage(RegistrationPage.faceImage);
+        },
+      );
     }
     if (currentPage == RegistrationPage.faceImage && _isButtonEnabled(ref)) {
       await ref.read(registrationStateProvider.notifier).register();

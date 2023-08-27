@@ -27,4 +27,5 @@ class RegisterFormInputState with _$RegisterFormInputState {
   }) = _RegisterFormInputState;
 
   String get email => (emailName ?? '') + (emailDomain ?? '');
+  String get studentIdWithU => 'u$studentId';
 }

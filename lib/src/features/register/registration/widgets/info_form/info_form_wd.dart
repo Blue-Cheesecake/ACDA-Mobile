@@ -7,7 +7,7 @@ import '../../../../../core/core.dart';
 import '../../../../../utils/utils.dart';
 import '../../../register_form/register_form.dart';
 import '../../utils/utils.dart';
-import 'info_form.dart';
+import 'logic/logic.dart';
 import 'utils/utils.dart';
 import 'widgets/widgets.dart';
 
@@ -16,20 +16,19 @@ class InfoFormWD extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(emailExistenceProvider).whenOrNull(
+    ref.watch(registerValidityStateProvider).whenOrNull(
       loading: () {
         context.loaderOverlay.show();
       },
-      data: (isExist) {
+      success: () {
         context.loaderOverlay.hide();
-        if (isExist) {
-          Future.delayed(Duration.zero, () {
-            showACDAPopupFN(context: context, popup: const DuplicatedEmailAlertPopupWD());
-          });
-        }
       },
-      error: () {
+      error: (String message) {
         context.loaderOverlay.hide();
+
+        Future.delayed(Duration.zero, () {
+          showACDAPopupFN(context: context, popup: InvalidEmailOrStudentIdAlertPopupWD(content: message));
+        });
       },
     );
 
