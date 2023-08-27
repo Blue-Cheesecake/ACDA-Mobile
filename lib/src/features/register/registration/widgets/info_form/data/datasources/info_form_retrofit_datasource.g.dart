@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'email_existence_retrofit_datasource.dart';
+part of 'info_form_retrofit_datasource.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'email_existence_retrofit_datasource.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _EmailExistenceRetrofit implements EmailExistenceRetrofit {
-  _EmailExistenceRetrofit(
+class _InfoFormRetrofit implements InfoFormRetrofit {
+  _InfoFormRetrofit(
     this._dio, {
     this.baseUrl,
   });
@@ -19,25 +19,31 @@ class _EmailExistenceRetrofit implements EmailExistenceRetrofit {
   String? baseUrl;
 
   @override
-  Future<EmailExistenceModel> isEmailExist({required email}) async {
+  Future<RegisterValidityResultModel> validateEmailStudentId({
+    required email,
+    required studentId,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'email': email};
+    final queryParameters = <String, dynamic>{
+      r'email': email,
+      r'studentId': studentId,
+    };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<EmailExistenceModel>(Options(
+        _setStreamType<RegisterValidityResultModel>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/auth/email-existence',
+              '/api/v1/auth/isValidToRegister',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = EmailExistenceModel.fromJson(_result.data!);
+    final value = RegisterValidityResultModel.fromJson(_result.data!);
     return value;
   }
 
