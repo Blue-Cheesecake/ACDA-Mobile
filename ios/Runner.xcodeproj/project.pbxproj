@@ -233,7 +233,6 @@
 				7F3565D042C9780571133D29 /* Pods-RunnerTests.profile-prd.xcconfig */,
 				FC902FCA4D09323D7B1DFE87 /* Pods-RunnerTests.release-prd.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -665,6 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -986,6 +986,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1008,6 +1009,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1237,6 +1239,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 469A5C1541F19DE994468988 /* Pods-Runner.debug-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-dev";
@@ -1245,6 +1248,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F381AD5A14B6945C07CD9F05 /* Pods-Runner.profile-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-dev";
@@ -1253,6 +1257,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E656AEE8348E64F5D49F86B /* Pods-Runner.release-dev.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-dev";
@@ -1261,6 +1266,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9E113EA0D28CE116A42FD92 /* Pods-Runner.debug-stg.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-stg";
@@ -1269,6 +1275,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F8CB2CDEBA264184D42D9ED /* Pods-Runner.profile-stg.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-stg";
@@ -1277,6 +1284,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C306AC0546B471DE879DB4B0 /* Pods-Runner.release-stg.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-stg";
@@ -1285,6 +1293,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3E5DDEFD823CD31916B7292 /* Pods-Runner.debug-prd.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-prd";
@@ -1293,6 +1302,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CCB69E6C0D1A6F4E4723043D /* Pods-Runner.profile-prd.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-prd";
@@ -1301,6 +1311,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9B2A8EC4FD78E9241801D9A5 /* Pods-Runner.release-prd.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = P9QBP8RNKU;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-prd";
