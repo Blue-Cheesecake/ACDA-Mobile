@@ -1,4 +1,3 @@
-import 'package:acda_mobile/src/features/register/registration/widgets/info_form/logic/register_validity/register_validity_state_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,7 +7,7 @@ import '../../../../../utils/utils.dart';
 import '../../../register_form/register_form.dart';
 import '../../../utils/utils.dart';
 import '../../registration.dart';
-import 'utils/utils.dart';
+import '../info_form/logic/logic.dart';
 import 'widgets/widgets.dart';
 
 class RegisterNextButtonWD extends ConsumerWidget {
