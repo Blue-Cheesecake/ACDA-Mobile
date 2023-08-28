@@ -18,9 +18,14 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
     final authState = ref.read(loginFormInputProvider);
     LoginFormValidationState validationState = LoginFormValidationState();
 
+    String? rawStuId = authState.studentId?.trim();
+    if (rawStuId?.contains('u') ?? false) {
+      rawStuId = rawStuId?.replaceFirst('u', '');
+    }
+
     final response = await authenticateUseCase.execute(
       AuthRequestBodyModel(
-        studentId: 'u${authState.studentId?.trim()}',
+        studentId: 'u$rawStuId',
         password: '${authState.password}',
       ),
     );

@@ -63,17 +63,9 @@ class RegisterNextButtonWD extends ConsumerWidget {
       return ElevatedButton(
         style: ButtonStyles.nextFormButtonStyle(color: _buttonColor(ref)),
         onPressed: () => _onPressed(ref),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              RegisterNextButtonMessages.next,
-              style: TextStyles.bodyText3Bold.copyWith(color: DesignSystem.g1),
-            ),
-            const SizedBox(width: 6),
-            ACDAAssets.arrowRight,
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: ACDAAssets.arrowRight,
         ),
       );
     }
@@ -87,15 +79,12 @@ class RegisterNextButtonWD extends ConsumerWidget {
         AnimatedScale(
           scale: scale,
           duration: RegisterAnimationConfigs.completedNextButtonDuration,
-          child: SizedBox(
-            height: 74,
-            width: 74,
-            child: FloatingActionButton(
-              backgroundColor: DesignSystem.g21,
-              onPressed: () => _onPressed(ref),
-              elevation: 5,
-              splashColor: Colors.transparent,
-              child: RegisterNextButtonAssets.rightArrowAsset,
+          child: ElevatedButton(
+            style: ButtonStyles.nextFormButtonStyle(color: DesignSystem.g8),
+            onPressed: () => _onPressed(ref),
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: ACDAAssets.arrowRight,
             ),
           ),
         ),

@@ -21,7 +21,7 @@ class RegistrationStateNotifer extends ACDAStateNotifier<RegistrationState> {
     final response = await registerUseCase.execute(RegistrationRequestModel(
       email: input.email,
       password: input.password!,
-      studentId: input.studentId!,
+      studentId: input.studentIdWithU,
       facultyId: input.faculty!.id,
       faceImage: faceImageBase64,
     ));

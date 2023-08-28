@@ -30,8 +30,8 @@ class ButtonStyles {
   static ButtonStyle nextFormButtonStyle({Color? color}) => ElevatedButton.styleFrom(
         backgroundColor: color,
         padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        elevation: 0,
+        shape: const CircleBorder(),
+        elevation: 4,
         splashFactory: NoSplash.splashFactory,
       );
 
