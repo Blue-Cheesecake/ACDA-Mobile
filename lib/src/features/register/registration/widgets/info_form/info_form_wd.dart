@@ -7,7 +7,7 @@ import '../../../../../core/core.dart';
 import '../../../../../utils/utils.dart';
 import '../../../register_form/register_form.dart';
 import '../../utils/utils.dart';
-import 'info_form.dart';
+import 'logic/logic.dart';
 import 'utils/utils.dart';
 import 'widgets/widgets.dart';
 
@@ -16,20 +16,19 @@ class InfoFormWD extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(emailExistenceProvider).whenOrNull(
+    ref.watch(registerValidityStateProvider).whenOrNull(
       loading: () {
         context.loaderOverlay.show();
       },
-      data: (isExist) {
+      success: () {
         context.loaderOverlay.hide();
-        if (isExist) {
-          Future.delayed(Duration.zero, () {
-            showACDAPopupFN(context: context, popup: const DuplicatedEmailAlertPopupWD());
-          });
-        }
       },
-      error: () {
+      error: (String message) {
         context.loaderOverlay.hide();
+
+        Future.delayed(Duration.zero, () {
+          showACDAPopupFN(context: context, popup: InvalidEmailOrStudentIdAlertPopupWD(content: message));
+        });
       },
     );
 
@@ -46,15 +45,8 @@ class InfoFormWD extends ConsumerWidget {
           const UserEmailFormWD(),
           const SizedBox(height: 14),
           const PasswordFormWD(),
-          const SizedBox(height: 7),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              textAlign: TextAlign.right,
-              InfoFormMessages.passwordInstruction,
-              style: TextStyles.bodyText6.copyWith(color: DesignSystem.g8),
-            ),
-          ),
+          const SizedBox(height: 14),
+          const StudentIdFormWD(),
           const SizedBox(height: 7),
           const FacultyFormWD(),
           if (AppConfig.instance.isDev) const SizedBox(height: 7),

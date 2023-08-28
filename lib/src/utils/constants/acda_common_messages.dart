@@ -20,6 +20,10 @@ class ACDACommonMessages {
   static const ungrantedPhotoLibrary = 'The photo library access is currently denied.';
   static const ungrantedCamera = 'The camera access is currently denied.';
   static const grantInstruction = 'Please allow the permission in your device setting.';
+  static const ungrantedCameraPermission =
+      'Camera Access is not currently allowed. Open your app setting to allow access';
+  static const ungrantedPhotoPermission =
+      'Photo Library is not currently allowed. Open your app setting to allow access';
 
   // Unaccepted Wifi
   static const usingUnacceptedWifiContent = 'MU WiFi is not allowed for some accidents. Please use other network.';

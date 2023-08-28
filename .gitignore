@@ -1,3 +1,6 @@
+# FVM
+.fvm/
+
 # Miscellaneous
 *.class
 *.log
@@ -42,3 +45,9 @@ app.*.map.json
 
 # VSCode
 .vscode/
+
+# Test
+coverage/
+
+# Secret
+ios/config/

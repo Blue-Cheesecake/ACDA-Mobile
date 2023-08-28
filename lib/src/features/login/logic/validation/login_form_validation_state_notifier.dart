@@ -8,11 +8,11 @@ class LoginFormValidationStateNotifier extends StateNotifier<LoginFormValidation
   final Ref ref;
 
   bool isFormValid() {
-    final String? email = ref.read(loginFormInputProvider.select((value) => value.email));
+    final String? studentId = ref.read(loginFormInputProvider.select((value) => value.studentId));
     final String? password = ref.read(loginFormInputProvider.select((value) => value.password));
     bool isValid = true;
 
-    if (email == null || email.isEmpty) {
+    if (studentId == null || studentId.isEmpty) {
       isValid = false;
     }
     if (password == null || password.isEmpty) {

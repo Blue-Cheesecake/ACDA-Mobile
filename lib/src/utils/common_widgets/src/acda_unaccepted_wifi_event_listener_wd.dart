@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/core.dart';
 import '../../utils.dart';
 
 class ACDAUnacceptedWifiEventListenerWD extends StatelessWidget {
@@ -9,7 +10,7 @@ class ACDAUnacceptedWifiEventListenerWD extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ACDAEventSubscriberWD(
+    return ACDAEventSubscriberWD<UsingUnacceptedWifiEvent>(
       child: child,
       callbackfn: (event) {
         showACDAPopupFN(context: context, popup: const ACDAUseUnacceptedWifiPopupWD());

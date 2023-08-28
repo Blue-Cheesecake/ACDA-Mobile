@@ -7,12 +7,15 @@ class InfoFormMessages {
   static const passwordTitle = 'Password';
   static const passwordFormPlaceholder = 'Password';
   static const confirmedpasswordFormPlaceholder = 'Confirm Password';
-  static const passwordInstruction = 'Number and Special Character are allowed to use.\nNo Spacer.';
   static const facultyTitle = 'Faculty';
   static const emailDomainNameTitle = 'Domain Name';
 
+  // student id form
+  static const studentIdTitle = 'Student ID';
+  static const studentIdPlaceholder = 'Student ID (7 digits)';
+
   // Error Popup Messages
   static const popupTitle = 'Alert';
-  static const content = 'This email is already in used.\nPlease use other emails.';
   static const confirm = 'confirm';
+  static const invalidEmailAndStudentID = 'This email or studentId is already registered';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../config/config.dart';
 import '../../../../../../utils/utils.dart';
 import '../../../../faculty_list/logic/logic.dart';
 import '../../../../register_form/register_form.dart';
@@ -25,36 +26,33 @@ class _FacultyFormWDState extends ConsumerState<FacultyFormWD> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(InfoFormMessages.facultyTitle),
-        const SizedBox(width: 5),
+        Text(
+          InfoFormMessages.facultyTitle,
+          style: TextStyles.bodyText2Bold.copyWith(color: DesignSystem.g6),
+        ),
+        const SizedBox(height: 5),
         ref.watch(facultyListProvider.call(providerKey)).when(
-              initial: () => Expanded(
-                child: ACDAOptionsFormFieldWD(
-                  selectedValue: ref.watch(registerFormInputProvider.select((value) => value.faculty?.value)),
-                  title: InfoFormMessages.facultyTitle,
-                  list: const [],
-                  onSelectedValue: (item) => ref.read(registerFormInputProvider.notifier).updateFaculty(item),
-                ),
+              initial: () => ACDAOptionsFormFieldWD(
+                selectedValue: ref.watch(registerFormInputProvider.select((value) => value.faculty?.value)),
+                title: InfoFormMessages.facultyTitle,
+                list: const [],
+                onSelectedValue: (item) => ref.read(registerFormInputProvider.notifier).updateFaculty(item),
               ),
-              error: () => Expanded(
-                child: ACDAOptionsFormFieldWD(
-                  selectedValue: ref.watch(registerFormInputProvider.select((value) => value.faculty?.value)),
-                  title: InfoFormMessages.facultyTitle,
-                  list: const [],
-                  onSelectedValue: (item) => ref.read(registerFormInputProvider.notifier).updateFaculty(item),
-                ),
+              error: () => ACDAOptionsFormFieldWD(
+                selectedValue: ref.watch(registerFormInputProvider.select((value) => value.faculty?.value)),
+                title: InfoFormMessages.facultyTitle,
+                list: const [],
+                onSelectedValue: (item) => ref.read(registerFormInputProvider.notifier).updateFaculty(item),
               ),
               data: (data) {
-                return Expanded(
-                  child: ACDAOptionsFormFieldWD(
-                    selectedValue: ref.watch(registerFormInputProvider.select((value) => value.faculty?.value)),
-                    title: InfoFormMessages.facultyTitle,
-                    list: data,
-                    onSelectedValue: (item) => ref.read(registerFormInputProvider.notifier).updateFaculty(item),
-                  ),
+                return ACDAOptionsFormFieldWD(
+                  selectedValue: ref.watch(registerFormInputProvider.select((value) => value.faculty?.value)),
+                  title: InfoFormMessages.facultyTitle,
+                  list: data,
+                  onSelectedValue: (item) => ref.read(registerFormInputProvider.notifier).updateFaculty(item),
                 );
               },
             ),

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginFormInputState {
-  String? get email => throw _privateConstructorUsedError;
+  String? get studentId => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   bool get isButtonEnabled => throw _privateConstructorUsedError;
 
@@ -31,7 +31,7 @@ abstract class $LoginFormInputStateCopyWith<$Res> {
           LoginFormInputState value, $Res Function(LoginFormInputState) then) =
       _$LoginFormInputStateCopyWithImpl<$Res, LoginFormInputState>;
   @useResult
-  $Res call({String? email, String? password, bool isButtonEnabled});
+  $Res call({String? studentId, String? password, bool isButtonEnabled});
 }
 
 /// @nodoc
@@ -47,14 +47,14 @@ class _$LoginFormInputStateCopyWithImpl<$Res, $Val extends LoginFormInputState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? studentId = freezed,
     Object? password = freezed,
     Object? isButtonEnabled = null,
   }) {
     return _then(_value.copyWith(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      studentId: freezed == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -76,7 +76,7 @@ abstract class _$$_LoginFormInputStateCopyWith<$Res>
       __$$_LoginFormInputStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? email, String? password, bool isButtonEnabled});
+  $Res call({String? studentId, String? password, bool isButtonEnabled});
 }
 
 /// @nodoc
@@ -90,14 +90,14 @@ class __$$_LoginFormInputStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
+    Object? studentId = freezed,
     Object? password = freezed,
     Object? isButtonEnabled = null,
   }) {
     return _then(_$_LoginFormInputState(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      studentId: freezed == studentId
+          ? _value.studentId
+          : studentId // ignore: cast_nullable_to_non_nullable
               as String?,
       password: freezed == password
           ? _value.password
@@ -115,10 +115,10 @@ class __$$_LoginFormInputStateCopyWithImpl<$Res>
 
 class _$_LoginFormInputState implements _LoginFormInputState {
   _$_LoginFormInputState(
-      {this.email, this.password, this.isButtonEnabled = false});
+      {this.studentId, this.password, this.isButtonEnabled = false});
 
   @override
-  final String? email;
+  final String? studentId;
   @override
   final String? password;
   @override
@@ -127,7 +127,7 @@ class _$_LoginFormInputState implements _LoginFormInputState {
 
   @override
   String toString() {
-    return 'LoginFormInputState(email: $email, password: $password, isButtonEnabled: $isButtonEnabled)';
+    return 'LoginFormInputState(studentId: $studentId, password: $password, isButtonEnabled: $isButtonEnabled)';
   }
 
   @override
@@ -135,7 +135,8 @@ class _$_LoginFormInputState implements _LoginFormInputState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoginFormInputState &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.studentId, studentId) ||
+                other.studentId == studentId) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.isButtonEnabled, isButtonEnabled) ||
@@ -144,7 +145,7 @@ class _$_LoginFormInputState implements _LoginFormInputState {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, email, password, isButtonEnabled);
+      Object.hash(runtimeType, studentId, password, isButtonEnabled);
 
   @JsonKey(ignore: true)
   @override
@@ -156,12 +157,12 @@ class _$_LoginFormInputState implements _LoginFormInputState {
 
 abstract class _LoginFormInputState implements LoginFormInputState {
   factory _LoginFormInputState(
-      {final String? email,
+      {final String? studentId,
       final String? password,
       final bool isButtonEnabled}) = _$_LoginFormInputState;
 
   @override
-  String? get email;
+  String? get studentId;
   @override
   String? get password;
   @override

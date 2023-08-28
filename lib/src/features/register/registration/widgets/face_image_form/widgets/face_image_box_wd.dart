@@ -12,7 +12,6 @@ import '../../../../../../utils/utils.dart';
 import '../../../../register_form/register_form.dart';
 import '../../../registration.dart';
 import '../utils/utils.dart';
-import 'ungranted_access_popup_wd.dart';
 
 class FaceImageBoxWD extends ConsumerWidget {
   const FaceImageBoxWD({Key? key}) : super(key: key);
@@ -41,8 +40,8 @@ class FaceImageBoxWD extends ConsumerWidget {
                   } else {
                     showACDAPopupFN(
                       context: context,
-                      popup: UngrantedAccessPopupWD(
-                        content: FaceImageFormMessages.ungrantedPhotoPermission,
+                      popup: ACDAUngrantedAccessPopupWD(
+                        content: ACDACommonMessages.ungrantedPhotoPermission,
                         requestCallbackfn: ACDAPermission.instance.requestPhotoLibraryAccess,
                         updateImageCallbackfn: () => _updateCurrentImage(
                           source: ACDAImagePicker.pickImageFromGallery(),
@@ -64,8 +63,8 @@ class FaceImageBoxWD extends ConsumerWidget {
                   } else {
                     showACDAPopupFN(
                       context: context,
-                      popup: UngrantedAccessPopupWD(
-                        content: FaceImageFormMessages.ungrantedCameraPermission,
+                      popup: ACDAUngrantedAccessPopupWD(
+                        content: ACDACommonMessages.ungrantedCameraPermission,
                         requestCallbackfn: ACDAPermission.instance.requestCameraAccess,
                         updateImageCallbackfn: () => _updateCurrentImage(
                           source: ACDAImagePicker.takeAPhoto(),
