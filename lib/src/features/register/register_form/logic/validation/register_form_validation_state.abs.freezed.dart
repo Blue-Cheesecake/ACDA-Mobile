@@ -19,7 +19,6 @@ mixin _$RegisterFormValidationState {
   String? get passwordErrorText => throw _privateConstructorUsedError;
   String? get confirmedPasswordErrorText => throw _privateConstructorUsedError;
   String? get studentIdErrorText => throw _privateConstructorUsedError;
-  String? get emailErrorText => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RegisterFormValidationStateCopyWith<RegisterFormValidationState>
@@ -37,8 +36,7 @@ abstract class $RegisterFormValidationStateCopyWith<$Res> {
   $Res call(
       {String? passwordErrorText,
       String? confirmedPasswordErrorText,
-      String? studentIdErrorText,
-      String? emailErrorText});
+      String? studentIdErrorText});
 }
 
 /// @nodoc
@@ -58,7 +56,6 @@ class _$RegisterFormValidationStateCopyWithImpl<$Res,
     Object? passwordErrorText = freezed,
     Object? confirmedPasswordErrorText = freezed,
     Object? studentIdErrorText = freezed,
-    Object? emailErrorText = freezed,
   }) {
     return _then(_value.copyWith(
       passwordErrorText: freezed == passwordErrorText
@@ -72,10 +69,6 @@ class _$RegisterFormValidationStateCopyWithImpl<$Res,
       studentIdErrorText: freezed == studentIdErrorText
           ? _value.studentIdErrorText
           : studentIdErrorText // ignore: cast_nullable_to_non_nullable
-              as String?,
-      emailErrorText: freezed == emailErrorText
-          ? _value.emailErrorText
-          : emailErrorText // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -93,8 +86,7 @@ abstract class _$$_RegisterFormValidationStateCopyWith<$Res>
   $Res call(
       {String? passwordErrorText,
       String? confirmedPasswordErrorText,
-      String? studentIdErrorText,
-      String? emailErrorText});
+      String? studentIdErrorText});
 }
 
 /// @nodoc
@@ -113,7 +105,6 @@ class __$$_RegisterFormValidationStateCopyWithImpl<$Res>
     Object? passwordErrorText = freezed,
     Object? confirmedPasswordErrorText = freezed,
     Object? studentIdErrorText = freezed,
-    Object? emailErrorText = freezed,
   }) {
     return _then(_$_RegisterFormValidationState(
       passwordErrorText: freezed == passwordErrorText
@@ -128,10 +119,6 @@ class __$$_RegisterFormValidationStateCopyWithImpl<$Res>
           ? _value.studentIdErrorText
           : studentIdErrorText // ignore: cast_nullable_to_non_nullable
               as String?,
-      emailErrorText: freezed == emailErrorText
-          ? _value.emailErrorText
-          : emailErrorText // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -142,8 +129,7 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
   _$_RegisterFormValidationState(
       {this.passwordErrorText,
       this.confirmedPasswordErrorText,
-      this.studentIdErrorText,
-      this.emailErrorText});
+      this.studentIdErrorText});
 
   @override
   final String? passwordErrorText;
@@ -151,12 +137,10 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
   final String? confirmedPasswordErrorText;
   @override
   final String? studentIdErrorText;
-  @override
-  final String? emailErrorText;
 
   @override
   String toString() {
-    return 'RegisterFormValidationState(passwordErrorText: $passwordErrorText, confirmedPasswordErrorText: $confirmedPasswordErrorText, studentIdErrorText: $studentIdErrorText, emailErrorText: $emailErrorText)';
+    return 'RegisterFormValidationState(passwordErrorText: $passwordErrorText, confirmedPasswordErrorText: $confirmedPasswordErrorText, studentIdErrorText: $studentIdErrorText)';
   }
 
   @override
@@ -171,14 +155,12 @@ class _$_RegisterFormValidationState implements _RegisterFormValidationState {
                 other.confirmedPasswordErrorText ==
                     confirmedPasswordErrorText) &&
             (identical(other.studentIdErrorText, studentIdErrorText) ||
-                other.studentIdErrorText == studentIdErrorText) &&
-            (identical(other.emailErrorText, emailErrorText) ||
-                other.emailErrorText == emailErrorText));
+                other.studentIdErrorText == studentIdErrorText));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, passwordErrorText,
-      confirmedPasswordErrorText, studentIdErrorText, emailErrorText);
+      confirmedPasswordErrorText, studentIdErrorText);
 
   @JsonKey(ignore: true)
   @override
@@ -193,8 +175,7 @@ abstract class _RegisterFormValidationState
   factory _RegisterFormValidationState(
       {final String? passwordErrorText,
       final String? confirmedPasswordErrorText,
-      final String? studentIdErrorText,
-      final String? emailErrorText}) = _$_RegisterFormValidationState;
+      final String? studentIdErrorText}) = _$_RegisterFormValidationState;
 
   @override
   String? get passwordErrorText;
@@ -202,8 +183,6 @@ abstract class _RegisterFormValidationState
   String? get confirmedPasswordErrorText;
   @override
   String? get studentIdErrorText;
-  @override
-  String? get emailErrorText;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterFormValidationStateCopyWith<_$_RegisterFormValidationState>
