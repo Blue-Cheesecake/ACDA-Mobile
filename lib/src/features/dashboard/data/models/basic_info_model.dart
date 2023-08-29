@@ -10,6 +10,7 @@ part 'basic_info_model.g.dart';
 class BasicInfoModel with _$BasicInfoModel implements IBasicInfoEntity {
   factory BasicInfoModel({
     required final String name,
+    required final String faculty,
     required final EvaluationResultHistoryNumberModel evaluationResultHistoryNumber,
   }) = _BasicInfoModel;
 
