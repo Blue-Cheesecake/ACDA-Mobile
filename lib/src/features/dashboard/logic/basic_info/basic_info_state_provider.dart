@@ -10,5 +10,5 @@ final getBasicInfoUseCaseProvider = Provider.autoDispose<GetBasicInfoUseCase>((r
 
 final basicInfoStateProvider = StateNotifierProvider.autoDispose<BasicInfoStateNotifier, BasicInfoState>((ref) {
   final getBasicInfoUseCase = ref.watch(getBasicInfoUseCaseProvider);
-  return BasicInfoStateNotifier(getBasicInfoUseCase: getBasicInfoUseCase);
+  return BasicInfoStateNotifier(ref: ref, getBasicInfoUseCase: getBasicInfoUseCase);
 });

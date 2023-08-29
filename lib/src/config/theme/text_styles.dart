@@ -6,6 +6,13 @@ class TextStyles {
   TextStyles._();
 
   // styles
+  static TextStyle get header1Bold => const TextStyle(
+        color: DesignSystem.g0,
+        fontFamily: DesignSystem.fontFamily,
+        fontSize: DesignSystem.header1Size,
+        fontWeight: FontWeight.w800,
+      );
+
   static TextStyle get header1BoldItalic => const TextStyle(
         color: DesignSystem.g0,
         fontFamily: DesignSystem.fontFamily,

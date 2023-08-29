@@ -21,6 +21,7 @@ BasicInfoModel _$BasicInfoModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BasicInfoModel {
   String get name => throw _privateConstructorUsedError;
+  String get faculty => throw _privateConstructorUsedError;
   EvaluationResultHistoryNumberModel get evaluationResultHistoryNumber =>
       throw _privateConstructorUsedError;
 
@@ -38,6 +39,7 @@ abstract class $BasicInfoModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
+      String faculty,
       EvaluationResultHistoryNumberModel evaluationResultHistoryNumber});
 
   $EvaluationResultHistoryNumberModelCopyWith<$Res>
@@ -58,12 +60,17 @@ class _$BasicInfoModelCopyWithImpl<$Res, $Val extends BasicInfoModel>
   @override
   $Res call({
     Object? name = null,
+    Object? faculty = null,
     Object? evaluationResultHistoryNumber = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      faculty: null == faculty
+          ? _value.faculty
+          : faculty // ignore: cast_nullable_to_non_nullable
               as String,
       evaluationResultHistoryNumber: null == evaluationResultHistoryNumber
           ? _value.evaluationResultHistoryNumber
@@ -94,6 +101,7 @@ abstract class _$$_BasicInfoModelCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
+      String faculty,
       EvaluationResultHistoryNumberModel evaluationResultHistoryNumber});
 
   @override
@@ -113,12 +121,17 @@ class __$$_BasicInfoModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
+    Object? faculty = null,
     Object? evaluationResultHistoryNumber = null,
   }) {
     return _then(_$_BasicInfoModel(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      faculty: null == faculty
+          ? _value.faculty
+          : faculty // ignore: cast_nullable_to_non_nullable
               as String,
       evaluationResultHistoryNumber: null == evaluationResultHistoryNumber
           ? _value.evaluationResultHistoryNumber
@@ -132,7 +145,9 @@ class __$$_BasicInfoModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BasicInfoModel implements _BasicInfoModel {
   _$_BasicInfoModel(
-      {required this.name, required this.evaluationResultHistoryNumber});
+      {required this.name,
+      required this.faculty,
+      required this.evaluationResultHistoryNumber});
 
   factory _$_BasicInfoModel.fromJson(Map<String, dynamic> json) =>
       _$$_BasicInfoModelFromJson(json);
@@ -140,11 +155,13 @@ class _$_BasicInfoModel implements _BasicInfoModel {
   @override
   final String name;
   @override
+  final String faculty;
+  @override
   final EvaluationResultHistoryNumberModel evaluationResultHistoryNumber;
 
   @override
   String toString() {
-    return 'BasicInfoModel(name: $name, evaluationResultHistoryNumber: $evaluationResultHistoryNumber)';
+    return 'BasicInfoModel(name: $name, faculty: $faculty, evaluationResultHistoryNumber: $evaluationResultHistoryNumber)';
   }
 
   @override
@@ -153,6 +170,7 @@ class _$_BasicInfoModel implements _BasicInfoModel {
         (other.runtimeType == runtimeType &&
             other is _$_BasicInfoModel &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.faculty, faculty) || other.faculty == faculty) &&
             (identical(other.evaluationResultHistoryNumber,
                     evaluationResultHistoryNumber) ||
                 other.evaluationResultHistoryNumber ==
@@ -162,7 +180,7 @@ class _$_BasicInfoModel implements _BasicInfoModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, evaluationResultHistoryNumber);
+      Object.hash(runtimeType, name, faculty, evaluationResultHistoryNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -181,6 +199,7 @@ class _$_BasicInfoModel implements _BasicInfoModel {
 abstract class _BasicInfoModel implements BasicInfoModel {
   factory _BasicInfoModel(
       {required final String name,
+      required final String faculty,
       required final EvaluationResultHistoryNumberModel
           evaluationResultHistoryNumber}) = _$_BasicInfoModel;
 
@@ -189,6 +208,8 @@ abstract class _BasicInfoModel implements BasicInfoModel {
 
   @override
   String get name;
+  @override
+  String get faculty;
   @override
   EvaluationResultHistoryNumberModel get evaluationResultHistoryNumber;
   @override
