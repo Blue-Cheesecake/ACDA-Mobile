@@ -14,7 +14,7 @@ class EvaluationResultPage extends StatelessWidget {
       appBar: AppBar(
         leading: BackButton(
           onPressed: () {
-            ACDANavigation.instance.go(RoutePath.dashboard);
+            ACDANavigation.instance.go(RoutePath.central);
           },
         ),
       ),
