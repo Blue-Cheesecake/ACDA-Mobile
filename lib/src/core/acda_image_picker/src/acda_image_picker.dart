@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ACDAImagePicker {
@@ -10,8 +11,15 @@ class ACDAImagePicker {
     return response;
   }
 
-  static Future<XFile?> takeAPhoto() async {
-    final response = await _picker.pickImage(source: ImageSource.camera);
+  static Future<XFile?> takeAPhoto({CameraController? cameraController}) async {
+    if (cameraController == null) {
+      final response = await _picker.pickImage(
+        source: ImageSource.camera,
+      );
+      return response;
+    }
+
+    final response = await cameraController.takePicture();
     return response;
   }
 
