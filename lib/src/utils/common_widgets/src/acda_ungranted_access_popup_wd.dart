@@ -4,13 +4,16 @@ import 'package:permission_handler/permission_handler.dart';
 import '../../utils.dart';
 
 class ACDAUngrantedAccessPopupWD extends StatelessWidget {
-  const ACDAUngrantedAccessPopupWD(
-      {required this.content, required this.requestCallbackfn, required this.updateImageCallbackfn, Key? key})
-      : super(key: key);
+  const ACDAUngrantedAccessPopupWD({
+    required this.content,
+    required this.requestCallbackfn,
+    this.updateImageCallbackfn,
+    Key? key,
+  }) : super(key: key);
 
   final String content;
   final Future<PermissionStatus> Function() requestCallbackfn;
-  final void Function() updateImageCallbackfn;
+  final void Function()? updateImageCallbackfn;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,8 @@ class ACDAUngrantedAccessPopupWD extends StatelessWidget {
             if (status == PermissionStatus.permanentlyDenied) {
               openAppSettings();
             }
-            if (status == PermissionStatus.granted) {
-              updateImageCallbackfn();
+            if (status == PermissionStatus.granted && updateImageCallbackfn != null) {
+              updateImageCallbackfn!();
             }
           },
           child: const Text(ACDACommonMessages.request),

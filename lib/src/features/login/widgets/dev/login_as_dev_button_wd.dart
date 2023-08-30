@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/core.dart';
-import '../../../utils/utils.dart';
-import '../logic/logic.dart';
+import '../../../../core/core.dart';
+import '../../../../utils/utils.dart';
+import '../../logic/logic.dart';
 
 class LoginAsDevButtonWD extends ConsumerWidget {
   const LoginAsDevButtonWD({Key? key}) : super(key: key);

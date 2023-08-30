@@ -44,6 +44,7 @@ class LoginPage extends StatelessWidget {
                       const Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
+                          ByPassLoginButtonWd(),
                           LoginAsDevButtonWD(),
                         ],
                       ),
