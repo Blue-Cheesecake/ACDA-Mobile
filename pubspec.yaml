@@ -53,6 +53,7 @@ dependencies:
 
   # Image Picker
   image_picker: 1.0.0
+  camera: ^0.10.5+4
 
   # Bottom Sheet
   modal_bottom_sheet: 3.0.0-pre
@@ -75,6 +76,13 @@ dependencies:
 
   # Button Sliding
   action_slider: 0.7.0
+
+  # Bottom Navigation Bar
+  convex_bottom_bar: 3.2.0
+
+  # Formatter
+  intl: 0.18.1
+  custom_sliding_segmented_control: ^1.7.5
 
 dev_dependencies:
   flutter_test:

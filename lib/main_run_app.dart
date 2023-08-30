@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -32,6 +33,9 @@ void mainRunApp() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
+
+  final cameras = await availableCameras();
+  ACDACameraDescription.cameraOptions = cameras;
 
   runApp(const ProviderScope(child: AppWD()));
 }

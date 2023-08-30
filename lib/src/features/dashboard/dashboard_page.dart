@@ -1,39 +1,41 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../config/config.dart';
-import '../../core/core.dart';
-import '../../utils/utils.dart';
-import 'utils/utils.dart';
+import 'logic/logic.dart';
+import 'widgets/widgets.dart';
 
-class DashboardPage extends StatelessWidget {
+class DashboardPage extends ConsumerStatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
 
   @override
+  ConsumerState<DashboardPage> createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends ConsumerState<DashboardPage> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(basicInfoStateProvider.notifier).fetchBasicInfo();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ACDAUnacceptedWifiEventListenerWD(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            DashboardMessages.title,
-            style: TextStyles.header5.copyWith(color: DesignSystem.g1),
-          ),
-          leading: IconButton(
-              onPressed: () {
-                ACDAUser.instance.clearToken();
-                ACDANavigation.instance.go(RoutePath.login);
-              },
-              icon: const Icon(CupertinoIcons.back)),
-        ),
-        body: Center(
-          child: TextButton(
-            onPressed: () {
-              ACDANavigation.instance.push(RoutePath.form);
-            },
-            child: const Text('Evaluation Form'),
-          ),
-        ),
-      ),
+    ref.watch(basicInfoStateProvider).whenOrNull(
+          error: () {},
+        );
+
+    return const Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        SizedBox(height: 20),
+        HomeHeaderWD(),
+        SizedBox(height: 10),
+        GoodLuckWd(),
+        SizedBox(height: 10),
+        EvaluationHistoryNumberWD(),
+        SizedBox(height: 16),
+        DressGuidelineWD(),
+      ],
     );
   }
 }

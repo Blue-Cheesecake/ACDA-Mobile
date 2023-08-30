@@ -39,7 +39,7 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
             ref.read(loginFormValidationStateProvider.notifier).state = validationState;
             ref.read(loginFormInputProvider.notifier).updateStudentId(null);
             ref.read(loginFormInputProvider.notifier).updatePassword(null);
-            ACDANavigation.instance.go(RoutePath.dashboard);
+            ACDANavigation.instance.go(RoutePath.central);
           },
           error: (errorMessageModel) {
             safeState = AuthState.clientError(message: errorMessageModel.message);

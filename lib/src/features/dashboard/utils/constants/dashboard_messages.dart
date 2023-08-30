@@ -1,10 +1,9 @@
 class DashboardMessages {
   DashboardMessages._();
 
-  static const title = 'DASHBOARD';
-  static const getStarted = 'GET STARTED';
-  static const searchAll = 'All';
-  static const searchPassed = 'Passed';
-  static const searchFailed = 'Failed';
-  static const searchPlaceholder = 'Search by label';
+  static const logout = 'log out?';
+  static const goodLuck = 'Good Luck with the exams!';
+  static const passedTitle = 'Passed';
+  static const failedTitle = 'Failed';
+  static const totalTitle = 'Total';
 }

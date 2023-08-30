@@ -1,9 +1,8 @@
-import 'package:acda_mobile/src/features/evaluation/evaluation_result/evaluation_result_page.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../features/dashboard/dashboard_page.dart';
+import '../../../features/central/central_page.dart';
 import '../../../features/evaluation/domain/domain.dart';
-import '../../../features/evaluation/evaluation_form_page.dart';
+import '../../../features/evaluation/evaluation_result/evaluation_result_page.dart';
 import '../../../features/login/login_page.dart';
 import '../../../features/register/register_page.dart';
 import 'utils/utils.dart';
@@ -13,12 +12,8 @@ class Routes {
 
   static dynamic list() => [
         GoRoute(
-          path: RoutePath.dashboard,
-          builder: (context, state) => const DashboardPage(),
-        ),
-        GoRoute(
-          path: RoutePath.form,
-          builder: (context, state) => const EvaluationFormPage(),
+          path: RoutePath.central,
+          builder: (context, state) => const CentralPage(),
         ),
         GoRoute(
           path: RoutePath.login,

@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
+import '../../../../utils/common_widgets/src/acda_timer_camera/logic/logic.dart';
 import '../../../../utils/utils.dart';
 import '../../logic/logic.dart';
 import '../utils.dart';
@@ -24,8 +25,8 @@ class EvaluationImageBoxWD extends ConsumerWidget {
   final EvaluationFormField? nextField;
   final int currentLevel;
 
-  void _updateCurrentImage({required WidgetRef ref}) async {
-    final XFile? pickedImage = await ACDAImagePicker.takeAPhoto();
+  void _updateCurrentImage({required XFile? pickedImage, required WidgetRef ref}) async {
+    // final XFile? pickedImage = await ACDAImagePicker.takeAPhoto();
     if (pickedImage == null) {
       return;
     }
@@ -43,8 +44,28 @@ class EvaluationImageBoxWD extends ConsumerWidget {
     ));
   }
 
+  void _showRequestPopup(BuildContext context, WidgetRef ref) {
+    return showACDAPopupFN(
+      context: context,
+      popup: ACDAUngrantedAccessPopupWD(
+        content: ACDACommonMessages.ungrantedPhotoPermission,
+        requestCallbackfn: ACDAPermission.instance.requestCameraAccess,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final bool isCameraSwiting = ref.watch(acdaTimerCameraStateProvider.select((value) => value.isSwitching));
+    if (isCameraSwiting) {
+      Future.delayed(const Duration(milliseconds: 500)).then((_) {
+        if (context.mounted) {
+          ref.read(acdaTimerCameraStateProvider.notifier).updateIsSwitching(false);
+          showACDACamera(context, _updateCurrentImage);
+        }
+      });
+    }
+
     return InkWell(
       onTap: () => showACDABottomSheet(
         context: context,
@@ -57,18 +78,12 @@ class EvaluationImageBoxWD extends ConsumerWidget {
                 onPressed: () {
                   ACDAPermission.instance.isCameraAccessGranted.then((isGranted) {
                     if (isGranted) {
-                      _updateCurrentImage(ref: ref);
+                      showACDACamera(context, _updateCurrentImage);
+                      // _updateCurrentImage(ref: ref);
                       return;
                     }
 
-                    showACDAPopupFN(
-                      context: context,
-                      popup: ACDAUngrantedAccessPopupWD(
-                        content: ACDACommonMessages.ungrantedPhotoPermission,
-                        requestCallbackfn: ACDAPermission.instance.requestCameraAccess,
-                        updateImageCallbackfn: () => _updateCurrentImage(ref: ref),
-                      ),
-                    );
+                    _showRequestPopup(context, ref);
                   });
                 },
                 color: DesignSystem.g12,
