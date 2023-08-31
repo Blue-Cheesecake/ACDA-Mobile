@@ -25,7 +25,7 @@ class EvaluationFormMessages {
     '\u2022    To take the photo correctly, you need to check that the whole body is on the middle of the screen as the example below.',
     '\u2022    Stand straightforward to the camera and show all of your important parts that are needed to verify in this step.',
     "\u2022    Head-to-Feet, showing your belt, showing your strap and other the faculty's requirements clearly",
-    '\u2022 Take off your others clothes such as jacket that may make the verification cannot work well.',
+    '\u2022    Take off your others clothes such as jacket that may make the verification cannot work well.',
   ];
 
   static const upperBodyInstructions = [
