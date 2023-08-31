@@ -5,6 +5,7 @@ class ACDACommonMessages {
   static const appNameShort = 'ACDA';
   static const appNameFull = 'Automatic Clothes Detection Application';
   static const alert = 'Alert';
+  static const ictFaculty = 'ICT Faculty';
 
   // Camera Options
   static const galleryOption = 'Gallery';

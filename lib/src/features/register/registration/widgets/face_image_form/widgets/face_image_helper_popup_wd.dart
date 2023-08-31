@@ -15,14 +15,14 @@ class FaceImageHelperPopupWD extends StatelessWidget {
       mainTitle: FaceImageFormMessages.helpMainTitle,
       subtitle: FaceImageFormMessages.helpSubTitle,
       child: Padding(
-        padding: const EdgeInsets.only(left: 25, right: 10),
+        padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20, top: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ...FaceImageFormMessages.helperIntructions.map(
               (e) => Padding(
                 padding: const EdgeInsets.only(bottom: 3),
-                child: ACDABulletListTextWD(content: e),
+                child: ACDABulletListTextWD(reqs: [BulletListReqModel(content: e)]),
               ),
             ),
             const SizedBox(height: 17),

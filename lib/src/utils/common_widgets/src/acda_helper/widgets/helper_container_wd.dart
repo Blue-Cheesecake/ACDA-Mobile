@@ -70,6 +70,7 @@ class HelperContainerWD extends StatelessWidget {
           Expanded(
             child: CupertinoScrollbar(
               child: ListView(
+                padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 children: [
                   if (child != null) child!,
