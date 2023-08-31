@@ -16,6 +16,6 @@ class InfoFormMessages {
 
   // Error Popup Messages
   static const popupTitle = 'Alert';
-  static const confirm = 'confirm';
+  static const confirm = 'Confirm';
   static const invalidEmailAndStudentID = 'This email or studentId is already registered';
 }

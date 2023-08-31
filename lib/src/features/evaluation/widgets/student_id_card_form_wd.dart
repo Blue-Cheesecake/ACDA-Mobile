@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../config/config.dart';
 import '../../../core/core.dart';
+import '../../../utils/utils.dart';
 import '../logic/logic.dart';
 import '../utils/utils.dart';
 
@@ -37,6 +38,24 @@ class StudentIdCardFormWD extends ConsumerWidget {
           ),
           shouldShrink: true,
           isLast: true,
+          popupWDChild: (removeOverlay) => ACDAHelperPopupWD(
+            removeOverlay: removeOverlay,
+            mainTitle: EvaluationFormMessages.tutorialTitle,
+            subtitle: EvaluationFormMessages.studentIdCardTitle,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+              child: Column(
+                children: [
+                  Text(
+                    EvaluationFormMessages.studentIdCardInstruction,
+                    style: TextStyles.bodyText6.copyWith(color: DesignSystem.g6, fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(height: 25),
+                  EvaluationFormAssets.tutorialStudentIdCard,
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

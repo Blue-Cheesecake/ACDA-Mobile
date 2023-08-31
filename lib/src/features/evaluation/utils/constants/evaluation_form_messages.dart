@@ -34,4 +34,7 @@ class EvaluationFormMessages {
     'Head to your belt, showing your strap and other the faculty’s requirements clearly',
     'Take off your others clothes such as jacket that may make the verification cannot work well.',
   ];
+
+  static const studentIdCardInstruction =
+      'To take the photo correctly, you need to put the Student ID Card straightforward to the camera. Recommended position is on the middle of the screen as the example below.';
 }
