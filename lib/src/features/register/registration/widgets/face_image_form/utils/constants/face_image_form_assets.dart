@@ -24,4 +24,10 @@ class FaceImageFormAssets {
         width: 51,
         height: 51,
       );
+
+  static Widget get tutorialFaceImage => Image.asset(
+        'assets/imgs/tutorial_register.png',
+        width: 238,
+        height: 379,
+      );
 }

@@ -56,15 +56,23 @@ class InfoFormWD extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text('Debugging Purpose'),
-                  const SizedBox(height: 14),
+                  const SizedBox(height: 7),
                   ElevatedButton(
                     onPressed: () {
                       ref
                           .read(registerFormInputProvider.notifier)
                           .updateCurrentRegistrationPage(RegistrationPage.completion);
                     },
-                    child: const Text('go to completion page'),
+                    child: const Text('Go to completion page'),
                   ),
+                  const SizedBox(height: 7),
+                  ElevatedButton(
+                      onPressed: () {
+                        ref
+                            .read(registerFormInputProvider.notifier)
+                            .updateCurrentRegistrationPage(RegistrationPage.faceImage);
+                      },
+                      child: const Text('Go to next page'))
                 ],
               ),
             )

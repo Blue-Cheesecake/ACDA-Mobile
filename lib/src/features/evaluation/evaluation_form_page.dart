@@ -21,7 +21,12 @@ class _EvaluationFormPageState extends State<EvaluationFormPage> with IACDAOverl
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final isCalled = await ACDASecureStorage.instance.read(key: EvaluationFormConstant.didShowTutorialKey);
       if (context.mounted && (isCalled == null || isCalled == false.toString())) {
-        displayOverlay(context: context, child: const EvaluationTutorialOverlayWD());
+        displayOverlay(
+          context: context,
+          child: EvaluationTutorialOverlayWD(
+            removeOverlay: removeOverlay,
+          ),
+        );
       }
     });
   }

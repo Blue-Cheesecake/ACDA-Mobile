@@ -14,4 +14,10 @@ class ACDAAssets {
         height: 16,
         width: 16,
       );
+
+  static Widget get appIcon => Image.asset(
+        'assets/icons/ACDA-AppIcon-iOS.png',
+        height: 44,
+        width: 44,
+      );
 }
