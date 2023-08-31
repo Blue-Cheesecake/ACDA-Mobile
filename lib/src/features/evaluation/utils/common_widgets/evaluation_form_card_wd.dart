@@ -25,6 +25,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
     this.nextField,
     this.shouldShrink = false,
     this.isLast = false,
+    this.popupWDChild,
     Key? key,
   }) : super(key: key);
 
@@ -43,6 +44,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
   final EvaluationFormField? prevField;
   final EvaluationFormField? nextField;
   final Color backgroundColor;
+  final Widget Function(VoidCallback removeOverlay)? popupWDChild;
 
   static const double borderRadius = 20;
 
@@ -50,7 +52,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
   ConsumerState<EvaluationFormCardWD> createState() => _EvaluationFormCardWDState();
 }
 
-class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
+class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> with IACDAOverlayCreator {
   double? _formHeight;
 
   @override
@@ -206,9 +208,19 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> {
                                       ),
                                       const SizedBox(height: 21),
                                       Row(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(),
+                                          if (widget.popupWDChild != null)
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 15),
+                                              child: ACDAHelperButtonWd(
+                                                onTap: () => displayOverlay(
+                                                  context: context,
+                                                  child: widget.popupWDChild!(removeOverlay),
+                                                ),
+                                              ),
+                                            ),
                                           if (!widget.isLast) const SwipableTabDisplayWD(),
                                         ],
                                       )

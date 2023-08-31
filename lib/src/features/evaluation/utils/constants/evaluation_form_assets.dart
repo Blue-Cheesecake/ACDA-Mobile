@@ -38,4 +38,16 @@ class EvaluationFormAssets {
         height: height,
         width: width,
       );
+
+  static Widget get tutorialFullBodyMale => Image.asset(
+        'assets/imgs/tutorial_full_male.png',
+        width: 245,
+        height: 392,
+      );
+
+  static Widget get tutorialFullBodyFemale => Image.asset(
+        'assets/imgs/tutorial_full_female.png',
+        width: 245,
+        height: 392,
+      );
 }
