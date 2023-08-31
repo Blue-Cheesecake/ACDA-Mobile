@@ -43,7 +43,12 @@ class FullBodyFormWD extends ConsumerWidget {
             padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: Column(
               children: [
-                ...EvaluationFormMessages.fullBodyInstructions.map((e) => ACDABulletListTextWD(content: e)),
+                ...EvaluationFormMessages.fullBodyInstructions.map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.only(bottom: 2),
+                    child: ACDABulletListTextWD(content: e),
+                  ),
+                ),
                 const SizedBox(height: 25),
                 EvaluationFormAssets.tutorialFullBodyMale,
                 const SizedBox(height: 25),

@@ -15,7 +15,7 @@ class ACDABulletListTextWD extends StatelessWidget {
       children: [
         Text(
           '\u2022',
-          style: TextStyles.bodyText6.copyWith(color: DesignSystem.g6),
+          style: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
         ),
         const SizedBox(width: 8),
         Expanded(
