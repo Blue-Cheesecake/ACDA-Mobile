@@ -8,11 +8,16 @@ import 'face_validation/logic/logic.dart';
 import 'utils/utils.dart';
 import 'widgets/widgets.dart';
 
-class FaceImageFormWD extends ConsumerWidget {
+class FaceImageFormWD extends ConsumerStatefulWidget {
   const FaceImageFormWD({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<FaceImageFormWD> createState() => _FaceImageFormWDState();
+}
+
+class _FaceImageFormWDState extends ConsumerState<FaceImageFormWD> with IACDAOverlayCreator {
+  @override
+  Widget build(BuildContext context) {
     if (context.loaderOverlay.visible) {
       context.loaderOverlay.hide();
     }
@@ -41,9 +46,21 @@ class FaceImageFormWD extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          FaceImageFormMessages.instruction,
-          style: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              FaceImageFormMessages.instruction,
+              style: TextStyles.bodyText4.copyWith(color: DesignSystem.g6),
+            ),
+            ACDAHelperButtonWd(
+              onTap: () => displayOverlay(
+                context: context,
+                child: FaceImageHelperPopupWD(removeOverlay: removeOverlay),
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 8),
         const FaceImageBoxWD(),

@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../config/config.dart';
 import '../../../core/core.dart';
+import '../../../utils/utils.dart';
 import '../logic/logic.dart';
 import '../utils/utils.dart';
 
@@ -37,6 +38,28 @@ class UpperBodyFormWD extends ConsumerWidget {
             evaluationFormStatusStateProvider.select((value) => value.isUpperBodyImageFilled),
           ),
           shouldShrink: true,
+          popupWDChild: (removeOverlay) => ACDAHelperPopupWD(
+            removeOverlay: removeOverlay,
+            mainTitle: EvaluationFormMessages.tutorialTitle,
+            subtitle: EvaluationFormMessages.upperBodyTitle,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+              child: Column(
+                children: [
+                  ...EvaluationFormMessages.upperBodyInstructions.map(
+                    (e) => Padding(
+                      padding: const EdgeInsets.only(bottom: 2),
+                      child: ACDABulletListTextWD(content: e),
+                    ),
+                  ),
+                  const SizedBox(height: 25),
+                  EvaluationFormAssets.tutorialUpperBodyMale,
+                  const SizedBox(height: 25),
+                  EvaluationFormAssets.tutorialUpperBodyFemale,
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

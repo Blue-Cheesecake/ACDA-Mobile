@@ -15,10 +15,10 @@ class InvalidEmailOrStudentIdAlertPopupWD extends StatelessWidget {
       content: content,
       actions: [
         CupertinoDialogAction(
-          isDestructiveAction: true,
           onPressed: () {
             Navigator.of(context).pop();
           },
+          isDefaultAction: true,
           child: const Text(InfoFormMessages.confirm),
         ),
       ],

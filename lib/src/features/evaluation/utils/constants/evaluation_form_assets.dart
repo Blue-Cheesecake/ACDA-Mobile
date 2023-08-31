@@ -38,4 +38,34 @@ class EvaluationFormAssets {
         height: height,
         width: width,
       );
+
+  static Widget get tutorialFullBodyMale => Image.asset(
+        'assets/imgs/tutorial_full_male.png',
+        width: 245,
+        height: 392,
+      );
+
+  static Widget get tutorialFullBodyFemale => Image.asset(
+        'assets/imgs/tutorial_full_female.png',
+        width: 245,
+        height: 392,
+      );
+
+  static Widget get tutorialUpperBodyMale => Image.asset(
+        'assets/imgs/tutorial_upper_male.png',
+        width: 245,
+        height: 392,
+      );
+
+  static Widget get tutorialUpperBodyFemale => Image.asset(
+        'assets/imgs/tutorial_upper_female.png',
+        width: 245,
+        height: 392,
+      );
+
+  static Widget get tutorialStudentIdCard => Image.asset(
+        'assets/imgs/tutorial_student_id_card.png',
+        width: 245,
+        height: 392,
+      );
 }

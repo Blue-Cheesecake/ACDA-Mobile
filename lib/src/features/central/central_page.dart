@@ -41,6 +41,7 @@ class _CentralPageState extends State<CentralPage> with SingleTickerProviderStat
             child: Consumer(builder: (context, ref, child) {
               return PageView.builder(
                 controller: _pageController,
+                itemCount: PageSequence.sequence.length,
                 onPageChanged: (index) {
                   _tabController.animateTo(
                     index,
