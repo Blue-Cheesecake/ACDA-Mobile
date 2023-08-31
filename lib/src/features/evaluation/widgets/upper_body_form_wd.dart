@@ -43,13 +43,13 @@ class UpperBodyFormWD extends ConsumerWidget {
             mainTitle: EvaluationFormMessages.tutorialTitle,
             subtitle: EvaluationFormMessages.upperBodyTitle,
             child: Padding(
-              padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+              padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20, top: 10),
               child: Column(
                 children: [
                   ...EvaluationFormMessages.upperBodyInstructions.map(
                     (e) => Padding(
                       padding: const EdgeInsets.only(bottom: 2),
-                      child: ACDABulletListTextWD(content: e),
+                      child: ACDABulletListTextWD(reqs: [BulletListReqModel(content: e)]),
                     ),
                   ),
                   const SizedBox(height: 25),

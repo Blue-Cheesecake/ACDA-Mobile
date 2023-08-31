@@ -14,9 +14,9 @@ class FaceImageFormMessages {
   static const helpSubTitle = 'Facial Verification, Registration';
 
   static const helperIntructions = [
-    'To take the photo correctly, you need to check that your face is on the middle of the screen as the example below.',
-    'Look straightforward to the camera and show you face clearly.',
-    'Check that your eyes, eyebrows and mouth are showing and are clearly to see.',
-    'Take off your hat or other wearing items. '
+    '\u2022    To take the photo correctly, you need to check that your face is on the middle of the screen as the example below.',
+    '\u2022    Look straightforward to the camera and show you face clearly.',
+    '\u2022    Check that your eyes, eyebrows and mouth are showing and are clearly to see.',
+    '\u2022    Take off your hat or other wearing items. '
   ];
 }

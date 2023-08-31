@@ -1,7 +1,26 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DressGuidelineWD extends StatelessWidget {
+import '../../../../config/config.dart';
+import '../../../../utils/utils.dart';
+import '../../utils/utils.dart';
+import 'widgets/widgets.dart';
+
+class DressGuidelineWD extends StatefulWidget {
   const DressGuidelineWD({Key? key}) : super(key: key);
+
+  @override
+  State<DressGuidelineWD> createState() => _DressGuidelineWDState();
+}
+
+class _DressGuidelineWDState extends State<DressGuidelineWD> {
+  final _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +57,46 @@ class DressGuidelineWD extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 22, left: 19, right: 19),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            Padding(
+              padding: const EdgeInsets.only(left: 19, right: 19),
+              child: CupertinoScrollbar(
+                controller: _scrollController,
+                child: ListView(
+                  controller: _scrollController,
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  primary: false,
+                  scrollDirection: Axis.vertical,
                   children: [
-                    Text('How to dress properly...'),
+                    const SizedBox(height: 20),
+                    Text(
+                      DashboardMessages.howToDress,
+                      style: TextStyles.bodyText4.copyWith(color: DesignSystem.acdaPrimary),
+                    ),
+                    const SizedBox(height: 15),
+                    Stack(
+                      children: [
+                        Center(child: DashboardAssets.expectedDressBoth),
+                        Positioned(
+                          right: 48,
+                          child: Text(
+                            ACDACommonMessages.ictFaculty,
+                            style: TextStyles.header5.copyWith(color: DesignSystem.acdaPrimary, shadows: [
+                              Shadow(
+                                color: DesignSystem.g0.withOpacity(0.25),
+                                offset: const Offset(0, 2),
+                                blurRadius: 6.0,
+                              )
+                            ]),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    const MaleGuidelineWD(),
+                    const SizedBox(height: 20),
+                    const FemaleGuidlineWD(),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
