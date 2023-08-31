@@ -62,4 +62,10 @@ class EvaluationFormAssets {
         width: 245,
         height: 392,
       );
+
+  static Widget get tutorialStudentIdCard => Image.asset(
+        'assets/imgs/tutorial_student_id_card.png',
+        width: 245,
+        height: 392,
+      );
 }

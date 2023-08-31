@@ -18,7 +18,7 @@ class InfoFormWD extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(registerValidityStateProvider).whenOrNull(
       loading: () {
-        context.loaderOverlay.show();
+        context.loaderOverlay.show(widget: const ACDALoadingWD());
       },
       success: () {
         context.loaderOverlay.hide();
