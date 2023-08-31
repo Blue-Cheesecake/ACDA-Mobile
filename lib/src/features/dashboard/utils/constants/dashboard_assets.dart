@@ -20,4 +20,22 @@ class DashboardAssets {
         width: 75,
         height: 75,
       );
+
+  static Widget get expectedDressBoth => Image.asset(
+        'assets/imgs/suitable_dress_both.png',
+        width: 293,
+        height: 559,
+      );
+
+  static Widget get suitableDressMale => Image.asset(
+        'assets/imgs/suitable_dress_male.png',
+        width: 125,
+        height: 445,
+      );
+
+  static Widget get suitableDressFemale => Image.asset(
+        'assets/imgs/suitable_dress_female.png',
+        width: 125,
+        height: 445,
+      );
 }

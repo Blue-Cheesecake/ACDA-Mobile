@@ -22,17 +22,17 @@ class EvaluationFormMessages {
   // Tutorial
   static const tutorialTitle = 'How to take photo correctly';
   static const fullBodyInstructions = [
-    'To take the photo correctly, you need to check that the whole body is on the middle of the screen as the example below.',
-    'Stand straightforward to the camera and show all of your important parts that are needed to verify in this step.',
-    "Head-to-Feet, showing your belt, showing your strap and other the faculty's requirements clearly",
-    'Take off your others clothes such as jacket that may make the verification cannot work well.',
+    '\u2022    To take the photo correctly, you need to check that the whole body is on the middle of the screen as the example below.',
+    '\u2022    Stand straightforward to the camera and show all of your important parts that are needed to verify in this step.',
+    "\u2022    Head-to-Feet, showing your belt, showing your strap and other the faculty's requirements clearly",
+    '\u2022 Take off your others clothes such as jacket that may make the verification cannot work well.',
   ];
 
   static const upperBodyInstructions = [
-    'To take the photo correctly, you need to check that the upper part of your body is on the middle of the screen as the example below, this is similar to the previous section but we want to see details of the top body more clearly.',
-    'Stand straightforward to the camera and show all of your important parts that are needed to verify in this step.',
-    'Head to your belt, showing your strap and other the faculty’s requirements clearly',
-    'Take off your others clothes such as jacket that may make the verification cannot work well.',
+    '\u2022    To take the photo correctly, you need to check that the upper part of your body is on the middle of the screen as the example below, this is similar to the previous section but we want to see details of the top body more clearly.',
+    '\u2022    Stand straightforward to the camera and show all of your important parts that are needed to verify in this step.',
+    '\u2022    Head to your belt, showing your strap and other the faculty’s requirements clearly',
+    '\u2022    Take off your others clothes such as jacket that may make the verification cannot work well.',
   ];
 
   static const studentIdCardInstruction =

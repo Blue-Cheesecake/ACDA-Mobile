@@ -1,9 +1,10 @@
+export 'acda_bullet_list_text/acda_bullet_list_text.dart';
 export 'acda_helper/acda_helper.dart';
 export 'acda_timer_camera/acda_timer_camera.dart';
 export 'acda_alert_popup.dart';
 export 'acda_animated_text_kit_wd.dart';
 export 'acda_bottom_sheet.dart';
-export 'acda_bullet_list_text_wd.dart';
+export 'acda_bullet_list_text/acda_bullet_list_text_wd.dart';
 export 'acda_camera_option_wd.dart';
 export 'acda_event_subscriber_wd.dart';
 export 'acda_gradient_background_wd.dart';
