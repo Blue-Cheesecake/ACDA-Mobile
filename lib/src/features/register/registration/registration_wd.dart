@@ -20,7 +20,7 @@ class RegistrationWD extends StatelessWidget {
             children: [
               SizedBox(height: 33),
               MultiStepsWD(),
-              SizedBox(height: 34),
+              SizedBox(height: 20),
               _CurrentRegistrationPage(),
             ],
           ),
