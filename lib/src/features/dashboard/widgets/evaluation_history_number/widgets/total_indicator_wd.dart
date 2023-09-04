@@ -14,7 +14,7 @@ class TotalIndicator extends ConsumerWidget {
     return IndicatorWd(
       title: DashboardMessages.totalTitle,
       color: DesignSystem.g1,
-      value: ref.watch(basicInfoDataStateProvider.select((value) => value.numPassed)),
+      value: ref.watch(basicInfoDataStateProvider.select((value) => value.total)),
     );
   }
 }
