@@ -13,4 +13,7 @@ class CommonEvaluationResultModel with _$CommonEvaluationResultModel implements 
 
   factory CommonEvaluationResultModel.fromJson(Map<String, dynamic> json) =>
       _$CommonEvaluationResultModelFromJson(json);
+  factory CommonEvaluationResultModel.fromEntity(ICommonEvaluationResultEntity entity) {
+    return CommonEvaluationResultModel(isPassed: entity.isPassed);
+  }
 }

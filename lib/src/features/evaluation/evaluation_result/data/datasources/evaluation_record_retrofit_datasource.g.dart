@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'evaluation_retrofit_datasource.dart';
+part of 'evaluation_record_retrofit_datasource.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'evaluation_retrofit_datasource.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _EvaluationRetrofit implements EvaluationRetrofit {
-  _EvaluationRetrofit(
+class _EvaluationRecordRetrofit implements EvaluationRecordRetrofit {
+  _EvaluationRecordRetrofit(
     this._dio, {
     this.baseUrl,
   });
@@ -19,26 +19,23 @@ class _EvaluationRetrofit implements EvaluationRetrofit {
   String? baseUrl;
 
   @override
-  Future<CommonEvaluationResultModel> evaluate({required request}) async {
+  Future<void> saveEvaluationRecord({required request}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = request;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<CommonEvaluationResultModel>(Options(
+    await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              '/api/v1/user/evaluate',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = CommonEvaluationResultModel.fromJson(_result.data!);
-    return value;
+        .compose(
+          _dio.options,
+          '/api/v1/user/record',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
