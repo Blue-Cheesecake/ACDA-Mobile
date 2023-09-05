@@ -33,6 +33,6 @@ extension ACDANavigationAction on ACDANavigation {
 
   Future<void> go<T extends Object?>(String location, {Object? extra}) async {
     ACDALog.print(message: 'go to $location');
-    return _router.go(location);
+    return _router.go(location, extra: extra);
   }
 }

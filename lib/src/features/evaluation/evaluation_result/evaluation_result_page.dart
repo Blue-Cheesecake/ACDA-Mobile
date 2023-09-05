@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/core.dart';
-import '../domain/domain.dart';
+import 'data/data.dart';
 
 class EvaluationResultPage extends StatelessWidget {
-  const EvaluationResultPage({required this.result, Key? key}) : super(key: key);
+  const EvaluationResultPage({required this.completedSaveModel, Key? key}) : super(key: key);
 
-  final IEvaluationResultEntity result;
+  final SaveResultRequestModel completedSaveModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class EvaluationResultPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text(result.isPassed.toString()),
+        child: Text(completedSaveModel.result.isPassed.toString()),
       ),
     );
   }

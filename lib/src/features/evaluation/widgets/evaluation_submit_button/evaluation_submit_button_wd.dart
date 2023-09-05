@@ -1,5 +1,5 @@
+import 'dart:convert';
 import 'dart:ui';
-
 import 'package:action_slider/action_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
 import '../../../../utils/utils.dart';
+import '../../evaluation_result/data/data.dart';
 import '../../logic/logic.dart';
 import '../../utils/utils.dart';
 
@@ -58,8 +59,29 @@ class EvaluationSubmitButtonWD extends ConsumerWidget {
                           response.when(
                             success: (data) async {
                               controller.success();
-                              await Future.delayed(const Duration(seconds: 2));
-                              ACDANavigation.instance.push(RoutePath.result, extra: data);
+                              await Future.delayed(const Duration(seconds: 1, milliseconds: 100));
+                              final String fullBodyBase64 = base64Encode(await ref
+                                  .read(evaluationFormInputStateProvider.select((value) => value.fullBodyImageFile))!
+                                  .readAsBytes());
+                              final String upperBodyBase64 = base64Encode(await ref
+                                  .read(evaluationFormInputStateProvider.select((value) => value.upperBodyImageFile))!
+                                  .readAsBytes());
+                              final String studentIdCardBase64 = base64Encode(await ref
+                                  .read(
+                                      evaluationFormInputStateProvider.select((value) => value.studentIdCardImageFile))!
+                                  .readAsBytes());
+
+                              final requestModel = SaveResultRequestModel(
+                                fullBodyimage: fullBodyBase64,
+                                upperBodyImage: upperBodyBase64,
+                                studentIdCardImage: studentIdCardBase64,
+                                result: CommonEvaluationResultModel.fromEntity(data),
+                              );
+
+                              ACDANavigation.instance.go(
+                                RoutePath.result,
+                                extra: requestModel,
+                              );
                             },
                             error: (error) {
                               controller.failure();
