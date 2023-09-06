@@ -9,6 +9,7 @@ part of 'evaluation_record_model.dart';
 _$_EvaluationRecordModel _$$_EvaluationRecordModelFromJson(
         Map<String, dynamic> json) =>
     _$_EvaluationRecordModel(
+      id: json['id'] as String,
       fullBodyImage: json['fullBodyImage'] as String,
       upperBodyImage: json['upperBodyImage'] as String,
       studentIdCardImage: json['studentIdCardImage'] as String,
@@ -20,6 +21,7 @@ _$_EvaluationRecordModel _$$_EvaluationRecordModelFromJson(
 Map<String, dynamic> _$$_EvaluationRecordModelToJson(
         _$_EvaluationRecordModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'fullBodyImage': instance.fullBodyImage,
       'upperBodyImage': instance.upperBodyImage,
       'studentIdCardImage': instance.studentIdCardImage,

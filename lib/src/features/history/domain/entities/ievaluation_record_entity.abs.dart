@@ -2,6 +2,7 @@ import '../../../../utils/utils.dart';
 
 abstract interface class IEvaluationRecordEntity {
   IEvaluationRecordEntity({
+    required this.id,
     required this.fullBodyImage,
     required this.upperBodyImage,
     required this.studentIdCardImage,
@@ -9,6 +10,7 @@ abstract interface class IEvaluationRecordEntity {
     required this.result,
   });
 
+  final String id;
   final String fullBodyImage;
   final String upperBodyImage;
   final String studentIdCardImage;
