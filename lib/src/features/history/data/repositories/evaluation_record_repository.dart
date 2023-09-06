@@ -11,4 +11,16 @@ class EvaluationRecordRepository implements IEvaluationRecordRepository {
     final response = _dataSource.getRecords(params);
     return response;
   }
+
+  @override
+  Future<void> deleteAllRecords() {
+    final response = _dataSource.deleteAllRecords();
+    return response;
+  }
+
+  @override
+  Future<void> deleteSomeRecords({required DeleteEvaluationRecordRequestModel requestModel}) {
+    final response = _dataSource.deleteSomeRecords(requestModel: requestModel);
+    return response;
+  }
 }

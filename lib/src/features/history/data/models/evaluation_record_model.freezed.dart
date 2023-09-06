@@ -21,6 +21,7 @@ EvaluationRecordModel _$EvaluationRecordModelFromJson(
 
 /// @nodoc
 mixin _$EvaluationRecordModel {
+  String get id => throw _privateConstructorUsedError;
   String get fullBodyImage => throw _privateConstructorUsedError;
   String get upperBodyImage => throw _privateConstructorUsedError;
   String get studentIdCardImage => throw _privateConstructorUsedError;
@@ -40,7 +41,8 @@ abstract class $EvaluationRecordModelCopyWith<$Res> {
       _$EvaluationRecordModelCopyWithImpl<$Res, EvaluationRecordModel>;
   @useResult
   $Res call(
-      {String fullBodyImage,
+      {String id,
+      String fullBodyImage,
       String upperBodyImage,
       String studentIdCardImage,
       DateTime addedAt,
@@ -63,6 +65,7 @@ class _$EvaluationRecordModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? fullBodyImage = null,
     Object? upperBodyImage = null,
     Object? studentIdCardImage = null,
@@ -70,6 +73,10 @@ class _$EvaluationRecordModelCopyWithImpl<$Res,
     Object? result = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       fullBodyImage: null == fullBodyImage
           ? _value.fullBodyImage
           : fullBodyImage // ignore: cast_nullable_to_non_nullable
@@ -111,7 +118,8 @@ abstract class _$$_EvaluationRecordModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String fullBodyImage,
+      {String id,
+      String fullBodyImage,
       String upperBodyImage,
       String studentIdCardImage,
       DateTime addedAt,
@@ -132,6 +140,7 @@ class __$$_EvaluationRecordModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? fullBodyImage = null,
     Object? upperBodyImage = null,
     Object? studentIdCardImage = null,
@@ -139,6 +148,10 @@ class __$$_EvaluationRecordModelCopyWithImpl<$Res>
     Object? result = null,
   }) {
     return _then(_$_EvaluationRecordModel(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       fullBodyImage: null == fullBodyImage
           ? _value.fullBodyImage
           : fullBodyImage // ignore: cast_nullable_to_non_nullable
@@ -167,7 +180,8 @@ class __$$_EvaluationRecordModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EvaluationRecordModel implements _EvaluationRecordModel {
   _$_EvaluationRecordModel(
-      {required this.fullBodyImage,
+      {required this.id,
+      required this.fullBodyImage,
       required this.upperBodyImage,
       required this.studentIdCardImage,
       required this.addedAt,
@@ -176,6 +190,8 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
   factory _$_EvaluationRecordModel.fromJson(Map<String, dynamic> json) =>
       _$$_EvaluationRecordModelFromJson(json);
 
+  @override
+  final String id;
   @override
   final String fullBodyImage;
   @override
@@ -189,7 +205,7 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
 
   @override
   String toString() {
-    return 'EvaluationRecordModel(fullBodyImage: $fullBodyImage, upperBodyImage: $upperBodyImage, studentIdCardImage: $studentIdCardImage, addedAt: $addedAt, result: $result)';
+    return 'EvaluationRecordModel(id: $id, fullBodyImage: $fullBodyImage, upperBodyImage: $upperBodyImage, studentIdCardImage: $studentIdCardImage, addedAt: $addedAt, result: $result)';
   }
 
   @override
@@ -197,6 +213,7 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EvaluationRecordModel &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.fullBodyImage, fullBodyImage) ||
                 other.fullBodyImage == fullBodyImage) &&
             (identical(other.upperBodyImage, upperBodyImage) ||
@@ -209,8 +226,8 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, fullBodyImage, upperBodyImage,
-      studentIdCardImage, addedAt, result);
+  int get hashCode => Object.hash(runtimeType, id, fullBodyImage,
+      upperBodyImage, studentIdCardImage, addedAt, result);
 
   @JsonKey(ignore: true)
   @override
@@ -229,7 +246,8 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
 
 abstract class _EvaluationRecordModel implements EvaluationRecordModel {
   factory _EvaluationRecordModel(
-          {required final String fullBodyImage,
+          {required final String id,
+          required final String fullBodyImage,
           required final String upperBodyImage,
           required final String studentIdCardImage,
           required final DateTime addedAt,
@@ -239,6 +257,8 @@ abstract class _EvaluationRecordModel implements EvaluationRecordModel {
   factory _EvaluationRecordModel.fromJson(Map<String, dynamic> json) =
       _$_EvaluationRecordModel.fromJson;
 
+  @override
+  String get id;
   @override
   String get fullBodyImage;
   @override

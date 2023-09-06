@@ -9,6 +9,7 @@ part 'evaluation_record_model.g.dart';
 @freezed
 class EvaluationRecordModel with _$EvaluationRecordModel implements IEvaluationRecordEntity {
   factory EvaluationRecordModel({
+    required final String id,
     required final String fullBodyImage,
     required final String upperBodyImage,
     required final String studentIdCardImage,
