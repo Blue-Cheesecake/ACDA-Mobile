@@ -12,7 +12,7 @@ class GetRecordsStateNotifier extends ACDAStateNotifier<GetRecordsState> {
 
   Future<void> fetchRecords() async {
     safeState = GetRecordsState.loading();
-    final requestParams = ref.read(historyInputStateProvider.select((value) => value.requestParams));
+    final requestParams = ref.read(historyInputStateProvider.select((value) => value.getRequestParams));
     final response = await getRecordsUseCase.execute(requestParams);
 
     response.when(
