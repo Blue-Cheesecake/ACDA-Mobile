@@ -111,7 +111,7 @@ class FaceImageBoxWD extends ConsumerWidget {
       },
       loading: () {
         if (context.mounted && !context.loaderOverlay.visible) {
-          context.loaderOverlay.show(widget: const ACDALoadingWD());
+          context.loaderOverlay.show(widget: ACDALoadingWD.withScaffold());
         }
       },
       success: () {
