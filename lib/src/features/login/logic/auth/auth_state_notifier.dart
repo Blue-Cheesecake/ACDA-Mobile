@@ -34,8 +34,8 @@ class AuthStateNotifier extends ACDAStateNotifier<AuthState> {
       success: (APIResponse<IAuthTokenEntity> apiResponse) {
         apiResponse.when(
           success: (data) async {
-            await ACDAUser.instance.writeToken(data.token);
             safeState = AuthState.data(data: data);
+            await ACDAUser.instance.writeToken(data.token);
             ref.read(loginFormValidationStateProvider.notifier).state = validationState;
             ref.read(loginFormInputProvider.notifier).updateStudentId(null);
             ref.read(loginFormInputProvider.notifier).updatePassword(null);
