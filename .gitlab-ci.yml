@@ -1,17 +1,30 @@
-code_quality:
+stages:
+  - test
+  - deploy
+
+# code_quality:
+#   stage: code_quality
+#   image: "ghcr.io/cirruslabs/flutter:3.10.2"
+#   before_script:
+#     - flutter pub global activate dart_code_metrics
+#     - export PATH="$PATH:$HOME/.pub-cache/bin"
+#   script:
+#     - metrics lib -r codeclimate  > gl-code-quality-report.json
+#   artifacts:
+#     reports:
+#       codequality: gl-code-quality-report.json
+
+test:
   stage: test
-  image: "ghcr.io/cirruslabs/flutter:3.10.2"
+  image: "ghcr.io/cirruslabs/flutter:3.10.3"
   before_script:
-    - flutter pub global activate dart_code_metrics
+    - flutter pub global activate junitreport
     - export PATH="$PATH:$HOME/.pub-cache/bin"
   script:
-    - metrics lib -r codeclimate  > gl-code-quality-report.json
-  artifacts:
-    reports:
-      codequality: gl-code-quality-report.json
+    - flutter test --coverage
 
-# test:
-#   stage: test
+# test_coverage:
+#   stage: test_coverage
 #   image: "ghcr.io/cirruslabs/flutter:3.10.3"
 #   before_script:
 #     - flutter pub global activate junitreport
