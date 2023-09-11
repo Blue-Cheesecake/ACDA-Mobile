@@ -1,6 +1,7 @@
 import 'package:acda_mobile/src/features/central/logic/central_state_provider.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../config/config.dart';
@@ -35,43 +36,46 @@ class _CentralPageState extends State<CentralPage> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     return ACDAUnacceptedWifiEventListenerWD(
-      child: Scaffold(
-        body: ACDAGradientBackgroundWD(
-          child: SafeArea(
-            child: Consumer(builder: (context, ref, child) {
-              return PageView.builder(
-                controller: _pageController,
-                itemCount: PageSequence.sequence.length,
-                onPageChanged: (index) {
-                  _tabController.animateTo(
-                    index,
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeInOut,
-                  );
-                  ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
-                },
-                itemBuilder: (context, index) {
-                  return PageSequence.sequence[index].child;
-                },
-              );
-            }),
+      child: AnnotatedRegion(
+        value: SystemUiOverlayStyle.light,
+        child: Scaffold(
+          body: ACDAGradientBackgroundWD(
+            child: SafeArea(
+              child: Consumer(builder: (context, ref, child) {
+                return PageView.builder(
+                  controller: _pageController,
+                  itemCount: PageSequence.sequence.length,
+                  onPageChanged: (index) {
+                    _tabController.animateTo(
+                      index,
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.easeInOut,
+                    );
+                    ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
+                  },
+                  itemBuilder: (context, index) {
+                    return PageSequence.sequence[index].child;
+                  },
+                );
+              }),
+            ),
           ),
-        ),
-        bottomNavigationBar: Consumer(
-          builder: (context, ref, child) => ConvexAppBar(
-            controller: _tabController,
-            curve: Curves.easeInOut,
-            items: PageSequence.sequence.map((e) => e.tabItem).toList(),
-            onTap: (index) {
-              _pageController.animateToPage(
-                index,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeInOut,
-              );
-              ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
-            },
-            backgroundColor: DesignSystem.acdaPrimary,
-            activeColor: ref.watch(centralStateProvider.select((value) => value.notchColor)),
+          bottomNavigationBar: Consumer(
+            builder: (context, ref, child) => ConvexAppBar(
+              controller: _tabController,
+              curve: Curves.easeInOut,
+              items: PageSequence.sequence.map((e) => e.tabItem).toList(),
+              onTap: (index) {
+                _pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInOut,
+                );
+                ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
+              },
+              backgroundColor: DesignSystem.acdaPrimary,
+              activeColor: ref.watch(centralStateProvider.select((value) => value.notchColor)),
+            ),
           ),
         ),
       ),
