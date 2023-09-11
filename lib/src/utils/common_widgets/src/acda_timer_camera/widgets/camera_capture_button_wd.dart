@@ -10,21 +10,24 @@ import '../logic/logic.dart';
 import '../utils/utils.dart';
 
 class CameraCaptureButtonWd extends ConsumerWidget {
-  const CameraCaptureButtonWd(
-      {required this.cameraController,
-      required this.initializeControllerFuture,
-      required this.updateImageCallback,
-      super.key});
+  const CameraCaptureButtonWd({
+    required this.cameraController,
+    required this.initializeControllerFuture,
+    required this.updateImageCallback,
+    required this.providerKey,
+    super.key,
+  });
 
   final CameraController cameraController;
   final Future<void> initializeControllerFuture;
   final void Function({required XFile? pickedImage, required WidgetRef ref}) updateImageCallback;
+  final String providerKey;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final XFile? image = ref.watch(acdaTimerCameraStateProvider.select((value) => value.pickedImage));
+    final XFile? image = ref.watch(acdaTimerCameraStateProvider.call(providerKey).select((value) => value.pickedImage));
     final bool isButtonEnabled =
-        ref.watch(acdaTimerCameraStateProvider.select((value) => value.isStartCounting)) == false;
+        ref.watch(acdaTimerCameraStateProvider.call(providerKey).select((value) => value.isStartCounting)) == false;
 
     if (image == null) {
       return GestureDetector(
@@ -36,21 +39,22 @@ class CameraCaptureButtonWd extends ConsumerWidget {
           try {
             await initializeControllerFuture;
 
-            final timerOption = ref.read(acdaTimerCameraStateProvider.select((value) => value.timerOption));
+            final timerOption =
+                ref.read(acdaTimerCameraStateProvider.call(providerKey).select((value) => value.timerOption));
 
             switch (timerOption) {
               case TimerOption.none:
                 ref
-                    .read(acdaTimerCameraStateProvider.notifier)
+                    .read(acdaTimerCameraStateProvider.call(providerKey).notifier)
                     .startCounting(counting: 0, cameraController: cameraController);
               case TimerOption.threeSec:
                 ref
-                    .read(acdaTimerCameraStateProvider.notifier)
+                    .read(acdaTimerCameraStateProvider.call(providerKey).notifier)
                     .startCounting(counting: 3, cameraController: cameraController);
                 break;
               case TimerOption.tenSec:
                 ref
-                    .read(acdaTimerCameraStateProvider.notifier)
+                    .read(acdaTimerCameraStateProvider.call(providerKey).notifier)
                     .startCounting(counting: 10, cameraController: cameraController);
                 break;
               default:
@@ -92,8 +96,10 @@ class CameraCaptureButtonWd extends ConsumerWidget {
       onTap: () {
         Navigator.of(context).pop();
         updateImageCallback(
-            pickedImage: ref.read(acdaTimerCameraStateProvider.select((value) => value.pickedImage)), ref: ref);
-        ref.read(acdaTimerCameraStateProvider.notifier).updatePickedImage(null);
+          pickedImage: ref.read(acdaTimerCameraStateProvider.call(providerKey).select((value) => value.pickedImage)),
+          ref: ref,
+        );
+        ref.read(acdaTimerCameraStateProvider.call(providerKey).notifier).updatePickedImage(null);
       },
       child: Container(
         height: 75,

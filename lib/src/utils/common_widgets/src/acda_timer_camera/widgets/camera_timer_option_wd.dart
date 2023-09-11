@@ -7,7 +7,9 @@ import '../logic/logic.dart';
 import '../utils/utils.dart';
 
 class CameraTimerOptionWD extends ConsumerWidget {
-  const CameraTimerOptionWD({Key? key}) : super(key: key);
+  const CameraTimerOptionWD({required this.providerKey, Key? key}) : super(key: key);
+
+  final String providerKey;
 
   TextStyle _activeTextStyle() {
     return TextStyles.bodyText5;
@@ -19,7 +21,8 @@ class CameraTimerOptionWD extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final TimerOption currentOption = ref.watch(acdaTimerCameraStateProvider.select((value) => value.timerOption));
+    final TimerOption currentOption =
+        ref.watch(acdaTimerCameraStateProvider.call(providerKey).select((value) => value.timerOption));
 
     return CustomSlidingSegmentedControl<int>(
       initialValue: currentOption.value,
@@ -48,7 +51,7 @@ class CameraTimerOptionWD extends ConsumerWidget {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInToLinear,
       onValueChanged: (value) {
-        ref.read(acdaTimerCameraStateProvider.notifier).updateTimerOptionFromValue(value);
+        ref.read(acdaTimerCameraStateProvider.call(providerKey).notifier).updateTimerOptionFromValue(value);
       },
     );
   }

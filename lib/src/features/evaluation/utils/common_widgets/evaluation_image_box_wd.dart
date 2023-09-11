@@ -56,12 +56,22 @@ class EvaluationImageBoxWD extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool isCameraSwiting = ref.watch(acdaTimerCameraStateProvider.select((value) => value.isSwitching));
+    final bool isCameraSwiting = ref.watch(
+      acdaTimerCameraStateProvider
+          .call(EvaluationFormConstant.evaluationImageBoxProviderKey)
+          .select((value) => value.isSwitching),
+    );
     if (isCameraSwiting) {
       Future.delayed(const Duration(milliseconds: 500)).then((_) {
         if (context.mounted) {
-          ref.read(acdaTimerCameraStateProvider.notifier).updateIsSwitching(false);
-          showACDACamera(context, _updateCurrentImage);
+          ref
+              .read(acdaTimerCameraStateProvider.call(EvaluationFormConstant.evaluationImageBoxProviderKey).notifier)
+              .updateIsSwitching(false);
+          showACDACamera(
+            context: context,
+            providerKey: EvaluationFormConstant.evaluationImageBoxProviderKey,
+            updateImageCallback: _updateCurrentImage,
+          );
         }
       });
     }
@@ -78,7 +88,11 @@ class EvaluationImageBoxWD extends ConsumerWidget {
                 onPressed: () {
                   ACDAPermission.instance.isCameraAccessGranted.then((isGranted) {
                     if (isGranted) {
-                      showACDACamera(context, _updateCurrentImage);
+                      showACDACamera(
+                        context: context,
+                        providerKey: EvaluationFormConstant.evaluationImageBoxProviderKey,
+                        updateImageCallback: _updateCurrentImage,
+                      );
                       // _updateCurrentImage(ref: ref);
                       return;
                     }

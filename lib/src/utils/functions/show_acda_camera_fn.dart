@@ -4,11 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../utils.dart';
 
-void showACDACamera(
-    BuildContext context, void Function({required XFile? pickedImage, required WidgetRef ref}) updateImageCallback) {
+void showACDACamera({
+  required BuildContext context,
+  required final String providerKey,
+  required void Function({required XFile? pickedImage, required WidgetRef ref}) updateImageCallback,
+}) {
   showACDABottomSheet(
     context: context,
-    child: AcdaTimerCameraWd(updateImageCallback: updateImageCallback),
+    child: AcdaTimerCameraWd(providerKey: providerKey, updateImageCallback: updateImageCallback),
     expand: true,
   );
 }

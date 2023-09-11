@@ -12,9 +12,10 @@ import 'logic/logic.dart';
 import 'widgets/widgets.dart';
 
 class AcdaTimerCameraWd extends ConsumerStatefulWidget {
-  const AcdaTimerCameraWd({required this.updateImageCallback, Key? key}) : super(key: key);
+  const AcdaTimerCameraWd({required this.updateImageCallback, required this.providerKey, Key? key}) : super(key: key);
 
   final void Function({required XFile? pickedImage, required WidgetRef ref}) updateImageCallback;
+  final String providerKey;
 
   @override
   ConsumerState<AcdaTimerCameraWd> createState() => _AcdaTimerCameraWdState();
@@ -28,8 +29,10 @@ class _AcdaTimerCameraWdState extends ConsumerState<AcdaTimerCameraWd> with Widg
   @override
   void initState() {
     super.initState();
-    _notifier = ref.read(acdaTimerCameraStateProvider.notifier);
-    _initializeCameraController(ref.read(acdaTimerCameraStateProvider.select((value) => value.cameraDescription!)));
+    _notifier = ref.read(acdaTimerCameraStateProvider.call(widget.providerKey).notifier);
+    _initializeCameraController(
+      ref.read(acdaTimerCameraStateProvider.call(widget.providerKey).select((value) => value.cameraDescription!)),
+    );
   }
 
   @override
@@ -94,9 +97,15 @@ class _AcdaTimerCameraWdState extends ConsumerState<AcdaTimerCameraWd> with Widg
 
   @override
   Widget build(BuildContext context) {
-    final XFile? pickedImage = ref.watch(acdaTimerCameraStateProvider.select((value) => value.pickedImage));
-    final int counter = ref.watch(acdaTimerCameraStateProvider.select((value) => value.counter));
-    final bool isStartCounting = ref.watch(acdaTimerCameraStateProvider.select((value) => value.isStartCounting));
+    final XFile? pickedImage = ref.watch(
+      acdaTimerCameraStateProvider.call(widget.providerKey).select((value) => value.pickedImage),
+    );
+    final int counter = ref.watch(
+      acdaTimerCameraStateProvider.call(widget.providerKey).select((value) => value.counter),
+    );
+    final bool isStartCounting = ref.watch(
+      acdaTimerCameraStateProvider.call(widget.providerKey).select((value) => value.isStartCounting),
+    );
 
     return Scaffold(
       backgroundColor: DesignSystem.g0,
@@ -131,15 +140,15 @@ class _AcdaTimerCameraWdState extends ConsumerState<AcdaTimerCameraWd> with Widg
                       );
                     }),
             ),
-            const Positioned(
+            Positioned(
               top: 13,
               left: 13,
-              child: CameraCloseButtonWD(),
+              child: CameraCloseButtonWD(providerKey: widget.providerKey),
             ),
-            const Positioned(
+            Positioned(
               top: 13,
               right: 13,
-              child: CameraSwitchButtonWd(),
+              child: CameraSwitchButtonWd(providerKey: widget.providerKey),
             ),
             if (counter != 0 && isStartCounting)
               Align(
@@ -156,9 +165,10 @@ class _AcdaTimerCameraWdState extends ConsumerState<AcdaTimerCameraWd> with Widg
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const CameraTimerOptionWD(),
+                    CameraTimerOptionWD(providerKey: widget.providerKey),
                     const SizedBox(height: 15),
                     CameraCaptureButtonWd(
+                      providerKey: widget.providerKey,
                       cameraController: _cameraController,
                       initializeControllerFuture: _initializeControllerFuture,
                       updateImageCallback: widget.updateImageCallback,
