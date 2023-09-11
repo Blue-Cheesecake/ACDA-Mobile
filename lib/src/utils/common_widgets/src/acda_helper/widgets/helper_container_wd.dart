@@ -42,7 +42,7 @@ class HelperContainerWD extends StatelessWidget {
             ),
             child: Row(
               children: [
-                ACDAAssets.appIcon,
+                ACDAAssets.appIcon(),
                 const SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

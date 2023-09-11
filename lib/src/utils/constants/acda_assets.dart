@@ -15,9 +15,21 @@ class ACDAAssets {
         width: 16,
       );
 
-  static Widget get appIcon => Image.asset(
+  static Widget appIcon({Size? size}) => Image.asset(
         'assets/icons/ACDA-AppIcon-iOS.png',
-        height: 44,
-        width: 44,
+        width: size?.width ?? 44,
+        height: size?.height ?? 44,
+      );
+
+  static Widget appIconPure({Size? size}) => Image.asset(
+        'assets/icons/ACDA-AppIcon-Pure.png',
+        width: size?.width ?? 52,
+        height: size?.height ?? 52,
+      );
+
+  static Widget appTitle({Size? size}) => Image.asset(
+        'assets/imgs/ACDA-AppName.png',
+        width: size?.width ?? 80,
+        height: size?.height ?? 34,
       );
 }
