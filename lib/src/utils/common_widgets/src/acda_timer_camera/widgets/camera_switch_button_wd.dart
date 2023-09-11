@@ -5,13 +5,15 @@ import '../../../../../config/config.dart';
 import '../logic/logic.dart';
 
 class CameraSwitchButtonWd extends ConsumerWidget {
-  const CameraSwitchButtonWd({Key? key}) : super(key: key);
+  const CameraSwitchButtonWd({required this.providerKey, Key? key}) : super(key: key);
+
+  final String providerKey;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () {
-        ref.read(acdaTimerCameraStateProvider.notifier).switchCameraOption();
+        ref.read(acdaTimerCameraStateProvider.call(providerKey).notifier).switchCameraOption();
         Navigator.of(context).pop();
       },
       child: const Icon(
