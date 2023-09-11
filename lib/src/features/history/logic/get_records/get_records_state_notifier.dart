@@ -15,6 +15,13 @@ class GetRecordsStateNotifier extends ACDAStateNotifier<GetRecordsState> {
     final requestParams = ref.read(historyInputStateProvider.select((value) => value.getRequestParams));
     final response = await getRecordsUseCase.execute(requestParams);
 
+    // NOTE: if user click other filter, reject this api call
+    final finalRequestParams = ref.read(historyInputStateProvider.select((value) => value.getRequestParams));
+
+    if (finalRequestParams != requestParams) {
+      return;
+    }
+
     response.when(
       success: (data) {
         safeState = GetRecordsState.data(records: data);

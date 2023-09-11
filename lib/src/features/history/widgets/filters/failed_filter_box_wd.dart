@@ -13,10 +13,14 @@ class FailedFilterBoxWD extends ConsumerWidget {
     return HistoryFilterBoxWD(
       title: FilterBoxMessages.failed,
       flex: 2,
-      isSelected: ref.watch(historyInputStateProvider.select((value) => value.getRequestParams.result)) == false,
+      isSelected: ref.watch(historyInputStateProvider.select((value) => value.isSelectedFailedResult)),
       onSelectedColor: DesignSystem.g9,
       onPressed: () {
+        if (ref.watch(historyInputStateProvider.select((value) => value.isSelectedFailedResult))) {
+          return;
+        }
         ref.read(historyInputStateProvider.notifier).updateResultQuery(false);
+        ref.read(getRecordsStateProvider.notifier).fetchRecords();
       },
       clipSideWhenSelected: ClipSide.left,
     );

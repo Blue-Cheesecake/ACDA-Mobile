@@ -13,10 +13,14 @@ class PassedFilterBoxWD extends ConsumerWidget {
     return HistoryFilterBoxWD(
       title: FilterBoxMessages.passed,
       flex: 2,
-      isSelected: ref.watch(historyInputStateProvider.select((value) => value.getRequestParams.result)) == true,
+      isSelected: ref.watch(historyInputStateProvider.select((value) => value.isSelectedPassedResult)),
       onSelectedColor: DesignSystem.g8,
       onPressed: () {
+        if (ref.watch(historyInputStateProvider.select((value) => value.isSelectedPassedResult))) {
+          return;
+        }
         ref.read(historyInputStateProvider.notifier).updateResultQuery(true);
+        ref.read(getRecordsStateProvider.notifier).fetchRecords();
       },
       clipSideWhenSelected: ClipSide.horizontal,
     );
