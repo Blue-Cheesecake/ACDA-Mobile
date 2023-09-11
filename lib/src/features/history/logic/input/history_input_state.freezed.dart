@@ -134,9 +134,10 @@ class __$$_HistoryInputStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HistoryInputState implements _HistoryInputState {
+class _$_HistoryInputState extends _HistoryInputState {
   _$_HistoryInputState(
-      {required this.getRequestParams, required this.deleteRequestParams});
+      {required this.getRequestParams, required this.deleteRequestParams})
+      : super._();
 
   @override
   final EvaluationRecordRequestParams getRequestParams;
@@ -171,11 +172,12 @@ class _$_HistoryInputState implements _HistoryInputState {
           this, _$identity);
 }
 
-abstract class _HistoryInputState implements HistoryInputState {
+abstract class _HistoryInputState extends HistoryInputState {
   factory _HistoryInputState(
       {required final EvaluationRecordRequestParams getRequestParams,
       required final DeleteEvaluationRecordRequestModel
           deleteRequestParams}) = _$_HistoryInputState;
+  _HistoryInputState._() : super._();
 
   @override
   EvaluationRecordRequestParams get getRequestParams;
