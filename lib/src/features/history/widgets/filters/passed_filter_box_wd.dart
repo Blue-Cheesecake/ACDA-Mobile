@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
+import '../../../../utils/utils.dart';
 import '../../logic/logic.dart';
 import 'utils/utils.dart';
 
@@ -11,7 +12,7 @@ class PassedFilterBoxWD extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return HistoryFilterBoxWD(
-      title: FilterBoxMessages.passed,
+      title: ACDACommonMessages.passedTitle,
       flex: 2,
       isSelected: ref.watch(historyInputStateProvider.select((value) => value.isSelectedPassedResult)),
       onSelectedColor: DesignSystem.g8,

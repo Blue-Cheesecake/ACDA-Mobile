@@ -24,4 +24,19 @@ extension DateTimeExtension on DateTime? {
     }
     return DateFormat('E. d/M/y').format(this!);
   }
+
+  String? get getDateCommaString {
+    if (this == null) {
+      return null;
+    }
+    return DateFormat('h.mm a,').format(this!);
+  }
+
+  String? get mediumDateString {
+    if (this == null) {
+      return null;
+    }
+
+    return DateFormat('EEE dd/MM/yyyy').format(this!).toUpperCase();
+  }
 }
