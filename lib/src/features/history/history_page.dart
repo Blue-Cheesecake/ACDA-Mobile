@@ -86,9 +86,7 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
                               );
                             },
                             data: (records) {
-                              return const Center(
-                                child: Text('data'),
-                              );
+                              return RecordListWD(records: records);
                             },
                             error: () {
                               return const Center(

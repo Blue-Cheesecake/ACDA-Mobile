@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/config.dart';
+import '../../../../../utils/utils.dart';
 import '../../../logic/basic_info_data/basic_info_data.dart';
-import '../../../utils/utils.dart';
 import '../utils/utils.dart';
 
 class FailedIndicatorWD extends ConsumerWidget {
@@ -12,7 +12,7 @@ class FailedIndicatorWD extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return IndicatorWd(
-      title: DashboardMessages.failedTitle,
+      title: ACDACommonMessages.failedTitle,
       color: DesignSystem.g32,
       value: ref.watch(basicInfoDataStateProvider.select((value) => value.numFailed)),
     );
