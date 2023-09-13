@@ -9,6 +9,7 @@ part of 'evaluation_record_request_params.dart';
 _$_EvaluationRecordRequestParams _$$_EvaluationRecordRequestParamsFromJson(
         Map<String, dynamic> json) =>
     _$_EvaluationRecordRequestParams(
+      sort: json['sort'] as String? ?? 'descending',
       result: json['result'] as bool?,
       fromDate: json['fromDate'] == null
           ? null
@@ -21,6 +22,7 @@ _$_EvaluationRecordRequestParams _$$_EvaluationRecordRequestParamsFromJson(
 Map<String, dynamic> _$$_EvaluationRecordRequestParamsToJson(
         _$_EvaluationRecordRequestParams instance) =>
     <String, dynamic>{
+      'sort': instance.sort,
       'result': instance.result,
       'fromDate': instance.fromDate?.toIso8601String(),
       'toDate': instance.toDate?.toIso8601String(),

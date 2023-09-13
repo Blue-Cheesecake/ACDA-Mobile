@@ -21,6 +21,7 @@ EvaluationRecordRequestParams _$EvaluationRecordRequestParamsFromJson(
 
 /// @nodoc
 mixin _$EvaluationRecordRequestParams {
+  String get sort => throw _privateConstructorUsedError;
   bool? get result => throw _privateConstructorUsedError;
   DateTime? get fromDate => throw _privateConstructorUsedError;
   DateTime? get toDate => throw _privateConstructorUsedError;
@@ -39,7 +40,7 @@ abstract class $EvaluationRecordRequestParamsCopyWith<$Res> {
       _$EvaluationRecordRequestParamsCopyWithImpl<$Res,
           EvaluationRecordRequestParams>;
   @useResult
-  $Res call({bool? result, DateTime? fromDate, DateTime? toDate});
+  $Res call({String sort, bool? result, DateTime? fromDate, DateTime? toDate});
 }
 
 /// @nodoc
@@ -56,11 +57,16 @@ class _$EvaluationRecordRequestParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? sort = null,
     Object? result = freezed,
     Object? fromDate = freezed,
     Object? toDate = freezed,
   }) {
     return _then(_value.copyWith(
+      sort: null == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as String,
       result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -86,7 +92,7 @@ abstract class _$$_EvaluationRecordRequestParamsCopyWith<$Res>
       __$$_EvaluationRecordRequestParamsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool? result, DateTime? fromDate, DateTime? toDate});
+  $Res call({String sort, bool? result, DateTime? fromDate, DateTime? toDate});
 }
 
 /// @nodoc
@@ -102,11 +108,16 @@ class __$$_EvaluationRecordRequestParamsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? sort = null,
     Object? result = freezed,
     Object? fromDate = freezed,
     Object? toDate = freezed,
   }) {
     return _then(_$_EvaluationRecordRequestParams(
+      sort: null == sort
+          ? _value.sort
+          : sort // ignore: cast_nullable_to_non_nullable
+              as String,
       result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -127,12 +138,16 @@ class __$$_EvaluationRecordRequestParamsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EvaluationRecordRequestParams
     implements _EvaluationRecordRequestParams {
-  _$_EvaluationRecordRequestParams({this.result, this.fromDate, this.toDate});
+  _$_EvaluationRecordRequestParams(
+      {this.sort = 'descending', this.result, this.fromDate, this.toDate});
 
   factory _$_EvaluationRecordRequestParams.fromJson(
           Map<String, dynamic> json) =>
       _$$_EvaluationRecordRequestParamsFromJson(json);
 
+  @override
+  @JsonKey()
+  final String sort;
   @override
   final bool? result;
   @override
@@ -142,7 +157,7 @@ class _$_EvaluationRecordRequestParams
 
   @override
   String toString() {
-    return 'EvaluationRecordRequestParams(result: $result, fromDate: $fromDate, toDate: $toDate)';
+    return 'EvaluationRecordRequestParams(sort: $sort, result: $result, fromDate: $fromDate, toDate: $toDate)';
   }
 
   @override
@@ -150,6 +165,7 @@ class _$_EvaluationRecordRequestParams
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EvaluationRecordRequestParams &&
+            (identical(other.sort, sort) || other.sort == sort) &&
             (identical(other.result, result) || other.result == result) &&
             (identical(other.fromDate, fromDate) ||
                 other.fromDate == fromDate) &&
@@ -158,7 +174,7 @@ class _$_EvaluationRecordRequestParams
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, result, fromDate, toDate);
+  int get hashCode => Object.hash(runtimeType, sort, result, fromDate, toDate);
 
   @JsonKey(ignore: true)
   @override
@@ -178,13 +194,16 @@ class _$_EvaluationRecordRequestParams
 abstract class _EvaluationRecordRequestParams
     implements EvaluationRecordRequestParams {
   factory _EvaluationRecordRequestParams(
-      {final bool? result,
+      {final String sort,
+      final bool? result,
       final DateTime? fromDate,
       final DateTime? toDate}) = _$_EvaluationRecordRequestParams;
 
   factory _EvaluationRecordRequestParams.fromJson(Map<String, dynamic> json) =
       _$_EvaluationRecordRequestParams.fromJson;
 
+  @override
+  String get sort;
   @override
   bool? get result;
   @override
