@@ -82,7 +82,7 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
                             },
                             loading: () {
                               return const Center(
-                                child: CircularProgressIndicator(),
+                                child: LoadingRecordWD(),
                               );
                             },
                             data: (records) {

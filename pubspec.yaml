@@ -89,6 +89,9 @@ dependencies:
   # Date Picker
   syncfusion_flutter_datepicker: 22.2.12
 
+  # Loading
+  shimmer: 3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

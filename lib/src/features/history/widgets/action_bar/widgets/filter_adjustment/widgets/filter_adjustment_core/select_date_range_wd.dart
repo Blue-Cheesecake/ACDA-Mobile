@@ -56,14 +56,25 @@ class _SelectDateRangeWDState extends ConsumerState<SelectDateRangeWD> {
           minDate: DateTime(2000),
           maxDate: DateTime(2030),
           selectionMode: DateRangePickerSelectionMode.range,
+          headerStyle: DateRangePickerHeaderStyle(
+            textStyle: TextStyles.bodyText4Bold.copyWith(color: DesignSystem.acdaPrimary),
+            textAlign: TextAlign.center,
+          ),
         ),
-        TextButton(
-          onPressed: () {
+        GestureDetector(
+          onTap: () {
             _dateRangePickerCtr.selectedRange = null;
             ref.read(historyInputStateProvider.notifier).useClearDate();
           },
-          child: const Text(ActionBarMessages.clearDate),
-        )
+          child: Text(
+            ActionBarMessages.clearDate,
+            style: TextStyles.bodyText6.copyWith(
+              color: DesignSystem.g38,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        ),
+        const SizedBox(height: 28)
       ],
     );
   }
