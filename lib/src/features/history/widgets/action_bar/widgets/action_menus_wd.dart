@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/config.dart';
+import '../../../../../utils/utils.dart';
+import '../../../logic/logic.dart';
 import '../utils/utils.dart';
+import 'filter_adjustment/filter_adjustment.dart';
 
-class ActionMenusWD extends StatelessWidget {
+class ActionMenusWD extends ConsumerStatefulWidget {
   const ActionMenusWD({Key? key}) : super(key: key);
+
+  @override
+  ConsumerState<ActionMenusWD> createState() => _ActionMenusWDState();
+}
+
+class _ActionMenusWDState extends ConsumerState<ActionMenusWD> with IACDAOverlayCreator {
+  @override
+  void onRemoveCallbackfn() {
+    ref.read(historyInputStateProvider.notifier).clearTempInput();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +32,16 @@ class ActionMenusWD extends StatelessWidget {
         ),
         const SizedBox(width: 8),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            displayOverlay(
+              context: context,
+              child: FilterAdjustmentBackdropWD(
+                removeOverlay: removeOverlay,
+                subtitle: ActionBarMessages.historyTitle,
+                mainTitle: ActionBarMessages.adjustTitle,
+              ),
+            );
+          },
           child: ActionBarAssets.adjustIcon,
         ),
         const SizedBox(width: 8),

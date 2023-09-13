@@ -18,6 +18,13 @@ extension DateTimeExtension on DateTime? {
     );
   }
 
+  String get thaiStandardDateString {
+    if (this == null) {
+      return '';
+    }
+    return DateFormat('dd/MM/yyyy').format(this!);
+  }
+
   String get homepageDate {
     if (this == null) {
       return '';

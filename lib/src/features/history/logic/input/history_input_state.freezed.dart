@@ -18,8 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HistoryInputState {
   EvaluationRecordRequestParams get getRequestParams =>
       throw _privateConstructorUsedError;
+  EvaluationRecordRequestParamsTemp get getRequestParamsTemp =>
+      throw _privateConstructorUsedError;
   DeleteEvaluationRecordRequestModel get deleteRequestParams =>
       throw _privateConstructorUsedError;
+  bool get isUsedClearDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HistoryInputStateCopyWith<HistoryInputState> get copyWith =>
@@ -34,9 +37,12 @@ abstract class $HistoryInputStateCopyWith<$Res> {
   @useResult
   $Res call(
       {EvaluationRecordRequestParams getRequestParams,
-      DeleteEvaluationRecordRequestModel deleteRequestParams});
+      EvaluationRecordRequestParamsTemp getRequestParamsTemp,
+      DeleteEvaluationRecordRequestModel deleteRequestParams,
+      bool isUsedClearDate});
 
   $EvaluationRecordRequestParamsCopyWith<$Res> get getRequestParams;
+  $EvaluationRecordRequestParamsTempCopyWith<$Res> get getRequestParamsTemp;
   $DeleteEvaluationRecordRequestModelCopyWith<$Res> get deleteRequestParams;
 }
 
@@ -54,17 +60,27 @@ class _$HistoryInputStateCopyWithImpl<$Res, $Val extends HistoryInputState>
   @override
   $Res call({
     Object? getRequestParams = null,
+    Object? getRequestParamsTemp = null,
     Object? deleteRequestParams = null,
+    Object? isUsedClearDate = null,
   }) {
     return _then(_value.copyWith(
       getRequestParams: null == getRequestParams
           ? _value.getRequestParams
           : getRequestParams // ignore: cast_nullable_to_non_nullable
               as EvaluationRecordRequestParams,
+      getRequestParamsTemp: null == getRequestParamsTemp
+          ? _value.getRequestParamsTemp
+          : getRequestParamsTemp // ignore: cast_nullable_to_non_nullable
+              as EvaluationRecordRequestParamsTemp,
       deleteRequestParams: null == deleteRequestParams
           ? _value.deleteRequestParams
           : deleteRequestParams // ignore: cast_nullable_to_non_nullable
               as DeleteEvaluationRecordRequestModel,
+      isUsedClearDate: null == isUsedClearDate
+          ? _value.isUsedClearDate
+          : isUsedClearDate // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -74,6 +90,15 @@ class _$HistoryInputStateCopyWithImpl<$Res, $Val extends HistoryInputState>
     return $EvaluationRecordRequestParamsCopyWith<$Res>(_value.getRequestParams,
         (value) {
       return _then(_value.copyWith(getRequestParams: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EvaluationRecordRequestParamsTempCopyWith<$Res> get getRequestParamsTemp {
+    return $EvaluationRecordRequestParamsTempCopyWith<$Res>(
+        _value.getRequestParamsTemp, (value) {
+      return _then(_value.copyWith(getRequestParamsTemp: value) as $Val);
     });
   }
 
@@ -97,10 +122,14 @@ abstract class _$$_HistoryInputStateCopyWith<$Res>
   @useResult
   $Res call(
       {EvaluationRecordRequestParams getRequestParams,
-      DeleteEvaluationRecordRequestModel deleteRequestParams});
+      EvaluationRecordRequestParamsTemp getRequestParamsTemp,
+      DeleteEvaluationRecordRequestModel deleteRequestParams,
+      bool isUsedClearDate});
 
   @override
   $EvaluationRecordRequestParamsCopyWith<$Res> get getRequestParams;
+  @override
+  $EvaluationRecordRequestParamsTempCopyWith<$Res> get getRequestParamsTemp;
   @override
   $DeleteEvaluationRecordRequestModelCopyWith<$Res> get deleteRequestParams;
 }
@@ -117,17 +146,27 @@ class __$$_HistoryInputStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? getRequestParams = null,
+    Object? getRequestParamsTemp = null,
     Object? deleteRequestParams = null,
+    Object? isUsedClearDate = null,
   }) {
     return _then(_$_HistoryInputState(
       getRequestParams: null == getRequestParams
           ? _value.getRequestParams
           : getRequestParams // ignore: cast_nullable_to_non_nullable
               as EvaluationRecordRequestParams,
+      getRequestParamsTemp: null == getRequestParamsTemp
+          ? _value.getRequestParamsTemp
+          : getRequestParamsTemp // ignore: cast_nullable_to_non_nullable
+              as EvaluationRecordRequestParamsTemp,
       deleteRequestParams: null == deleteRequestParams
           ? _value.deleteRequestParams
           : deleteRequestParams // ignore: cast_nullable_to_non_nullable
               as DeleteEvaluationRecordRequestModel,
+      isUsedClearDate: null == isUsedClearDate
+          ? _value.isUsedClearDate
+          : isUsedClearDate // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -136,17 +175,25 @@ class __$$_HistoryInputStateCopyWithImpl<$Res>
 
 class _$_HistoryInputState extends _HistoryInputState {
   _$_HistoryInputState(
-      {required this.getRequestParams, required this.deleteRequestParams})
+      {required this.getRequestParams,
+      required this.getRequestParamsTemp,
+      required this.deleteRequestParams,
+      this.isUsedClearDate = false})
       : super._();
 
   @override
   final EvaluationRecordRequestParams getRequestParams;
   @override
+  final EvaluationRecordRequestParamsTemp getRequestParamsTemp;
+  @override
   final DeleteEvaluationRecordRequestModel deleteRequestParams;
+  @override
+  @JsonKey()
+  final bool isUsedClearDate;
 
   @override
   String toString() {
-    return 'HistoryInputState(getRequestParams: $getRequestParams, deleteRequestParams: $deleteRequestParams)';
+    return 'HistoryInputState(getRequestParams: $getRequestParams, getRequestParamsTemp: $getRequestParamsTemp, deleteRequestParams: $deleteRequestParams, isUsedClearDate: $isUsedClearDate)';
   }
 
   @override
@@ -156,13 +203,17 @@ class _$_HistoryInputState extends _HistoryInputState {
             other is _$_HistoryInputState &&
             (identical(other.getRequestParams, getRequestParams) ||
                 other.getRequestParams == getRequestParams) &&
+            (identical(other.getRequestParamsTemp, getRequestParamsTemp) ||
+                other.getRequestParamsTemp == getRequestParamsTemp) &&
             (identical(other.deleteRequestParams, deleteRequestParams) ||
-                other.deleteRequestParams == deleteRequestParams));
+                other.deleteRequestParams == deleteRequestParams) &&
+            (identical(other.isUsedClearDate, isUsedClearDate) ||
+                other.isUsedClearDate == isUsedClearDate));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, getRequestParams, deleteRequestParams);
+  int get hashCode => Object.hash(runtimeType, getRequestParams,
+      getRequestParamsTemp, deleteRequestParams, isUsedClearDate);
 
   @JsonKey(ignore: true)
   @override
@@ -175,14 +226,19 @@ class _$_HistoryInputState extends _HistoryInputState {
 abstract class _HistoryInputState extends HistoryInputState {
   factory _HistoryInputState(
       {required final EvaluationRecordRequestParams getRequestParams,
-      required final DeleteEvaluationRecordRequestModel
-          deleteRequestParams}) = _$_HistoryInputState;
+      required final EvaluationRecordRequestParamsTemp getRequestParamsTemp,
+      required final DeleteEvaluationRecordRequestModel deleteRequestParams,
+      final bool isUsedClearDate}) = _$_HistoryInputState;
   _HistoryInputState._() : super._();
 
   @override
   EvaluationRecordRequestParams get getRequestParams;
   @override
+  EvaluationRecordRequestParamsTemp get getRequestParamsTemp;
+  @override
   DeleteEvaluationRecordRequestModel get deleteRequestParams;
+  @override
+  bool get isUsedClearDate;
   @override
   @JsonKey(ignore: true)
   _$$_HistoryInputStateCopyWith<_$_HistoryInputState> get copyWith =>

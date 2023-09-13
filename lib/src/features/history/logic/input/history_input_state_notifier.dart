@@ -1,12 +1,14 @@
-import 'package:acda_mobile/src/features/history/data/data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../data/data.dart';
+import '../../utils/utils.dart';
 import 'input.dart';
 
 class HistoryInputStateNotifier extends StateNotifier<HistoryInputState> {
   HistoryInputStateNotifier()
       : super(HistoryInputState(
           getRequestParams: EvaluationRecordRequestParams(),
+          getRequestParamsTemp: EvaluationRecordRequestParamsTemp(),
           deleteRequestParams: DeleteEvaluationRecordRequestModel(ids: []),
         ));
 
@@ -14,12 +16,25 @@ class HistoryInputStateNotifier extends StateNotifier<HistoryInputState> {
     state = state.copyWith(getRequestParams: state.getRequestParams.copyWith(result: value));
   }
 
-  void updateFromDateQuery(DateTime? value) {
-    state = state.copyWith(getRequestParams: state.getRequestParams.copyWith(fromDate: value));
+  void useClearDate() {
+    state = state.copyWith(
+      isUsedClearDate: true,
+      getRequestParamsTemp: state.getRequestParamsTemp.copyWith(fromDate: null, toDate: null),
+    );
   }
 
-  void updateToDateQuery(DateTime? value) {
-    state = state.copyWith(getRequestParams: state.getRequestParams.copyWith(toDate: value));
+  void updateFromDateTemp(DateTime? value) {
+    state = state.copyWith(
+      isUsedClearDate: false,
+      getRequestParamsTemp: state.getRequestParamsTemp.copyWith(fromDate: value),
+    );
+  }
+
+  void updateToDateTemp(DateTime? value) {
+    state = state.copyWith(
+      isUsedClearDate: false,
+      getRequestParamsTemp: state.getRequestParamsTemp.copyWith(toDate: value),
+    );
   }
 
   void addDeleteId(String value) {
@@ -34,5 +49,39 @@ class HistoryInputStateNotifier extends StateNotifier<HistoryInputState> {
     assert(isSuccess, true);
 
     state = state.copyWith(deleteRequestParams: DeleteEvaluationRecordRequestModel(ids: list));
+  }
+
+  void clearTempInput() {
+    state = state.copyWith(
+      isUsedClearDate: false,
+      getRequestParamsTemp: EvaluationRecordRequestParamsTemp(),
+    );
+  }
+
+  void saveTempInput() {
+    if (state.isUsedClearDate) {
+      state = state.copyWith(
+        getRequestParamsTemp: EvaluationRecordRequestParamsTemp(),
+        getRequestParams: state.getRequestParams.copyWith(
+          sort: state.getRequestParamsTemp.sort ?? state.getRequestParams.sort,
+          fromDate: null,
+          toDate: null,
+        ),
+      );
+      return;
+    }
+
+    state = state.copyWith(
+      getRequestParamsTemp: EvaluationRecordRequestParamsTemp(),
+      getRequestParams: state.getRequestParams.copyWith(
+        sort: state.getRequestParamsTemp.sort ?? state.getRequestParams.sort,
+        fromDate: state.getRequestParamsTemp.fromDate,
+        toDate: state.getRequestParamsTemp.toDate,
+      ),
+    );
+  }
+
+  void updateTempOrderOption(SortOption value) {
+    state = state.copyWith(getRequestParamsTemp: state.getRequestParamsTemp.copyWith(sort: value.value));
   }
 }
