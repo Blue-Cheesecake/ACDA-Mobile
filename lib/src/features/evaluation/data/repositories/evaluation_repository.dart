@@ -1,4 +1,4 @@
-import '../../domain/domain.dart';
+import '../../../../utils/utils.dart';
 import '../data.dart';
 
 class EvaluationRepository implements IEvaluationRepository {
@@ -7,7 +7,7 @@ class EvaluationRepository implements IEvaluationRepository {
   final IEvaluationDataSource dataSource;
 
   @override
-  Future<IEvaluationResultEntity> evaluate({required EvaluationRequestModel request}) {
+  Future<ICommonEvaluationResultEntity> evaluate({required EvaluationRequestModel request}) {
     final response = dataSource.evaluate(request: request);
     return response;
   }

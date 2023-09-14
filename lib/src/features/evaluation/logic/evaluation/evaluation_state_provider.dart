@@ -18,7 +18,7 @@ final evaluateUseCaseProvider = Provider.autoDispose<EvaluateUseCase>((ref) {
   return EvaluateUseCase(repository: repository);
 });
 
-Future<Result<IEvaluationResultEntity, AnyException>> evaluate({required WidgetRef ref}) async {
+Future<Result<ICommonEvaluationResultEntity, AnyException>> evaluate({required WidgetRef ref}) async {
   final evaluateUseCase = ref.read(evaluateUseCaseProvider);
 
   final XFile? fullBodyImageFile =

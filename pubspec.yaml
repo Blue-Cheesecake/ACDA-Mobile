@@ -53,7 +53,7 @@ dependencies:
 
   # Image Picker
   image_picker: 1.0.0
-  camera: ^0.10.5+4
+  camera: 0.10.5+4
 
   # Bottom Sheet
   modal_bottom_sheet: 3.0.0-pre
@@ -82,7 +82,15 @@ dependencies:
 
   # Formatter
   intl: 0.18.1
-  custom_sliding_segmented_control: ^1.7.5
+
+  # Sliding
+  custom_sliding_segmented_control: 1.7.5
+
+  # Date Picker
+  syncfusion_flutter_datepicker: 22.2.12
+
+  # Loading
+  shimmer: 3.0.0
 
 dev_dependencies:
   flutter_test:

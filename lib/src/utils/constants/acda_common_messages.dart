@@ -16,6 +16,8 @@ class ACDACommonMessages {
   static const close = 'Cancel';
   static const confirm = 'confirm';
   static const request = 'Request';
+  static const submit = 'Submit';
+  static const delete = 'Delete';
 
   // Ungranted Permission
   static const ungrantedPhotoLibrary = 'The photo library access is currently denied.';
@@ -33,4 +35,8 @@ class ACDACommonMessages {
   // Unknown Error
   // Just blame the server :P
   static const unknownError = 'Internal server error';
+
+  // Evaluation Record
+  static const passedTitle = 'Passed';
+  static const failedTitle = 'Failed';
 }

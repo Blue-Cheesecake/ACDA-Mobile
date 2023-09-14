@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 
 import '../../../features/central/central_page.dart';
-import '../../../features/evaluation/domain/domain.dart';
+import '../../../features/evaluation/evaluation_result/data/data.dart';
 import '../../../features/evaluation/evaluation_result/evaluation_result_page.dart';
 import '../../../features/login/login_page.dart';
 import '../../../features/register/register_page.dart';
@@ -25,7 +25,7 @@ class Routes {
         ),
         GoRoute(
           path: RoutePath.result,
-          builder: (context, state) => EvaluationResultPage(result: state.extra as IEvaluationResultEntity),
+          builder: (context, state) => EvaluationResultPage(completedSaveModel: state.extra as SaveResultRequestModel),
         )
       ];
 }

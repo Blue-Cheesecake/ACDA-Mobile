@@ -6,18 +6,21 @@ import '../../../../../config/config.dart';
 import '../logic/logic.dart';
 
 class CameraCloseButtonWD extends ConsumerWidget {
-  const CameraCloseButtonWD({Key? key}) : super(key: key);
+  const CameraCloseButtonWD({required this.providerKey, Key? key}) : super(key: key);
+
+  final String providerKey;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool isCapturedImage = ref.watch(acdaTimerCameraStateProvider.select((value) => value.pickedImage)) != null;
+    final bool isCapturedImage =
+        ref.watch(acdaTimerCameraStateProvider.call(providerKey).select((value) => value.pickedImage)) != null;
 
     if (isCapturedImage) {
       return GestureDetector(
         onTap: () {
           Navigator.of(context).pop();
-          ref.read(acdaTimerCameraStateProvider.notifier).clearStateOnDispose();
-          ref.read(acdaTimerCameraStateProvider.notifier).updateIsSwitching(true);
+          ref.read(acdaTimerCameraStateProvider.call(providerKey).notifier).clearStateOnDispose();
+          ref.read(acdaTimerCameraStateProvider.call(providerKey).notifier).updateIsSwitching(true);
         },
         child: const Icon(
           Icons.arrow_back_ios_new,
