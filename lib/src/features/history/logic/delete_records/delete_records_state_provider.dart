@@ -8,7 +8,7 @@ final deleteAllRecordsUseCaseProvider = Provider.autoDispose<DeleteAllRecordsUse
   return DeleteAllRecordsUseCase(repository: repository);
 });
 
-final deleteSomeRecordsUsECaseProvider = Provider.autoDispose<DeleteSomeRecordsUseCase>((ref) {
+final deleteSomeRecordsUseCaseProvider = Provider.autoDispose<DeleteSomeRecordsUseCase>((ref) {
   final repository = ref.watch(historyRepositoryProvider);
   return DeleteSomeRecordsUseCase(repository: repository);
 });
@@ -16,7 +16,7 @@ final deleteSomeRecordsUsECaseProvider = Provider.autoDispose<DeleteSomeRecordsU
 final deleteRecordsStateProvider =
     StateNotifierProvider.autoDispose<DeleteRecordsStateNotifier, DeleteRecordsState>((ref) {
   final deleteAllRecordsUseCase = ref.watch(deleteAllRecordsUseCaseProvider);
-  final deleteSomeRecordsUseCase = ref.watch(deleteSomeRecordsUsECaseProvider);
+  final deleteSomeRecordsUseCase = ref.watch(deleteSomeRecordsUseCaseProvider);
   return DeleteRecordsStateNotifier(
     ref: ref,
     deleteAllRecordsUseCase: deleteAllRecordsUseCase,

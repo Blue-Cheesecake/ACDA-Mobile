@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../config/config.dart';
+import '../../../../logic/logic.dart';
 import '../utils.dart';
 
-class HistoryFilterBoxWD extends StatelessWidget {
+class HistoryFilterBoxWD extends ConsumerWidget {
   const HistoryFilterBoxWD({
     required this.title,
     required this.flex,
@@ -22,9 +24,16 @@ class HistoryFilterBoxWD extends StatelessWidget {
   final ClipSide clipSideWhenSelected;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final container = GestureDetector(
-      onTap: onPressed,
+      onTap: () {
+        // disable onPressed while using deleting mode
+        if (ref.read(historyModeStateProvider.select((value) => value.isDeletingMode))) {
+          return;
+        }
+
+        onPressed();
+      },
       child: Container(
         padding: isSelected ? const EdgeInsets.only(top: 7, bottom: 21) : const EdgeInsets.symmetric(vertical: 7),
         decoration: BoxDecoration(

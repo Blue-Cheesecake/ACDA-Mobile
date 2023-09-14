@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/data.dart';
+import '../../domain/domain.dart';
 import '../../utils/utils.dart';
 import 'input.dart';
 
@@ -37,14 +38,18 @@ class HistoryInputStateNotifier extends StateNotifier<HistoryInputState> {
     );
   }
 
+  void addDeleteIdsFromEntityList(List<IEvaluationRecordEntity> records) {
+    state = state.copyWith(deleteRequestParams: DeleteEvaluationRecordRequestModel(ids: [...records.map((e) => e.id)]));
+  }
+
   void addDeleteId(String value) {
-    final list = state.deleteRequestParams.ids;
+    final list = [...state.deleteRequestParams.ids];
     list.add(value);
     state = state.copyWith(deleteRequestParams: DeleteEvaluationRecordRequestModel(ids: list));
   }
 
   void removeDeleteId(String value) {
-    final list = state.deleteRequestParams.ids;
+    final list = [...state.deleteRequestParams.ids];
     final isSuccess = list.remove(value);
     assert(isSuccess, true);
 
@@ -83,5 +88,9 @@ class HistoryInputStateNotifier extends StateNotifier<HistoryInputState> {
 
   void updateTempOrderOption(SortOption value) {
     state = state.copyWith(getRequestParamsTemp: state.getRequestParamsTemp.copyWith(sort: value.value));
+  }
+
+  void clearRequestDeleteIds() {
+    state = state.copyWith(deleteRequestParams: DeleteEvaluationRecordRequestModel(ids: []));
   }
 }

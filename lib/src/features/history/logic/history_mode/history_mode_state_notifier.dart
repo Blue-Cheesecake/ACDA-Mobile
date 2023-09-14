@@ -1,15 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'history_mode_state.abs.dart';
+import '../logic.dart';
 
 class HistoryModeStateNotifier extends StateNotifier<HistoryModeState> {
-  HistoryModeStateNotifier() : super(HistoryModeState());
+  HistoryModeStateNotifier({required Ref ref})
+      : _ref = ref,
+        super(HistoryModeState());
 
-  void switchDeleteMode() {
-    if (state.isDeletingMode) {
-      state = state.copyWith(isDeletingMode: false);
-    } else {
-      state = state.copyWith(isDeletingMode: true);
+  final Ref _ref;
+
+  void enterDeletingMode() {
+    state = state.copyWith(isDeletingMode: true);
+  }
+
+  void leaveDeletingMode({bool shouldClearRequestId = true}) {
+    if (shouldClearRequestId) {
+      _ref.read(historyInputStateProvider.notifier).clearRequestDeleteIds();
     }
+    state = state.copyWith(isDeletingMode: false);
   }
 }

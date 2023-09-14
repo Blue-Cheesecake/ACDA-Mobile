@@ -17,6 +17,7 @@ class ACDACommonMessages {
   static const confirm = 'confirm';
   static const request = 'Request';
   static const submit = 'Submit';
+  static const delete = 'Delete';
 
   // Ungranted Permission
   static const ungrantedPhotoLibrary = 'The photo library access is currently denied.';

@@ -6,8 +6,12 @@ part 'get_records_state.abs.freezed.dart';
 
 @freezed
 class GetRecordsState with _$GetRecordsState {
+  const GetRecordsState._();
+
   factory GetRecordsState.initial() = _GetRecordsStateInitial;
   factory GetRecordsState.loading() = _GetRecordsStateLoading;
   factory GetRecordsState.data({required List<IEvaluationRecordEntity> records}) = _GetRecordsStateData;
   factory GetRecordsState.error() = _GetRecordsStateError;
+
+  bool get isGotData => this is _GetRecordsStateData;
 }

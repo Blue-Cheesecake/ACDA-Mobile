@@ -16,6 +16,17 @@ class HistoryInputState with _$HistoryInputState {
     @Default(false) final bool isUsedClearDate,
   }) = _HistoryInputState;
 
+  bool isIdOnDeleting(String id) {
+    final list = deleteRequestParams.ids;
+    return list.contains(id);
+  }
+
+  bool isSelectAllIds({required int originalDataLength}) {
+    return deleteRequestParams.ids.length == originalDataLength;
+  }
+
+  bool get isDeleteIdRequestEmpty => deleteRequestParams.ids.isEmpty;
+
   bool get isSelectedAllResult => getRequestParams.result == null;
   bool get isSelectedPassedResult => getRequestParams.result == true;
   bool get isSelectedFailedResult => getRequestParams.result == false;
