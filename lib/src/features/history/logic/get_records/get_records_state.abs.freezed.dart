@@ -104,8 +104,8 @@ class __$$_GetRecordsStateInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetRecordsStateInitial implements _GetRecordsStateInitial {
-  _$_GetRecordsStateInitial();
+class _$_GetRecordsStateInitial extends _GetRecordsStateInitial {
+  _$_GetRecordsStateInitial() : super._();
 
   @override
   String toString() {
@@ -197,8 +197,9 @@ class _$_GetRecordsStateInitial implements _GetRecordsStateInitial {
   }
 }
 
-abstract class _GetRecordsStateInitial implements GetRecordsState {
+abstract class _GetRecordsStateInitial extends GetRecordsState {
   factory _GetRecordsStateInitial() = _$_GetRecordsStateInitial;
+  _GetRecordsStateInitial._() : super._();
 }
 
 /// @nodoc
@@ -219,8 +220,8 @@ class __$$_GetRecordsStateLoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetRecordsStateLoading implements _GetRecordsStateLoading {
-  _$_GetRecordsStateLoading();
+class _$_GetRecordsStateLoading extends _GetRecordsStateLoading {
+  _$_GetRecordsStateLoading() : super._();
 
   @override
   String toString() {
@@ -312,8 +313,9 @@ class _$_GetRecordsStateLoading implements _GetRecordsStateLoading {
   }
 }
 
-abstract class _GetRecordsStateLoading implements GetRecordsState {
+abstract class _GetRecordsStateLoading extends GetRecordsState {
   factory _GetRecordsStateLoading() = _$_GetRecordsStateLoading;
+  _GetRecordsStateLoading._() : super._();
 }
 
 /// @nodoc
@@ -349,9 +351,10 @@ class __$$_GetRecordsStateDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetRecordsStateData implements _GetRecordsStateData {
+class _$_GetRecordsStateData extends _GetRecordsStateData {
   _$_GetRecordsStateData({required final List<IEvaluationRecordEntity> records})
-      : _records = records;
+      : _records = records,
+        super._();
 
   final List<IEvaluationRecordEntity> _records;
   @override
@@ -460,10 +463,11 @@ class _$_GetRecordsStateData implements _GetRecordsStateData {
   }
 }
 
-abstract class _GetRecordsStateData implements GetRecordsState {
+abstract class _GetRecordsStateData extends GetRecordsState {
   factory _GetRecordsStateData(
           {required final List<IEvaluationRecordEntity> records}) =
       _$_GetRecordsStateData;
+  _GetRecordsStateData._() : super._();
 
   List<IEvaluationRecordEntity> get records;
   @JsonKey(ignore: true)
@@ -489,8 +493,8 @@ class __$$_GetRecordsStateErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetRecordsStateError implements _GetRecordsStateError {
-  _$_GetRecordsStateError();
+class _$_GetRecordsStateError extends _GetRecordsStateError {
+  _$_GetRecordsStateError() : super._();
 
   @override
   String toString() {
@@ -581,6 +585,7 @@ class _$_GetRecordsStateError implements _GetRecordsStateError {
   }
 }
 
-abstract class _GetRecordsStateError implements GetRecordsState {
+abstract class _GetRecordsStateError extends GetRecordsState {
   factory _GetRecordsStateError() = _$_GetRecordsStateError;
+  _GetRecordsStateError._() : super._();
 }

@@ -26,6 +26,8 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDeletingMode = ref.watch(historyModeStateProvider.select((value) => value.isDeletingMode));
+
     return Stack(
       children: [
         Padding(
@@ -76,6 +78,16 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
                       ),
                       child: Builder(
                         builder: (context) {
+                          final Widget? deleteRecordWidget = ref.watch(deleteRecordsStateProvider).whenOrNull(
+                                loading: () => const Center(
+                                  child: LoadingRecordWD(),
+                                ),
+                              );
+
+                          if (deleteRecordWidget != null) {
+                            return deleteRecordWidget;
+                          }
+
                           return ref.watch(getRecordsStateProvider).when(
                             initial: () {
                               return const SizedBox.shrink();
@@ -86,11 +98,16 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
                               );
                             },
                             data: (records) {
-                              return RecordListWD(records: records);
+                              return Stack(
+                                children: [
+                                  if (isDeletingMode) const DeleteManagementWD(),
+                                  RecordListWD(records: records),
+                                ],
+                              );
                             },
                             error: () {
                               return const Center(
-                                child: Text('error'),
+                                child: Text('error on fetching'),
                               );
                             },
                           );
@@ -103,11 +120,30 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
             ],
           ),
         ),
+        if (isDeletingMode)
+          const Positioned(
+            top: 20,
+            left: 5,
+            child: LeaveDeletingModeButtonWd(),
+          ),
+        if (isDeletingMode)
+          const Positioned(
+            right: 22,
+            bottom: 10,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                DeleteRecordButtonWD(),
+                SizedBox(width: 9),
+                DeSelectAllButtonWD(),
+              ],
+            ),
+          ),
         const Positioned(
           top: 20,
           right: 0,
           child: ActionBarWD(),
-        )
+        ),
       ],
     );
   }

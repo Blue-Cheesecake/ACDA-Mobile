@@ -14,15 +14,23 @@ class RecordListWD extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return RefreshIndicator(
       onRefresh: () async {
+        // disable onPressed while using deleting mode
+        if (ref.read(historyModeStateProvider.select((value) => value.isDeletingMode))) {
+          return;
+        }
+
         ref.read(getRecordsStateProvider.notifier).fetchRecords();
       },
       child: Padding(
-        padding: const EdgeInsets.only(top: 28, left: 9, right: 9),
+        padding: const EdgeInsets.only(left: 9, right: 9),
         child: ListView.separated(
           shrinkWrap: true,
           itemCount: records.length,
           itemBuilder: (context, index) {
-            return RecordCartWD(data: records[index], isSelected: false);
+            return Padding(
+              padding: EdgeInsets.only(top: index == 0 ? 28 : 0),
+              child: RecordCartWD(data: records[index], isSelected: false),
+            );
           },
           separatorBuilder: (context, index) {
             return const SizedBox(height: 12);
