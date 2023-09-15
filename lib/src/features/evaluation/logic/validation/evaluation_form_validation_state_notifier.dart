@@ -1,6 +1,7 @@
-import 'package:acda_mobile/src/features/evaluation/logic/input/input.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../logic.dart';
 
 class EvaluationFormValidationStateNotifier extends StateNotifier<void> {
   EvaluationFormValidationStateNotifier({required this.ref}) : super(null);
