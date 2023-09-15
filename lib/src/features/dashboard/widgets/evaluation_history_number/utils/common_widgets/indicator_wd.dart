@@ -1,5 +1,6 @@
-import 'package:acda_mobile/src/config/config.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../../config/config.dart';
 
 class IndicatorWd extends StatelessWidget {
   const IndicatorWd({required this.title, required this.color, required this.value, Key? key}) : super(key: key);

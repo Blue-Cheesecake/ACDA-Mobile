@@ -1,4 +1,3 @@
-import 'package:acda_mobile/src/features/central/logic/central_state_provider.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../config/config.dart';
 import '../../utils/utils.dart';
+import 'logic/logic.dart';
 import 'utils/constants/page_sequence.dart';
 
 class CentralPage extends StatefulWidget {
