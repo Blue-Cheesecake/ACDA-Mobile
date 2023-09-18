@@ -1,5 +1,5 @@
 import '../../../../utils/utils.dart';
-import '../data/data.dart';
+import '../../data/data.dart';
 import '../domain/domain.dart';
 import 'logic.dart';
 

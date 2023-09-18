@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/core.dart';
-import 'data/data.dart';
+import '../../central/logic/logic.dart';
+import '../data/data.dart';
 
-class EvaluationResultPage extends StatelessWidget {
+class EvaluationResultPage extends ConsumerWidget {
   const EvaluationResultPage({required this.completedSaveModel, Key? key}) : super(key: key);
 
   final SaveResultRequestModel completedSaveModel;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
           onPressed: () {
-            ACDANavigation.instance.go(RoutePath.central);
+            ref.read(centralStateProvider.notifier).updateIsOnResult(false);
+            ref.read(centralStateProvider.notifier).animateToHomePage();
           },
         ),
       ),
