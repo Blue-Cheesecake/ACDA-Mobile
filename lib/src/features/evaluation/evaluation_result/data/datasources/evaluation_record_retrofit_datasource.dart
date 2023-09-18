@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../../../../utils/utils.dart';
 import '../../../data/data.dart';
 import '../../utils/utils.dart';
 import '../data.dart';
@@ -14,7 +15,7 @@ abstract class EvaluationRecordRetrofit {
   factory EvaluationRecordRetrofit(Dio dio) => _EvaluationRecordRetrofit(dio);
 
   @POST(EvaluationResultBaseURLAPI.saveResult)
-  Future<void> saveEvaluationRecord({@Body() required SaveResultRequestModel request});
+  Future<APISimpleMessageModel> saveEvaluationRecord({@Body() required SaveResultRequestModel request});
 }
 
 class EvaluationRecordRetrofitDataSource implements IEvaluationRecordDataSource {
@@ -23,9 +24,8 @@ class EvaluationRecordRetrofitDataSource implements IEvaluationRecordDataSource 
   final Dio dio;
 
   @override
-  Future<void> saveEvaluationResult({required SaveResultRequestModel request}) {
+  Future<APISimpleMessageModel> saveEvaluationResult({required SaveResultRequestModel request}) async {
     final retrofit = EvaluationRecordRetrofit(dio);
-    final response = retrofit.saveEvaluationRecord(request: request);
-    return response;
+    return retrofit.saveEvaluationRecord(request: request);
   }
 }

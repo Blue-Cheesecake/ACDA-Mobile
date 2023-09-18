@@ -17,5 +17,5 @@ final saveEvaluationResultUseCaseProvider = Provider.autoDispose<SaveEvaluationR
 final saveEvaluationResultStateProvider =
     StateNotifierProvider.autoDispose<SaveEvaluationResultStateNotifier, SaveEvaluationResultState>((ref) {
   final saveEvaluationResultUseCase = ref.watch(saveEvaluationResultUseCaseProvider);
-  return SaveEvaluationResultStateNotifier(saveEvaluationResultUseCase: saveEvaluationResultUseCase);
+  return SaveEvaluationResultStateNotifier(ref: ref, saveEvaluationResultUseCase: saveEvaluationResultUseCase);
 });

@@ -1,3 +1,4 @@
+import '../../../../../utils/utils.dart';
 import '../../../data/data.dart';
 import '../data.dart';
 
@@ -7,7 +8,8 @@ class EvaluationRecordRepository implements IEvaluationRecordRepository {
   final IEvaluationRecordDataSource _dataSource;
 
   @override
-  Future<void> saveEvaluationResult({required SaveResultRequestModel request}) async {
-    _dataSource.saveEvaluationResult(request: request);
+  Future<APISimpleMessageModel> saveEvaluationResult({required SaveResultRequestModel request}) async {
+    final response = _dataSource.saveEvaluationResult(request: request);
+    return response;
   }
 }

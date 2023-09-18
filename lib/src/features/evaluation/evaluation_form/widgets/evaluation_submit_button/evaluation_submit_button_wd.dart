@@ -73,7 +73,7 @@ class EvaluationSubmitButtonWD extends ConsumerWidget {
                                   .readAsBytes());
 
                               final requestModel = SaveResultRequestModel(
-                                fullBodyimage: fullBodyBase64,
+                                fullBodyImage: fullBodyBase64,
                                 upperBodyImage: upperBodyBase64,
                                 studentIdCardImage: studentIdCardBase64,
                                 result: CommonEvaluationResultModel.fromEntity(data),
