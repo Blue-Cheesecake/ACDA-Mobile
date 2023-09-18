@@ -9,22 +9,19 @@ part of 'evaluation_record_retrofit_datasource.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _EvaluationRecordRetrofit implements EvaluationRecordRetrofit {
-  _EvaluationRecordRetrofit(
-    this._dio, {
-    this.baseUrl,
-  });
+  _EvaluationRecordRetrofit(this._dio);
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<void> saveEvaluationRecord({required request}) async {
+  Future<APISimpleMessageModel> saveEvaluationRecord({required request}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = request;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<APISimpleMessageModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -36,12 +33,13 @@ class _EvaluationRecordRetrofit implements EvaluationRecordRetrofit {
           data: _data,
         )
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = APISimpleMessageModel.fromJson(_result.data!);
+    return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
-        !(requestOptions.responseType == ResponseType.bytes ||
-            requestOptions.responseType == ResponseType.stream)) {
+        !(requestOptions.responseType == ResponseType.bytes || requestOptions.responseType == ResponseType.stream)) {
       if (T == String) {
         requestOptions.responseType = ResponseType.plain;
       } else {

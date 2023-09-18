@@ -1,5 +1,6 @@
+import '../../../../../utils/utils.dart';
 import '../../../data/data.dart';
 
 abstract interface class IEvaluationRecordDataSource {
-  Future<void> saveEvaluationResult({required final SaveResultRequestModel request});
+  Future<APISimpleMessageModel> saveEvaluationResult({required final SaveResultRequestModel request});
 }

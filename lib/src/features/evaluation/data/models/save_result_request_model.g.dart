@@ -9,7 +9,7 @@ part of 'save_result_request_model.dart';
 _$_SaveResultRequestModel _$$_SaveResultRequestModelFromJson(
         Map<String, dynamic> json) =>
     _$_SaveResultRequestModel(
-      fullBodyimage: json['fullBodyimage'] as String,
+      fullBodyImage: json['fullBodyImage'] as String,
       upperBodyImage: json['upperBodyImage'] as String,
       studentIdCardImage: json['studentIdCardImage'] as String,
       result: CommonEvaluationResultModel.fromJson(
@@ -19,7 +19,7 @@ _$_SaveResultRequestModel _$$_SaveResultRequestModelFromJson(
 Map<String, dynamic> _$$_SaveResultRequestModelToJson(
         _$_SaveResultRequestModel instance) =>
     <String, dynamic>{
-      'fullBodyimage': instance.fullBodyimage,
+      'fullBodyImage': instance.fullBodyImage,
       'upperBodyImage': instance.upperBodyImage,
       'studentIdCardImage': instance.studentIdCardImage,
       'result': instance.result,

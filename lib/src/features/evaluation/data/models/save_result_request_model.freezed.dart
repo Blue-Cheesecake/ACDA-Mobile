@@ -21,7 +21,7 @@ SaveResultRequestModel _$SaveResultRequestModelFromJson(
 
 /// @nodoc
 mixin _$SaveResultRequestModel {
-  String get fullBodyimage => throw _privateConstructorUsedError;
+  String get fullBodyImage => throw _privateConstructorUsedError;
   String get upperBodyImage => throw _privateConstructorUsedError;
   String get studentIdCardImage => throw _privateConstructorUsedError;
   CommonEvaluationResultModel get result => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $SaveResultRequestModelCopyWith<$Res> {
       _$SaveResultRequestModelCopyWithImpl<$Res, SaveResultRequestModel>;
   @useResult
   $Res call(
-      {String fullBodyimage,
+      {String fullBodyImage,
       String upperBodyImage,
       String studentIdCardImage,
       CommonEvaluationResultModel result});
@@ -61,15 +61,15 @@ class _$SaveResultRequestModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullBodyimage = null,
+    Object? fullBodyImage = null,
     Object? upperBodyImage = null,
     Object? studentIdCardImage = null,
     Object? result = null,
   }) {
     return _then(_value.copyWith(
-      fullBodyimage: null == fullBodyimage
-          ? _value.fullBodyimage
-          : fullBodyimage // ignore: cast_nullable_to_non_nullable
+      fullBodyImage: null == fullBodyImage
+          ? _value.fullBodyImage
+          : fullBodyImage // ignore: cast_nullable_to_non_nullable
               as String,
       upperBodyImage: null == upperBodyImage
           ? _value.upperBodyImage
@@ -104,7 +104,7 @@ abstract class _$$_SaveResultRequestModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String fullBodyimage,
+      {String fullBodyImage,
       String upperBodyImage,
       String studentIdCardImage,
       CommonEvaluationResultModel result});
@@ -125,15 +125,15 @@ class __$$_SaveResultRequestModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullBodyimage = null,
+    Object? fullBodyImage = null,
     Object? upperBodyImage = null,
     Object? studentIdCardImage = null,
     Object? result = null,
   }) {
     return _then(_$_SaveResultRequestModel(
-      fullBodyimage: null == fullBodyimage
-          ? _value.fullBodyimage
-          : fullBodyimage // ignore: cast_nullable_to_non_nullable
+      fullBodyImage: null == fullBodyImage
+          ? _value.fullBodyImage
+          : fullBodyImage // ignore: cast_nullable_to_non_nullable
               as String,
       upperBodyImage: null == upperBodyImage
           ? _value.upperBodyImage
@@ -155,7 +155,7 @@ class __$$_SaveResultRequestModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SaveResultRequestModel implements _SaveResultRequestModel {
   _$_SaveResultRequestModel(
-      {required this.fullBodyimage,
+      {required this.fullBodyImage,
       required this.upperBodyImage,
       required this.studentIdCardImage,
       required this.result});
@@ -164,7 +164,7 @@ class _$_SaveResultRequestModel implements _SaveResultRequestModel {
       _$$_SaveResultRequestModelFromJson(json);
 
   @override
-  final String fullBodyimage;
+  final String fullBodyImage;
   @override
   final String upperBodyImage;
   @override
@@ -173,17 +173,12 @@ class _$_SaveResultRequestModel implements _SaveResultRequestModel {
   final CommonEvaluationResultModel result;
 
   @override
-  String toString() {
-    return 'SaveResultRequestModel(fullBodyimage: $fullBodyimage, upperBodyImage: $upperBodyImage, studentIdCardImage: $studentIdCardImage, result: $result)';
-  }
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SaveResultRequestModel &&
-            (identical(other.fullBodyimage, fullBodyimage) ||
-                other.fullBodyimage == fullBodyimage) &&
+            (identical(other.fullBodyImage, fullBodyImage) ||
+                other.fullBodyImage == fullBodyImage) &&
             (identical(other.upperBodyImage, upperBodyImage) ||
                 other.upperBodyImage == upperBodyImage) &&
             (identical(other.studentIdCardImage, studentIdCardImage) ||
@@ -194,7 +189,7 @@ class _$_SaveResultRequestModel implements _SaveResultRequestModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, fullBodyimage, upperBodyImage, studentIdCardImage, result);
+      runtimeType, fullBodyImage, upperBodyImage, studentIdCardImage, result);
 
   @JsonKey(ignore: true)
   @override
@@ -213,7 +208,7 @@ class _$_SaveResultRequestModel implements _SaveResultRequestModel {
 
 abstract class _SaveResultRequestModel implements SaveResultRequestModel {
   factory _SaveResultRequestModel(
-          {required final String fullBodyimage,
+          {required final String fullBodyImage,
           required final String upperBodyImage,
           required final String studentIdCardImage,
           required final CommonEvaluationResultModel result}) =
@@ -223,7 +218,7 @@ abstract class _SaveResultRequestModel implements SaveResultRequestModel {
       _$_SaveResultRequestModel.fromJson;
 
   @override
-  String get fullBodyimage;
+  String get fullBodyImage;
   @override
   String get upperBodyImage;
   @override
