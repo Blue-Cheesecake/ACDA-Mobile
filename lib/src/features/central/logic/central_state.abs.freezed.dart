@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CentralState {
   int get currentPage => throw _privateConstructorUsedError;
   Color get notchColor => throw _privateConstructorUsedError;
+  bool get isOnResult => throw _privateConstructorUsedError;
+  TabController? get tabController => throw _privateConstructorUsedError;
+  PageController? get pageController => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CentralStateCopyWith<CentralState> get copyWith =>
@@ -30,7 +33,12 @@ abstract class $CentralStateCopyWith<$Res> {
           CentralState value, $Res Function(CentralState) then) =
       _$CentralStateCopyWithImpl<$Res, CentralState>;
   @useResult
-  $Res call({int currentPage, Color notchColor});
+  $Res call(
+      {int currentPage,
+      Color notchColor,
+      bool isOnResult,
+      TabController? tabController,
+      PageController? pageController});
 }
 
 /// @nodoc
@@ -48,6 +56,9 @@ class _$CentralStateCopyWithImpl<$Res, $Val extends CentralState>
   $Res call({
     Object? currentPage = null,
     Object? notchColor = null,
+    Object? isOnResult = null,
+    Object? tabController = freezed,
+    Object? pageController = freezed,
   }) {
     return _then(_value.copyWith(
       currentPage: null == currentPage
@@ -58,6 +69,18 @@ class _$CentralStateCopyWithImpl<$Res, $Val extends CentralState>
           ? _value.notchColor
           : notchColor // ignore: cast_nullable_to_non_nullable
               as Color,
+      isOnResult: null == isOnResult
+          ? _value.isOnResult
+          : isOnResult // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tabController: freezed == tabController
+          ? _value.tabController
+          : tabController // ignore: cast_nullable_to_non_nullable
+              as TabController?,
+      pageController: freezed == pageController
+          ? _value.pageController
+          : pageController // ignore: cast_nullable_to_non_nullable
+              as PageController?,
     ) as $Val);
   }
 }
@@ -70,7 +93,12 @@ abstract class _$$_CentralStateCopyWith<$Res>
       __$$_CentralStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int currentPage, Color notchColor});
+  $Res call(
+      {int currentPage,
+      Color notchColor,
+      bool isOnResult,
+      TabController? tabController,
+      PageController? pageController});
 }
 
 /// @nodoc
@@ -86,6 +114,9 @@ class __$$_CentralStateCopyWithImpl<$Res>
   $Res call({
     Object? currentPage = null,
     Object? notchColor = null,
+    Object? isOnResult = null,
+    Object? tabController = freezed,
+    Object? pageController = freezed,
   }) {
     return _then(_$_CentralState(
       currentPage: null == currentPage
@@ -96,6 +127,18 @@ class __$$_CentralStateCopyWithImpl<$Res>
           ? _value.notchColor
           : notchColor // ignore: cast_nullable_to_non_nullable
               as Color,
+      isOnResult: null == isOnResult
+          ? _value.isOnResult
+          : isOnResult // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tabController: freezed == tabController
+          ? _value.tabController
+          : tabController // ignore: cast_nullable_to_non_nullable
+              as TabController?,
+      pageController: freezed == pageController
+          ? _value.pageController
+          : pageController // ignore: cast_nullable_to_non_nullable
+              as PageController?,
     ));
   }
 }
@@ -103,7 +146,12 @@ class __$$_CentralStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CentralState implements _CentralState {
-  _$_CentralState({this.currentPage = 1, this.notchColor = DesignSystem.g23});
+  _$_CentralState(
+      {this.currentPage = 1,
+      this.notchColor = DesignSystem.g23,
+      this.isOnResult = false,
+      this.tabController,
+      this.pageController});
 
   @override
   @JsonKey()
@@ -111,10 +159,17 @@ class _$_CentralState implements _CentralState {
   @override
   @JsonKey()
   final Color notchColor;
+  @override
+  @JsonKey()
+  final bool isOnResult;
+  @override
+  final TabController? tabController;
+  @override
+  final PageController? pageController;
 
   @override
   String toString() {
-    return 'CentralState(currentPage: $currentPage, notchColor: $notchColor)';
+    return 'CentralState(currentPage: $currentPage, notchColor: $notchColor, isOnResult: $isOnResult, tabController: $tabController, pageController: $pageController)';
   }
 
   @override
@@ -125,11 +180,18 @@ class _$_CentralState implements _CentralState {
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             (identical(other.notchColor, notchColor) ||
-                other.notchColor == notchColor));
+                other.notchColor == notchColor) &&
+            (identical(other.isOnResult, isOnResult) ||
+                other.isOnResult == isOnResult) &&
+            (identical(other.tabController, tabController) ||
+                other.tabController == tabController) &&
+            (identical(other.pageController, pageController) ||
+                other.pageController == pageController));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentPage, notchColor);
+  int get hashCode => Object.hash(runtimeType, currentPage, notchColor,
+      isOnResult, tabController, pageController);
 
   @JsonKey(ignore: true)
   @override
@@ -139,13 +201,23 @@ class _$_CentralState implements _CentralState {
 }
 
 abstract class _CentralState implements CentralState {
-  factory _CentralState({final int currentPage, final Color notchColor}) =
-      _$_CentralState;
+  factory _CentralState(
+      {final int currentPage,
+      final Color notchColor,
+      final bool isOnResult,
+      final TabController? tabController,
+      final PageController? pageController}) = _$_CentralState;
 
   @override
   int get currentPage;
   @override
   Color get notchColor;
+  @override
+  bool get isOnResult;
+  @override
+  TabController? get tabController;
+  @override
+  PageController? get pageController;
   @override
   @JsonKey(ignore: true)
   _$$_CentralStateCopyWith<_$_CentralState> get copyWith =>

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../config/config.dart';
 import '../../../dashboard/dashboard_page.dart';
-import '../../../evaluation/evaluation_form_page.dart';
+import '../../../evaluation/evaluation_page_main.dart';
 import '../../../history/history_page.dart';
 import '../utils.dart';
 
@@ -40,7 +40,7 @@ class PageSequence {
       onSelectedColor: DesignSystem.g23,
     ),
     SlidablePageModel(
-      child: const EvaluationFormPage(),
+      child: const EvaluationPageMain(),
       tabItem: const TabItem(
           icon: Icon(
         Icons.person_add,

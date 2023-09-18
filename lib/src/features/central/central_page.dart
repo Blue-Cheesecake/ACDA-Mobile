@@ -1,5 +1,6 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,14 +9,14 @@ import '../../utils/utils.dart';
 import 'logic/logic.dart';
 import 'utils/constants/page_sequence.dart';
 
-class CentralPage extends StatefulWidget {
+class CentralPage extends ConsumerStatefulWidget {
   const CentralPage({Key? key}) : super(key: key);
 
   @override
-  State<CentralPage> createState() => _CentralPageState();
+  ConsumerState<CentralPage> createState() => _CentralPageState();
 }
 
-class _CentralPageState extends State<CentralPage> with SingleTickerProviderStateMixin {
+class _CentralPageState extends ConsumerState<CentralPage> with SingleTickerProviderStateMixin {
   late final TabController _tabController;
   late final PageController _pageController;
 
@@ -24,6 +25,11 @@ class _CentralPageState extends State<CentralPage> with SingleTickerProviderStat
     super.initState();
     _tabController = TabController(initialIndex: 1, length: PageSequence.sequence.length, vsync: this);
     _pageController = PageController(initialPage: 1);
+
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      ref.read(centralStateProvider.notifier).initiazlieTabController(_tabController);
+      ref.read(centralStateProvider.notifier).initializePageController(_pageController);
+    });
   }
 
   @override
@@ -41,41 +47,49 @@ class _CentralPageState extends State<CentralPage> with SingleTickerProviderStat
         child: Scaffold(
           body: ACDAGradientBackgroundWD(
             child: SafeArea(
-              child: Consumer(builder: (context, ref, child) {
-                return PageView.builder(
-                  controller: _pageController,
-                  itemCount: PageSequence.sequence.length,
-                  onPageChanged: (index) {
-                    _tabController.animateTo(
-                      index,
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.easeInOut,
-                    );
-                    ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
-                  },
-                  itemBuilder: (context, index) {
-                    return PageSequence.sequence[index].child;
-                  },
-                );
-              }),
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: PageSequence.sequence.length,
+                onPageChanged: (index) {
+                  // disable on result page
+                  final isOnResultPage = ref.read(centralStateProvider.select((value) => value.isOnResult));
+                  if (isOnResultPage) {
+                    return;
+                  }
+
+                  _tabController.animateTo(
+                    index,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                  );
+                  ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
+                },
+                itemBuilder: (context, index) {
+                  return PageSequence.sequence[index].child;
+                },
+              ),
             ),
           ),
-          bottomNavigationBar: Consumer(
-            builder: (context, ref, child) => ConvexAppBar(
-              controller: _tabController,
-              curve: Curves.easeInOut,
-              items: PageSequence.sequence.map((e) => e.tabItem).toList(),
-              onTap: (index) {
-                _pageController.animateToPage(
-                  index,
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                );
-                ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
-              },
-              backgroundColor: DesignSystem.acdaPrimary,
-              activeColor: ref.watch(centralStateProvider.select((value) => value.notchColor)),
-            ),
+          bottomNavigationBar: ConvexAppBar(
+            controller: _tabController,
+            curve: Curves.easeInOut,
+            items: PageSequence.sequence.map((e) => e.tabItem).toList(),
+            onTap: (index) {
+              // disable on result page
+              final isOnResultPage = ref.read(centralStateProvider.select((value) => value.isOnResult));
+              if (isOnResultPage) {
+                return;
+              }
+
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 200),
+                curve: Curves.easeInOut,
+              );
+              ref.read(centralStateProvider.notifier).updateNotchColor(index: index);
+            },
+            backgroundColor: DesignSystem.acdaPrimary,
+            activeColor: ref.watch(centralStateProvider.select((value) => value.notchColor)),
           ),
         ),
       ),

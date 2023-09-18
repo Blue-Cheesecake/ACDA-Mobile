@@ -1,4 +1,5 @@
 import '../../../../../utils/utils.dart';
+import '../../../data/data.dart';
 import '../../data/data.dart';
 
 class SaveEvaluationResultUseCase extends BaseUseCase<SaveResultRequestModel, void> {

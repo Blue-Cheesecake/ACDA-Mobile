@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../../data/data.dart';
 import '../../utils/utils.dart';
 import '../data.dart';
 
