@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
+import '../../../../core/core.dart';
 import '../../domain/domain.dart';
 import '../../logic/logic.dart';
 import 'widgets/widgets.dart';
@@ -19,6 +20,7 @@ class RecordCartWD extends ConsumerWidget {
     return GestureDetector(
       onTap: () {
         if (!(ref.read(historyModeStateProvider.select((value) => value.isDeletingMode)))) {
+          ACDANavigation.instance.push(RoutePath.resultHistory, extra: data);
           return;
         }
 

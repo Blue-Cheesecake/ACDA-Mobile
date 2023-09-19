@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/config.dart';
+import '../../../../../core/core.dart';
 import '../../../../../utils/utils.dart';
-import '../../../../central/logic/logic.dart';
 import '../../../data/data.dart';
-import '../../../logic/logic.dart';
 import '../../logic/logic.dart';
 import '../../utils/utils.dart';
 
@@ -79,8 +78,7 @@ class EvaluationSubmitButtonWD extends ConsumerWidget {
                                 result: CommonEvaluationResultModel.fromEntity(data),
                               );
 
-                              ref.read(evaluationResultSaveProvider.notifier).updateSaveRequest(requestModel);
-                              ref.read(centralStateProvider.notifier).updateIsOnResult(true);
+                              ACDANavigation.instance.go(RoutePath.resultForm, extra: requestModel);
                             },
                             error: (error) {
                               controller.failure();

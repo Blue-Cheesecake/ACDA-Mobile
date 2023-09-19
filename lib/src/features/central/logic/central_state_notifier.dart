@@ -15,10 +15,6 @@ class CentralStateNotifier extends StateNotifier<CentralState> {
     state = state.copyWith(notchColor: PageSequence.sequence[index].onSelectedColor);
   }
 
-  void updateIsOnResult(bool value) {
-    state = state.copyWith(isOnResult: value);
-  }
-
   void initiazlieTabController(TabController value) {
     state = state.copyWith(tabController: value);
   }
@@ -27,14 +23,14 @@ class CentralStateNotifier extends StateNotifier<CentralState> {
     state = state.copyWith(pageController: value);
   }
 
-  void animateToHomePage() {
+  void animateToEvaluationForm() {
     state.tabController?.animateTo(
-      1,
+      2,
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
     );
     state.pageController?.animateToPage(
-      1,
+      2,
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
     );

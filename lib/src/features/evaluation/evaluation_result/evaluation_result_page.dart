@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
+import '../../../core/core.dart';
 import '../../../utils/utils.dart';
-import '../../central/logic/logic.dart';
 import '../data/data.dart';
 import 'logic/logic.dart';
 
@@ -23,7 +23,26 @@ class EvaluationResultPage extends ConsumerWidget {
     );
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: () async {
+            await ref.read(saveEvaluationResultStateProvider.notifier).saveResult(
+                  requestModel: completedSaveModel,
+                  onSuccessCallback: () {
+                    if (context.mounted) {
+                      context.loaderOverlay.hide();
+                      ACDANavigation.instance.go(RoutePath.central, extra: 2);
+                    }
+                  },
+                  onErrorCallback: () {
+                    if (context.mounted) {
+                      context.loaderOverlay.hide();
+                    }
+                  },
+                );
+          },
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -39,8 +58,7 @@ class EvaluationResultPage extends ConsumerWidget {
                       requestModel: completedSaveModel,
                       onSuccessCallback: () {
                         context.loaderOverlay.hide();
-                        ref.read(centralStateProvider.notifier).updateIsOnResult(false);
-                        ref.read(centralStateProvider.notifier).animateToHomePage();
+                        ACDANavigation.instance.go(RoutePath.central);
                       },
                       onErrorCallback: () {
                         if (context.mounted) {
