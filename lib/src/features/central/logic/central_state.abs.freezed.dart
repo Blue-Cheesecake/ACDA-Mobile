@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CentralState {
   int get currentPage => throw _privateConstructorUsedError;
   Color get notchColor => throw _privateConstructorUsedError;
-  bool get isOnResult => throw _privateConstructorUsedError;
   TabController? get tabController => throw _privateConstructorUsedError;
   PageController? get pageController => throw _privateConstructorUsedError;
 
@@ -36,7 +35,6 @@ abstract class $CentralStateCopyWith<$Res> {
   $Res call(
       {int currentPage,
       Color notchColor,
-      bool isOnResult,
       TabController? tabController,
       PageController? pageController});
 }
@@ -56,7 +54,6 @@ class _$CentralStateCopyWithImpl<$Res, $Val extends CentralState>
   $Res call({
     Object? currentPage = null,
     Object? notchColor = null,
-    Object? isOnResult = null,
     Object? tabController = freezed,
     Object? pageController = freezed,
   }) {
@@ -69,10 +66,6 @@ class _$CentralStateCopyWithImpl<$Res, $Val extends CentralState>
           ? _value.notchColor
           : notchColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      isOnResult: null == isOnResult
-          ? _value.isOnResult
-          : isOnResult // ignore: cast_nullable_to_non_nullable
-              as bool,
       tabController: freezed == tabController
           ? _value.tabController
           : tabController // ignore: cast_nullable_to_non_nullable
@@ -96,7 +89,6 @@ abstract class _$$_CentralStateCopyWith<$Res>
   $Res call(
       {int currentPage,
       Color notchColor,
-      bool isOnResult,
       TabController? tabController,
       PageController? pageController});
 }
@@ -114,7 +106,6 @@ class __$$_CentralStateCopyWithImpl<$Res>
   $Res call({
     Object? currentPage = null,
     Object? notchColor = null,
-    Object? isOnResult = null,
     Object? tabController = freezed,
     Object? pageController = freezed,
   }) {
@@ -127,10 +118,6 @@ class __$$_CentralStateCopyWithImpl<$Res>
           ? _value.notchColor
           : notchColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      isOnResult: null == isOnResult
-          ? _value.isOnResult
-          : isOnResult // ignore: cast_nullable_to_non_nullable
-              as bool,
       tabController: freezed == tabController
           ? _value.tabController
           : tabController // ignore: cast_nullable_to_non_nullable
@@ -149,7 +136,6 @@ class _$_CentralState implements _CentralState {
   _$_CentralState(
       {this.currentPage = 1,
       this.notchColor = DesignSystem.g23,
-      this.isOnResult = false,
       this.tabController,
       this.pageController});
 
@@ -160,16 +146,13 @@ class _$_CentralState implements _CentralState {
   @JsonKey()
   final Color notchColor;
   @override
-  @JsonKey()
-  final bool isOnResult;
-  @override
   final TabController? tabController;
   @override
   final PageController? pageController;
 
   @override
   String toString() {
-    return 'CentralState(currentPage: $currentPage, notchColor: $notchColor, isOnResult: $isOnResult, tabController: $tabController, pageController: $pageController)';
+    return 'CentralState(currentPage: $currentPage, notchColor: $notchColor, tabController: $tabController, pageController: $pageController)';
   }
 
   @override
@@ -181,8 +164,6 @@ class _$_CentralState implements _CentralState {
                 other.currentPage == currentPage) &&
             (identical(other.notchColor, notchColor) ||
                 other.notchColor == notchColor) &&
-            (identical(other.isOnResult, isOnResult) ||
-                other.isOnResult == isOnResult) &&
             (identical(other.tabController, tabController) ||
                 other.tabController == tabController) &&
             (identical(other.pageController, pageController) ||
@@ -190,8 +171,8 @@ class _$_CentralState implements _CentralState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentPage, notchColor,
-      isOnResult, tabController, pageController);
+  int get hashCode => Object.hash(
+      runtimeType, currentPage, notchColor, tabController, pageController);
 
   @JsonKey(ignore: true)
   @override
@@ -204,7 +185,6 @@ abstract class _CentralState implements CentralState {
   factory _CentralState(
       {final int currentPage,
       final Color notchColor,
-      final bool isOnResult,
       final TabController? tabController,
       final PageController? pageController}) = _$_CentralState;
 
@@ -212,8 +192,6 @@ abstract class _CentralState implements CentralState {
   int get currentPage;
   @override
   Color get notchColor;
-  @override
-  bool get isOnResult;
   @override
   TabController? get tabController;
   @override

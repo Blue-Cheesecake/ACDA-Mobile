@@ -10,7 +10,9 @@ import 'logic/logic.dart';
 import 'utils/constants/page_sequence.dart';
 
 class CentralPage extends ConsumerStatefulWidget {
-  const CentralPage({Key? key}) : super(key: key);
+  const CentralPage({this.initialIndex, Key? key}) : super(key: key);
+
+  final int? initialIndex;
 
   @override
   ConsumerState<CentralPage> createState() => _CentralPageState();
@@ -23,8 +25,9 @@ class _CentralPageState extends ConsumerState<CentralPage> with SingleTickerProv
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(initialIndex: 1, length: PageSequence.sequence.length, vsync: this);
-    _pageController = PageController(initialPage: 1);
+    _tabController =
+        TabController(initialIndex: widget.initialIndex ?? 1, length: PageSequence.sequence.length, vsync: this);
+    _pageController = PageController(initialPage: widget.initialIndex ?? 1);
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
       ref.read(centralStateProvider.notifier).initiazlieTabController(_tabController);
@@ -51,12 +54,6 @@ class _CentralPageState extends ConsumerState<CentralPage> with SingleTickerProv
                 controller: _pageController,
                 itemCount: PageSequence.sequence.length,
                 onPageChanged: (index) {
-                  // disable on result page
-                  final isOnResultPage = ref.read(centralStateProvider.select((value) => value.isOnResult));
-                  if (isOnResultPage) {
-                    return;
-                  }
-
                   _tabController.animateTo(
                     index,
                     duration: const Duration(milliseconds: 200),
@@ -75,12 +72,6 @@ class _CentralPageState extends ConsumerState<CentralPage> with SingleTickerProv
             curve: Curves.easeInOut,
             items: PageSequence.sequence.map((e) => e.tabItem).toList(),
             onTap: (index) {
-              // disable on result page
-              final isOnResultPage = ref.read(centralStateProvider.select((value) => value.isOnResult));
-              if (isOnResultPage) {
-                return;
-              }
-
               _pageController.animateToPage(
                 index,
                 duration: const Duration(milliseconds: 200),
