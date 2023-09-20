@@ -47,8 +47,12 @@ class EvaluationResultPage extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Text(
-              completedSaveModel.result.isPassed.toString(),
+            child: Column(
+              children: [
+                // TODO: get current date time from FE since backend does not send date
+                Text(completedSaveModel.result.isPassed.toString()),
+                Text(completedSaveModel.result.message ?? '-'),
+              ],
             ),
           ),
           Center(
