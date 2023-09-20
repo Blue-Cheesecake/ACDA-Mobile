@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:camera/camera.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -47,9 +49,13 @@ class ACDATimerCameraStateNotifier extends StateNotifier<ACDATimerCameraState> {
       state = state.copyWith(counter: c);
     }
 
-    final XFile image = await cameraController.takePicture();
+    try {
+      final XFile image = await cameraController.takePicture();
+      updatePickedImage(image);
+    } catch (e) {
+      ACDALog.printDebug(message: e.toString());
+    }
 
-    updatePickedImage(image);
     stopCounting();
   }
 

@@ -22,6 +22,7 @@ CommonEvaluationResultModel _$CommonEvaluationResultModelFromJson(
 /// @nodoc
 mixin _$CommonEvaluationResultModel {
   bool get isPassed => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,7 @@ abstract class $CommonEvaluationResultModelCopyWith<$Res> {
       _$CommonEvaluationResultModelCopyWithImpl<$Res,
           CommonEvaluationResultModel>;
   @useResult
-  $Res call({bool isPassed});
+  $Res call({bool isPassed, String? message});
 }
 
 /// @nodoc
@@ -55,12 +56,17 @@ class _$CommonEvaluationResultModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isPassed = null,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
       isPassed: null == isPassed
           ? _value.isPassed
           : isPassed // ignore: cast_nullable_to_non_nullable
               as bool,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -74,7 +80,7 @@ abstract class _$$_CommonEvaluationResultModelCopyWith<$Res>
       __$$_CommonEvaluationResultModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isPassed});
+  $Res call({bool isPassed, String? message});
 }
 
 /// @nodoc
@@ -91,12 +97,17 @@ class __$$_CommonEvaluationResultModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isPassed = null,
+    Object? message = freezed,
   }) {
     return _then(_$_CommonEvaluationResultModel(
       isPassed: null == isPassed
           ? _value.isPassed
           : isPassed // ignore: cast_nullable_to_non_nullable
               as bool,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -104,17 +115,19 @@ class __$$_CommonEvaluationResultModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CommonEvaluationResultModel implements _CommonEvaluationResultModel {
-  _$_CommonEvaluationResultModel({required this.isPassed});
+  _$_CommonEvaluationResultModel({required this.isPassed, this.message});
 
   factory _$_CommonEvaluationResultModel.fromJson(Map<String, dynamic> json) =>
       _$$_CommonEvaluationResultModelFromJson(json);
 
   @override
   final bool isPassed;
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'CommonEvaluationResultModel(isPassed: $isPassed)';
+    return 'CommonEvaluationResultModel(isPassed: $isPassed, message: $message)';
   }
 
   @override
@@ -123,12 +136,13 @@ class _$_CommonEvaluationResultModel implements _CommonEvaluationResultModel {
         (other.runtimeType == runtimeType &&
             other is _$_CommonEvaluationResultModel &&
             (identical(other.isPassed, isPassed) ||
-                other.isPassed == isPassed));
+                other.isPassed == isPassed) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isPassed);
+  int get hashCode => Object.hash(runtimeType, isPassed, message);
 
   @JsonKey(ignore: true)
   @override
@@ -147,14 +161,17 @@ class _$_CommonEvaluationResultModel implements _CommonEvaluationResultModel {
 
 abstract class _CommonEvaluationResultModel
     implements CommonEvaluationResultModel {
-  factory _CommonEvaluationResultModel({required final bool isPassed}) =
-      _$_CommonEvaluationResultModel;
+  factory _CommonEvaluationResultModel(
+      {required final bool isPassed,
+      final String? message}) = _$_CommonEvaluationResultModel;
 
   factory _CommonEvaluationResultModel.fromJson(Map<String, dynamic> json) =
       _$_CommonEvaluationResultModel.fromJson;
 
   @override
   bool get isPassed;
+  @override
+  String? get message;
   @override
   @JsonKey(ignore: true)
   _$$_CommonEvaluationResultModelCopyWith<_$_CommonEvaluationResultModel>
