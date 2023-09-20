@@ -46,4 +46,18 @@ extension DateTimeExtension on DateTime? {
 
     return DateFormat('EEE dd/MM/yyyy').format(this!).toUpperCase();
   }
+
+  String get resultDate {
+    if (this == null) {
+      return '';
+    }
+    return DateFormat('EEE. MMM d, y').format(this!).toUpperCase();
+  }
+
+  String get timeM {
+    if (this == null) {
+      return '';
+    }
+    return DateFormat('h.mm a').format(this!);
+  }
 }
