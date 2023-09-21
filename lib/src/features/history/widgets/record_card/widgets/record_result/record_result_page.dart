@@ -19,15 +19,9 @@ class RecordResultPage extends StatelessWidget {
           },
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Text(data.addedAt.resultDate),
-            Text(data.addedAt.timeM),
-            Text(data.result.isPassed.toString()),
-            Text(data.result.message ?? '-'),
-          ],
-        ),
+      body: ACDAGradientBackgroundWD(
+        width: double.infinity,
+        child: ACDAEvaluationResultWD(date: data.addedAt, result: data.result),
       ),
     );
   }
