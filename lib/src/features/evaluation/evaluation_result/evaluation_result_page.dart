@@ -46,17 +46,12 @@ class EvaluationResultPage extends ConsumerWidget {
       ),
       body: ACDAGradientBackgroundWD(
         width: double.infinity,
-        child: Stack(
-          alignment: Alignment.topCenter,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                ACDAEvaluationResultWD(date: DateTime.now(), result: completedSaveModel.result),
-                GoBackHomeButtonWD(completedSaveModel: completedSaveModel),
-              ],
-            ),
+            ACDAEvaluationResultWD(date: DateTime.now(), result: completedSaveModel.result),
+            GoBackHomeButtonWD(completedSaveModel: completedSaveModel),
           ],
         ),
       ),
