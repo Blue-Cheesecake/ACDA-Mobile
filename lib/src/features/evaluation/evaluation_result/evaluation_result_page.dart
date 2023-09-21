@@ -6,6 +6,7 @@ import '../../../core/core.dart';
 import '../../../utils/utils.dart';
 import '../data/data.dart';
 import 'logic/logic.dart';
+import 'widgets/widgets.dart';
 
 class EvaluationResultPage extends ConsumerWidget {
   const EvaluationResultPage({required this.completedSaveModel, Key? key}) : super(key: key);
@@ -43,38 +44,21 @@ class EvaluationResultPage extends ConsumerWidget {
           },
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Column(
+      body: ACDAGradientBackgroundWD(
+        width: double.infinity,
+        child: Stack(
+          alignment: Alignment.topCenter,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                // TODO: get current date time from FE since backend does not send date
-                Text(completedSaveModel.result.isPassed.toString()),
-                Text(completedSaveModel.result.message ?? '-'),
+                ACDAEvaluationResultWD(date: DateTime.now(), result: completedSaveModel.result),
+                GoBackHomeButtonWD(completedSaveModel: completedSaveModel),
               ],
             ),
-          ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () async {
-                await ref.read(saveEvaluationResultStateProvider.notifier).saveResult(
-                      requestModel: completedSaveModel,
-                      onSuccessCallback: () {
-                        context.loaderOverlay.hide();
-                        ACDANavigation.instance.go(RoutePath.central);
-                      },
-                      onErrorCallback: () {
-                        if (context.mounted) {
-                          context.loaderOverlay.hide();
-                        }
-                      },
-                    );
-              },
-              child: const Text('Save'),
-            ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
