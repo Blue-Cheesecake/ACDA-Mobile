@@ -47,9 +47,13 @@ class ACDATimerCameraStateNotifier extends StateNotifier<ACDATimerCameraState> {
       state = state.copyWith(counter: c);
     }
 
-    final XFile image = await cameraController.takePicture();
+    try {
+      final XFile image = await cameraController.takePicture();
+      updatePickedImage(image);
+    } catch (e) {
+      ACDALog.printDebug(message: e.toString());
+    }
 
-    updatePickedImage(image);
     stopCounting();
   }
 

@@ -10,5 +10,7 @@ class CentralState with _$CentralState {
   factory CentralState({
     @Default(1) int currentPage,
     @Default(DesignSystem.g23) Color notchColor,
+    final TabController? tabController,
+    final PageController? pageController,
   }) = _CentralState;
 }

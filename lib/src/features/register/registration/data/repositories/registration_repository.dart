@@ -1,7 +1,4 @@
-import 'package:acda_mobile/src/utils/api_response.dart';
-
-import 'package:acda_mobile/src/utils/models/api_simple_message_model.dart';
-
+import '../../../../../utils/utils.dart';
 import '../../registration.dart';
 
 class RegistrationRepository implements IRegistrationRepository {
