@@ -6,6 +6,28 @@ class TextStyles {
   TextStyles._();
 
   // styles
+  static TextStyle get header1Bold => const TextStyle(
+        color: DesignSystem.g0,
+        fontFamily: DesignSystem.fontFamily,
+        fontSize: DesignSystem.header1Size,
+        fontWeight: FontWeight.w800,
+      );
+
+  static TextStyle get header1BoldItalic => const TextStyle(
+        color: DesignSystem.g0,
+        fontFamily: DesignSystem.fontFamily,
+        fontSize: DesignSystem.header1Size,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic,
+      );
+
+  static TextStyle get header4 => const TextStyle(
+        color: DesignSystem.g0,
+        fontFamily: DesignSystem.fontFamily,
+        fontSize: DesignSystem.header4Size,
+        fontWeight: FontWeight.bold,
+      );
+
   static TextStyle get header5 => const TextStyle(
         color: DesignSystem.g0,
         fontFamily: DesignSystem.fontFamily,

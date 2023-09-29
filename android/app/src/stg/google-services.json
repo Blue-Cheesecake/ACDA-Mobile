@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "584876387850",
+    "project_id": "muict-sp-acda-stg",
+    "storage_bucket": "muict-sp-acda-stg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584876387850:android:78576f8dcc04582e7279f3",
+        "android_client_info": {
+          "package_name": "com.acda.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584876387850-44hohs6cgdfj1dm63pln2jiucn938jlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL9A5PytjOgItbC1xju3DhHC9UIhH4Snk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584876387850-44hohs6cgdfj1dm63pln2jiucn938jlu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "584876387850-grnlmm3sdsgi8cstcq7jc5015uhn7gne.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.acda.stg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

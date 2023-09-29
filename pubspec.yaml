@@ -16,11 +16,15 @@ dependencies:
   # State Management
   flutter_riverpod: 2.3.6
 
+  # Event-Driven
+  event_bus: 2.0.0
+
   # Networking
   retrofit: 4.0.1
-  dio: 5.2.1+1
+  dio: 5.3.2
   connectivity_plus: 4.0.1
   internet_connection_checker: 1.0.0+1
+  network_info_plus: 4.0.2
 
   # Navigation
   go_router: 9.0.0
@@ -29,17 +33,64 @@ dependencies:
   firebase_core: 2.14.0
   firebase_crashlytics: 3.3.3
 
+  # Generators
   freezed_annotation: 2.2.0
   json_annotation: 4.8.1
   injectable: 2.1.2
   retrofit_generator: 5.0.0
+
+  # Flavors
   flutter_flavorizr: 2.2.1
+
+  # App Icon
   flutter_launcher_icons: 0.13.1
+
+  # Splash Screen
   flutter_native_splash: 2.3.1
+
+  # Dotted Border
   dotted_border: 2.0.0+3
+
+  # Image Picker
   image_picker: 1.0.0
+  camera: 0.10.5+4
+
+  # Bottom Sheet
   modal_bottom_sheet: 3.0.0-pre
+
+  # Local Storage
+  flutter_secure_storage: 8.0.0
+
+  # Loading
+  loading_animation_widget: 1.2.0+4
   loader_overlay: 2.2.0
+
+  # Text
+  animated_text_kit: 4.2.2
+
+  # Permission
+  permission_handler: 10.4.3
+
+  # Testing
+  mocktail: 1.0.0
+
+  # Button Sliding
+  action_slider: 0.7.0
+
+  # Bottom Navigation Bar
+  convex_bottom_bar: 3.2.0
+
+  # Formatter
+  intl: 0.18.1
+
+  # Sliding
+  custom_sliding_segmented_control: 1.7.5
+
+  # Date Picker
+  syncfusion_flutter_datepicker: 22.2.12
+
+  # Loading
+  shimmer: 3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +116,10 @@ flutter:
         - asset: assets/fonts/NotoSans-Italic.ttf
           weight: 400
           style: italic
+        - asset: assets/fonts/NotoSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoSans-SemiBold.ttf
+          weight: 600
         - asset: assets/fonts/NotoSans-Bold.ttf
           weight: 700
         - asset: assets/fonts/NotoSans-BoldItalic.ttf
@@ -84,22 +139,24 @@ flavorizr:
       app:
         name: "ACDA_stg"
       android:
-        applicationId: "com.acda.dev"
+        applicationId: "com.acda.stg"
       ios:
         bundleId: "com.acda.stg"
     prd:
       app:
         name: "ACDA"
       android:
-        applicationId: "com.acda.dev"
+        applicationId: "com.acda"
       ios:
         bundleId: "com.acda"
 
 flutter_launcher_icons:
-  image_path: "assets/icons/ACDA-TempLogo-iOS.png"
+  image_path: "assets/icons/ACDA-AppIcon-iOS.png"
+
   android: "launcher_icon"
-  image_path_android: "assets/icons/ACDA-TempLogo-Android.png"
+  image_path_android: "assets/icons/ACDA-AppIcon-Andriod.png"
   adaptive_icon_background: "#0c4aad"
+
   ios: true
-  image_path_ios: "assets/icons/ACDA-TempLogo-iOS.png"
+  image_path_ios: "assets/icons/ACDA-AppIcon-iOS.png"
   remove_alpha_ios: true

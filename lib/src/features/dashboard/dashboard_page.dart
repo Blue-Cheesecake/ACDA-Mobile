@@ -1,34 +1,41 @@
-import 'package:acda_mobile/src/features/dashboard/widgets/empty_state_wd.dart';
-import 'package:acda_mobile/src/features/dashboard/widgets/normal_state_wd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../config/config.dart';
 import 'logic/logic.dart';
-import 'utils/utils.dart';
+import 'widgets/widgets.dart';
 
-class DashboardPage extends StatelessWidget {
+class DashboardPage extends ConsumerStatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          DashboardMessages.title,
-          style: TextStyles.header5.copyWith(color: DesignSystem.g1),
-        ),
-      ),
-      body: Consumer(
-        builder: (context, ref, _) {
-          final bool isEmpty = ref.watch(dashboardStateNotifierProvider).isEmptyState;
+  ConsumerState<DashboardPage> createState() => _DashboardPageState();
+}
 
-          if (isEmpty) {
-            return const EmptyStateWD();
-          }
-          return const NormalStateWD();
-        },
-      ),
+class _DashboardPageState extends ConsumerState<DashboardPage> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(basicInfoStateProvider.notifier).fetchBasicInfo();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ref.watch(basicInfoStateProvider).whenOrNull(
+          error: () {},
+        );
+
+    return const Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        SizedBox(height: 20),
+        HomeHeaderWD(),
+        SizedBox(height: 10),
+        GoodLuckWd(),
+        SizedBox(height: 10),
+        EvaluationHistoryNumberWD(),
+        SizedBox(height: 16),
+        DressGuidelineWD(),
+      ],
     );
   }
 }

@@ -7,8 +7,8 @@ abstract class IACDANetworkManager {
 class ACDANetworkManager implements IACDANetworkManager {
   ACDANetworkManager();
 
-  final internetConnectionChecker = InternetConnectionChecker();
+  static final _internetConnectionChecker = InternetConnectionChecker();
 
   @override
-  Future<bool> get isConnected => internetConnectionChecker.hasConnection;
+  Future<bool> get isConnected => _internetConnectionChecker.hasConnection;
 }
