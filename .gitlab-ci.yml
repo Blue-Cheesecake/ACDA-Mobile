@@ -21,7 +21,7 @@ test:
     - flutter pub global activate junitreport
     - export PATH="$PATH:$HOME/.pub-cache/bin"
   script:
-    - flutter test --coverage
+    - flutter test --coverage --dart-define=apiURL=http://localhost:7070
 
 # test_coverage:
 #   stage: test_coverage
