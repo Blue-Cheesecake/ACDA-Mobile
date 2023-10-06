@@ -22,6 +22,7 @@ FaceValidationResultModel _$FaceValidationResultModelFromJson(
 /// @nodoc
 mixin _$FaceValidationResultModel {
   bool get isPassed => throw _privateConstructorUsedError;
+  String? get croppedFaceImage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $FaceValidationResultModelCopyWith<$Res> {
           $Res Function(FaceValidationResultModel) then) =
       _$FaceValidationResultModelCopyWithImpl<$Res, FaceValidationResultModel>;
   @useResult
-  $Res call({bool isPassed});
+  $Res call({bool isPassed, String? croppedFaceImage});
 }
 
 /// @nodoc
@@ -53,12 +54,17 @@ class _$FaceValidationResultModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isPassed = null,
+    Object? croppedFaceImage = freezed,
   }) {
     return _then(_value.copyWith(
       isPassed: null == isPassed
           ? _value.isPassed
           : isPassed // ignore: cast_nullable_to_non_nullable
               as bool,
+      croppedFaceImage: freezed == croppedFaceImage
+          ? _value.croppedFaceImage
+          : croppedFaceImage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -72,7 +78,7 @@ abstract class _$$_FaceValidationResultModelCopyWith<$Res>
       __$$_FaceValidationResultModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isPassed});
+  $Res call({bool isPassed, String? croppedFaceImage});
 }
 
 /// @nodoc
@@ -89,12 +95,17 @@ class __$$_FaceValidationResultModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isPassed = null,
+    Object? croppedFaceImage = freezed,
   }) {
     return _then(_$_FaceValidationResultModel(
       isPassed: null == isPassed
           ? _value.isPassed
           : isPassed // ignore: cast_nullable_to_non_nullable
               as bool,
+      croppedFaceImage: freezed == croppedFaceImage
+          ? _value.croppedFaceImage
+          : croppedFaceImage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -102,17 +113,20 @@ class __$$_FaceValidationResultModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FaceValidationResultModel implements _FaceValidationResultModel {
-  _$_FaceValidationResultModel({required this.isPassed});
+  _$_FaceValidationResultModel(
+      {required this.isPassed, required this.croppedFaceImage});
 
   factory _$_FaceValidationResultModel.fromJson(Map<String, dynamic> json) =>
       _$$_FaceValidationResultModelFromJson(json);
 
   @override
   final bool isPassed;
+  @override
+  final String? croppedFaceImage;
 
   @override
   String toString() {
-    return 'FaceValidationResultModel(isPassed: $isPassed)';
+    return 'FaceValidationResultModel(isPassed: $isPassed, croppedFaceImage: $croppedFaceImage)';
   }
 
   @override
@@ -121,12 +135,14 @@ class _$_FaceValidationResultModel implements _FaceValidationResultModel {
         (other.runtimeType == runtimeType &&
             other is _$_FaceValidationResultModel &&
             (identical(other.isPassed, isPassed) ||
-                other.isPassed == isPassed));
+                other.isPassed == isPassed) &&
+            (identical(other.croppedFaceImage, croppedFaceImage) ||
+                other.croppedFaceImage == croppedFaceImage));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isPassed);
+  int get hashCode => Object.hash(runtimeType, isPassed, croppedFaceImage);
 
   @JsonKey(ignore: true)
   @override
@@ -144,14 +160,17 @@ class _$_FaceValidationResultModel implements _FaceValidationResultModel {
 }
 
 abstract class _FaceValidationResultModel implements FaceValidationResultModel {
-  factory _FaceValidationResultModel({required final bool isPassed}) =
-      _$_FaceValidationResultModel;
+  factory _FaceValidationResultModel(
+      {required final bool isPassed,
+      required final String? croppedFaceImage}) = _$_FaceValidationResultModel;
 
   factory _FaceValidationResultModel.fromJson(Map<String, dynamic> json) =
       _$_FaceValidationResultModel.fromJson;
 
   @override
   bool get isPassed;
+  @override
+  String? get croppedFaceImage;
   @override
   @JsonKey(ignore: true)
   _$$_FaceValidationResultModelCopyWith<_$_FaceValidationResultModel>

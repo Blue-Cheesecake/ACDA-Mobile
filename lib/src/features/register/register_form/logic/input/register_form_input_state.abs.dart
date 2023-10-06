@@ -24,6 +24,9 @@ class RegisterFormInputState with _$RegisterFormInputState {
     bool? isFaceImageAlreadyPassed,
     @Default(RegistrationPage.info) RegistrationPage currentPage,
     @Default(0.0) final double completeButtonScale,
+
+    /// Sent from FaceValidation
+    String? croppedFaceImage,
   }) = _RegisterFormInputState;
 
   String get email => (emailName ?? '') + (emailDomain ?? '');
