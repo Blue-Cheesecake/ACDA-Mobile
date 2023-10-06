@@ -17,6 +17,7 @@ class RegistrationStateNotifer extends ACDAStateNotifier<RegistrationState> {
 
     final input = ref.read(registerFormInputProvider);
     final faceImageBase64 = base64Encode(await input.faceImage!.readAsBytes());
+    final croppedFaceImageBase64 = input.croppedFaceImage!;
 
     final response = await registerUseCase.execute(RegistrationRequestModel(
       email: input.email,
@@ -24,6 +25,7 @@ class RegistrationStateNotifer extends ACDAStateNotifier<RegistrationState> {
       studentId: input.studentIdWithU,
       facultyId: input.faculty!.id,
       faceImage: faceImageBase64,
+      croppedFaceImage: croppedFaceImageBase64,
     ));
 
     response.when(

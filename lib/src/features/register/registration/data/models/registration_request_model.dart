@@ -8,9 +8,12 @@ class RegistrationRequestModel with _$RegistrationRequestModel {
   factory RegistrationRequestModel({
     required final String email,
     required final String password,
-    required final String studentId, // eg. u6388073
+
+    /// student id with U eg. u6388073
+    required final String studentId,
     required final int facultyId,
     required final String faceImage, // Base64 String
+    required final String croppedFaceImage, // Base64 String
   }) = _RegistrationRequestModel;
 
   factory RegistrationRequestModel.fromJson(Map<String, dynamic> json) => _$RegistrationRequestModelFromJson(json);
