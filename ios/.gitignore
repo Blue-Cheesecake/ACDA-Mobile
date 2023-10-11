@@ -35,4 +35,3 @@ Runner/GeneratedPluginRegistrant.*
 
 # Firebase Crashlytic
 /firebase_app_id_file.json
-/Runner/GoogleService-Info.plist

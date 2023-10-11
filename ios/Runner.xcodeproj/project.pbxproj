@@ -10,7 +10,6 @@
 		0C62562B13CC1868FAFFB937 /* stgLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6631B72EA2C033498BDFAA6A /* stgLaunchScreen.storyboard */; };
 		125D58F167D467AED3C1180E /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A19CD80A99304BEC01AE167 /* Pods_Runner.framework */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-		234C1D316479C5A4502C7663 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA55BD043C702727B4014600 /* GoogleService-Info.plist */; };
 		320C554F368BDD208F968731 /* prdRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 12241A902947FB655F6AA49C /* prdRelease.xcconfig */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
@@ -266,8 +265,8 @@
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
 				026009106DF0DBCDF62BE12A /* [CP] Check Pods Manifest.lock */,
-				A707F79E2A9C5DAD00ADCC0A /* Copy GoogleService-Info.plist into correct location */,
 				9740EEB61CF901F6004384FC /* Run Script */,
+				A707F79E2A9C5DAD00ADCC0A /* Copy GoogleService-Info.plist into correct location */,
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
 				97C146EC1CF9000F007C117D /* Resources */,
@@ -351,7 +350,6 @@
 				7506C027E60FFF10040ED351 /* devLaunchScreen.storyboard in Resources */,
 				0C62562B13CC1868FAFFB937 /* stgLaunchScreen.storyboard in Resources */,
 				78C997C8970BC3F3E2FC13FB /* prdLaunchScreen.storyboard in Resources */,
-				234C1D316479C5A4502C7663 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +448,6 @@
 		};
 		A707F79E2A9C5DAD00ADCC0A /* Copy GoogleService-Info.plist into correct location */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -465,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Get a reference to the destination location for the GoogleService-Info.plist\n# This is the default location where Firebase init code expects to find GoogleServices-Info.plist file.\necho \"PROJECT_DIR: ${PROJECT_DIR}\"\necho \"PRODUCT_NAME: ${PRODUCT_NAME}\"\necho \"BUILT_PRODUCTS_DIR: ${BUILT_PRODUCTS_DIR}\"\n\nPLIST_DESTINATION=${PROJECT_DIR}/${PRODUCT_NAME}\n# We have named our Build Configurations as Debug-dev, Debug-prod etc.\n# Here, dev and prod are the scheme names. This kind of naming is required by Flutter for flavors to work.\n# We are using the $CONFIGURATION variable available in the XCode build environment to get the build configuration.\necho \"Copying GoogleService Files\"\nif [ \"${CONFIGURATION}\" == \"Debug-prd\" ] || [ \"${CONFIGURATION}\" == \"Release-prd\" ] || [ \"${CONFIGURATION}\" == \"Profile-prd\" ] || [ \"${CONFIGURATION}\" == \"Release\" ]; then\ncp \"${PROJECT_DIR}/config/prd/GoogleService-Info.plist\" \"${PLIST_DESTINATION}/GoogleService-Info.plist\"\ncp \"${PROJECT_DIR}/config/prd/firebase_app_id_file.json\" \"${PROJECT_DIR}/firebase_app_id_file.json\"\necho \"Production plist copied\"\nelif [ \"${CONFIGURATION}\" == \"Debug-stg\" ] || [ \"${CONFIGURATION}\" == \"Release-stg\" ] || [ \"${CONFIGURATION}\" == \"Profile-stg\" ] || [ \"${CONFIGURATION}\" == \"Debug\" ]; then\ncp \"${PROJECT_DIR}/config/stg/GoogleService-Info.plist\" \"${PLIST_DESTINATION}/GoogleService-Info.plist\"\ncp \"${PROJECT_DIR}/config/stg/firebase_app_id_file.json\" \"${PROJECT_DIR}/firebase_app_id_file.json\"\necho \"Staging plist copied\"\nelif [ \"${CONFIGURATION}\" == \"Debug-dev\" ] || [ \"${CONFIGURATION}\" == \"Release-dev\" ] || [ \"${CONFIGURATION}\" == \"Profile-dev\" ] || [ \"${CONFIGURATION}\" == \"Debug\" ]; then\ncp \"${PROJECT_DIR}/config/dev/GoogleService-Info.plist\" \"${PLIST_DESTINATION}/GoogleService-Info.plist\"\ncp \"${PROJECT_DIR}/config/dev/firebase_app_id_file.json\" \"${PROJECT_DIR}/firebase_app_id_file.json\"\necho \"Development plist copied\"\nfi\n";
+			shellScript = "# Get a reference to the destination location for the GoogleService-Info.plist\n# This is the default location where Firebase init code expects to find GoogleServices-Info.plist file.\necho \"PROJECT_DIR: ${PROJECT_DIR}\"\necho \"PRODUCT_NAME: ${PRODUCT_NAME}\"\necho \"BUILT_PRODUCTS_DIR: ${BUILT_PRODUCTS_DIR}\"\n\nPLIST_DESTINATION=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n# We have named our Build Configurations as Debug-dev, Debug-prod etc.\n# Here, dev and prod are the scheme names. This kind of naming is required by Flutter for flavors to work.\n# We are using the $CONFIGURATION variable available in the XCode build environment to get the build configuration.\necho \"Copying GoogleService Files\"\nif [ \"${CONFIGURATION}\" == \"Debug-prd\" ] || [ \"${CONFIGURATION}\" == \"Release-prd\" ] || [ \"${CONFIGURATION}\" == \"Profile-prd\" ] || [ \"${CONFIGURATION}\" == \"Release\" ]; then\ncp \"${PROJECT_DIR}/config/prd/GoogleService-Info.plist\" \"${PLIST_DESTINATION}/GoogleService-Info.plist\"\ncp \"${PROJECT_DIR}/config/prd/firebase_app_id_file.json\" \"${PROJECT_DIR}/firebase_app_id_file.json\"\necho \"Production plist copied\"\nelif [ \"${CONFIGURATION}\" == \"Debug-stg\" ] || [ \"${CONFIGURATION}\" == \"Release-stg\" ] || [ \"${CONFIGURATION}\" == \"Profile-stg\" ] || [ \"${CONFIGURATION}\" == \"Debug\" ]; then\ncp \"${PROJECT_DIR}/config/stg/GoogleService-Info.plist\" \"${PLIST_DESTINATION}/GoogleService-Info.plist\"\ncp \"${PROJECT_DIR}/config/stg/firebase_app_id_file.json\" \"${PROJECT_DIR}/firebase_app_id_file.json\"\necho \"Staging plist copied\"\nelif [ \"${CONFIGURATION}\" == \"Debug-dev\" ] || [ \"${CONFIGURATION}\" == \"Release-dev\" ] || [ \"${CONFIGURATION}\" == \"Profile-dev\" ] || [ \"${CONFIGURATION}\" == \"Debug\" ]; then\ncp \"${PROJECT_DIR}/config/dev/GoogleService-Info.plist\" \"${PLIST_DESTINATION}/GoogleService-Info.plist\"\ncp \"${PROJECT_DIR}/config/dev/firebase_app_id_file.json\" \"${PROJECT_DIR}/firebase_app_id_file.json\"\necho \"Development plist copied\"\nfi\n";
 		};
 		D1873E6F2A42225642D54C36 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
