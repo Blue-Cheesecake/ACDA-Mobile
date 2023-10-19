@@ -35,6 +35,10 @@ class FaceValidationStateNotifier extends ACDAStateNotifier<FaceValidationState>
           success: (data) {
             ref.read(registerFormInputProvider.notifier).updateIsFaceImagePassed(data.isPassed);
             safeState = FaceValidationState.validated(isPassed: data.isPassed);
+
+            if (data.isPassed) {
+              ref.read(registerFormInputProvider.notifier).updateCroppedFaceImage(data.croppedFaceImage!);
+            }
           },
           error: (errorMessageModel) {
             ref.read(registerFormInputProvider.notifier).updateIsFaceImagePassed(false);

@@ -76,6 +76,10 @@ class RegisterFormInputStateNotifier extends StateNotifier<RegisterFormInputStat
     state = state.copyWith(completeButtonScale: value);
   }
 
+  void updateCroppedFaceImage(String value) {
+    state = state.copyWith(croppedFaceImage: value);
+  }
+
   // Current Page
   void updateCurrentRegistrationPage(RegistrationPage value) {
     switch (value) {

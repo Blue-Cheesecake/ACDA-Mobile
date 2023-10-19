@@ -23,9 +23,12 @@ RegistrationRequestModel _$RegistrationRequestModelFromJson(
 mixin _$RegistrationRequestModel {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  String get studentId => throw _privateConstructorUsedError; // eg. u6388073
+
+  /// student id with U eg. u6388073
+  String get studentId => throw _privateConstructorUsedError;
   int get facultyId => throw _privateConstructorUsedError;
-  String get faceImage => throw _privateConstructorUsedError;
+  String get faceImage => throw _privateConstructorUsedError; // Base64 String
+  String get croppedFaceImage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +47,8 @@ abstract class $RegistrationRequestModelCopyWith<$Res> {
       String password,
       String studentId,
       int facultyId,
-      String faceImage});
+      String faceImage,
+      String croppedFaceImage});
 }
 
 /// @nodoc
@@ -66,6 +70,7 @@ class _$RegistrationRequestModelCopyWithImpl<$Res,
     Object? studentId = null,
     Object? facultyId = null,
     Object? faceImage = null,
+    Object? croppedFaceImage = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
@@ -88,6 +93,10 @@ class _$RegistrationRequestModelCopyWithImpl<$Res,
           ? _value.faceImage
           : faceImage // ignore: cast_nullable_to_non_nullable
               as String,
+      croppedFaceImage: null == croppedFaceImage
+          ? _value.croppedFaceImage
+          : croppedFaceImage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -106,7 +115,8 @@ abstract class _$$_RegistrationRequestModelCopyWith<$Res>
       String password,
       String studentId,
       int facultyId,
-      String faceImage});
+      String faceImage,
+      String croppedFaceImage});
 }
 
 /// @nodoc
@@ -126,6 +136,7 @@ class __$$_RegistrationRequestModelCopyWithImpl<$Res>
     Object? studentId = null,
     Object? facultyId = null,
     Object? faceImage = null,
+    Object? croppedFaceImage = null,
   }) {
     return _then(_$_RegistrationRequestModel(
       email: null == email
@@ -148,6 +159,10 @@ class __$$_RegistrationRequestModelCopyWithImpl<$Res>
           ? _value.faceImage
           : faceImage // ignore: cast_nullable_to_non_nullable
               as String,
+      croppedFaceImage: null == croppedFaceImage
+          ? _value.croppedFaceImage
+          : croppedFaceImage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -160,7 +175,8 @@ class _$_RegistrationRequestModel implements _RegistrationRequestModel {
       required this.password,
       required this.studentId,
       required this.facultyId,
-      required this.faceImage});
+      required this.faceImage,
+      required this.croppedFaceImage});
 
   factory _$_RegistrationRequestModel.fromJson(Map<String, dynamic> json) =>
       _$$_RegistrationRequestModelFromJson(json);
@@ -169,17 +185,21 @@ class _$_RegistrationRequestModel implements _RegistrationRequestModel {
   final String email;
   @override
   final String password;
+
+  /// student id with U eg. u6388073
   @override
   final String studentId;
-// eg. u6388073
   @override
   final int facultyId;
   @override
   final String faceImage;
+// Base64 String
+  @override
+  final String croppedFaceImage;
 
   @override
   String toString() {
-    return 'RegistrationRequestModel(email: $email, password: $password, studentId: $studentId, facultyId: $facultyId, faceImage: $faceImage)';
+    return 'RegistrationRequestModel(email: $email, password: $password, studentId: $studentId, facultyId: $facultyId, faceImage: $faceImage, croppedFaceImage: $croppedFaceImage)';
   }
 
   @override
@@ -195,13 +215,15 @@ class _$_RegistrationRequestModel implements _RegistrationRequestModel {
             (identical(other.facultyId, facultyId) ||
                 other.facultyId == facultyId) &&
             (identical(other.faceImage, faceImage) ||
-                other.faceImage == faceImage));
+                other.faceImage == faceImage) &&
+            (identical(other.croppedFaceImage, croppedFaceImage) ||
+                other.croppedFaceImage == croppedFaceImage));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, email, password, studentId, facultyId, faceImage);
+  int get hashCode => Object.hash(runtimeType, email, password, studentId,
+      facultyId, faceImage, croppedFaceImage);
 
   @JsonKey(ignore: true)
   @override
@@ -224,7 +246,8 @@ abstract class _RegistrationRequestModel implements RegistrationRequestModel {
       required final String password,
       required final String studentId,
       required final int facultyId,
-      required final String faceImage}) = _$_RegistrationRequestModel;
+      required final String faceImage,
+      required final String croppedFaceImage}) = _$_RegistrationRequestModel;
 
   factory _RegistrationRequestModel.fromJson(Map<String, dynamic> json) =
       _$_RegistrationRequestModel.fromJson;
@@ -234,11 +257,15 @@ abstract class _RegistrationRequestModel implements RegistrationRequestModel {
   @override
   String get password;
   @override
+
+  /// student id with U eg. u6388073
   String get studentId;
-  @override // eg. u6388073
+  @override
   int get facultyId;
   @override
   String get faceImage;
+  @override // Base64 String
+  String get croppedFaceImage;
   @override
   @JsonKey(ignore: true)
   _$$_RegistrationRequestModelCopyWith<_$_RegistrationRequestModel>

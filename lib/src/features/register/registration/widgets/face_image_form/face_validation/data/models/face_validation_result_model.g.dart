@@ -10,10 +10,12 @@ _$_FaceValidationResultModel _$$_FaceValidationResultModelFromJson(
         Map<String, dynamic> json) =>
     _$_FaceValidationResultModel(
       isPassed: json['isPassed'] as bool,
+      croppedFaceImage: json['croppedFaceImage'] as String?,
     );
 
 Map<String, dynamic> _$$_FaceValidationResultModelToJson(
         _$_FaceValidationResultModel instance) =>
     <String, dynamic>{
       'isPassed': instance.isPassed,
+      'croppedFaceImage': instance.croppedFaceImage,
     };

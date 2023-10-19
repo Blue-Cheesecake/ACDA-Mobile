@@ -14,6 +14,7 @@ _$_RegistrationRequestModel _$$_RegistrationRequestModelFromJson(
       studentId: json['studentId'] as String,
       facultyId: json['facultyId'] as int,
       faceImage: json['faceImage'] as String,
+      croppedFaceImage: json['croppedFaceImage'] as String,
     );
 
 Map<String, dynamic> _$$_RegistrationRequestModelToJson(
@@ -24,4 +25,5 @@ Map<String, dynamic> _$$_RegistrationRequestModelToJson(
       'studentId': instance.studentId,
       'facultyId': instance.facultyId,
       'faceImage': instance.faceImage,
+      'croppedFaceImage': instance.croppedFaceImage,
     };
