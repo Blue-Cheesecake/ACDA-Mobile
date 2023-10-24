@@ -30,6 +30,9 @@ mixin _$RegisterFormInputState {
   RegistrationPage get currentPage => throw _privateConstructorUsedError;
   double get completeButtonScale => throw _privateConstructorUsedError;
 
+  /// Sent from FaceValidation
+  String? get croppedFaceImage => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $RegisterFormInputStateCopyWith<RegisterFormInputState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -54,7 +57,8 @@ abstract class $RegisterFormInputStateCopyWith<$Res> {
       bool isFaceImageNextButtonEnabled,
       bool? isFaceImageAlreadyPassed,
       RegistrationPage currentPage,
-      double completeButtonScale});
+      double completeButtonScale,
+      String? croppedFaceImage});
 }
 
 /// @nodoc
@@ -84,6 +88,7 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
     Object? isFaceImageAlreadyPassed = freezed,
     Object? currentPage = null,
     Object? completeButtonScale = null,
+    Object? croppedFaceImage = freezed,
   }) {
     return _then(_value.copyWith(
       emailName: freezed == emailName
@@ -138,6 +143,10 @@ class _$RegisterFormInputStateCopyWithImpl<$Res,
           ? _value.completeButtonScale
           : completeButtonScale // ignore: cast_nullable_to_non_nullable
               as double,
+      croppedFaceImage: freezed == croppedFaceImage
+          ? _value.croppedFaceImage
+          : croppedFaceImage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -163,7 +172,8 @@ abstract class _$$_RegisterFormInputStateCopyWith<$Res>
       bool isFaceImageNextButtonEnabled,
       bool? isFaceImageAlreadyPassed,
       RegistrationPage currentPage,
-      double completeButtonScale});
+      double completeButtonScale,
+      String? croppedFaceImage});
 }
 
 /// @nodoc
@@ -191,6 +201,7 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
     Object? isFaceImageAlreadyPassed = freezed,
     Object? currentPage = null,
     Object? completeButtonScale = null,
+    Object? croppedFaceImage = freezed,
   }) {
     return _then(_$_RegisterFormInputState(
       emailName: freezed == emailName
@@ -245,6 +256,10 @@ class __$$_RegisterFormInputStateCopyWithImpl<$Res>
           ? _value.completeButtonScale
           : completeButtonScale // ignore: cast_nullable_to_non_nullable
               as double,
+      croppedFaceImage: freezed == croppedFaceImage
+          ? _value.croppedFaceImage
+          : croppedFaceImage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -265,7 +280,8 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
       this.isFaceImageNextButtonEnabled = false,
       this.isFaceImageAlreadyPassed,
       this.currentPage = RegistrationPage.info,
-      this.completeButtonScale = 0.0})
+      this.completeButtonScale = 0.0,
+      this.croppedFaceImage})
       : super._();
 
   @override
@@ -300,9 +316,13 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
   @JsonKey()
   final double completeButtonScale;
 
+  /// Sent from FaceValidation
+  @override
+  final String? croppedFaceImage;
+
   @override
   String toString() {
-    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, studentId: $studentId, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed, currentPage: $currentPage, completeButtonScale: $completeButtonScale)';
+    return 'RegisterFormInputState(emailName: $emailName, emailDomain: $emailDomain, studentId: $studentId, password: $password, confirmedPassword: $confirmedPassword, faculty: $faculty, faceImage: $faceImage, isAllowPDPA: $isAllowPDPA, isInformationNextButtonEnabled: $isInformationNextButtonEnabled, isFaceImageNextButtonEnabled: $isFaceImageNextButtonEnabled, isFaceImageAlreadyPassed: $isFaceImageAlreadyPassed, currentPage: $currentPage, completeButtonScale: $completeButtonScale, croppedFaceImage: $croppedFaceImage)';
   }
 
   @override
@@ -339,7 +359,9 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             (identical(other.completeButtonScale, completeButtonScale) ||
-                other.completeButtonScale == completeButtonScale));
+                other.completeButtonScale == completeButtonScale) &&
+            (identical(other.croppedFaceImage, croppedFaceImage) ||
+                other.croppedFaceImage == croppedFaceImage));
   }
 
   @override
@@ -357,7 +379,8 @@ class _$_RegisterFormInputState extends _RegisterFormInputState {
       isFaceImageNextButtonEnabled,
       isFaceImageAlreadyPassed,
       currentPage,
-      completeButtonScale);
+      completeButtonScale,
+      croppedFaceImage);
 
   @JsonKey(ignore: true)
   @override
@@ -381,7 +404,8 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
       final bool isFaceImageNextButtonEnabled,
       final bool? isFaceImageAlreadyPassed,
       final RegistrationPage currentPage,
-      final double completeButtonScale}) = _$_RegisterFormInputState;
+      final double completeButtonScale,
+      final String? croppedFaceImage}) = _$_RegisterFormInputState;
   _RegisterFormInputState._() : super._();
 
   @override
@@ -410,6 +434,10 @@ abstract class _RegisterFormInputState extends RegisterFormInputState {
   RegistrationPage get currentPage;
   @override
   double get completeButtonScale;
+  @override
+
+  /// Sent from FaceValidation
+  String? get croppedFaceImage;
   @override
   @JsonKey(ignore: true)
   _$$_RegisterFormInputStateCopyWith<_$_RegisterFormInputState> get copyWith =>

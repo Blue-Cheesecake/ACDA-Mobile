@@ -30,8 +30,8 @@ dependencies:
   go_router: 9.0.0
 
   # Firebase
-  firebase_core: 2.14.0
-  firebase_crashlytics: 3.3.3
+  firebase_core: 2.17.0
+  firebase_crashlytics: 3.3.7
 
   # Generators
   freezed_annotation: 2.2.0

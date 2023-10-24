@@ -7,7 +7,10 @@ part 'face_validation_result_model.g.dart';
 
 @freezed
 class FaceValidationResultModel with _$FaceValidationResultModel implements IFaceValidationResultEntity {
-  factory FaceValidationResultModel({required bool isPassed}) = _FaceValidationResultModel;
+  factory FaceValidationResultModel({
+    required bool isPassed,
+    required String? croppedFaceImage,
+  }) = _FaceValidationResultModel;
 
   factory FaceValidationResultModel.fromJson(Map<String, dynamic> json) => _$FaceValidationResultModelFromJson(json);
 }
