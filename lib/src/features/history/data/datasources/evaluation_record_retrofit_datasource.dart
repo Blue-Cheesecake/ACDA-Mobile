@@ -16,9 +16,6 @@ abstract class EvaluationRecordRetrofit {
   @GET(HistoryBaseURLAPI.getRecords)
   Future<List<EvaluationRecordModel>> getRecords(@Queries() EvaluationRecordRequestParams params);
 
-  @DELETE(HistoryBaseURLAPI.deleteAllRecords)
-  Future<void> deleteAllRecords();
-
   @DELETE(HistoryBaseURLAPI.deleteSomeRecords)
   Future<void> deleteSomeRecords({@Body() required final DeleteEvaluationRecordRequestModel requestModel});
 }
@@ -32,13 +29,6 @@ class EvaluationRecordRetrofitDataSource implements IEvaluationRecordDataSource 
   Future<List<IEvaluationRecordEntity>> getRecords(EvaluationRecordRequestParams params) {
     final retrofit = EvaluationRecordRetrofit(_dio);
     final response = retrofit.getRecords(params);
-    return response;
-  }
-
-  @override
-  Future<void> deleteAllRecords() {
-    final retrofit = EvaluationRecordRetrofit(_dio);
-    final response = retrofit.deleteAllRecords();
     return response;
   }
 
