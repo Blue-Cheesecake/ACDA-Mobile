@@ -18,7 +18,8 @@ class DeleteRecordsStateNotifier extends ACDAStateNotifier<DeleteRecordsState> {
 
   Future<void> deleteSomeRecords() async {
     safeState = DeleteRecordsState.loading();
-    final requestModel = _ref.read(historyInputStateProvider.select((value) => value.deleteRequestParams));
+    final historyInputState = _ref.read(historyInputStateProvider);
+    final requestModel = historyInputState.deleteRequestParams;
     final response = await _deleteSomeRecordsUseCase.execute(requestModel);
 
     response.when(
