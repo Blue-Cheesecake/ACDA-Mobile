@@ -16,8 +16,9 @@ class RegisterValidityStateNotifier extends ACDAStateNotifier<RegisterValiditySt
 
   Future<void> validate() async {
     safeState = RegisterValidityState.loading();
-    final String email = ref.read(registerFormInputProvider.select((value) => value.email));
-    final String studentId = ref.read(registerFormInputProvider.select((value) => value.studentIdWithU));
+    final input = ref.read(registerFormInputProvider);
+    final String email = input.email;
+    final String studentId = input.studentIdWithU;
 
     final response =
         await isValidToRegisterUseCase.execute(RegisterValidityRequestModel(email: email, studentId: studentId));
