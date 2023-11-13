@@ -3,11 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/domain.dart';
 import '../logic.dart';
 
-final deleteAllRecordsUseCaseProvider = Provider.autoDispose<DeleteAllRecordsUseCase>((ref) {
-  final repository = ref.watch(historyRepositoryProvider);
-  return DeleteAllRecordsUseCase(repository: repository);
-});
-
 final deleteSomeRecordsUseCaseProvider = Provider.autoDispose<DeleteSomeRecordsUseCase>((ref) {
   final repository = ref.watch(historyRepositoryProvider);
   return DeleteSomeRecordsUseCase(repository: repository);
@@ -15,11 +10,6 @@ final deleteSomeRecordsUseCaseProvider = Provider.autoDispose<DeleteSomeRecordsU
 
 final deleteRecordsStateProvider =
     StateNotifierProvider.autoDispose<DeleteRecordsStateNotifier, DeleteRecordsState>((ref) {
-  final deleteAllRecordsUseCase = ref.watch(deleteAllRecordsUseCaseProvider);
   final deleteSomeRecordsUseCase = ref.watch(deleteSomeRecordsUseCaseProvider);
-  return DeleteRecordsStateNotifier(
-    ref: ref,
-    deleteAllRecordsUseCase: deleteAllRecordsUseCase,
-    deleteSomeRecordsUseCase: deleteSomeRecordsUseCase,
-  );
+  return DeleteRecordsStateNotifier(ref: ref, deleteSomeRecordsUseCase: deleteSomeRecordsUseCase);
 });
