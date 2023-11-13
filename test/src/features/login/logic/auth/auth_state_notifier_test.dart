@@ -13,8 +13,6 @@ class MockRef extends Mock implements Ref {}
 
 class MockLoginFormInputState extends Mock implements LoginFormInputState {}
 
-class MockAPIResponse<IAuthTokenEntity> extends Mock implements APIResponse<IAuthTokenEntity> {}
-
 class MockAnyException extends Mock implements AnyException {}
 
 class MockLoginFormValidationStateNotifier extends Mock implements LoginFormValidationStateNotifier {}
@@ -48,8 +46,8 @@ void main() {
 
   group('AuthStateNotifier', () {
     test(
-      'Given user'
-      'When user login with email and password'
+      'Given user '
+      'When user login with email and password '
       'Then user should login suceess',
       () async {
         const studentId = '6388073';
@@ -86,8 +84,8 @@ void main() {
     );
 
     test(
-      'Given user'
-      'When user login with email and password'
+      'Given user '
+      'When user login with email and password '
       'Then user should login fail',
       () async {
         const studentId = '6388073';
