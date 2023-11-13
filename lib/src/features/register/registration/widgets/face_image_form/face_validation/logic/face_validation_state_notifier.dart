@@ -17,7 +17,8 @@ class FaceValidationStateNotifier extends ACDAStateNotifier<FaceValidationState>
 
   Future<void> validate() async {
     safeState = FaceValidationState.loading();
-    final XFile? faceImage = ref.read(registerFormInputProvider.select((value) => value.faceImage));
+    final input = ref.read(registerFormInputProvider);
+    final XFile? faceImage = input.faceImage;
     ref.read(registerFormInputProvider.notifier).updateIsFaceImagePassed(null);
 
     if (faceImage == null) {
