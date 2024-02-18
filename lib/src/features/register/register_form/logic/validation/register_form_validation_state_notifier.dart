@@ -86,7 +86,9 @@ class RegisterFormValidationStateNotifier extends StateNotifier<RegisterFormVali
     // only freshmen - senior
     // for example, if current year is 2566 freshmen start at 66. Only 63-66 is available.
 
-    final int freshmenYear = int.parse((DateTime.now().buddistDate!.year).toString().substring(2)); // 2566
+    // Use Fix year 2566 which is my fourth year on ICT
+
+    final int freshmenYear = int.parse((2566).toString().substring(2)); // 2566
     final int seniorYear = freshmenYear - 3;
 
     return freshmenYear >= requestYear && requestYear >= seniorYear;

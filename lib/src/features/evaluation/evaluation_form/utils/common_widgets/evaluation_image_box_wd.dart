@@ -26,7 +26,6 @@ class EvaluationImageBoxWD extends ConsumerWidget {
   final int currentLevel;
 
   void _updateCurrentImage({required XFile? pickedImage, required WidgetRef ref}) async {
-    // final XFile? pickedImage = await ACDAImagePicker.takeAPhoto();
     if (pickedImage == null) {
       return;
     }
@@ -77,40 +76,18 @@ class EvaluationImageBoxWD extends ConsumerWidget {
     }
 
     return InkWell(
-      onTap: () => showACDABottomSheet(
-        context: context,
-        child: ACDABottomSheet(
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              ACDACameraOptionWD(
-                title: ACDACommonMessages.cameraOption,
-                onPressed: () {
-                  ACDAPermission.instance.isCameraAccessGranted.then((isGranted) {
-                    if (isGranted) {
-                      showACDACamera(
-                        context: context,
-                        providerKey: EvaluationFormConstant.evaluationImageBoxProviderKey,
-                        updateImageCallback: _updateCurrentImage,
-                      );
-                      // _updateCurrentImage(ref: ref);
-                      return;
-                    }
+      onTap: () => ACDAPermission.instance.isCameraAccessGranted.then((isGranted) {
+        if (isGranted) {
+          showACDACamera(
+            context: context,
+            providerKey: EvaluationFormConstant.evaluationImageBoxProviderKey,
+            updateImageCallback: _updateCurrentImage,
+          );
+          return;
+        }
 
-                    _showRequestPopup(context, ref);
-                  });
-                },
-                color: DesignSystem.g12,
-              ),
-              ACDACameraOptionWD(
-                title: ACDACommonMessages.close,
-                onPressed: () {},
-                color: DesignSystem.g9,
-              )
-            ],
-          ),
-        ),
-      ),
+        _showRequestPopup(context, ref);
+      }),
       child: Container(
         height: 346,
         width: double.infinity,
