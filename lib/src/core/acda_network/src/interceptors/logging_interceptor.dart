@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import '../../../core.dart';
 
 class LoggingInterceptor extends InterceptorsWrapper {
-  final _enabledLogging = false;
+  final _enabledLogging = true;
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
