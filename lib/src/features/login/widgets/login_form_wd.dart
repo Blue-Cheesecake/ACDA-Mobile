@@ -1,3 +1,4 @@
+import 'package:acda_mobile/src/keys/keys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -68,6 +69,7 @@ class _LoginFormWDState extends ConsumerState<LoginFormWD> {
               ),
             const SizedBox(height: 10),
             ACDATextField(
+              key: AuthenticationKeys.usernameFieldWD,
               controller: _emailCtr,
               hintText: LoginFormMessages.studentId,
               onChanged: (value) => ref.read(loginFormInputProvider.notifier).updateStudentId(value),
@@ -77,6 +79,7 @@ class _LoginFormWDState extends ConsumerState<LoginFormWD> {
             ),
             const SizedBox(height: 13),
             ACDATextField(
+              key: AuthenticationKeys.passwordFieldWD,
               controller: _passwordCtr,
               hintText: LoginFormMessages.password,
               obsecureText: true,
@@ -115,6 +118,7 @@ class _LoginButton extends ConsumerWidget {
 
     return Center(
       child: ElevatedButton(
+        key: AuthenticationKeys.loginButtonWD,
         style: ButtonStyles.loginButtonStyle(color: isFormValid ? DesignSystem.g8 : null),
         onPressed: isFormValid ? () => _onPressed(ref) : () {},
         child: Row(
