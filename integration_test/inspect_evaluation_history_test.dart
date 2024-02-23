@@ -12,6 +12,8 @@ import 'package:acda_mobile/src/features/evaluation/evaluation_result/domain/use
 
 import 'package:acda_mobile/src/features/history/domain/usecases/delete_some_records_usecase.dart';
 import 'package:acda_mobile/src/features/history/domain/usecases/get_records_usecase.dart';
+import 'package:acda_mobile/src/features/history/widgets/record_card/record_cart_wd.dart';
+
 import 'package:acda_mobile/src/features/login/data/data.dart';
 import 'package:acda_mobile/src/features/login/domain/usecases/authenticate_usecase.dart';
 import 'package:acda_mobile/src/keys/keys.dart';
@@ -29,11 +31,15 @@ import 'utils/utils.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  group('[System Testing]: Inspect Number of Evaluations in Homepage', () {
+  group('[System Testing]: Inspect Evaluation Results in History Page', () {
     /**
      * State
      */
     late final String invalidDressCodeMessage;
+    late final int evaluationResultCardTotal;
+    late final List<String> expectedEvaResult;
+    late final int numEvaPassed;
+    late final int numEvaFailed;
 
     /**
      * UseCase
@@ -79,6 +85,10 @@ void main() {
       });
 
       // Setup Evaluation Results
+      evaluationResultCardTotal = 3;
+      expectedEvaResult = ['Passed!', 'Failed!', 'Passed!'];
+      numEvaFailed = 1;
+      numEvaPassed = 2;
       await saveEvaluationResultUseCase.execute(
         SaveResultRequestModel(
           fullBodyImage: DummyConstantValues.imageBase64,
@@ -107,8 +117,8 @@ void main() {
 
     testWidgets(
         'Given user and evaluation result '
-        'When user enter the dashboard page '
-        'Then user should see correct a number of evaluation results', (tester) async {
+        'When user enter the history page '
+        'Then user should see cards of evaluation results correctly', (tester) async {
       runApp(const ProviderScope(child: AppWD()));
       await tester.pumpAndSettle();
 
@@ -131,14 +141,41 @@ void main() {
       await Future.delayed(const Duration(seconds: 1, milliseconds: 500));
       await tester.pump();
 
-      // Verify
-      final passNumberWD = find.byWidgetPredicate((widget) => widget is Text && widget.data == '2');
-      final failedNumberWD = find.byWidgetPredicate((widget) => widget is Text && widget.data == '1');
-      final totalNumberWD = find.byWidgetPredicate((widget) => widget is Text && widget.data == '3');
+      // Step 4
+      final historyButtonNavBarWD = find.byKey(CentralKeys.historyButtonNavBarWD);
+      expect(historyButtonNavBarWD, findsOneWidget);
 
-      expect(passNumberWD, findsOneWidget);
-      expect(failedNumberWD, findsOneWidget);
-      expect(totalNumberWD, findsOneWidget);
+      await tester.tap(historyButtonNavBarWD);
+      await tester.pumpAndSettle();
+
+      // Step 4 verification
+      final evaCardsWD = find.byType(RecordCartWD);
+      expect(evaCardsWD, findsNWidgets(evaluationResultCardTotal));
+
+      final passedTextWD = find.byWidgetPredicate((widget) => widget is Text && widget.data == 'Passed');
+      expect(passedTextWD, findsNWidgets(numEvaPassed + 1)); // plus one bc include title
+
+      final failedTextWD = find.byWidgetPredicate((widget) => widget is Text && widget.data == 'Failed');
+      expect(failedTextWD, findsNWidgets(numEvaFailed + 1)); // plus one bc include title
+
+      // Step 5
+      for (var i = 0; i < evaluationResultCardTotal; i++) {
+        final cardWD = find.byKey(HistoryPageKeys.getEvaluationCardWDKey(i.toString()));
+        expect(cardWD, findsOneWidget);
+
+        await tester.tap(cardWD);
+        await tester.pumpAndSettle();
+
+        final expectedTitle = expectedEvaResult[i];
+        final textWD = find.byWidgetPredicate((widget) => widget is Text && widget.data == expectedTitle);
+        expect(textWD, findsOneWidget);
+
+        final backButtonWD = find.byKey(HistoryPageKeys.backButtonFromCardPageWD);
+        expect(backButtonWD, findsOneWidget);
+
+        await tester.tap(backButtonWD);
+        await tester.pumpAndSettle();
+      }
     });
 
     tearDown(() async {

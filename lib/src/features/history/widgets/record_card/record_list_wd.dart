@@ -29,7 +29,7 @@ class RecordListWD extends ConsumerWidget {
           itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.only(top: index == 0 ? 28 : 0),
-              child: RecordCartWD(data: records[index], isSelected: false),
+              child: RecordCartWD(index: index, data: records[index], isSelected: false),
             );
           },
           separatorBuilder: (context, index) {
