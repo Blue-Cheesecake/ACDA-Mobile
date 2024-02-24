@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/config.dart';
+import '../../../../../keys/keys.dart';
 import '../../../../../utils/utils.dart';
 import '../../../logic/logic.dart';
 import '../../widgets.dart';
@@ -60,8 +61,11 @@ class _ActionMenusWDState extends ConsumerState<ActionMenusWD> with IACDAOverlay
         ),
         const SizedBox(width: 8),
 
-        // Filter Adjustment Button
+        /**
+         * Filter Adjustment Button
+         */
         InkWell(
+          key: HistoryPageKeys.filterAdjustmentButtonWD,
           onTap: () {
             // disable onPressed while using deleting mode
             if (ref.read(historyModeStateProvider.select((value) => value.isDeletingMode))) {
@@ -92,7 +96,9 @@ class _ActionMenusWDState extends ConsumerState<ActionMenusWD> with IACDAOverlay
         ),
         const SizedBox(width: 8),
 
-        // Delete Management Button
+        /**
+         *  Delete Management Button
+         */
         InkWell(
           onTap: _onPressedDelete,
           child: Icon(
