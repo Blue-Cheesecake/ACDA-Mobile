@@ -19,4 +19,8 @@ final class HistoryPageKeys {
 
   static Key getEvaluationCardWDKey(String id) => Key('HISTORY_EVA_CARD_WD_ID_$id');
   static const backButtonFromCardPageWD = Key('HISTORY_BACK_BUTT_FOR_CARD_PAGE_WD');
+  static const actionBarWD = Key('HISTORY_MENU_EXPANSION_BUTTON_WD');
+  static const filterAdjustmentButtonWD = Key('HISTORY_SEARCH_OPTION_BUTTON_WD');
+  static const oldestOptionButtonWD = Key('HISTORY_OLDEST_OPTION_BUTTON_WD');
+  static const submitOptionButtonWD = Key('HISTORY_SUBMIT_OPTION_BUTTON_WD');
 }

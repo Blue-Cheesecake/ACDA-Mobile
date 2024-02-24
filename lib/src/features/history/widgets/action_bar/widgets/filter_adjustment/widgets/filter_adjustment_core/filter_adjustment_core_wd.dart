@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../../../config/config.dart';
+import '../../../../../../../../keys/keys.dart';
 import '../../../../../../../../utils/utils.dart';
 import '../../../../../../logic/logic.dart';
 import '../../../../utils/utils.dart';
@@ -67,6 +68,9 @@ class _ActionRowWD extends StatelessWidget {
       height: 50,
       child: Row(
         children: [
+          /**
+           * Close Button
+           */
           Expanded(
             child: GestureDetector(
               onTap: () {
@@ -85,9 +89,14 @@ class _ActionRowWD extends StatelessWidget {
             thickness: 1,
             color: DesignSystem.g4,
           ),
+
+          /**
+           * Submit Button
+           */
           Consumer(
             builder: (context, ref, child) => Expanded(
               child: GestureDetector(
+                key: HistoryPageKeys.submitOptionButtonWD,
                 onTap: () {
                   ref.read(historyInputStateProvider.notifier).saveTempInput();
                   ref.read(getRecordsStateProvider.notifier).fetchRecords();
