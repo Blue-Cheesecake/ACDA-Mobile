@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
+import '../../../../keys/keys.dart';
 import '../../../../utils/utils.dart';
 import '../../logic/logic.dart';
 import '../widgets.dart';
@@ -14,6 +15,7 @@ class DeleteRecordButtonWD extends ConsumerWidget {
     final isDeleteIdRequestEmpty = ref.watch(historyInputStateProvider.select((value) => value.isDeleteIdRequestEmpty));
 
     return InkWell(
+      key: HistoryPageKeys.deleteButtonInDelModeWD,
       onTap: () {
         if (!isDeleteIdRequestEmpty) {
           showACDAPopupFN(context: context, popup: const DeletePopupWD());

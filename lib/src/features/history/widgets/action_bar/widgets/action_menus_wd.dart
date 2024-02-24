@@ -100,6 +100,7 @@ class _ActionMenusWDState extends ConsumerState<ActionMenusWD> with IACDAOverlay
          *  Delete Management Button
          */
         InkWell(
+          key: HistoryPageKeys.deleteManagementButtonWD,
           onTap: _onPressedDelete,
           child: Icon(
             Icons.delete_outline_rounded,
