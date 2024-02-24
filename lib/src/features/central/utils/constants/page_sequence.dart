@@ -2,6 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../config/config.dart';
+import '../../../../keys/keys.dart';
 import '../../../dashboard/dashboard_page.dart';
 import '../../../evaluation/evaluation_page_main.dart';
 import '../../../history/history_page.dart';
@@ -17,10 +18,12 @@ class PageSequence {
         activeIcon: Icon(
           Icons.history,
           color: DesignSystem.g29,
+          key: CentralKeys.historyButtonNavBarWD,
         ),
         icon: Icon(
           Icons.history,
           color: DesignSystem.g1,
+          key: CentralKeys.historyButtonNavBarWD,
         ),
       ),
       onSelectedColor: DesignSystem.g1,

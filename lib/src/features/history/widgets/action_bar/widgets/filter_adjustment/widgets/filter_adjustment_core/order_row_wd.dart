@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../../../../config/config.dart';
+import '../../../../../../../../keys/keys.dart';
 import '../../../../../../logic/logic.dart';
 import '../../../../../../utils/utils.dart';
 import '../../../../utils/utils.dart';
@@ -31,6 +32,7 @@ class _OldestButtonWD extends ConsumerWidget {
 
     return Expanded(
       child: GestureDetector(
+        key: HistoryPageKeys.oldestOptionButtonWD,
         onTap: () {
           ref.read(historyInputStateProvider.notifier).updateTempOrderOption(SortOption.oldest);
         },

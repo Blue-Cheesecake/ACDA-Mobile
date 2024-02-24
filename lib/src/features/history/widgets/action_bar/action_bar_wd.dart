@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
+import '../../../../keys/keys.dart';
 import 'logic/logic.dart';
 import 'widgets/widgets.dart';
 
@@ -11,6 +12,7 @@ class ActionBarWD extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
+      key: HistoryPageKeys.actionBarWD,
       onTap: () {
         ref.read(actionBarStateProvider.notifier).switchAction();
       },
