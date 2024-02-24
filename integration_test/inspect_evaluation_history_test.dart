@@ -170,6 +170,14 @@ void main() {
         final textWD = find.byWidgetPredicate((widget) => widget is Text && widget.data == expectedTitle);
         expect(textWD, findsOneWidget);
 
+        // Verify invalid dress code message
+        if (expectedTitle == 'Failed!') {
+          final invalidMessageWD = find.byWidgetPredicate(
+            (widget) => widget is Text && widget.data == invalidDressCodeMessage,
+          );
+          expect(invalidMessageWD, findsOneWidget);
+        }
+
         final backButtonWD = find.byKey(HistoryPageKeys.backButtonFromCardPageWD);
         expect(backButtonWD, findsOneWidget);
 
