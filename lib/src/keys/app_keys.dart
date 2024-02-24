@@ -21,6 +21,9 @@ final class HistoryPageKeys {
   static const backButtonFromCardPageWD = Key('HISTORY_BACK_BUTT_FOR_CARD_PAGE_WD');
   static const actionBarWD = Key('HISTORY_MENU_EXPANSION_BUTTON_WD');
   static const filterAdjustmentButtonWD = Key('HISTORY_SEARCH_OPTION_BUTTON_WD');
+  static const deleteManagementButtonWD = Key('HISTORY_DELETE_MANAGEMENT_BUTTON_WD');
   static const oldestOptionButtonWD = Key('HISTORY_OLDEST_OPTION_BUTTON_WD');
   static const submitOptionButtonWD = Key('HISTORY_SUBMIT_OPTION_BUTTON_WD');
+  static const deleteButtonInDelModeWD = Key('HISTORY_DELETE_BUTTON_IN_DEL_MODE_WD');
+  static const deleteButtonInPopupWD = Key('HISTORY_DELETE_BUTTON_IN_POPUP_WD');
 }
