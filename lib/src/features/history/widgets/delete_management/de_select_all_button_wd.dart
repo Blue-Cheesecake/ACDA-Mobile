@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
+import '../../../../keys/keys.dart';
 import '../../logic/logic.dart';
 import 'utils/utils.dart';
 
@@ -20,6 +21,7 @@ class DeSelectAllButtonWD extends ConsumerWidget {
     );
 
     return InkWell(
+      key: HistoryPageKeys.deSelectAllButtonInDelModeWD,
       onTap: () {
         if (isAllIdSelected) {
           ref.read(historyInputStateProvider.notifier).clearRequestDeleteIds();
