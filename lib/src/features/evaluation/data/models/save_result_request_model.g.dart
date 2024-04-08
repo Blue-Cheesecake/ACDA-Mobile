@@ -11,7 +11,6 @@ _$_SaveResultRequestModel _$$_SaveResultRequestModelFromJson(
     _$_SaveResultRequestModel(
       fullBodyImage: json['fullBodyImage'] as String,
       upperBodyImage: json['upperBodyImage'] as String,
-      studentIdCardImage: json['studentIdCardImage'] as String,
       result: CommonEvaluationResultModel.fromJson(
           json['result'] as Map<String, dynamic>),
     );
@@ -21,6 +20,5 @@ Map<String, dynamic> _$$_SaveResultRequestModelToJson(
     <String, dynamic>{
       'fullBodyImage': instance.fullBodyImage,
       'upperBodyImage': instance.upperBodyImage,
-      'studentIdCardImage': instance.studentIdCardImage,
       'result': instance.result,
     };

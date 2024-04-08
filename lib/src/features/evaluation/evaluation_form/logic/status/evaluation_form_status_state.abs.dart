@@ -7,6 +7,6 @@ class EvaluationFormStatusState with _$EvaluationFormStatusState {
   factory EvaluationFormStatusState({
     @Default(false) final bool isFullBodyImageFilled,
     @Default(false) final bool isUpperBodyImageFilled,
-    @Default(false) final bool isStudentIdCardImageFilled,
+    // @Default(false) final bool isStudentIdCardImageFilled,
   }) = _EvaluationFormStatusState;
 }

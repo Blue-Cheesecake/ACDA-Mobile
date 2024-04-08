@@ -91,7 +91,7 @@ void main() {
         SaveResultRequestModel(
           fullBodyImage: DummyConstantValues.imageBase64,
           upperBodyImage: DummyConstantValues.imageBase64,
-          studentIdCardImage: DummyConstantValues.imageBase64,
+          // studentIdCardImage: DummyConstantValues.imageBase64,
           result: CommonEvaluationResultModel(isPassed: false, message: invalidDressCodeMessage),
         ),
       );
@@ -99,7 +99,7 @@ void main() {
         SaveResultRequestModel(
           fullBodyImage: DummyConstantValues.imageBase64,
           upperBodyImage: DummyConstantValues.imageBase64,
-          studentIdCardImage: DummyConstantValues.imageBase64,
+          // studentIdCardImage: DummyConstantValues.imageBase64,
           result: CommonEvaluationResultModel(isPassed: true),
         ),
       );
@@ -107,7 +107,7 @@ void main() {
         SaveResultRequestModel(
           fullBodyImage: DummyConstantValues.imageBase64,
           upperBodyImage: DummyConstantValues.imageBase64,
-          studentIdCardImage: DummyConstantValues.imageBase64,
+          // studentIdCardImage: DummyConstantValues.imageBase64,
           result: CommonEvaluationResultModel(isPassed: true),
         ),
       );

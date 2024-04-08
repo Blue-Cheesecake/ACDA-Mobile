@@ -27,15 +27,16 @@ class FormStatusWD extends StatelessWidget {
           Consumer(
             builder: (_, ref, __) => StatusCircleWD(
               isSelected: ref.watch(evaluationFormStatusStateProvider.select((value) => value.isUpperBodyImageFilled)),
-            ),
-          ),
-          Consumer(
-            builder: (_, ref, __) => StatusCircleWD(
-              isSelected:
-                  ref.watch(evaluationFormStatusStateProvider.select((value) => value.isStudentIdCardImageFilled)),
               isLast: true,
             ),
           ),
+          // Consumer(
+          //   builder: (_, ref, __) => StatusCircleWD(
+          //     isSelected:
+          //         ref.watch(evaluationFormStatusStateProvider.select((value) => value.isStudentIdCardImageFilled)),
+          //     isLast: true,
+          //   ),
+          // ),
         ],
       ),
     );

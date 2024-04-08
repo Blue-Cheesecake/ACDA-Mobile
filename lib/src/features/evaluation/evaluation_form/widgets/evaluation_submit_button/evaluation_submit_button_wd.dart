@@ -66,15 +66,15 @@ class EvaluationSubmitButtonWD extends ConsumerWidget {
                               final String upperBodyBase64 = base64Encode(await ref
                                   .read(evaluationFormInputStateProvider.select((value) => value.upperBodyImageFile))!
                                   .readAsBytes());
-                              final String studentIdCardBase64 = base64Encode(await ref
-                                  .read(
-                                      evaluationFormInputStateProvider.select((value) => value.studentIdCardImageFile))!
-                                  .readAsBytes());
+                              // final String studentIdCardBase64 = base64Encode(await ref
+                              //     .read(
+                              //         evaluationFormInputStateProvider.select((value) => value.studentIdCardImageFile))!
+                              //     .readAsBytes());
 
                               final requestModel = SaveResultRequestModel(
                                 fullBodyImage: fullBodyBase64,
                                 upperBodyImage: upperBodyBase64,
-                                studentIdCardImage: studentIdCardBase64,
+                                // studentIdCardImage: studentIdCardBase64,
                                 result: CommonEvaluationResultModel.fromEntity(data),
                               );
 
