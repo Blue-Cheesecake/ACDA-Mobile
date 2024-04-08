@@ -13,7 +13,7 @@ class EvaluationFormStatusStateNotifier extends StateNotifier<EvaluationFormStat
     state = state.copyWith(isUpperBodyImageFilled: value);
   }
 
-  void updateIsStudentIdCardImageFilled(bool value) {
-    state = state.copyWith(isStudentIdCardImageFilled: value);
-  }
+  // void updateIsStudentIdCardImageFilled(bool value) {
+  //   state = state.copyWith(isStudentIdCardImageFilled: value);
+  // }
 }

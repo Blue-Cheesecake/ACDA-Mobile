@@ -11,7 +11,6 @@ _$_EvaluationRequestModel _$$_EvaluationRequestModelFromJson(
     _$_EvaluationRequestModel(
       fullBodyImage: json['fullBodyImage'] as String,
       upperBodyImage: json['upperBodyImage'] as String,
-      studentIdCardImage: json['studentIdCardImage'] as String,
     );
 
 Map<String, dynamic> _$$_EvaluationRequestModelToJson(
@@ -19,5 +18,4 @@ Map<String, dynamic> _$$_EvaluationRequestModelToJson(
     <String, dynamic>{
       'fullBodyImage': instance.fullBodyImage,
       'upperBodyImage': instance.upperBodyImage,
-      'studentIdCardImage': instance.studentIdCardImage,
     };

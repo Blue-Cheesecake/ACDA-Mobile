@@ -23,8 +23,8 @@ EvaluationRecordModel _$EvaluationRecordModelFromJson(
 mixin _$EvaluationRecordModel {
   String get id => throw _privateConstructorUsedError;
   String get fullBodyImage => throw _privateConstructorUsedError;
-  String get upperBodyImage => throw _privateConstructorUsedError;
-  String get studentIdCardImage => throw _privateConstructorUsedError;
+  String get upperBodyImage =>
+      throw _privateConstructorUsedError; // required final String studentIdCardImage,
   DateTime get addedAt => throw _privateConstructorUsedError;
   CommonEvaluationResultModel get result => throw _privateConstructorUsedError;
 
@@ -44,7 +44,6 @@ abstract class $EvaluationRecordModelCopyWith<$Res> {
       {String id,
       String fullBodyImage,
       String upperBodyImage,
-      String studentIdCardImage,
       DateTime addedAt,
       CommonEvaluationResultModel result});
 
@@ -68,7 +67,6 @@ class _$EvaluationRecordModelCopyWithImpl<$Res,
     Object? id = null,
     Object? fullBodyImage = null,
     Object? upperBodyImage = null,
-    Object? studentIdCardImage = null,
     Object? addedAt = null,
     Object? result = null,
   }) {
@@ -84,10 +82,6 @@ class _$EvaluationRecordModelCopyWithImpl<$Res,
       upperBodyImage: null == upperBodyImage
           ? _value.upperBodyImage
           : upperBodyImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      studentIdCardImage: null == studentIdCardImage
-          ? _value.studentIdCardImage
-          : studentIdCardImage // ignore: cast_nullable_to_non_nullable
               as String,
       addedAt: null == addedAt
           ? _value.addedAt
@@ -121,7 +115,6 @@ abstract class _$$_EvaluationRecordModelCopyWith<$Res>
       {String id,
       String fullBodyImage,
       String upperBodyImage,
-      String studentIdCardImage,
       DateTime addedAt,
       CommonEvaluationResultModel result});
 
@@ -143,7 +136,6 @@ class __$$_EvaluationRecordModelCopyWithImpl<$Res>
     Object? id = null,
     Object? fullBodyImage = null,
     Object? upperBodyImage = null,
-    Object? studentIdCardImage = null,
     Object? addedAt = null,
     Object? result = null,
   }) {
@@ -159,10 +151,6 @@ class __$$_EvaluationRecordModelCopyWithImpl<$Res>
       upperBodyImage: null == upperBodyImage
           ? _value.upperBodyImage
           : upperBodyImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      studentIdCardImage: null == studentIdCardImage
-          ? _value.studentIdCardImage
-          : studentIdCardImage // ignore: cast_nullable_to_non_nullable
               as String,
       addedAt: null == addedAt
           ? _value.addedAt
@@ -183,7 +171,6 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
       {required this.id,
       required this.fullBodyImage,
       required this.upperBodyImage,
-      required this.studentIdCardImage,
       required this.addedAt,
       required this.result});
 
@@ -196,8 +183,7 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
   final String fullBodyImage;
   @override
   final String upperBodyImage;
-  @override
-  final String studentIdCardImage;
+// required final String studentIdCardImage,
   @override
   final DateTime addedAt;
   @override
@@ -205,7 +191,7 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
 
   @override
   String toString() {
-    return 'EvaluationRecordModel(id: $id, fullBodyImage: $fullBodyImage, upperBodyImage: $upperBodyImage, studentIdCardImage: $studentIdCardImage, addedAt: $addedAt, result: $result)';
+    return 'EvaluationRecordModel(id: $id, fullBodyImage: $fullBodyImage, upperBodyImage: $upperBodyImage, addedAt: $addedAt, result: $result)';
   }
 
   @override
@@ -218,16 +204,14 @@ class _$_EvaluationRecordModel implements _EvaluationRecordModel {
                 other.fullBodyImage == fullBodyImage) &&
             (identical(other.upperBodyImage, upperBodyImage) ||
                 other.upperBodyImage == upperBodyImage) &&
-            (identical(other.studentIdCardImage, studentIdCardImage) ||
-                other.studentIdCardImage == studentIdCardImage) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.result, result) || other.result == result));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, fullBodyImage,
-      upperBodyImage, studentIdCardImage, addedAt, result);
+  int get hashCode => Object.hash(
+      runtimeType, id, fullBodyImage, upperBodyImage, addedAt, result);
 
   @JsonKey(ignore: true)
   @override
@@ -249,7 +233,6 @@ abstract class _EvaluationRecordModel implements EvaluationRecordModel {
           {required final String id,
           required final String fullBodyImage,
           required final String upperBodyImage,
-          required final String studentIdCardImage,
           required final DateTime addedAt,
           required final CommonEvaluationResultModel result}) =
       _$_EvaluationRecordModel;
@@ -263,9 +246,7 @@ abstract class _EvaluationRecordModel implements EvaluationRecordModel {
   String get fullBodyImage;
   @override
   String get upperBodyImage;
-  @override
-  String get studentIdCardImage;
-  @override
+  @override // required final String studentIdCardImage,
   DateTime get addedAt;
   @override
   CommonEvaluationResultModel get result;

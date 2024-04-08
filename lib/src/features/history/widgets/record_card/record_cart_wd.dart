@@ -79,7 +79,7 @@ class RecordCartWD extends ConsumerWidget {
             RecordImagesWD(
               fullBodyImageBase64: data.fullBodyImage,
               upperBodyImageBase64: data.upperBodyImage,
-              studentIdCardImageBase64: data.studentIdCardImage,
+              // studentIdCardImageBase64: data.studentIdCardImage,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 7, bottom: 7, right: 9),

@@ -8,7 +8,7 @@ class EvaluationRequestModel with _$EvaluationRequestModel {
   factory EvaluationRequestModel({
     required final String fullBodyImage,
     required final String upperBodyImage,
-    required final String studentIdCardImage,
+    // required final String studentIdCardImage,
   }) = _EvaluationRequestModel;
 
   factory EvaluationRequestModel.fromJson(Map<String, dynamic> json) => _$EvaluationRequestModelFromJson(json);
