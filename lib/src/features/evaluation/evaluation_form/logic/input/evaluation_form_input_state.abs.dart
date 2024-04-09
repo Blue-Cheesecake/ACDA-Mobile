@@ -12,6 +12,6 @@ class EvaluationFormInputState with _$EvaluationFormInputState {
     @Default(EvaluationFormField.fullBody) final EvaluationFormField currentField,
     final XFile? fullBodyImageFile,
     final XFile? upperBodyImageFile,
-    final XFile? studentIdCardImageFile,
+    // final XFile? studentIdCardImageFile,
   }) = _EvaluationFormInputState;
 }

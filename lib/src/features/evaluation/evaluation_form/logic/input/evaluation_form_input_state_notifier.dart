@@ -26,11 +26,11 @@ class EvaluationFormInputStateNotifier extends StateNotifier<EvaluationFormInput
     _validateForm();
   }
 
-  void updateStudentIdCardImageFile(XFile? value) {
-    state = state.copyWith(studentIdCardImageFile: value);
-    ref.read(evaluationFormStatusStateProvider.notifier).updateIsStudentIdCardImageFilled(value != null);
-    _validateForm();
-  }
+  // void updateStudentIdCardImageFile(XFile? value) {
+  //   state = state.copyWith(studentIdCardImageFile: value);
+  //   ref.read(evaluationFormStatusStateProvider.notifier).updateIsStudentIdCardImageFilled(value != null);
+  //   _validateForm();
+  // }
 
   void updateCurrentField(EvaluationFormField value) {
     state = state.copyWith(currentField: value);

@@ -53,7 +53,7 @@ class _EvaluationFormPageState extends State<EvaluationFormPage> with IACDAOverl
         ),
         FullBodyFormWD(),
         UpperBodyFormWD(),
-        StudentIdCardFormWD(),
+        // StudentIdCardFormWD(),
         Align(
           alignment: Alignment.bottomCenter,
           child: Padding(

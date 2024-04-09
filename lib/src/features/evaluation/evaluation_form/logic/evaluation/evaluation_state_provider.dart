@@ -25,17 +25,17 @@ Future<Result<ICommonEvaluationResultEntity, AnyException>> evaluate({required W
       ref.read(evaluationFormInputStateProvider.select((value) => value.fullBodyImageFile));
   final XFile? upperBodyImageFile =
       ref.read(evaluationFormInputStateProvider.select((value) => value.upperBodyImageFile));
-  final XFile? studentIdCardImageFile =
-      ref.read(evaluationFormInputStateProvider.select((value) => value.studentIdCardImageFile));
+  // final XFile? studentIdCardImageFile =
+  //     ref.read(evaluationFormInputStateProvider.select((value) => value.studentIdCardImageFile));
 
   final fullBodyImageBytes = await fullBodyImageFile!.readAsBytes();
   final upperBodyImageBytes = await upperBodyImageFile!.readAsBytes();
-  final studentIdCardImageBytes = await studentIdCardImageFile!.readAsBytes();
+  // final studentIdCardImageBytes = await studentIdCardImageFile!.readAsBytes();
 
   final response = await evaluateUseCase.execute(EvaluationRequestModel(
     fullBodyImage: base64Encode(fullBodyImageBytes),
     upperBodyImage: base64Encode(upperBodyImageBytes),
-    studentIdCardImage: base64Encode(studentIdCardImageBytes),
+    // studentIdCardImage: base64Encode(studentIdCardImageBytes),
   ));
 
   return response;
