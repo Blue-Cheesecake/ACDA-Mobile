@@ -25,7 +25,6 @@ class UpperBodyFormWD extends ConsumerWidget {
           ),
           prevField: EvaluationFormField.fullBody,
           formField: EvaluationFormField.upperBody,
-          nextField: EvaluationFormField.studentIdCard,
           currentSelectedFormField: ref.watch(evaluationFormInputStateProvider.select((value) => value.currentField)),
           totalCard: EvaluationFormMessages.totalCards,
           currentLevel: 2,
@@ -37,6 +36,7 @@ class UpperBodyFormWD extends ConsumerWidget {
           isImageFilled: ref.watch(
             evaluationFormStatusStateProvider.select((value) => value.isUpperBodyImageFilled),
           ),
+          isLast: true,
           shouldShrink: true,
           popupWDChild: (removeOverlay) => ACDAHelperPopupWD(
             removeOverlay: removeOverlay,

@@ -1,7 +1,7 @@
 class EvaluationFormMessages {
   EvaluationFormMessages._();
 
-  static const totalCards = 3;
+  static const totalCards = 2;
 
   static const title = 'FORM';
   static const fullBodyTitle = 'Full body';
