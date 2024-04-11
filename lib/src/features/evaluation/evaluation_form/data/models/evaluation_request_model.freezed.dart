@@ -23,7 +23,6 @@ EvaluationRequestModel _$EvaluationRequestModelFromJson(
 mixin _$EvaluationRequestModel {
   String get fullBodyImage => throw _privateConstructorUsedError;
   String get upperBodyImage => throw _privateConstructorUsedError;
-  String get studentIdCardImage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,8 +36,7 @@ abstract class $EvaluationRequestModelCopyWith<$Res> {
           $Res Function(EvaluationRequestModel) then) =
       _$EvaluationRequestModelCopyWithImpl<$Res, EvaluationRequestModel>;
   @useResult
-  $Res call(
-      {String fullBodyImage, String upperBodyImage, String studentIdCardImage});
+  $Res call({String fullBodyImage, String upperBodyImage});
 }
 
 /// @nodoc
@@ -57,7 +55,6 @@ class _$EvaluationRequestModelCopyWithImpl<$Res,
   $Res call({
     Object? fullBodyImage = null,
     Object? upperBodyImage = null,
-    Object? studentIdCardImage = null,
   }) {
     return _then(_value.copyWith(
       fullBodyImage: null == fullBodyImage
@@ -67,10 +64,6 @@ class _$EvaluationRequestModelCopyWithImpl<$Res,
       upperBodyImage: null == upperBodyImage
           ? _value.upperBodyImage
           : upperBodyImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      studentIdCardImage: null == studentIdCardImage
-          ? _value.studentIdCardImage
-          : studentIdCardImage // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -84,8 +77,7 @@ abstract class _$$_EvaluationRequestModelCopyWith<$Res>
       __$$_EvaluationRequestModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String fullBodyImage, String upperBodyImage, String studentIdCardImage});
+  $Res call({String fullBodyImage, String upperBodyImage});
 }
 
 /// @nodoc
@@ -102,7 +94,6 @@ class __$$_EvaluationRequestModelCopyWithImpl<$Res>
   $Res call({
     Object? fullBodyImage = null,
     Object? upperBodyImage = null,
-    Object? studentIdCardImage = null,
   }) {
     return _then(_$_EvaluationRequestModel(
       fullBodyImage: null == fullBodyImage
@@ -113,10 +104,6 @@ class __$$_EvaluationRequestModelCopyWithImpl<$Res>
           ? _value.upperBodyImage
           : upperBodyImage // ignore: cast_nullable_to_non_nullable
               as String,
-      studentIdCardImage: null == studentIdCardImage
-          ? _value.studentIdCardImage
-          : studentIdCardImage // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -125,9 +112,7 @@ class __$$_EvaluationRequestModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EvaluationRequestModel implements _EvaluationRequestModel {
   _$_EvaluationRequestModel(
-      {required this.fullBodyImage,
-      required this.upperBodyImage,
-      required this.studentIdCardImage});
+      {required this.fullBodyImage, required this.upperBodyImage});
 
   factory _$_EvaluationRequestModel.fromJson(Map<String, dynamic> json) =>
       _$$_EvaluationRequestModelFromJson(json);
@@ -136,12 +121,10 @@ class _$_EvaluationRequestModel implements _EvaluationRequestModel {
   final String fullBodyImage;
   @override
   final String upperBodyImage;
-  @override
-  final String studentIdCardImage;
 
   @override
   String toString() {
-    return 'EvaluationRequestModel(fullBodyImage: $fullBodyImage, upperBodyImage: $upperBodyImage, studentIdCardImage: $studentIdCardImage)';
+    return 'EvaluationRequestModel(fullBodyImage: $fullBodyImage, upperBodyImage: $upperBodyImage)';
   }
 
   @override
@@ -152,15 +135,12 @@ class _$_EvaluationRequestModel implements _EvaluationRequestModel {
             (identical(other.fullBodyImage, fullBodyImage) ||
                 other.fullBodyImage == fullBodyImage) &&
             (identical(other.upperBodyImage, upperBodyImage) ||
-                other.upperBodyImage == upperBodyImage) &&
-            (identical(other.studentIdCardImage, studentIdCardImage) ||
-                other.studentIdCardImage == studentIdCardImage));
+                other.upperBodyImage == upperBodyImage));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, fullBodyImage, upperBodyImage, studentIdCardImage);
+  int get hashCode => Object.hash(runtimeType, fullBodyImage, upperBodyImage);
 
   @JsonKey(ignore: true)
   @override
@@ -180,8 +160,7 @@ class _$_EvaluationRequestModel implements _EvaluationRequestModel {
 abstract class _EvaluationRequestModel implements EvaluationRequestModel {
   factory _EvaluationRequestModel(
       {required final String fullBodyImage,
-      required final String upperBodyImage,
-      required final String studentIdCardImage}) = _$_EvaluationRequestModel;
+      required final String upperBodyImage}) = _$_EvaluationRequestModel;
 
   factory _EvaluationRequestModel.fromJson(Map<String, dynamic> json) =
       _$_EvaluationRequestModel.fromJson;
@@ -190,8 +169,6 @@ abstract class _EvaluationRequestModel implements EvaluationRequestModel {
   String get fullBodyImage;
   @override
   String get upperBodyImage;
-  @override
-  String get studentIdCardImage;
   @override
   @JsonKey(ignore: true)
   _$$_EvaluationRequestModelCopyWith<_$_EvaluationRequestModel> get copyWith =>

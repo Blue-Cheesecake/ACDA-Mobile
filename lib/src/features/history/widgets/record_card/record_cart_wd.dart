@@ -3,13 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../config/config.dart';
 import '../../../../core/core.dart';
+import '../../../../keys/keys.dart';
 import '../../domain/domain.dart';
 import '../../logic/logic.dart';
 import 'widgets/widgets.dart';
 
 class RecordCartWD extends ConsumerWidget {
-  const RecordCartWD({required this.data, required this.isSelected, Key? key}) : super(key: key);
+  const RecordCartWD({required this.index, required this.data, required this.isSelected, Key? key}) : super(key: key);
 
+  final int index; // For Testing
   final IEvaluationRecordEntity data;
   final bool isSelected;
 
@@ -18,12 +20,12 @@ class RecordCartWD extends ConsumerWidget {
     final isSelectedOnDeleting = ref.read(historyInputStateProvider.select((value) => value.isIdOnDeleting(data.id)));
 
     return GestureDetector(
+      key: HistoryPageKeys.getEvaluationCardWDKey(index.toString()),
       onTap: () {
         if (!(ref.read(historyModeStateProvider.select((value) => value.isDeletingMode)))) {
           ACDANavigation.instance.push(RoutePath.resultHistory, extra: data);
           return;
         }
-
         if (isSelectedOnDeleting) {
           ref.read(historyInputStateProvider.notifier).removeDeleteId(data.id);
         } else {
@@ -77,7 +79,7 @@ class RecordCartWD extends ConsumerWidget {
             RecordImagesWD(
               fullBodyImageBase64: data.fullBodyImage,
               upperBodyImageBase64: data.upperBodyImage,
-              studentIdCardImageBase64: data.studentIdCardImage,
+              // studentIdCardImageBase64: data.studentIdCardImage,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 7, bottom: 7, right: 9),

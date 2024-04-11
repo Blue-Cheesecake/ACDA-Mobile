@@ -12,7 +12,7 @@ class EvaluationRecordModel with _$EvaluationRecordModel implements IEvaluationR
     required final String id,
     required final String fullBodyImage,
     required final String upperBodyImage,
-    required final String studentIdCardImage,
+    // required final String studentIdCardImage,
     required final DateTime addedAt,
     required final CommonEvaluationResultModel result,
   }) = _EvaluationRecordModel;

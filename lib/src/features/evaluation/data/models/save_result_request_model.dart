@@ -10,7 +10,7 @@ class SaveResultRequestModel with _$SaveResultRequestModel {
   factory SaveResultRequestModel({
     required final String fullBodyImage,
     required final String upperBodyImage,
-    required final String studentIdCardImage,
+    // required final String studentIdCardImage,
     required final CommonEvaluationResultModel result,
   }) = _SaveResultRequestModel;
 
@@ -20,7 +20,7 @@ class SaveResultRequestModel with _$SaveResultRequestModel {
   String toString() {
     return 'SaveResultRequestModel: fullBodyImage: ${fullBodyImage.substring(0, 10)}\n'
         'upperBodyImage: ${upperBodyImage.substring(0, 10)}\n'
-        'studentIdCard: ${studentIdCardImage.substring(0, 10)}\n'
+        // 'studentIdCard: ${studentIdCardImage.substring(0, 10)}\n'
         'result: $result';
   }
 }

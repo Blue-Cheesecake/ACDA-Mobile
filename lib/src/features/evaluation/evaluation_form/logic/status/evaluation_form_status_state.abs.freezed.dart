@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EvaluationFormStatusState {
   bool get isFullBodyImageFilled => throw _privateConstructorUsedError;
   bool get isUpperBodyImageFilled => throw _privateConstructorUsedError;
-  bool get isStudentIdCardImageFilled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EvaluationFormStatusStateCopyWith<EvaluationFormStatusState> get copyWith =>
@@ -31,10 +30,7 @@ abstract class $EvaluationFormStatusStateCopyWith<$Res> {
           $Res Function(EvaluationFormStatusState) then) =
       _$EvaluationFormStatusStateCopyWithImpl<$Res, EvaluationFormStatusState>;
   @useResult
-  $Res call(
-      {bool isFullBodyImageFilled,
-      bool isUpperBodyImageFilled,
-      bool isStudentIdCardImageFilled});
+  $Res call({bool isFullBodyImageFilled, bool isUpperBodyImageFilled});
 }
 
 /// @nodoc
@@ -53,7 +49,6 @@ class _$EvaluationFormStatusStateCopyWithImpl<$Res,
   $Res call({
     Object? isFullBodyImageFilled = null,
     Object? isUpperBodyImageFilled = null,
-    Object? isStudentIdCardImageFilled = null,
   }) {
     return _then(_value.copyWith(
       isFullBodyImageFilled: null == isFullBodyImageFilled
@@ -63,10 +58,6 @@ class _$EvaluationFormStatusStateCopyWithImpl<$Res,
       isUpperBodyImageFilled: null == isUpperBodyImageFilled
           ? _value.isUpperBodyImageFilled
           : isUpperBodyImageFilled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isStudentIdCardImageFilled: null == isStudentIdCardImageFilled
-          ? _value.isStudentIdCardImageFilled
-          : isStudentIdCardImageFilled // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -81,10 +72,7 @@ abstract class _$$_EvaluationFormStatusStateCopyWith<$Res>
       __$$_EvaluationFormStatusStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isFullBodyImageFilled,
-      bool isUpperBodyImageFilled,
-      bool isStudentIdCardImageFilled});
+  $Res call({bool isFullBodyImageFilled, bool isUpperBodyImageFilled});
 }
 
 /// @nodoc
@@ -102,7 +90,6 @@ class __$$_EvaluationFormStatusStateCopyWithImpl<$Res>
   $Res call({
     Object? isFullBodyImageFilled = null,
     Object? isUpperBodyImageFilled = null,
-    Object? isStudentIdCardImageFilled = null,
   }) {
     return _then(_$_EvaluationFormStatusState(
       isFullBodyImageFilled: null == isFullBodyImageFilled
@@ -113,10 +100,6 @@ class __$$_EvaluationFormStatusStateCopyWithImpl<$Res>
           ? _value.isUpperBodyImageFilled
           : isUpperBodyImageFilled // ignore: cast_nullable_to_non_nullable
               as bool,
-      isStudentIdCardImageFilled: null == isStudentIdCardImageFilled
-          ? _value.isStudentIdCardImageFilled
-          : isStudentIdCardImageFilled // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -126,8 +109,7 @@ class __$$_EvaluationFormStatusStateCopyWithImpl<$Res>
 class _$_EvaluationFormStatusState implements _EvaluationFormStatusState {
   _$_EvaluationFormStatusState(
       {this.isFullBodyImageFilled = false,
-      this.isUpperBodyImageFilled = false,
-      this.isStudentIdCardImageFilled = false});
+      this.isUpperBodyImageFilled = false});
 
   @override
   @JsonKey()
@@ -135,13 +117,10 @@ class _$_EvaluationFormStatusState implements _EvaluationFormStatusState {
   @override
   @JsonKey()
   final bool isUpperBodyImageFilled;
-  @override
-  @JsonKey()
-  final bool isStudentIdCardImageFilled;
 
   @override
   String toString() {
-    return 'EvaluationFormStatusState(isFullBodyImageFilled: $isFullBodyImageFilled, isUpperBodyImageFilled: $isUpperBodyImageFilled, isStudentIdCardImageFilled: $isStudentIdCardImageFilled)';
+    return 'EvaluationFormStatusState(isFullBodyImageFilled: $isFullBodyImageFilled, isUpperBodyImageFilled: $isUpperBodyImageFilled)';
   }
 
   @override
@@ -152,16 +131,12 @@ class _$_EvaluationFormStatusState implements _EvaluationFormStatusState {
             (identical(other.isFullBodyImageFilled, isFullBodyImageFilled) ||
                 other.isFullBodyImageFilled == isFullBodyImageFilled) &&
             (identical(other.isUpperBodyImageFilled, isUpperBodyImageFilled) ||
-                other.isUpperBodyImageFilled == isUpperBodyImageFilled) &&
-            (identical(other.isStudentIdCardImageFilled,
-                    isStudentIdCardImageFilled) ||
-                other.isStudentIdCardImageFilled ==
-                    isStudentIdCardImageFilled));
+                other.isUpperBodyImageFilled == isUpperBodyImageFilled));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isFullBodyImageFilled,
-      isUpperBodyImageFilled, isStudentIdCardImageFilled);
+  int get hashCode =>
+      Object.hash(runtimeType, isFullBodyImageFilled, isUpperBodyImageFilled);
 
   @JsonKey(ignore: true)
   @override
@@ -174,15 +149,12 @@ class _$_EvaluationFormStatusState implements _EvaluationFormStatusState {
 abstract class _EvaluationFormStatusState implements EvaluationFormStatusState {
   factory _EvaluationFormStatusState(
       {final bool isFullBodyImageFilled,
-      final bool isUpperBodyImageFilled,
-      final bool isStudentIdCardImageFilled}) = _$_EvaluationFormStatusState;
+      final bool isUpperBodyImageFilled}) = _$_EvaluationFormStatusState;
 
   @override
   bool get isFullBodyImageFilled;
   @override
   bool get isUpperBodyImageFilled;
-  @override
-  bool get isStudentIdCardImageFilled;
   @override
   @JsonKey(ignore: true)
   _$$_EvaluationFormStatusStateCopyWith<_$_EvaluationFormStatusState>

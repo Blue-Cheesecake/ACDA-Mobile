@@ -100,6 +100,10 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> wit
                     ));
                   }
 
+                  if (widget.isLast) {
+                    return;
+                  }
+
                   if (details.delta.dy < 0 &&
                       widget.nextField != null &&
                       widget.formField == widget.currentSelectedFormField) {

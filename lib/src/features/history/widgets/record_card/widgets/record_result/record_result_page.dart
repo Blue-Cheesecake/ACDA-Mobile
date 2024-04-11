@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../keys/keys.dart';
 import '../../../../../../utils/utils.dart';
 import '../../../../../../core/core.dart';
 import '../../../../domain/domain.dart';
@@ -14,6 +15,7 @@ class RecordResultPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
+          key: HistoryPageKeys.backButtonFromCardPageWD,
           onPressed: () {
             ACDANavigation.instance.pop();
           },

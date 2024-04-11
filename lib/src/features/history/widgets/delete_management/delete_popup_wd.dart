@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../keys/keys.dart';
 import '../../../../utils/utils.dart';
 import '../../logic/logic.dart';
 import 'utils/utils.dart';
@@ -23,6 +24,7 @@ class DeletePopupWD extends ConsumerWidget {
           child: const Text(ACDACommonMessages.close),
         ),
         CupertinoDialogAction(
+          key: HistoryPageKeys.deleteButtonInPopupWD,
           onPressed: () async {
             SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
               ref.read(deleteRecordsStateProvider.notifier).deleteSomeRecords();

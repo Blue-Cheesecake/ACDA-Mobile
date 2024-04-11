@@ -13,9 +13,9 @@ class EvaluationFormValidationStateNotifier extends StateNotifier<void> {
         ref.read(evaluationFormInputStateProvider.select((value) => value.fullBodyImageFile));
     final XFile? upperBodyImageFile =
         ref.read(evaluationFormInputStateProvider.select((value) => value.upperBodyImageFile));
-    final XFile? studentIdCardImageFile =
-        ref.read(evaluationFormInputStateProvider.select((value) => value.studentIdCardImageFile));
+    // final XFile? studentIdCardImageFile =
+    //     ref.read(evaluationFormInputStateProvider.select((value) => value.studentIdCardImageFile));
 
-    return fullBodyImageFile != null && upperBodyImageFile != null && studentIdCardImageFile != null;
+    return fullBodyImageFile != null && upperBodyImageFile != null;
   }
 }
