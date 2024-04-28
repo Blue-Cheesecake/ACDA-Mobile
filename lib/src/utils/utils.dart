@@ -3,6 +3,7 @@ export 'constants/constants.dart';
 export 'entities/entities.dart';
 export 'exceptions/exceptions.dart';
 export 'extensions/extensions.dart';
+export 'enums/enums.dart';
 export 'functions/functions.dart';
 export 'interfaces/interfaces.dart';
 export 'models/models.dart';

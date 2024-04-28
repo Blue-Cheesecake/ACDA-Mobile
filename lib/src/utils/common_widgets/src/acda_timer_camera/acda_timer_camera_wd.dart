@@ -12,9 +12,15 @@ import 'logic/logic.dart';
 import 'widgets/widgets.dart';
 
 class AcdaTimerCameraWd extends ConsumerStatefulWidget {
-  const AcdaTimerCameraWd({required this.updateImageCallback, required this.providerKey, Key? key}) : super(key: key);
+  const AcdaTimerCameraWd({
+    required this.updateImageCallback,
+    required this.cameraSection,
+    required this.providerKey,
+    Key? key,
+  }) : super(key: key);
 
   final void Function({required XFile? pickedImage, required WidgetRef ref}) updateImageCallback;
+  final CameraSection cameraSection;
   final String providerKey;
 
   @override
@@ -140,6 +146,11 @@ class _AcdaTimerCameraWdState extends ConsumerState<AcdaTimerCameraWd> with Widg
                       );
                     }),
             ),
+            // Overlay Guideline
+            Align(
+              alignment: Alignment.center,
+              child: CameraOverlayGuidelineWD(cameraSection: widget.cameraSection),
+            ),
             Positioned(
               top: 13,
               left: 13,
@@ -176,7 +187,7 @@ class _AcdaTimerCameraWdState extends ConsumerState<AcdaTimerCameraWd> with Widg
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

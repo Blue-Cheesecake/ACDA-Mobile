@@ -8,10 +8,15 @@ void showACDACamera({
   required BuildContext context,
   required final String providerKey,
   required void Function({required XFile? pickedImage, required WidgetRef ref}) updateImageCallback,
+  required CameraSection cameraSection,
 }) {
   showACDABottomSheet(
     context: context,
-    child: AcdaTimerCameraWd(providerKey: providerKey, updateImageCallback: updateImageCallback),
+    child: AcdaTimerCameraWd(
+      providerKey: providerKey,
+      updateImageCallback: updateImageCallback,
+      cameraSection: cameraSection,
+    ),
     expand: true,
   );
 }
