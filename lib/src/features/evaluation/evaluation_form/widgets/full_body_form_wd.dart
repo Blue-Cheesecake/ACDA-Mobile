@@ -17,6 +17,7 @@ class FullBodyFormWD extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 7),
       child: EvaluationFormCardWD(
+        cameraSection: CameraSection.fullBody,
         title: EvaluationFormMessages.fullBodyTitle,
         description: EvaluationFormMessages.fullBodyDescription,
         onFormSelected: () => ACDAEventBus.instance.fire(
