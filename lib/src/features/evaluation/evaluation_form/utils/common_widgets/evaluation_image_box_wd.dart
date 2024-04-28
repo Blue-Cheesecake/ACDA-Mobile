@@ -16,6 +16,7 @@ class EvaluationImageBoxWD extends ConsumerWidget {
     required this.onImageSelected,
     required this.nextField,
     required this.currentLevel,
+    required this.cameraSection,
     this.currentImage,
     Key? key,
   }) : super(key: key);
@@ -23,6 +24,7 @@ class EvaluationImageBoxWD extends ConsumerWidget {
   final XFile? currentImage;
   final void Function(XFile pickedImage) onImageSelected;
   final EvaluationFormField? nextField;
+  final CameraSection cameraSection;
   final int currentLevel;
 
   void _updateCurrentImage({required XFile? pickedImage, required WidgetRef ref}) async {
@@ -70,6 +72,7 @@ class EvaluationImageBoxWD extends ConsumerWidget {
             context: context,
             providerKey: EvaluationFormConstant.evaluationImageBoxProviderKey,
             updateImageCallback: _updateCurrentImage,
+            cameraSection: cameraSection,
           );
         }
       });
@@ -82,6 +85,7 @@ class EvaluationImageBoxWD extends ConsumerWidget {
             context: context,
             providerKey: EvaluationFormConstant.evaluationImageBoxProviderKey,
             updateImageCallback: _updateCurrentImage,
+            cameraSection: cameraSection,
           );
           return;
         }
