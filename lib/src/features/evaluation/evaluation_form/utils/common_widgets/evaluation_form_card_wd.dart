@@ -21,6 +21,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
     required this.currentSelectedFormField,
     required this.currentImage,
     required this.backgroundColor,
+    required this.cameraSection,
     this.prevField,
     this.nextField,
     this.shouldShrink = false,
@@ -45,6 +46,7 @@ class EvaluationFormCardWD extends ConsumerStatefulWidget {
   final EvaluationFormField? nextField;
   final Color backgroundColor;
   final Widget Function(VoidCallback removeOverlay)? popupWDChild;
+  final CameraSection cameraSection;
 
   static const double borderRadius = 20;
 
@@ -208,6 +210,7 @@ class _EvaluationFormCardWDState extends ConsumerState<EvaluationFormCardWD> wit
                                           onImageSelected: widget.onImageSelected,
                                           currentLevel: widget.currentLevel,
                                           nextField: widget.nextField,
+                                          cameraSection: widget.cameraSection,
                                         ),
                                       ),
                                       const SizedBox(height: 21),

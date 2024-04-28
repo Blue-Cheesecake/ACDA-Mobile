@@ -18,6 +18,7 @@ class UpperBodyFormWD extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.only(top: 56),
         child: EvaluationFormCardWD(
+          cameraSection: CameraSection.upperBody,
           title: EvaluationFormMessages.upperBodyTitle,
           description: EvaluationFormMessages.upperBodyDecription,
           onFormSelected: () => ACDAEventBus.instance.fire(
