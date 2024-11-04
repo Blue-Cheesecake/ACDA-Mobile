@@ -1,92 +1,46 @@
 # ACDA Mobile
 
+Automatic Clothes Detection Application.
+
+## Abstract
+
+A dress code is implemented to establish a professional or appropriate appearance and promote unity and cohesion. However, traditional dress code verification processes, which heavily rely on human observation and judgment, can be time-consuming and require significant manpower. Therefore, this study aims to use technology to assist the dress code verification process and reduce the time and staff involved. The project is focused on assisting in the verification of uniforms for students in the faculty of Information and Communication Technology (ICT) at Mahidol University during examination seasons. A mobile application that prompts users to input their photos has been developed, creating a system then uses object detection and a deep learning model, to verify the correctness of the garment according to the dress code of the faculty of ICT. The verification process entails the detection of attire into distinct categories such as shirts, skirts, trousers, collars, and belts. The results indicate that all functionalities of the application are usable, and the accuracy of the model is pretty good. User testing has demonstrated that the application can be used efficiently, even by individuals who have no prior experience with it. However, the current model does not account for the validity of shoes and shirts, which may not fully comply with the dress code standards. These limitations point to areas for future enhancement. With further improvement, it has the potential to become an even more powerful tool for educational institutions.
 
 
-## Getting started
+## Clean Architecture Design Pattern
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+The application of Uncle Bob's Clean Architecture design pattern stands as a robust paradigm, particularly in the development of production-level applications that adhere to the SOLID principles. This architecture promotes a compartmentalized approach where each class and layer are allocated distinct responsibilities, significantly enhancing code readability and maintainability. By reducing technical debt, this pattern facilitates future code scalability and adaptability.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Within the scope of each feature, the architecture is structured into discrete layers, including but not limited to presentation, logic, use case, repository, and data source. These layers act in concert to outline the separation of concerns effectively. Furthermore, data modeling is accomplished through the strategic use of models and entities, each serving as a representation of the domain-specific constructs.
 
-## Add your files
+This approach not only streamlines the development process but also ensures that each segment of the codebase functions cohesively yet independently, promoting ease of testing and modification. As a result, Clean Architecture is an optimal choice for complex applications demanding high levels of abstraction and rigorous adherence to object-oriented design principles.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+![CleanArchDiagram](https://github.com/user-attachments/assets/cdfd038e-a8d3-46a1-a4ca-446175e24430)
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/muict-senior-project/acda-mobile.git
-git branch -M main
-git push -uf origin main
-```
+### State Management and Input Validation Technique in Mobile Application
 
-## Integrate with your tools
+In contemporary mobile applications, ensuring efficient state management and validation is paramount. The design pattern presented herein, enabled using the Riverpod package, serves this purpose efficiently. There are three components of state management including States, State Notifier, and State Provider.
 
-- [ ] [Set up project integrations](https://gitlab.com/muict-senior-project/acda-mobile/-/settings/integrations)
+ ![StateManagementDiagram](https://github.com/user-attachments/assets/a10f6255-4f32-430e-a359-a067d0d42d9e)
 
-## Collaborate with your team
+#### State 
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+A pivotal component is the State, which encapsulates user input variables. Whether it's textual content from a text field or a Boolean status indicator, the State serves as the immutable snapshot of these variables at any given time.
 
-## Test and Deploy
+#### State Notifier and Updating Mechanisms
 
-Use the built-in continuous integration in GitLab.
+Its primary responsibility is to observe changes in user input and affect requisite alterations to the State. Through its methods, it can update individual attributes of the State or trigger checks that could further dictate State transitions.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+#### State Provider
 
-***
+To enable smooth interplay between the presentation layer and the underlying logic, Providers are instituted. They instantiate and supply `StateNotifiers` and States to the components that demand them.
 
-# Editing this README
+This triad of State, StateNotifier, and Provider results in a robust and scalable system for managing and validating user input. By adopting this design pattern, developers can ensure that applications remain both reactive to user input and resistant to invalid data submissions.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Calling API and Watching Their States
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Within mobile application development, particularly when following Clean Architecture, interaction with APIs is a foundational aspect. The architecture's logic layer is designed to handle API requests and manage response states such as loading, success, or error. These states are subsequently observed by the presentation layer, ensuring a clear separation of concerns and a responsive user interface.
 
-## Name
-Choose a self-explaining name for your project.
+![CallingApiAndWatchStateDiagram](https://github.com/user-attachments/assets/71a82cc0-a594-46a8-a634-382887d23e34)
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
